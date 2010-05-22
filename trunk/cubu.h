@@ -36,7 +36,12 @@ class cubu : public ofBaseApp{
 		ofxCvColorImage colorImg;
 		ofxFiducialTracker fidfinder;
 	
+	int getRotDirection();
+	
 private:
+	
+	float font_size;
+	
 	int side_food;
 	int side_alarm;
 	int side_temperature;
@@ -44,10 +49,23 @@ private:
 	int side_activities;
 	int side_fun;
 	int active_side;
+	
+	//variables for every side
+	string rotation;	
+	int previous_angle;
+	int current_angle;
 	string stringtodraw;
 	
+	//alarm variables & fnc
+	bool alarmset;
+	int alarm_minute;
+	int alarm_hour;
+	void setAlarm();
+	
+	//fiducial variables
 	int fiducial_threshold;
-	float font_size;
+	bool showFiducialWindow;
+	
 
 };
 
