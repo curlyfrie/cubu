@@ -38,6 +38,8 @@ class cubu : public ofBaseApp{
 	
 	int getRotDirection();
 	
+	void drawAlarm();
+	
 private:
 	
 	float font_size;
@@ -45,7 +47,7 @@ private:
 	int side_food;
 	int side_alarm;
 	int side_temperature;
-	int side_roomservice;
+	int	side_roomservice;
 	int side_activities;
 	int side_fun;
 	int active_side;
@@ -55,6 +57,7 @@ private:
 	int previous_angle;
 	int current_angle;
 	string stringtodraw;
+	int sensitivity;
 	
 	//alarm variables & fnc
 	bool alarmset;

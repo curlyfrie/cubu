@@ -17,6 +17,9 @@ void cubu::setup(){
 	//	can be switched with 'f'
 	showFiducialWindow = true;
 	
+	//sensitivity of optical marker
+	sensitivity = 5;
+	
 	// set no. of marker for sides
 	side_activities = 1;
 	side_alarm = 2;
@@ -58,7 +61,6 @@ void cubu::update(){
 	
 	// update fiducial
 	vidGrabber.grabFrame();
-	
 	if(vidGrabber.isFrameNew())
 	{
 		colorImg.setFromPixels(vidGrabber.getPixels(), 320,240);
@@ -101,7 +103,15 @@ void cubu::update(){
 				if(!alarmset){
 					setAlarm();
 				}
-				
+				// alarm is already set
+				else {
+					std::stringstream stream2;
+					stream2 << alarm_minute;
+					
+					std::stringstream stream3;
+					stream3 << alarm_hour;
+					stringtodraw = stringtodraw + " is set to: " + stream3.str()  + "h:" +  stream2.str() + "min";
+				}
 			}
 			else if(fiducialID == side_fun){
 				stringtodraw = "Marker 3: Fun";
@@ -167,13 +177,13 @@ void cubu::setAlarm()
 }
 //--------------------------------------------------------------
 int cubu::getRotDirection()
-// returns +1 if rotation is CW, -1 if rotation is CCW and 0 if nothing has changed
+// returns +1 if (marker)rotation is CW, -1 if rotation is CCW and 0 if nothing has changed
 {
 	int direction;
 	
 	// do nothing if difference is to small 
 	int gap = current_angle - previous_angle;
-	if(abs(gap) < 5)
+	if(abs(gap) < sensitivity)
 		return 0;
 	
 	// turn-direction is CW
@@ -196,7 +206,10 @@ void cubu::draw(){
 	//draw font
 	ofSetColor(0x3366aa);
 	
-	franklinBook.drawString(stringtodraw, 100,310);
+	if(active_side == side_alarm)
+		drawAlarm();
+	
+	//franklinBook.drawString(stringtodraw, 100,310);
 	franklinBook.drawString(rotation, 100, 100);
 	
 	// draw fiducial window
@@ -217,6 +230,14 @@ void cubu::draw(){
 	}
 	
 }
+//--------------------------------------------------------------
+void cubu::drawAlarm() {
+//draw any cool gfx for alarm here
+	
+	franklinBook.drawString(stringtodraw, 100,310);
+	if(alarmset)
+		franklinBook.drawString("klick or press 'a' to reset", 100,350);
+}
 
 //--------------------------------------------------------------
 void cubu::keyPressed(int key){
@@ -232,8 +253,11 @@ void cubu::keyPressed(int key){
 			break;
 			
 		case 'a':
-			if(active_side == side_alarm)
-				cout << "alarm is set!" << endl;
+			if(active_side == side_alarm && !alarmset)
+				alarmset = true;
+			else if (active_side == side_alarm && alarmset) {
+				alarmset = false;
+			}
 			break;
 			
 		default: break;
@@ -257,7 +281,11 @@ void cubu::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void cubu::mousePressed(int x, int y, int button){
-
+	if(active_side == side_alarm && !alarmset)
+		alarmset = true;
+	else if (active_side == side_alarm && alarmset) {
+		alarmset = false;
+	}
 }
 
 //--------------------------------------------------------------
