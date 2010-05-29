@@ -6,7 +6,7 @@
 
 #include "ofxCvMain.h"
 #include "ofxFidMain.h"
-
+#include "ofxSQLiteHeaders.h"
 
 class cubu : public ofBaseApp{
 
@@ -14,6 +14,9 @@ class cubu : public ofBaseApp{
 	
 		cubu();
 		~cubu();
+	
+		int roomID;
+		int roomNr;
 	
 		void setup();
 		void update();
@@ -39,8 +42,11 @@ class cubu : public ofBaseApp{
 	int getRotDirection();
 	
 	void drawAlarm();
+	void setupDB();
 	
 private:
+	
+	ofxSQLite* sqlite;
 	
 	float font_size;
 	
@@ -64,6 +70,8 @@ private:
 	int alarm_minute;
 	int alarm_hour;
 	void setAlarm();
+	void saveAlarmtoDB();
+	void getAlarmfromDB();
 	
 	//fiducial variables
 	int fiducial_threshold;
