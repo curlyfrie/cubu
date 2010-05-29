@@ -8,10 +8,15 @@ cubu::cubu()
 
 cubu::~cubu()
 {
+	//delete sqlite;
 	// exit should do the same stuff
 }
 //--------------------------------------------------------------
 void cubu::setup(){
+	
+	//nr and ID of this room: WARNING, HARD CODED!
+	roomNr = 101;
+	roomID = 1;	
 	
 	//	show fiducial window YES or NO
 	//	can be switched with 'f'
@@ -34,6 +39,8 @@ void cubu::setup(){
 	previous_angle = -1;
 	current_angle = -1;
 	
+	//Setup Database
+	setupDB();
 	
 	// define threshold to find fiducial
 	fiducial_threshold = 135;
@@ -55,7 +62,50 @@ void cubu::setup(){
 }
 
 //--------------------------------------------------------------
+void cubu::setupDB(){
+//establish connection do database
+	
+	sqlite = new ofxSQLite("cubu.db");
+	
+	cout << "creating table...";	
+	if (SQLITE_OK != sqlite->simpleQuery(""\
+			"CREATE TABLE IF NOT EXISTS room( " \
+				" id INTEGER PRIMARY KEY AUTOINCREMENT" \
+				",number INTEGER" \
+				",alarm_hour INTEGER" \
+				",alarm_minute INTEGER" \
+ 				",alarm_set BOOLEAN" \
+			");"
+										 )) {
+		cout << "ERROR CREATE TABLE\n";
+	}
+	else
+		cout << "...successful" << endl;
+
+	// insert this client
+	sqlite->insert("room").use("number",ofToString(roomNr)).use("alarm_hour","1").use("alarm_minute","1").use("alarm_set","FALSE").execute();
+
+
+}
+//--------------------------------------------------------------
 void cubu::update(){
+	
+	//WARNING: DEBUGGING OF DB ONLY!!!!
+	// BROKEN! UPDATE FIELDS!!
+	/*
+		cout << "selecting from DB...";
+		ofxSQLiteSelect sel = sqlite->select("number,alarm").from("room");
+		sel.execute().begin();
+		while(sel.hasNext()) {
+			int number = sel.getInt();
+			int alarm = sel.getInt();
+			cout << "number: " << number << " alarm: " << alarm << endl;
+			sel.next();
+		}
+		cout << "done" << endl;
+	 */
+	//END OF DEBUGGING SECTION
+	
 
 	ofBackground(255, 255, 255);
 	
@@ -176,6 +226,34 @@ void cubu::setAlarm()
 	
 }
 //--------------------------------------------------------------
+void cubu::saveAlarmtoDB(){
+//save current alarm time to DB
+	
+	//cout << "saving current alarm time to db" << ofToString(alarm_hour) << ":" << ofToString(alarm_minute) << endl;
+	
+	sqlite->update("room").use("alarm_hour",ofToString(alarm_hour)).use("alarm_minute", ofToString(alarm_minute)).where("number",roomNr).execute();
+}
+//--------------------------------------------------------------
+void cubu::getAlarmfromDB(){
+	//get the current alarm setting for this room
+
+	//sqlite->update("room").use("alarm",ofToString(alarm_hour) + ofToString(alarm_minute)).where("number",roomNr).execute();
+	
+	cout << "selecting from DB...";
+	ofxSQLiteSelect sel = sqlite->select("number,alarm_hour,alarm_minute").from("room").where("number",roomNr);
+	sel.execute().begin();
+	while(sel.hasNext()) {
+		int number = sel.getInt();
+		int alarm_hour = sel.getInt();
+		int alarm_minute = sel.getInt();
+		cout << "roomnumber: " << number << " alarm: " << alarm_hour << ":" << alarm_minute << endl;
+		sel.next();
+	}
+	cout << "done" << endl;
+	
+}
+
+//--------------------------------------------------------------
 int cubu::getRotDirection()
 // returns +1 if (marker)rotation is CW, -1 if rotation is CCW and 0 if nothing has changed
 {
@@ -253,13 +331,17 @@ void cubu::keyPressed(int key){
 			break;
 			
 		case 'a':
-			if(active_side == side_alarm && !alarmset)
+			if(active_side == side_alarm && !alarmset){
 				alarmset = true;
+			}
 			else if (active_side == side_alarm && alarmset) {
 				alarmset = false;
 			}
 			break;
-			
+		//DEBUGGIN AHEAD!
+		case 'b':
+			getAlarmfromDB();
+			break;
 		default: break;
 	}
 }	
@@ -281,8 +363,10 @@ void cubu::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void cubu::mousePressed(int x, int y, int button){
-	if(active_side == side_alarm && !alarmset)
+	if(active_side == side_alarm && !alarmset){
 		alarmset = true;
+		saveAlarmtoDB();
+	}
 	else if (active_side == side_alarm && alarmset) {
 		alarmset = false;
 	}
