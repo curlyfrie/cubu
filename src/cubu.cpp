@@ -26,8 +26,8 @@ void cubu::setup(){
 	sensitivity = 5;
 	
 	// set no. of marker for sides
-	side_activities = 1;
-	side_alarm = 2;
+	side_activities = 2;
+	side_alarm = 1;
 	side_food = 3;
 	side_roomservice = 4;
 	side_fun = 5;
@@ -43,7 +43,7 @@ void cubu::setup(){
 	setupDB();
 	
 	// define threshold to find fiducial
-	fiducial_threshold = 135;
+	fiducial_threshold =135;
 	
 	// define font size
 	font_size = 20.0f;
@@ -184,6 +184,11 @@ void cubu::update(){
 		else{
 			stringtodraw = "NO MARKER VISIBLE";
 			active_side = -1;
+			/*fiducial_threshold += 10;
+			if(fiducial_threshold > 200)
+				fiducial_threshold = 50;
+			update();
+*/
 		}
 		
 	}
@@ -342,6 +347,15 @@ void cubu::keyPressed(int key){
 		case 'b':
 			getAlarmfromDB();
 			break;
+		case '-':
+			fiducial_threshold-=5;
+			cout<<"threshold = "<<fiducial_threshold<<endl;
+			break;
+		case '+':
+			fiducial_threshold+=5;
+			cout<<"threshold = "<<fiducial_threshold<<endl;
+			break;
+
 		default: break;
 	}
 }	
@@ -363,12 +377,14 @@ void cubu::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void cubu::mousePressed(int x, int y, int button){
+	if (button==2) {
 	if(active_side == side_alarm && !alarmset){
 		alarmset = true;
 		saveAlarmtoDB();
 	}
 	else if (active_side == side_alarm && alarmset) {
 		alarmset = false;
+	}
 	}
 }
 
