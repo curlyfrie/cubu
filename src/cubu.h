@@ -1,3 +1,4 @@
+
 #ifndef _TEST_APP
 #define _TEST_APP
 
@@ -7,6 +8,8 @@
 #include "ofxCvMain.h"
 #include "ofxFidMain.h"
 #include "ofxSQLiteHeaders.h"
+#include "dbhandler.h"
+#include "ofxSimpleGuiToo.h"
 
 class cubu : public ofBaseApp{
 
@@ -17,6 +20,7 @@ class cubu : public ofBaseApp{
 	
 		int roomID;
 		int roomNr;
+
 	
 		void setup();
 		void update();
@@ -44,9 +48,12 @@ class cubu : public ofBaseApp{
 	void drawAlarm();
 	void setupDB();
 	
+	void setupGUI();
+	
 private:
 	
 	ofxSQLite* sqlite;
+	dbhandler* database;
 	
 	float font_size;
 	
@@ -77,6 +84,12 @@ private:
 	int fiducial_threshold;
 	bool showFiducialWindow;
 	
+	// button variables...this is going to be looooong
+	// and maybe not even necessary....
+	bool button_ok;
+	bool button_cancel;
+	bool button_cleanup;
+	bool button_towel;
 
 };
 
