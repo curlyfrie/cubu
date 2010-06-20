@@ -6,12 +6,13 @@
 
 #include "ofxFidMain.h"
 #include "ofxSQLiteHeaders.h"
+#include "cubu.h"
 
 class databaseHandler{
 	
 public:
 	
-	databaseHandler(cubu mothership);
+	databaseHandler();
 	~databaseHandler();
 	
 	int roomID;
@@ -26,7 +27,7 @@ private:
 	ofxSQLite* sqlite;
 	
 	//the mothership
-	cubu mothercubu;
+	cubu* mothercubu;
 	
 };
 

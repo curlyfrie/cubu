@@ -1,6 +1,5 @@
 #include "cubu.h"
 
-
 cubu::cubu()
 {
 	//setup() seems to be enough
@@ -14,6 +13,9 @@ cubu::~cubu()
 //--------------------------------------------------------------
 void cubu::setup(){
 	
+	// 
+	setupGUI();
+	
 	//nr and ID of this room: WARNING, HARD CODED!
 	roomNr = 101;
 	roomID = 1;	
@@ -26,10 +28,10 @@ void cubu::setup(){
 	sensitivity = 5;
 	
 	// set no. of marker for sides
-	side_activities = 2;
+	side_activities = 4;
 	side_alarm = 1;
 	side_food = 3;
-	side_roomservice = 4;
+	side_roomservice = 2;
 	side_fun = 5;
 	side_temperature = 6;
 	
@@ -40,7 +42,7 @@ void cubu::setup(){
 	current_angle = -1;
 	
 	//Setup Database
-	setupDB();
+	//setupDB();
 	
 	// define threshold to find fiducial
 	fiducial_threshold =135;
@@ -59,6 +61,57 @@ void cubu::setup(){
 	grayImage.allocate(320,240);
 	grayBg.allocate(320,240);
 	grayDiff.allocate(320,240);
+}
+//--------------------------------------------------------------
+void cubu::setupGUI()
+// prepares the gui to be drawn
+{
+	
+	// gui is a global varialbe from simplegui
+	
+	gui.addPage("empty");
+	gui.setAutoSave(false);
+	
+	gui.addPage("Activities");
+	gui.addButton("OK", button_ok);
+	
+	gui.addPage("Alarm");
+	gui.addButton("CANCEL", button_cancel);
+	
+	gui.addPage("Roomservice");
+	button_towel = false;
+	button_cleanup = false;
+	gui.addButton("Clean Up", button_cleanup);
+	gui.addButton("Towels", button_towel);
+	
+	
+	if(active_side == -1){
+		gui.setPage("empty");
+	}
+	
+	else if(active_side == side_fun){
+		// do cool stuff here
+	}
+	else if (active_side == side_activities) {
+		// do cool stuff here
+		gui.setPage("Activities");
+	}
+	else if (active_side == side_alarm) {
+		// do cool stuff here
+		gui.setPage("Alarm");
+	}
+	else if (active_side == side_food) {
+		// do cool stuff here
+	}
+	else if (active_side == side_roomservice) {
+		gui.setPage("Roomservice");
+	}
+	else if (active_side == side_temperature) {
+		// do cool stuff here
+	}
+	
+		
+	gui.show();
 }
 
 //--------------------------------------------------------------
@@ -106,8 +159,9 @@ void cubu::update(){
 	 */
 	//END OF DEBUGGING SECTION
 	
-
-	ofBackground(255, 255, 255);
+	setupGUI();
+	
+	//ofBackground(255, 255, 255);
 	
 	// update fiducial
 	vidGrabber.grabFrame();
@@ -172,7 +226,7 @@ void cubu::update(){
 				active_side = side_food;
 			}
 			else if(fiducialID == side_roomservice){
-				stringtodraw = "Marker 5: Roomservice";
+				stringtodraw = "Roomservice";
 				active_side = side_roomservice;
 			}
 			else if(fiducialID == side_temperature){
@@ -285,12 +339,19 @@ int cubu::getRotDirection()
 }
 //--------------------------------------------------------------
 void cubu::draw(){
-		
+
+	//set Background Color
+	ofBackground(126, 169, 203);
+	
+	//draw GUI
+	gui.draw();
+	
 	//draw font
 	ofSetColor(0x3366aa);
 	
 	if(active_side == side_alarm)
 		drawAlarm();
+	
 	
 	//franklinBook.drawString(stringtodraw, 100,310);
 	franklinBook.drawString(rotation, 100, 100);
@@ -312,6 +373,7 @@ void cubu::draw(){
 		//cout << "rotation == " << rotation;
 	}
 	
+
 }
 //--------------------------------------------------------------
 void cubu::drawAlarm() {
@@ -345,7 +407,17 @@ void cubu::keyPressed(int key){
 			break;
 		//DEBUGGIN AHEAD!
 		case 'b':
-			getAlarmfromDB();
+			//getAlarmfromDB();
+			//database = new dbhandler();
+			
+			/*
+			cubuButton* button2;
+			button2 = new cubuButton(10,14);
+			cout << "button2" << endl;
+			cout << "shape witdh: " << button2->shape.width << endl;
+			 */
+			
+			
 			break;
 		case '-':
 			fiducial_threshold-=5;
