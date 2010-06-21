@@ -57,6 +57,7 @@ private:
 
 	vector <int> buttons;
 	int selected_button;
+	vector<string> buttons2;
 	
 	float font_size;
 	
