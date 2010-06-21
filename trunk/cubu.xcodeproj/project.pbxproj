@@ -7,27 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CD0375F111B16306008B9FE1 /* databaseHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD0375F011B16306008B9FE1 /* databaseHandler.cpp */; };
-		CD403E8A11A42B5B00A4D1EA /* openCV.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD403E7811A42B5B00A4D1EA /* openCV.a */; };
-		CD403E8B11A42B5B00A4D1EA /* ofxCvColorImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD403E7B11A42B5B00A4D1EA /* ofxCvColorImage.cpp */; };
-		CD403E8C11A42B5B00A4D1EA /* ofxCvContourFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD403E7E11A42B5B00A4D1EA /* ofxCvContourFinder.cpp */; };
-		CD403E8D11A42B5B00A4D1EA /* ofxCvFloatImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD403E8011A42B5B00A4D1EA /* ofxCvFloatImage.cpp */; };
-		CD403E8E11A42B5B00A4D1EA /* ofxCvGrayscaleImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD403E8211A42B5B00A4D1EA /* ofxCvGrayscaleImage.cpp */; };
-		CD403E8F11A42B5B00A4D1EA /* ofxCvImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD403E8411A42B5B00A4D1EA /* ofxCvImage.cpp */; };
-		CD403E9011A42B5B00A4D1EA /* ofxCvShortImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD403E8711A42B5B00A4D1EA /* ofxCvShortImage.cpp */; };
-		CD403EA311A42B7000A4D1EA /* fidtrackX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD403E9511A42B7000A4D1EA /* fidtrackX.cpp */; };
-		CD403EA411A42B7000A4D1EA /* segment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD403E9811A42B7000A4D1EA /* segment.cpp */; };
-		CD403EA511A42B7000A4D1EA /* treeidmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD403E9A11A42B7000A4D1EA /* treeidmap.cpp */; };
-		CD403EA611A42B7000A4D1EA /* ofxFiducialFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD403E9E11A42B7000A4D1EA /* ofxFiducialFinder.cpp */; };
-		CD403EA711A42B7000A4D1EA /* ofxFiducialTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD403EA011A42B7000A4D1EA /* ofxFiducialTracker.cpp */; };
-		CD4B024011B14088000CC1B3 /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = CD4B022D11B14088000CC1B3 /* sqlite3.c */; };
-		CD4B024111B14088000CC1B3 /* ofxSQLite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD4B023011B14088000CC1B3 /* ofxSQLite.cpp */; };
-		CD4B024211B14088000CC1B3 /* ofxSQLiteAbstract.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD4B023211B14088000CC1B3 /* ofxSQLiteAbstract.cpp */; };
-		CD4B024311B14088000CC1B3 /* ofxSQLiteDelete.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD4B023411B14088000CC1B3 /* ofxSQLiteDelete.cpp */; };
-		CD4B024411B14088000CC1B3 /* ofxSQLiteFieldValues.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD4B023611B14088000CC1B3 /* ofxSQLiteFieldValues.cpp */; };
-		CD4B024511B14088000CC1B3 /* ofxSQLiteInsert.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD4B023911B14088000CC1B3 /* ofxSQLiteInsert.cpp */; };
-		CD4B024611B14088000CC1B3 /* ofxSQLiteSelect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD4B023B11B14088000CC1B3 /* ofxSQLiteSelect.cpp */; };
-		CD4B024711B14088000CC1B3 /* ofxSQLiteUpdate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD4B023D11B14088000CC1B3 /* ofxSQLiteUpdate.cpp */; };
+		CD372D3A11C8C6DB00744E7F /* dbhandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD372D3911C8C6DB00744E7F /* dbhandler.cpp */; };
+		CD78071E11CB6E190050AB1D /* cubuButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD78071D11CB6E190050AB1D /* cubuButton.cpp */; };
+		CDEE445311CF65A500E436A1 /* fidtrackX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDEE43D111CF65A400E436A1 /* fidtrackX.cpp */; };
+		CDEE445411CF65A500E436A1 /* segment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDEE43D411CF65A400E436A1 /* segment.cpp */; };
+		CDEE445511CF65A500E436A1 /* treeidmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDEE43D611CF65A400E436A1 /* treeidmap.cpp */; };
+		CDEE445611CF65A500E436A1 /* ofxFiducialFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDEE43DA11CF65A400E436A1 /* ofxFiducialFinder.cpp */; };
+		CDEE445711CF65A500E436A1 /* ofxFiducialTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDEE43DC11CF65A400E436A1 /* ofxFiducialTracker.cpp */; };
+		CDEE445911CF65A500E436A1 /* openCV.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CDEE43FF11CF65A400E436A1 /* openCV.a */; };
+		CDEE445A11CF65A500E436A1 /* ofxCvColorImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDEE440211CF65A400E436A1 /* ofxCvColorImage.cpp */; };
+		CDEE445B11CF65A500E436A1 /* ofxCvContourFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDEE440511CF65A500E436A1 /* ofxCvContourFinder.cpp */; };
+		CDEE445C11CF65A500E436A1 /* ofxCvFloatImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDEE440711CF65A500E436A1 /* ofxCvFloatImage.cpp */; };
+		CDEE445D11CF65A500E436A1 /* ofxCvGrayscaleImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDEE440911CF65A500E436A1 /* ofxCvGrayscaleImage.cpp */; };
+		CDEE445E11CF65A500E436A1 /* ofxCvImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDEE440B11CF65A500E436A1 /* ofxCvImage.cpp */; };
+		CDEE445F11CF65A500E436A1 /* ofxCvShortImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDEE440E11CF65A500E436A1 /* ofxCvShortImage.cpp */; };
+		CDEE449211CF669B00E436A1 /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = CDEE447F11CF669B00E436A1 /* sqlite3.c */; };
+		CDEE449311CF669B00E436A1 /* ofxSQLite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDEE448211CF669B00E436A1 /* ofxSQLite.cpp */; };
+		CDEE449411CF669B00E436A1 /* ofxSQLiteAbstract.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDEE448411CF669B00E436A1 /* ofxSQLiteAbstract.cpp */; };
+		CDEE449511CF669B00E436A1 /* ofxSQLiteDelete.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDEE448611CF669B00E436A1 /* ofxSQLiteDelete.cpp */; };
+		CDEE449611CF669B00E436A1 /* ofxSQLiteFieldValues.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDEE448811CF669B00E436A1 /* ofxSQLiteFieldValues.cpp */; };
+		CDEE449711CF669B00E436A1 /* ofxSQLiteInsert.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDEE448B11CF669B00E436A1 /* ofxSQLiteInsert.cpp */; };
+		CDEE449811CF669B00E436A1 /* ofxSQLiteSelect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDEE448D11CF669B00E436A1 /* ofxSQLiteSelect.cpp */; };
+		CDEE449911CF669B00E436A1 /* ofxSQLiteUpdate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDEE448F11CF669B00E436A1 /* ofxSQLiteUpdate.cpp */; };
 		E45BE0AA0E8CC67C009D7055 /* GLee.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE0A90E8CC67C009D7055 /* GLee.a */; };
 		E45BE2E40E8CC69C009D7055 /* rtAudio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE2E30E8CC69C009D7055 /* rtAudio.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
@@ -99,77 +100,80 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		CD0375CC11B15DF2008B9FE1 /* databaseHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = databaseHandler.h; sourceTree = "<group>"; };
-		CD0375F011B16306008B9FE1 /* databaseHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = databaseHandler.cpp; sourceTree = "<group>"; };
-		CD403E6211A42B5B00A4D1EA /* install.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = install.xml; sourceTree = "<group>"; };
-		CD403E6611A42B5B00A4D1EA /* cv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cv.h; sourceTree = "<group>"; };
-		CD403E6711A42B5B00A4D1EA /* cv.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = cv.hpp; sourceTree = "<group>"; };
-		CD403E6811A42B5B00A4D1EA /* cvaux.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cvaux.h; sourceTree = "<group>"; };
-		CD403E6911A42B5B00A4D1EA /* cvaux.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = cvaux.hpp; sourceTree = "<group>"; };
-		CD403E6A11A42B5B00A4D1EA /* cvcompat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cvcompat.h; sourceTree = "<group>"; };
-		CD403E6B11A42B5B00A4D1EA /* cvmat.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = cvmat.hpp; sourceTree = "<group>"; };
-		CD403E6C11A42B5B00A4D1EA /* cvstreams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cvstreams.h; sourceTree = "<group>"; };
-		CD403E6D11A42B5B00A4D1EA /* cvtypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cvtypes.h; sourceTree = "<group>"; };
-		CD403E6E11A42B5B00A4D1EA /* cvver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cvver.h; sourceTree = "<group>"; };
-		CD403E6F11A42B5B00A4D1EA /* cvvidsurv.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = cvvidsurv.hpp; sourceTree = "<group>"; };
-		CD403E7011A42B5B00A4D1EA /* cvwimage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cvwimage.h; sourceTree = "<group>"; };
-		CD403E7111A42B5B00A4D1EA /* cxcore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cxcore.h; sourceTree = "<group>"; };
-		CD403E7211A42B5B00A4D1EA /* cxcore.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = cxcore.hpp; sourceTree = "<group>"; };
-		CD403E7311A42B5B00A4D1EA /* cxerror.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cxerror.h; sourceTree = "<group>"; };
-		CD403E7411A42B5B00A4D1EA /* cxmisc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cxmisc.h; sourceTree = "<group>"; };
-		CD403E7511A42B5B00A4D1EA /* cxtypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cxtypes.h; sourceTree = "<group>"; };
-		CD403E7811A42B5B00A4D1EA /* openCV.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = openCV.a; sourceTree = "<group>"; };
-		CD403E7A11A42B5B00A4D1EA /* ofxCvBlob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxCvBlob.h; sourceTree = "<group>"; };
-		CD403E7B11A42B5B00A4D1EA /* ofxCvColorImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxCvColorImage.cpp; sourceTree = "<group>"; };
-		CD403E7C11A42B5B00A4D1EA /* ofxCvColorImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxCvColorImage.h; sourceTree = "<group>"; };
-		CD403E7D11A42B5B00A4D1EA /* ofxCvConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxCvConstants.h; sourceTree = "<group>"; };
-		CD403E7E11A42B5B00A4D1EA /* ofxCvContourFinder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxCvContourFinder.cpp; sourceTree = "<group>"; };
-		CD403E7F11A42B5B00A4D1EA /* ofxCvContourFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxCvContourFinder.h; sourceTree = "<group>"; };
-		CD403E8011A42B5B00A4D1EA /* ofxCvFloatImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxCvFloatImage.cpp; sourceTree = "<group>"; };
-		CD403E8111A42B5B00A4D1EA /* ofxCvFloatImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxCvFloatImage.h; sourceTree = "<group>"; };
-		CD403E8211A42B5B00A4D1EA /* ofxCvGrayscaleImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxCvGrayscaleImage.cpp; sourceTree = "<group>"; };
-		CD403E8311A42B5B00A4D1EA /* ofxCvGrayscaleImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxCvGrayscaleImage.h; sourceTree = "<group>"; };
-		CD403E8411A42B5B00A4D1EA /* ofxCvImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxCvImage.cpp; sourceTree = "<group>"; };
-		CD403E8511A42B5B00A4D1EA /* ofxCvImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxCvImage.h; sourceTree = "<group>"; };
-		CD403E8611A42B5B00A4D1EA /* ofxCvMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxCvMain.h; sourceTree = "<group>"; };
-		CD403E8711A42B5B00A4D1EA /* ofxCvShortImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxCvShortImage.cpp; sourceTree = "<group>"; };
-		CD403E8811A42B5B00A4D1EA /* ofxCvShortImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxCvShortImage.h; sourceTree = "<group>"; };
-		CD403E8911A42B5B00A4D1EA /* ofxOpenCv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxOpenCv.h; sourceTree = "<group>"; };
-		CD403E9311A42B7000A4D1EA /* all.trees */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = all.trees; sourceTree = "<group>"; };
-		CD403E9411A42B7000A4D1EA /* default_trees.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = default_trees.h; sourceTree = "<group>"; };
-		CD403E9511A42B7000A4D1EA /* fidtrackX.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fidtrackX.cpp; sourceTree = "<group>"; };
-		CD403E9611A42B7000A4D1EA /* fidtrackX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fidtrackX.h; sourceTree = "<group>"; };
-		CD403E9711A42B7000A4D1EA /* floatpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = floatpoint.h; sourceTree = "<group>"; };
-		CD403E9811A42B7000A4D1EA /* segment.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = segment.cpp; sourceTree = "<group>"; };
-		CD403E9911A42B7000A4D1EA /* segment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = segment.h; sourceTree = "<group>"; };
-		CD403E9A11A42B7000A4D1EA /* treeidmap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = treeidmap.cpp; sourceTree = "<group>"; };
-		CD403E9B11A42B7000A4D1EA /* treeidmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = treeidmap.h; sourceTree = "<group>"; };
-		CD403E9C11A42B7000A4D1EA /* ofxFidMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxFidMain.h; sourceTree = "<group>"; };
-		CD403E9D11A42B7000A4D1EA /* ofxFiducial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxFiducial.h; sourceTree = "<group>"; };
-		CD403E9E11A42B7000A4D1EA /* ofxFiducialFinder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFiducialFinder.cpp; sourceTree = "<group>"; };
-		CD403E9F11A42B7000A4D1EA /* ofxFiducialFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxFiducialFinder.h; sourceTree = "<group>"; };
-		CD403EA011A42B7000A4D1EA /* ofxFiducialTracker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFiducialTracker.cpp; sourceTree = "<group>"; };
-		CD403EA111A42B7000A4D1EA /* ofxFiducialTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxFiducialTracker.h; sourceTree = "<group>"; };
-		CD403EA211A42B7000A4D1EA /* ofxFinger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxFinger.h; sourceTree = "<group>"; };
-		CD4B022D11B14088000CC1B3 /* sqlite3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sqlite3.c; sourceTree = "<group>"; };
-		CD4B022E11B14088000CC1B3 /* sqlite3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sqlite3.h; sourceTree = "<group>"; };
-		CD4B022F11B14088000CC1B3 /* sqlite3ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sqlite3ext.h; sourceTree = "<group>"; };
-		CD4B023011B14088000CC1B3 /* ofxSQLite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxSQLite.cpp; sourceTree = "<group>"; };
-		CD4B023111B14088000CC1B3 /* ofxSQLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxSQLite.h; sourceTree = "<group>"; };
-		CD4B023211B14088000CC1B3 /* ofxSQLiteAbstract.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxSQLiteAbstract.cpp; sourceTree = "<group>"; };
-		CD4B023311B14088000CC1B3 /* ofxSQLiteAbstract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxSQLiteAbstract.h; sourceTree = "<group>"; };
-		CD4B023411B14088000CC1B3 /* ofxSQLiteDelete.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxSQLiteDelete.cpp; sourceTree = "<group>"; };
-		CD4B023511B14088000CC1B3 /* ofxSQLiteDelete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxSQLiteDelete.h; sourceTree = "<group>"; };
-		CD4B023611B14088000CC1B3 /* ofxSQLiteFieldValues.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxSQLiteFieldValues.cpp; sourceTree = "<group>"; };
-		CD4B023711B14088000CC1B3 /* ofxSQLiteFieldValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxSQLiteFieldValues.h; sourceTree = "<group>"; };
-		CD4B023811B14088000CC1B3 /* ofxSQLiteHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxSQLiteHeaders.h; sourceTree = "<group>"; };
-		CD4B023911B14088000CC1B3 /* ofxSQLiteInsert.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxSQLiteInsert.cpp; sourceTree = "<group>"; };
-		CD4B023A11B14088000CC1B3 /* ofxSQLiteInsert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxSQLiteInsert.h; sourceTree = "<group>"; };
-		CD4B023B11B14088000CC1B3 /* ofxSQLiteSelect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxSQLiteSelect.cpp; sourceTree = "<group>"; };
-		CD4B023C11B14088000CC1B3 /* ofxSQLiteSelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxSQLiteSelect.h; sourceTree = "<group>"; };
-		CD4B023D11B14088000CC1B3 /* ofxSQLiteUpdate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxSQLiteUpdate.cpp; sourceTree = "<group>"; };
-		CD4B023E11B14088000CC1B3 /* ofxSQLiteUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxSQLiteUpdate.h; sourceTree = "<group>"; };
-		CD4B023F11B14088000CC1B3 /* ofxSQLiteWhere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxSQLiteWhere.h; sourceTree = "<group>"; };
+		CD372D3811C8C6DB00744E7F /* dbhandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dbhandler.h; sourceTree = "<group>"; };
+		CD372D3911C8C6DB00744E7F /* dbhandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dbhandler.cpp; sourceTree = "<group>"; };
+		CD78071C11CB6E190050AB1D /* cubuButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cubuButton.h; sourceTree = "<group>"; };
+		CD78071D11CB6E190050AB1D /* cubuButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cubuButton.cpp; sourceTree = "<group>"; };
+		CDEE43CF11CF65A400E436A1 /* all.trees */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = all.trees; sourceTree = "<group>"; };
+		CDEE43D011CF65A400E436A1 /* default_trees.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = default_trees.h; sourceTree = "<group>"; };
+		CDEE43D111CF65A400E436A1 /* fidtrackX.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fidtrackX.cpp; sourceTree = "<group>"; };
+		CDEE43D211CF65A400E436A1 /* fidtrackX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fidtrackX.h; sourceTree = "<group>"; };
+		CDEE43D311CF65A400E436A1 /* floatpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = floatpoint.h; sourceTree = "<group>"; };
+		CDEE43D411CF65A400E436A1 /* segment.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = segment.cpp; sourceTree = "<group>"; };
+		CDEE43D511CF65A400E436A1 /* segment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = segment.h; sourceTree = "<group>"; };
+		CDEE43D611CF65A400E436A1 /* treeidmap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = treeidmap.cpp; sourceTree = "<group>"; };
+		CDEE43D711CF65A400E436A1 /* treeidmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = treeidmap.h; sourceTree = "<group>"; };
+		CDEE43D811CF65A400E436A1 /* ofxFidMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxFidMain.h; sourceTree = "<group>"; };
+		CDEE43D911CF65A400E436A1 /* ofxFiducial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxFiducial.h; sourceTree = "<group>"; };
+		CDEE43DA11CF65A400E436A1 /* ofxFiducialFinder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFiducialFinder.cpp; sourceTree = "<group>"; };
+		CDEE43DB11CF65A400E436A1 /* ofxFiducialFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxFiducialFinder.h; sourceTree = "<group>"; };
+		CDEE43DC11CF65A400E436A1 /* ofxFiducialTracker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFiducialTracker.cpp; sourceTree = "<group>"; };
+		CDEE43DD11CF65A400E436A1 /* ofxFiducialTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxFiducialTracker.h; sourceTree = "<group>"; };
+		CDEE43DE11CF65A400E436A1 /* ofxFinger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxFinger.h; sourceTree = "<group>"; };
+		CDEE43E011CF65A400E436A1 /* legacy90.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = legacy90.pdf; sourceTree = "<group>"; };
+		CDEE43E911CF65A400E436A1 /* install.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = install.xml; sourceTree = "<group>"; };
+		CDEE43ED11CF65A400E436A1 /* cv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cv.h; sourceTree = "<group>"; };
+		CDEE43EE11CF65A400E436A1 /* cv.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = cv.hpp; sourceTree = "<group>"; };
+		CDEE43EF11CF65A400E436A1 /* cvaux.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cvaux.h; sourceTree = "<group>"; };
+		CDEE43F011CF65A400E436A1 /* cvaux.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = cvaux.hpp; sourceTree = "<group>"; };
+		CDEE43F111CF65A400E436A1 /* cvcompat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cvcompat.h; sourceTree = "<group>"; };
+		CDEE43F211CF65A400E436A1 /* cvmat.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = cvmat.hpp; sourceTree = "<group>"; };
+		CDEE43F311CF65A400E436A1 /* cvstreams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cvstreams.h; sourceTree = "<group>"; };
+		CDEE43F411CF65A400E436A1 /* cvtypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cvtypes.h; sourceTree = "<group>"; };
+		CDEE43F511CF65A400E436A1 /* cvver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cvver.h; sourceTree = "<group>"; };
+		CDEE43F611CF65A400E436A1 /* cvvidsurv.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = cvvidsurv.hpp; sourceTree = "<group>"; };
+		CDEE43F711CF65A400E436A1 /* cvwimage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cvwimage.h; sourceTree = "<group>"; };
+		CDEE43F811CF65A400E436A1 /* cxcore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cxcore.h; sourceTree = "<group>"; };
+		CDEE43F911CF65A400E436A1 /* cxcore.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = cxcore.hpp; sourceTree = "<group>"; };
+		CDEE43FA11CF65A400E436A1 /* cxerror.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cxerror.h; sourceTree = "<group>"; };
+		CDEE43FB11CF65A400E436A1 /* cxmisc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cxmisc.h; sourceTree = "<group>"; };
+		CDEE43FC11CF65A400E436A1 /* cxtypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cxtypes.h; sourceTree = "<group>"; };
+		CDEE43FF11CF65A400E436A1 /* openCV.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = openCV.a; sourceTree = "<group>"; };
+		CDEE440111CF65A400E436A1 /* ofxCvBlob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxCvBlob.h; sourceTree = "<group>"; };
+		CDEE440211CF65A400E436A1 /* ofxCvColorImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxCvColorImage.cpp; sourceTree = "<group>"; };
+		CDEE440311CF65A400E436A1 /* ofxCvColorImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxCvColorImage.h; sourceTree = "<group>"; };
+		CDEE440411CF65A500E436A1 /* ofxCvConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxCvConstants.h; sourceTree = "<group>"; };
+		CDEE440511CF65A500E436A1 /* ofxCvContourFinder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxCvContourFinder.cpp; sourceTree = "<group>"; };
+		CDEE440611CF65A500E436A1 /* ofxCvContourFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxCvContourFinder.h; sourceTree = "<group>"; };
+		CDEE440711CF65A500E436A1 /* ofxCvFloatImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxCvFloatImage.cpp; sourceTree = "<group>"; };
+		CDEE440811CF65A500E436A1 /* ofxCvFloatImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxCvFloatImage.h; sourceTree = "<group>"; };
+		CDEE440911CF65A500E436A1 /* ofxCvGrayscaleImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxCvGrayscaleImage.cpp; sourceTree = "<group>"; };
+		CDEE440A11CF65A500E436A1 /* ofxCvGrayscaleImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxCvGrayscaleImage.h; sourceTree = "<group>"; };
+		CDEE440B11CF65A500E436A1 /* ofxCvImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxCvImage.cpp; sourceTree = "<group>"; };
+		CDEE440C11CF65A500E436A1 /* ofxCvImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxCvImage.h; sourceTree = "<group>"; };
+		CDEE440D11CF65A500E436A1 /* ofxCvMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxCvMain.h; sourceTree = "<group>"; };
+		CDEE440E11CF65A500E436A1 /* ofxCvShortImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxCvShortImage.cpp; sourceTree = "<group>"; };
+		CDEE440F11CF65A500E436A1 /* ofxCvShortImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxCvShortImage.h; sourceTree = "<group>"; };
+		CDEE441011CF65A500E436A1 /* ofxOpenCv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxOpenCv.h; sourceTree = "<group>"; };
+		CDEE447F11CF669B00E436A1 /* sqlite3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sqlite3.c; sourceTree = "<group>"; };
+		CDEE448011CF669B00E436A1 /* sqlite3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sqlite3.h; sourceTree = "<group>"; };
+		CDEE448111CF669B00E436A1 /* sqlite3ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sqlite3ext.h; sourceTree = "<group>"; };
+		CDEE448211CF669B00E436A1 /* ofxSQLite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxSQLite.cpp; sourceTree = "<group>"; };
+		CDEE448311CF669B00E436A1 /* ofxSQLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxSQLite.h; sourceTree = "<group>"; };
+		CDEE448411CF669B00E436A1 /* ofxSQLiteAbstract.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxSQLiteAbstract.cpp; sourceTree = "<group>"; };
+		CDEE448511CF669B00E436A1 /* ofxSQLiteAbstract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxSQLiteAbstract.h; sourceTree = "<group>"; };
+		CDEE448611CF669B00E436A1 /* ofxSQLiteDelete.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxSQLiteDelete.cpp; sourceTree = "<group>"; };
+		CDEE448711CF669B00E436A1 /* ofxSQLiteDelete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxSQLiteDelete.h; sourceTree = "<group>"; };
+		CDEE448811CF669B00E436A1 /* ofxSQLiteFieldValues.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxSQLiteFieldValues.cpp; sourceTree = "<group>"; };
+		CDEE448911CF669B00E436A1 /* ofxSQLiteFieldValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxSQLiteFieldValues.h; sourceTree = "<group>"; };
+		CDEE448A11CF669B00E436A1 /* ofxSQLiteHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxSQLiteHeaders.h; sourceTree = "<group>"; };
+		CDEE448B11CF669B00E436A1 /* ofxSQLiteInsert.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxSQLiteInsert.cpp; sourceTree = "<group>"; };
+		CDEE448C11CF669B00E436A1 /* ofxSQLiteInsert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxSQLiteInsert.h; sourceTree = "<group>"; };
+		CDEE448D11CF669B00E436A1 /* ofxSQLiteSelect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxSQLiteSelect.cpp; sourceTree = "<group>"; };
+		CDEE448E11CF669B00E436A1 /* ofxSQLiteSelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxSQLiteSelect.h; sourceTree = "<group>"; };
+		CDEE448F11CF669B00E436A1 /* ofxSQLiteUpdate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxSQLiteUpdate.cpp; sourceTree = "<group>"; };
+		CDEE449011CF669B00E436A1 /* ofxSQLiteUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxSQLiteUpdate.h; sourceTree = "<group>"; };
+		CDEE449111CF669B00E436A1 /* ofxSQLiteWhere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxSQLiteWhere.h; sourceTree = "<group>"; };
 		E45BE0390E8CC647009D7055 /* FreeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FreeImage.h; path = ../../../libs/freeimage/include/FreeImage.h; sourceTree = SOURCE_ROOT; };
 		E45BE03F0E8CC650009D7055 /* fmod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fmod.h; path = ../../../libs/fmodex/include/fmod.h; sourceTree = SOURCE_ROOT; };
 		E45BE0400E8CC650009D7055 /* fmod.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = fmod.hpp; path = ../../../libs/fmodex/include/fmod.hpp; sourceTree = SOURCE_ROOT; };
@@ -240,192 +244,206 @@
 				E4C2429410CC5C38004149E2 /* freetype.a in Frameworks */,
 				E4C242CD10CC650E004149E2 /* libfmodex.dylib in Frameworks */,
 				E4C246DA10CCAE22004149E2 /* freeimage.a in Frameworks */,
-				CD403E8A11A42B5B00A4D1EA /* openCV.a in Frameworks */,
+				CDEE445911CF65A500E436A1 /* openCV.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CD403E6011A42B3D00A4D1EA /* addons */ = {
+		CDEE43CB11CF65A400E436A1 /* addons */ = {
 			isa = PBXGroup;
 			children = (
-				CD4B022911B14088000CC1B3 /* ofxsqlite */,
-				CD403E9111A42B7000A4D1EA /* ofxFiducial */,
-				CD403E6111A42B5B00A4D1EA /* ofxOpenCv */,
+				CDEE447B11CF669B00E436A1 /* ofxsqlite */,
+				CDEE43CC11CF65A400E436A1 /* ofxFiducialFinder */,
+				CDEE43E811CF65A400E436A1 /* ofxOpenCv */,
 			);
-			name = addons;
-			sourceTree = "<group>";
-		};
-		CD403E6111A42B5B00A4D1EA /* ofxOpenCv */ = {
-			isa = PBXGroup;
-			children = (
-				CD403E6211A42B5B00A4D1EA /* install.xml */,
-				CD403E6311A42B5B00A4D1EA /* libs */,
-				CD403E7911A42B5B00A4D1EA /* src */,
-			);
-			name = ofxOpenCv;
-			path = ../../../addons/ofxOpenCv;
+			path = addons;
 			sourceTree = SOURCE_ROOT;
 		};
-		CD403E6311A42B5B00A4D1EA /* libs */ = {
+		CDEE43CC11CF65A400E436A1 /* ofxFiducialFinder */ = {
 			isa = PBXGroup;
 			children = (
-				CD403E6411A42B5B00A4D1EA /* opencv */,
+				CDEE43CD11CF65A400E436A1 /* src */,
+				CDEE43DF11CF65A400E436A1 /* Symbols */,
 			);
-			path = libs;
+			path = ofxFiducialFinder;
 			sourceTree = "<group>";
 		};
-		CD403E6411A42B5B00A4D1EA /* opencv */ = {
+		CDEE43CD11CF65A400E436A1 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				CD403E6511A42B5B00A4D1EA /* include */,
-				CD403E7611A42B5B00A4D1EA /* lib */,
-			);
-			path = opencv;
-			sourceTree = "<group>";
-		};
-		CD403E6511A42B5B00A4D1EA /* include */ = {
-			isa = PBXGroup;
-			children = (
-				CD403E6611A42B5B00A4D1EA /* cv.h */,
-				CD403E6711A42B5B00A4D1EA /* cv.hpp */,
-				CD403E6811A42B5B00A4D1EA /* cvaux.h */,
-				CD403E6911A42B5B00A4D1EA /* cvaux.hpp */,
-				CD403E6A11A42B5B00A4D1EA /* cvcompat.h */,
-				CD403E6B11A42B5B00A4D1EA /* cvmat.hpp */,
-				CD403E6C11A42B5B00A4D1EA /* cvstreams.h */,
-				CD403E6D11A42B5B00A4D1EA /* cvtypes.h */,
-				CD403E6E11A42B5B00A4D1EA /* cvver.h */,
-				CD403E6F11A42B5B00A4D1EA /* cvvidsurv.hpp */,
-				CD403E7011A42B5B00A4D1EA /* cvwimage.h */,
-				CD403E7111A42B5B00A4D1EA /* cxcore.h */,
-				CD403E7211A42B5B00A4D1EA /* cxcore.hpp */,
-				CD403E7311A42B5B00A4D1EA /* cxerror.h */,
-				CD403E7411A42B5B00A4D1EA /* cxmisc.h */,
-				CD403E7511A42B5B00A4D1EA /* cxtypes.h */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		CD403E7611A42B5B00A4D1EA /* lib */ = {
-			isa = PBXGroup;
-			children = (
-				CD403E7711A42B5B00A4D1EA /* osx */,
-			);
-			path = lib;
-			sourceTree = "<group>";
-		};
-		CD403E7711A42B5B00A4D1EA /* osx */ = {
-			isa = PBXGroup;
-			children = (
-				CD403E7811A42B5B00A4D1EA /* openCV.a */,
-			);
-			path = osx;
-			sourceTree = "<group>";
-		};
-		CD403E7911A42B5B00A4D1EA /* src */ = {
-			isa = PBXGroup;
-			children = (
-				CD403E7A11A42B5B00A4D1EA /* ofxCvBlob.h */,
-				CD403E7B11A42B5B00A4D1EA /* ofxCvColorImage.cpp */,
-				CD403E7C11A42B5B00A4D1EA /* ofxCvColorImage.h */,
-				CD403E7D11A42B5B00A4D1EA /* ofxCvConstants.h */,
-				CD403E7E11A42B5B00A4D1EA /* ofxCvContourFinder.cpp */,
-				CD403E7F11A42B5B00A4D1EA /* ofxCvContourFinder.h */,
-				CD403E8011A42B5B00A4D1EA /* ofxCvFloatImage.cpp */,
-				CD403E8111A42B5B00A4D1EA /* ofxCvFloatImage.h */,
-				CD403E8211A42B5B00A4D1EA /* ofxCvGrayscaleImage.cpp */,
-				CD403E8311A42B5B00A4D1EA /* ofxCvGrayscaleImage.h */,
-				CD403E8411A42B5B00A4D1EA /* ofxCvImage.cpp */,
-				CD403E8511A42B5B00A4D1EA /* ofxCvImage.h */,
-				CD403E8611A42B5B00A4D1EA /* ofxCvMain.h */,
-				CD403E8711A42B5B00A4D1EA /* ofxCvShortImage.cpp */,
-				CD403E8811A42B5B00A4D1EA /* ofxCvShortImage.h */,
-				CD403E8911A42B5B00A4D1EA /* ofxOpenCv.h */,
+				CDEE43CE11CF65A400E436A1 /* libfidtrack */,
+				CDEE43D811CF65A400E436A1 /* ofxFidMain.h */,
+				CDEE43D911CF65A400E436A1 /* ofxFiducial.h */,
+				CDEE43DA11CF65A400E436A1 /* ofxFiducialFinder.cpp */,
+				CDEE43DB11CF65A400E436A1 /* ofxFiducialFinder.h */,
+				CDEE43DC11CF65A400E436A1 /* ofxFiducialTracker.cpp */,
+				CDEE43DD11CF65A400E436A1 /* ofxFiducialTracker.h */,
+				CDEE43DE11CF65A400E436A1 /* ofxFinger.h */,
 			);
 			path = src;
 			sourceTree = "<group>";
 		};
-		CD403E9111A42B7000A4D1EA /* ofxFiducial */ = {
+		CDEE43CE11CF65A400E436A1 /* libfidtrack */ = {
 			isa = PBXGroup;
 			children = (
-				CD403E9211A42B7000A4D1EA /* libfidtrack */,
-				CD403E9C11A42B7000A4D1EA /* ofxFidMain.h */,
-				CD403E9D11A42B7000A4D1EA /* ofxFiducial.h */,
-				CD403E9E11A42B7000A4D1EA /* ofxFiducialFinder.cpp */,
-				CD403E9F11A42B7000A4D1EA /* ofxFiducialFinder.h */,
-				CD403EA011A42B7000A4D1EA /* ofxFiducialTracker.cpp */,
-				CD403EA111A42B7000A4D1EA /* ofxFiducialTracker.h */,
-				CD403EA211A42B7000A4D1EA /* ofxFinger.h */,
-			);
-			name = ofxFiducial;
-			path = ../../../addons/ofxFiducialFinder/src;
-			sourceTree = SOURCE_ROOT;
-		};
-		CD403E9211A42B7000A4D1EA /* libfidtrack */ = {
-			isa = PBXGroup;
-			children = (
-				CD403E9311A42B7000A4D1EA /* all.trees */,
-				CD403E9411A42B7000A4D1EA /* default_trees.h */,
-				CD403E9511A42B7000A4D1EA /* fidtrackX.cpp */,
-				CD403E9611A42B7000A4D1EA /* fidtrackX.h */,
-				CD403E9711A42B7000A4D1EA /* floatpoint.h */,
-				CD403E9811A42B7000A4D1EA /* segment.cpp */,
-				CD403E9911A42B7000A4D1EA /* segment.h */,
-				CD403E9A11A42B7000A4D1EA /* treeidmap.cpp */,
-				CD403E9B11A42B7000A4D1EA /* treeidmap.h */,
+				CDEE43CF11CF65A400E436A1 /* all.trees */,
+				CDEE43D011CF65A400E436A1 /* default_trees.h */,
+				CDEE43D111CF65A400E436A1 /* fidtrackX.cpp */,
+				CDEE43D211CF65A400E436A1 /* fidtrackX.h */,
+				CDEE43D311CF65A400E436A1 /* floatpoint.h */,
+				CDEE43D411CF65A400E436A1 /* segment.cpp */,
+				CDEE43D511CF65A400E436A1 /* segment.h */,
+				CDEE43D611CF65A400E436A1 /* treeidmap.cpp */,
+				CDEE43D711CF65A400E436A1 /* treeidmap.h */,
 			);
 			path = libfidtrack;
 			sourceTree = "<group>";
 		};
-		CD4B022911B14088000CC1B3 /* ofxsqlite */ = {
+		CDEE43DF11CF65A400E436A1 /* Symbols */ = {
 			isa = PBXGroup;
 			children = (
-				CD4B022A11B14088000CC1B3 /* src */,
+				CDEE43E011CF65A400E436A1 /* legacy90.pdf */,
 			);
-			name = ofxsqlite;
-			path = ../../../addons/ofxsqlite;
-			sourceTree = SOURCE_ROOT;
-		};
-		CD4B022A11B14088000CC1B3 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				CD4B022B11B14088000CC1B3 /* lib */,
-				CD4B023011B14088000CC1B3 /* ofxSQLite.cpp */,
-				CD4B023111B14088000CC1B3 /* ofxSQLite.h */,
-				CD4B023211B14088000CC1B3 /* ofxSQLiteAbstract.cpp */,
-				CD4B023311B14088000CC1B3 /* ofxSQLiteAbstract.h */,
-				CD4B023411B14088000CC1B3 /* ofxSQLiteDelete.cpp */,
-				CD4B023511B14088000CC1B3 /* ofxSQLiteDelete.h */,
-				CD4B023611B14088000CC1B3 /* ofxSQLiteFieldValues.cpp */,
-				CD4B023711B14088000CC1B3 /* ofxSQLiteFieldValues.h */,
-				CD4B023811B14088000CC1B3 /* ofxSQLiteHeaders.h */,
-				CD4B023911B14088000CC1B3 /* ofxSQLiteInsert.cpp */,
-				CD4B023A11B14088000CC1B3 /* ofxSQLiteInsert.h */,
-				CD4B023B11B14088000CC1B3 /* ofxSQLiteSelect.cpp */,
-				CD4B023C11B14088000CC1B3 /* ofxSQLiteSelect.h */,
-				CD4B023D11B14088000CC1B3 /* ofxSQLiteUpdate.cpp */,
-				CD4B023E11B14088000CC1B3 /* ofxSQLiteUpdate.h */,
-				CD4B023F11B14088000CC1B3 /* ofxSQLiteWhere.h */,
-			);
-			path = src;
+			path = Symbols;
 			sourceTree = "<group>";
 		};
-		CD4B022B11B14088000CC1B3 /* lib */ = {
+		CDEE43E811CF65A400E436A1 /* ofxOpenCv */ = {
 			isa = PBXGroup;
 			children = (
-				CD4B022C11B14088000CC1B3 /* sqlite */,
+				CDEE43E911CF65A400E436A1 /* install.xml */,
+				CDEE43EA11CF65A400E436A1 /* libs */,
+				CDEE440011CF65A400E436A1 /* src */,
+			);
+			path = ofxOpenCv;
+			sourceTree = "<group>";
+		};
+		CDEE43EA11CF65A400E436A1 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				CDEE43EB11CF65A400E436A1 /* opencv */,
+			);
+			path = libs;
+			sourceTree = "<group>";
+		};
+		CDEE43EB11CF65A400E436A1 /* opencv */ = {
+			isa = PBXGroup;
+			children = (
+				CDEE43EC11CF65A400E436A1 /* include */,
+				CDEE43FD11CF65A400E436A1 /* lib */,
+			);
+			path = opencv;
+			sourceTree = "<group>";
+		};
+		CDEE43EC11CF65A400E436A1 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				CDEE43ED11CF65A400E436A1 /* cv.h */,
+				CDEE43EE11CF65A400E436A1 /* cv.hpp */,
+				CDEE43EF11CF65A400E436A1 /* cvaux.h */,
+				CDEE43F011CF65A400E436A1 /* cvaux.hpp */,
+				CDEE43F111CF65A400E436A1 /* cvcompat.h */,
+				CDEE43F211CF65A400E436A1 /* cvmat.hpp */,
+				CDEE43F311CF65A400E436A1 /* cvstreams.h */,
+				CDEE43F411CF65A400E436A1 /* cvtypes.h */,
+				CDEE43F511CF65A400E436A1 /* cvver.h */,
+				CDEE43F611CF65A400E436A1 /* cvvidsurv.hpp */,
+				CDEE43F711CF65A400E436A1 /* cvwimage.h */,
+				CDEE43F811CF65A400E436A1 /* cxcore.h */,
+				CDEE43F911CF65A400E436A1 /* cxcore.hpp */,
+				CDEE43FA11CF65A400E436A1 /* cxerror.h */,
+				CDEE43FB11CF65A400E436A1 /* cxmisc.h */,
+				CDEE43FC11CF65A400E436A1 /* cxtypes.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		CDEE43FD11CF65A400E436A1 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				CDEE43FE11CF65A400E436A1 /* osx */,
 			);
 			path = lib;
 			sourceTree = "<group>";
 		};
-		CD4B022C11B14088000CC1B3 /* sqlite */ = {
+		CDEE43FE11CF65A400E436A1 /* osx */ = {
 			isa = PBXGroup;
 			children = (
-				CD4B022D11B14088000CC1B3 /* sqlite3.c */,
-				CD4B022E11B14088000CC1B3 /* sqlite3.h */,
-				CD4B022F11B14088000CC1B3 /* sqlite3ext.h */,
+				CDEE43FF11CF65A400E436A1 /* openCV.a */,
+			);
+			path = osx;
+			sourceTree = "<group>";
+		};
+		CDEE440011CF65A400E436A1 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				CDEE440111CF65A400E436A1 /* ofxCvBlob.h */,
+				CDEE440211CF65A400E436A1 /* ofxCvColorImage.cpp */,
+				CDEE440311CF65A400E436A1 /* ofxCvColorImage.h */,
+				CDEE440411CF65A500E436A1 /* ofxCvConstants.h */,
+				CDEE440511CF65A500E436A1 /* ofxCvContourFinder.cpp */,
+				CDEE440611CF65A500E436A1 /* ofxCvContourFinder.h */,
+				CDEE440711CF65A500E436A1 /* ofxCvFloatImage.cpp */,
+				CDEE440811CF65A500E436A1 /* ofxCvFloatImage.h */,
+				CDEE440911CF65A500E436A1 /* ofxCvGrayscaleImage.cpp */,
+				CDEE440A11CF65A500E436A1 /* ofxCvGrayscaleImage.h */,
+				CDEE440B11CF65A500E436A1 /* ofxCvImage.cpp */,
+				CDEE440C11CF65A500E436A1 /* ofxCvImage.h */,
+				CDEE440D11CF65A500E436A1 /* ofxCvMain.h */,
+				CDEE440E11CF65A500E436A1 /* ofxCvShortImage.cpp */,
+				CDEE440F11CF65A500E436A1 /* ofxCvShortImage.h */,
+				CDEE441011CF65A500E436A1 /* ofxOpenCv.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		CDEE447B11CF669B00E436A1 /* ofxsqlite */ = {
+			isa = PBXGroup;
+			children = (
+				CDEE447C11CF669B00E436A1 /* src */,
+			);
+			path = ofxsqlite;
+			sourceTree = "<group>";
+		};
+		CDEE447C11CF669B00E436A1 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				CDEE447D11CF669B00E436A1 /* lib */,
+				CDEE448211CF669B00E436A1 /* ofxSQLite.cpp */,
+				CDEE448311CF669B00E436A1 /* ofxSQLite.h */,
+				CDEE448411CF669B00E436A1 /* ofxSQLiteAbstract.cpp */,
+				CDEE448511CF669B00E436A1 /* ofxSQLiteAbstract.h */,
+				CDEE448611CF669B00E436A1 /* ofxSQLiteDelete.cpp */,
+				CDEE448711CF669B00E436A1 /* ofxSQLiteDelete.h */,
+				CDEE448811CF669B00E436A1 /* ofxSQLiteFieldValues.cpp */,
+				CDEE448911CF669B00E436A1 /* ofxSQLiteFieldValues.h */,
+				CDEE448A11CF669B00E436A1 /* ofxSQLiteHeaders.h */,
+				CDEE448B11CF669B00E436A1 /* ofxSQLiteInsert.cpp */,
+				CDEE448C11CF669B00E436A1 /* ofxSQLiteInsert.h */,
+				CDEE448D11CF669B00E436A1 /* ofxSQLiteSelect.cpp */,
+				CDEE448E11CF669B00E436A1 /* ofxSQLiteSelect.h */,
+				CDEE448F11CF669B00E436A1 /* ofxSQLiteUpdate.cpp */,
+				CDEE449011CF669B00E436A1 /* ofxSQLiteUpdate.h */,
+				CDEE449111CF669B00E436A1 /* ofxSQLiteWhere.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		CDEE447D11CF669B00E436A1 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				CDEE447E11CF669B00E436A1 /* sqlite */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		CDEE447E11CF669B00E436A1 /* sqlite */ = {
+			isa = PBXGroup;
+			children = (
+				CDEE447F11CF669B00E436A1 /* sqlite3.c */,
+				CDEE448011CF669B00E436A1 /* sqlite3.h */,
+				CDEE448111CF669B00E436A1 /* sqlite3ext.h */,
 			);
 			path = sqlite;
 			sourceTree = "<group>";
@@ -621,12 +639,14 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				CD403E6011A42B3D00A4D1EA /* addons */,
+				CDEE43CB11CF65A400E436A1 /* addons */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
-				E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* cubu.h */,
-				CD0375CC11B15DF2008B9FE1 /* databaseHandler.h */,
-				CD0375F011B16306008B9FE1 /* databaseHandler.cpp */,
+				E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */,
+				CD372D3811C8C6DB00744E7F /* dbhandler.h */,
+				CD372D3911C8C6DB00744E7F /* dbhandler.cpp */,
+				CD78071C11CB6E190050AB1D /* cubuButton.h */,
+				CD78071D11CB6E190050AB1D /* cubuButton.cpp */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -794,26 +814,27 @@
 			files = (
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* cubu.cpp in Sources */,
-				CD403E8B11A42B5B00A4D1EA /* ofxCvColorImage.cpp in Sources */,
-				CD403E8C11A42B5B00A4D1EA /* ofxCvContourFinder.cpp in Sources */,
-				CD403E8D11A42B5B00A4D1EA /* ofxCvFloatImage.cpp in Sources */,
-				CD403E8E11A42B5B00A4D1EA /* ofxCvGrayscaleImage.cpp in Sources */,
-				CD403E8F11A42B5B00A4D1EA /* ofxCvImage.cpp in Sources */,
-				CD403E9011A42B5B00A4D1EA /* ofxCvShortImage.cpp in Sources */,
-				CD403EA311A42B7000A4D1EA /* fidtrackX.cpp in Sources */,
-				CD403EA411A42B7000A4D1EA /* segment.cpp in Sources */,
-				CD403EA511A42B7000A4D1EA /* treeidmap.cpp in Sources */,
-				CD403EA611A42B7000A4D1EA /* ofxFiducialFinder.cpp in Sources */,
-				CD403EA711A42B7000A4D1EA /* ofxFiducialTracker.cpp in Sources */,
-				CD4B024011B14088000CC1B3 /* sqlite3.c in Sources */,
-				CD4B024111B14088000CC1B3 /* ofxSQLite.cpp in Sources */,
-				CD4B024211B14088000CC1B3 /* ofxSQLiteAbstract.cpp in Sources */,
-				CD4B024311B14088000CC1B3 /* ofxSQLiteDelete.cpp in Sources */,
-				CD4B024411B14088000CC1B3 /* ofxSQLiteFieldValues.cpp in Sources */,
-				CD4B024511B14088000CC1B3 /* ofxSQLiteInsert.cpp in Sources */,
-				CD4B024611B14088000CC1B3 /* ofxSQLiteSelect.cpp in Sources */,
-				CD4B024711B14088000CC1B3 /* ofxSQLiteUpdate.cpp in Sources */,
-				CD0375F111B16306008B9FE1 /* databaseHandler.cpp in Sources */,
+				CD372D3A11C8C6DB00744E7F /* dbhandler.cpp in Sources */,
+				CD78071E11CB6E190050AB1D /* cubuButton.cpp in Sources */,
+				CDEE445311CF65A500E436A1 /* fidtrackX.cpp in Sources */,
+				CDEE445411CF65A500E436A1 /* segment.cpp in Sources */,
+				CDEE445511CF65A500E436A1 /* treeidmap.cpp in Sources */,
+				CDEE445611CF65A500E436A1 /* ofxFiducialFinder.cpp in Sources */,
+				CDEE445711CF65A500E436A1 /* ofxFiducialTracker.cpp in Sources */,
+				CDEE445A11CF65A500E436A1 /* ofxCvColorImage.cpp in Sources */,
+				CDEE445B11CF65A500E436A1 /* ofxCvContourFinder.cpp in Sources */,
+				CDEE445C11CF65A500E436A1 /* ofxCvFloatImage.cpp in Sources */,
+				CDEE445D11CF65A500E436A1 /* ofxCvGrayscaleImage.cpp in Sources */,
+				CDEE445E11CF65A500E436A1 /* ofxCvImage.cpp in Sources */,
+				CDEE445F11CF65A500E436A1 /* ofxCvShortImage.cpp in Sources */,
+				CDEE449211CF669B00E436A1 /* sqlite3.c in Sources */,
+				CDEE449311CF669B00E436A1 /* ofxSQLite.cpp in Sources */,
+				CDEE449411CF669B00E436A1 /* ofxSQLiteAbstract.cpp in Sources */,
+				CDEE449511CF669B00E436A1 /* ofxSQLiteDelete.cpp in Sources */,
+				CDEE449611CF669B00E436A1 /* ofxSQLiteFieldValues.cpp in Sources */,
+				CDEE449711CF669B00E436A1 /* ofxSQLiteInsert.cpp in Sources */,
+				CDEE449811CF669B00E436A1 /* ofxSQLiteSelect.cpp in Sources */,
+				CDEE449911CF669B00E436A1 /* ofxSQLiteUpdate.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -903,6 +924,7 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_15)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_7)",
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../libs/freeimage/lib/osx\"";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_14 = "\"$(SRCROOT)/../../../libs/fmodex/lib/osx\"";
@@ -912,6 +934,7 @@
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_4 = "\"$(SRCROOT)/../../../libs/GLee/lib/osx\"";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_5 = "\"$(SRCROOT)/../../../libs/poco/lib/osx\"";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_6 = "\"$(SRCROOT)/../../../libs/rtAudio/lib/osx\"";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_7 = "\"$(SRCROOT)/addons/ofxOpenCv/libs/opencv/lib/osx\"";
 				PREBINDING = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)Universal";
 				WRAPPER_EXTENSION = app;
@@ -1028,6 +1051,7 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_15)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_7)",
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../libs/freeimage/lib/osx\"";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_14 = "\"$(SRCROOT)/../../../libs/fmodex/lib/osx\"";
@@ -1037,6 +1061,7 @@
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_4 = "\"$(SRCROOT)/../../../libs/GLee/lib/osx\"";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_5 = "\"$(SRCROOT)/../../../libs/poco/lib/osx\"";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_6 = "\"$(SRCROOT)/../../../libs/rtAudio/lib/osx\"";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_7 = "\"$(SRCROOT)/addons/ofxOpenCv/libs/opencv/lib/osx\"";
 				PREBINDING = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)Debug";
 				WRAPPER_EXTENSION = app;
@@ -1079,6 +1104,7 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_15)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_7)",
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../libs/freeimage/lib/osx\"";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_14 = "\"$(SRCROOT)/../../../libs/fmodex/lib/osx\"";
@@ -1088,6 +1114,7 @@
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_4 = "\"$(SRCROOT)/../../../libs/GLee/lib/osx\"";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_5 = "\"$(SRCROOT)/../../../libs/poco/lib/osx\"";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_6 = "\"$(SRCROOT)/../../../libs/rtAudio/lib/osx\"";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_7 = "\"$(SRCROOT)/addons/ofxOpenCv/libs/opencv/lib/osx\"";
 				PREBINDING = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
