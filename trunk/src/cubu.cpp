@@ -15,6 +15,7 @@ void cubu::setup(){
 	
 	// 
 	setupGUI();
+	selected_button = -1;
 	
 	//nr and ID of this room: WARNING, HARD CODED!
 	roomNr = 101;
@@ -66,27 +67,8 @@ void cubu::setup(){
 void cubu::setupGUI()
 // prepares the gui to be drawn
 {
-	
-	// gui is a global varialbe from simplegui
-	
-	gui.addPage("empty");
-	gui.setAutoSave(false);
-	
-	gui.addPage("Activities");
-	gui.addButton("OK", button_ok);
-	
-	gui.addPage("Alarm");
-	gui.addButton("CANCEL", button_cancel);
-	
-	gui.addPage("Roomservice");
-	button_towel = false;
-	button_cleanup = false;
-	gui.addButton("Clean Up", button_cleanup);
-	gui.addButton("Towels", button_towel);
-	
-	
 	if(active_side == -1){
-		gui.setPage("empty");
+		//gui.setPage("empty");
 	}
 	
 	else if(active_side == side_fun){
@@ -94,25 +76,29 @@ void cubu::setupGUI()
 	}
 	else if (active_side == side_activities) {
 		// do cool stuff here
-		gui.setPage("Activities");
 	}
 	else if (active_side == side_alarm) {
 		// do cool stuff here
-		gui.setPage("Alarm");
 	}
 	else if (active_side == side_food) {
 		// do cool stuff here
 	}
 	else if (active_side == side_roomservice) {
-		gui.setPage("Roomservice");
+		//gui.setPage("Roomservice");
+		
+		// insert buttons into vector
+		// int value => x position of button
+		buttons.push_back(100);
+		buttons.push_back(300);
 	}
 	else if (active_side == side_temperature) {
 		// do cool stuff here
 	}
 	
-		
-	gui.show();
+	//buttons.push_back(15);
+	
 }
+
 
 //--------------------------------------------------------------
 void cubu::setupDB(){
@@ -344,7 +330,8 @@ void cubu::draw(){
 	ofBackground(126, 169, 203);
 	
 	//draw GUI
-	gui.draw();
+	//gui.draw();
+	drawGUI();
 	
 	//draw font
 	ofSetColor(0x3366aa);
@@ -375,6 +362,28 @@ void cubu::draw(){
 	
 
 }
+//--------------------------------------------------------------
+void cubu::drawGUI(){
+// draws the gui
+	
+	if(active_side == side_roomservice){
+		for(int i = 0; i < buttons.size(); i++){
+			ofFill();
+			if(selected_button == i){
+				ofSetColor(222,20,30);
+				ofRect(buttons.at(i), 200, 100, 40);
+			}
+			else {
+				ofSetColor(146,146,146);
+				ofRect(buttons.at(i), 200, 100, 40);
+			}
+		}
+		
+	}
+	
+	
+}
+
 //--------------------------------------------------------------
 void cubu::drawAlarm() {
 //draw any cool gfx for alarm here

@@ -9,7 +9,6 @@
 #include "ofxFidMain.h"
 #include "ofxSQLiteHeaders.h"
 #include "dbhandler.h"
-#include "ofxSimpleGuiToo.h"
 
 class cubu : public ofBaseApp{
 
@@ -47,6 +46,7 @@ class cubu : public ofBaseApp{
 	
 	void drawAlarm();
 	void setupDB();
+	void drawGUI();
 	
 	void setupGUI();
 	
@@ -54,6 +54,9 @@ private:
 	
 	ofxSQLite* sqlite;
 	dbhandler* database;
+
+	vector <int> buttons;
+	int selected_button;
 	
 	float font_size;
 	
