@@ -15,7 +15,7 @@ void cubu::setup(){
 	
 	// 
 	setupGUI();
-	selected_button = -1;
+	selected_button = 0;
 	
 	//nr and ID of this room: WARNING, HARD CODED!
 	roomNr = 101;
@@ -70,30 +70,37 @@ void cubu::setupGUI()
 	if(active_side == -1){
 		//gui.setPage("empty");
 	}
-	
-	else if(active_side == side_fun){
-		// do cool stuff here
-	}
-	else if (active_side == side_activities) {
-		// do cool stuff here
-	}
-	else if (active_side == side_alarm) {
-		// do cool stuff here
-	}
-	else if (active_side == side_food) {
-		// do cool stuff here
-	}
-	else if (active_side == side_roomservice) {
-		//gui.setPage("Roomservice");
+	else{
 		
-		// insert buttons into vector
-		// int value => x position of button
-		buttons.push_back(100);
-		buttons.push_back(300);
+		//empty the list of buttons
+		buttons.clear();
+		
+		if(active_side == side_fun){
+			// do cool stuff here
+		}
+		else if (active_side == side_activities) {
+			// do cool stuff here
+		}
+		else if (active_side == side_alarm) {
+			// do cool stuff here
+		}
+		else if (active_side == side_food) {
+			// do cool stuff here
+		}
+		else if (active_side == side_roomservice) {
+			//gui.setPage("Roomservice");
+			
+			// insert buttons into vector
+			// int value => x position of button
+			buttons.push_back(100);
+			buttons.push_back(300);
+		}
+		else if (active_side == side_temperature) {
+			// do cool stuff here
+		}
 	}
-	else if (active_side == side_temperature) {
-		// do cool stuff here
-	}
+	
+	
 	
 	//buttons.push_back(15);
 	
@@ -219,7 +226,28 @@ void cubu::update(){
 				stringtodraw = "Marker 6: Temperature Control";
 				active_side = side_temperature;
 			}
+			
+			// update index of selected button
+			//
+			int previous = selected_button;
+			
+			/*
+			if(getRotDirection() == 1){
+				selected_button += 1;
+			}
 				
+			else if (getRotDirection() == -1) {
+				selected_button -= 1;
+			}
+			*/
+			// easier, should work as well
+			selected_button = selected_button + getRotDirection();
+			
+			// revert selection if index exceeds no of buttons
+			if(selected_button < 0 || selected_button > buttons.size()-1)
+				selected_button = previous;
+			
+			//cout << "selected button" << selected_button << endl;
 		}
 		else{
 			stringtodraw = "NO MARKER VISIBLE";
