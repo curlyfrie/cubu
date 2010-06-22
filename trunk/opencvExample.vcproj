@@ -199,7 +199,23 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\DBHandler.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\DBHandler.h"
+				>
+			</File>
+			<File
 				RelativePath=".\src\main.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\Terminal.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\Terminal.h"
 				>
 			</File>
 		</Filter>
