@@ -1,6 +1,5 @@
 #include "cubu.h"
 #include <iostream>
-#include <my_global.h>
 #include <mysql.h>
 
 cubu::cubu()
