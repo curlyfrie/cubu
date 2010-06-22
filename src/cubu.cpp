@@ -1,4 +1,7 @@
 #include "cubu.h"
+#include <iostream>
+#include <my_global.h>
+#include <mysql.h>
 
 cubu::cubu()
 {
@@ -133,6 +136,19 @@ void cubu::setupDB(){
 
 
 }
+
+void cubu::setupMYSQLDB(){
+	
+	
+
+	mysql_init(&mysql);
+	//connection = mysql_real_connect(&mysql,"host","user","password","database",0,0,0);
+	connection = mysql_real_connect(&mysql,"localhost","root","","test",0,0,0);
+	if (connection == NULL) {
+		cout << mysql_error(&mysql) << endl;
+	}
+}
+
 //--------------------------------------------------------------
 void cubu::update(){
 	
