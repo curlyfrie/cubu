@@ -11,7 +11,7 @@
 #include "dbhandler.h"
 
 #include <iostream>
-#if defined (__WIN32__)
+#ifdef _WIN32 || _WIN64
 	#include <my_global.h>
 #endif
 
