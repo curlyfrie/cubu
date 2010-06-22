@@ -1,0 +1,30 @@
+88888888888888888888888888
+88----------------------88
+88------  MYSQL  -------88
+88----------------------88
+88888888888888888888888888
+
+
+----------------------
+XCODE
+----------------------
+ihr müsst die includes, so wie bei visual studio machen.
+
+
+
+----------------------
+VISUAL STUDIO 2008:
+----------------------
+
+[C/C++: General: Additional Include Directories]
+mysql\includes
+
+[Linker: General: Additional Library Directories]]
+mysql\lib\opt
+
+[Linker: Input : Additional Dependencies ]
+wsock32.lib
+mysqlclient.lib
+libmysql.lib
+mysys.lib
+
