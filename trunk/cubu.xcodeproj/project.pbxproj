@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-<<<<<<< .mine
-=======
+		648D41A511D180080079562A /* dbhandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 648D41A111D180080079562A /* dbhandler.cpp */; };
+		648D41A611D180080079562A /* Terminal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 648D41A311D180080079562A /* Terminal.cpp */; };
 		64E426DB11D160C800C76E74 /* libdbug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E426D011D160C800C76E74 /* libdbug.a */; };
 		64E426DC11D160C800C76E74 /* libheap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E426D111D160C800C76E74 /* libheap.a */; };
 		64E426DD11D160C800C76E74 /* libmyisam.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E426D211D160C800C76E74 /* libmyisam.a */; };
@@ -116,8 +116,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-<<<<<<< .mine
-=======
+		648D41A111D180080079562A /* dbhandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = dbhandler.cpp; path = src/dbhandler.cpp; sourceTree = SOURCE_ROOT; };
+		648D41A211D180080079562A /* dbhandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = dbhandler.h; path = src/dbhandler.h; sourceTree = SOURCE_ROOT; };
+		648D41A311D180080079562A /* Terminal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Terminal.cpp; path = src/Terminal.cpp; sourceTree = SOURCE_ROOT; };
+		648D41A411D180080079562A /* Terminal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Terminal.h; path = src/Terminal.h; sourceTree = SOURCE_ROOT; };
 		64E426D011D160C800C76E74 /* libdbug.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libdbug.a; path = mysql/mac/libdbug.a; sourceTree = SOURCE_ROOT; };
 		64E426D111D160C800C76E74 /* libheap.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libheap.a; path = mysql/mac/libheap.a; sourceTree = SOURCE_ROOT; };
 		64E426D211D160C800C76E74 /* libmyisam.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libmyisam.a; path = mysql/mac/libmyisam.a; sourceTree = SOURCE_ROOT; };
@@ -810,6 +812,10 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				648D41A111D180080079562A /* dbhandler.cpp */,
+				648D41A211D180080079562A /* dbhandler.h */,
+				648D41A311D180080079562A /* Terminal.cpp */,
+				648D41A411D180080079562A /* Terminal.h */,
 				CDADB00F11D12E68007A923C /* mysql */,
 				CDEE43CB11CF65A400E436A1 /* addons */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
@@ -1001,6 +1007,8 @@
 				CDEE449711CF669B00E436A1 /* ofxSQLiteInsert.cpp in Sources */,
 				CDEE449811CF669B00E436A1 /* ofxSQLiteSelect.cpp in Sources */,
 				CDEE449911CF669B00E436A1 /* ofxSQLiteUpdate.cpp in Sources */,
+				648D41A511D180080079562A /* dbhandler.cpp in Sources */,
+				648D41A611D180080079562A /* Terminal.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
