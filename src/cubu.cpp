@@ -1,6 +1,5 @@
 #include "cubu.h"
-#include <iostream>
-#include <mysql.h>
+
 
 cubu::cubu()
 {
@@ -64,6 +63,8 @@ void cubu::setup(){
 	grayImage.allocate(320,240);
 	grayBg.allocate(320,240);
 	grayDiff.allocate(320,240);
+
+	setupMYSQLDB();
 }
 //--------------------------------------------------------------
 void cubu::setupGUI()
@@ -142,10 +143,20 @@ void cubu::setupMYSQLDB(){
 
 	mysql_init(&mysql);
 	//connection = mysql_real_connect(&mysql,"host","user","password","database",0,0,0);
-	connection = mysql_real_connect(&mysql,"localhost","root","","test",0,0,0);
+	connection = mysql_real_connect(&mysql,"spanish-jewelry.com","d00e2d6b","9x69rLHnf4K4yQrg","d00e2d6b",0,0,0);
 	if (connection == NULL) {
 		cout << mysql_error(&mysql) << endl;
 	}
+	query_state = mysql_query(connection, "SELECT number FROM room");
+	if (query_state !=0) {
+		cout << mysql_error(connection) << endl;
+	}
+	result = mysql_store_result(connection);
+	while ( ( row = mysql_fetch_row(result)) != NULL ) {
+		cout << row[0] << endl;
+	}
+
+	cout << "mysql initialized" <<endl;
 }
 
 //--------------------------------------------------------------
