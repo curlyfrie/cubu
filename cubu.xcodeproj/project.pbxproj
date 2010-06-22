@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		CD372D3A11C8C6DB00744E7F /* dbhandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD372D3911C8C6DB00744E7F /* dbhandler.cpp */; };
 		CD78071E11CB6E190050AB1D /* cubuButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD78071D11CB6E190050AB1D /* cubuButton.cpp */; };
+		CDADB03C11D12EB6007A923C /* libmysql.lib in Frameworks */ = {isa = PBXBuildFile; fileRef = CDADB03611D12EB6007A923C /* libmysql.lib */; };
+		CDADB03D11D12EB6007A923C /* mysqlclient.lib in Frameworks */ = {isa = PBXBuildFile; fileRef = CDADB03711D12EB6007A923C /* mysqlclient.lib */; };
+		CDADB03E11D12EB6007A923C /* mysys.lib in Frameworks */ = {isa = PBXBuildFile; fileRef = CDADB03811D12EB6007A923C /* mysys.lib */; };
+		CDADB03F11D12EB6007A923C /* regex.lib in Frameworks */ = {isa = PBXBuildFile; fileRef = CDADB03911D12EB6007A923C /* regex.lib */; };
+		CDADB04011D12EB6007A923C /* strings.lib in Frameworks */ = {isa = PBXBuildFile; fileRef = CDADB03A11D12EB6007A923C /* strings.lib */; };
+		CDADB04111D12EB6007A923C /* zlib.lib in Frameworks */ = {isa = PBXBuildFile; fileRef = CDADB03B11D12EB6007A923C /* zlib.lib */; };
 		CDEE445311CF65A500E436A1 /* fidtrackX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDEE43D111CF65A400E436A1 /* fidtrackX.cpp */; };
 		CDEE445411CF65A500E436A1 /* segment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDEE43D411CF65A400E436A1 /* segment.cpp */; };
 		CDEE445511CF65A500E436A1 /* treeidmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDEE43D611CF65A400E436A1 /* treeidmap.cpp */; };
@@ -104,6 +110,45 @@
 		CD372D3911C8C6DB00744E7F /* dbhandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dbhandler.cpp; sourceTree = "<group>"; };
 		CD78071C11CB6E190050AB1D /* cubuButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cubuButton.h; sourceTree = "<group>"; };
 		CD78071D11CB6E190050AB1D /* cubuButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cubuButton.cpp; sourceTree = "<group>"; };
+		CDADB01311D12E9C007A923C /* config-win.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "config-win.h"; sourceTree = "<group>"; };
+		CDADB01411D12E9C007A923C /* decimal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = decimal.h; sourceTree = "<group>"; };
+		CDADB01511D12E9C007A923C /* errmsg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = errmsg.h; sourceTree = "<group>"; };
+		CDADB01611D12E9C007A923C /* keycache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keycache.h; sourceTree = "<group>"; };
+		CDADB01711D12E9C007A923C /* m_ctype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = m_ctype.h; sourceTree = "<group>"; };
+		CDADB01811D12E9C007A923C /* m_string.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = m_string.h; sourceTree = "<group>"; };
+		CDADB01911D12E9C007A923C /* my_alloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_alloc.h; sourceTree = "<group>"; };
+		CDADB01A11D12E9C007A923C /* my_attribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_attribute.h; sourceTree = "<group>"; };
+		CDADB01B11D12E9C007A923C /* my_dbug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_dbug.h; sourceTree = "<group>"; };
+		CDADB01C11D12E9C007A923C /* my_dir.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_dir.h; sourceTree = "<group>"; };
+		CDADB01D11D12E9C007A923C /* my_getopt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_getopt.h; sourceTree = "<group>"; };
+		CDADB01E11D12E9C007A923C /* my_global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_global.h; sourceTree = "<group>"; };
+		CDADB01F11D12E9C007A923C /* my_list.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_list.h; sourceTree = "<group>"; };
+		CDADB02011D12E9C007A923C /* my_net.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_net.h; sourceTree = "<group>"; };
+		CDADB02111D12E9C007A923C /* my_no_pthread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_no_pthread.h; sourceTree = "<group>"; };
+		CDADB02211D12E9C007A923C /* my_pthread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_pthread.h; sourceTree = "<group>"; };
+		CDADB02311D12E9C007A923C /* my_sys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_sys.h; sourceTree = "<group>"; };
+		CDADB02411D12E9C007A923C /* my_xml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_xml.h; sourceTree = "<group>"; };
+		CDADB02611D12E9C007A923C /* plugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = plugin.h; sourceTree = "<group>"; };
+		CDADB02711D12E9C007A923C /* mysql.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mysql.h; sourceTree = "<group>"; };
+		CDADB02811D12E9C007A923C /* mysql_com.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mysql_com.h; sourceTree = "<group>"; };
+		CDADB02911D12E9C007A923C /* mysql_embed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mysql_embed.h; sourceTree = "<group>"; };
+		CDADB02A11D12E9C007A923C /* mysql_time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mysql_time.h; sourceTree = "<group>"; };
+		CDADB02B11D12E9C007A923C /* mysql_version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mysql_version.h; sourceTree = "<group>"; };
+		CDADB02C11D12E9C007A923C /* mysqld_ername.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mysqld_ername.h; sourceTree = "<group>"; };
+		CDADB02D11D12E9C007A923C /* mysqld_error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mysqld_error.h; sourceTree = "<group>"; };
+		CDADB02E11D12E9C007A923C /* sql_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sql_common.h; sourceTree = "<group>"; };
+		CDADB02F11D12E9C007A923C /* sql_state.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sql_state.h; sourceTree = "<group>"; };
+		CDADB03011D12E9C007A923C /* sslopt-case.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "sslopt-case.h"; sourceTree = "<group>"; };
+		CDADB03111D12E9C007A923C /* sslopt-longopts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "sslopt-longopts.h"; sourceTree = "<group>"; };
+		CDADB03211D12E9C007A923C /* sslopt-vars.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "sslopt-vars.h"; sourceTree = "<group>"; };
+		CDADB03311D12E9C007A923C /* typelib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = typelib.h; sourceTree = "<group>"; };
+		CDADB03511D12EB6007A923C /* libmysql.dll */ = {isa = PBXFileReference; lastKnownFileType = file; path = libmysql.dll; sourceTree = "<group>"; };
+		CDADB03611D12EB6007A923C /* libmysql.lib */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmysql.lib; sourceTree = "<group>"; };
+		CDADB03711D12EB6007A923C /* mysqlclient.lib */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = mysqlclient.lib; sourceTree = "<group>"; };
+		CDADB03811D12EB6007A923C /* mysys.lib */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = mysys.lib; sourceTree = "<group>"; };
+		CDADB03911D12EB6007A923C /* regex.lib */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = regex.lib; sourceTree = "<group>"; };
+		CDADB03A11D12EB6007A923C /* strings.lib */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = strings.lib; sourceTree = "<group>"; };
+		CDADB03B11D12EB6007A923C /* zlib.lib */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = zlib.lib; sourceTree = "<group>"; };
 		CDEE43CF11CF65A400E436A1 /* all.trees */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = all.trees; sourceTree = "<group>"; };
 		CDEE43D011CF65A400E436A1 /* default_trees.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = default_trees.h; sourceTree = "<group>"; };
 		CDEE43D111CF65A400E436A1 /* fidtrackX.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fidtrackX.cpp; sourceTree = "<group>"; };
@@ -245,12 +290,90 @@
 				E4C242CD10CC650E004149E2 /* libfmodex.dylib in Frameworks */,
 				E4C246DA10CCAE22004149E2 /* freeimage.a in Frameworks */,
 				CDEE445911CF65A500E436A1 /* openCV.a in Frameworks */,
+				CDADB03C11D12EB6007A923C /* libmysql.lib in Frameworks */,
+				CDADB03D11D12EB6007A923C /* mysqlclient.lib in Frameworks */,
+				CDADB03E11D12EB6007A923C /* mysys.lib in Frameworks */,
+				CDADB03F11D12EB6007A923C /* regex.lib in Frameworks */,
+				CDADB04011D12EB6007A923C /* strings.lib in Frameworks */,
+				CDADB04111D12EB6007A923C /* zlib.lib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CDADB00F11D12E68007A923C /* mysql */ = {
+			isa = PBXGroup;
+			children = (
+				CDADB03411D12EB6007A923C /* opt */,
+				CDADB01211D12E9C007A923C /* include */,
+			);
+			name = mysql;
+			sourceTree = "<group>";
+		};
+		CDADB01211D12E9C007A923C /* include */ = {
+			isa = PBXGroup;
+			children = (
+				CDADB01311D12E9C007A923C /* config-win.h */,
+				CDADB01411D12E9C007A923C /* decimal.h */,
+				CDADB01511D12E9C007A923C /* errmsg.h */,
+				CDADB01611D12E9C007A923C /* keycache.h */,
+				CDADB01711D12E9C007A923C /* m_ctype.h */,
+				CDADB01811D12E9C007A923C /* m_string.h */,
+				CDADB01911D12E9C007A923C /* my_alloc.h */,
+				CDADB01A11D12E9C007A923C /* my_attribute.h */,
+				CDADB01B11D12E9C007A923C /* my_dbug.h */,
+				CDADB01C11D12E9C007A923C /* my_dir.h */,
+				CDADB01D11D12E9C007A923C /* my_getopt.h */,
+				CDADB01E11D12E9C007A923C /* my_global.h */,
+				CDADB01F11D12E9C007A923C /* my_list.h */,
+				CDADB02011D12E9C007A923C /* my_net.h */,
+				CDADB02111D12E9C007A923C /* my_no_pthread.h */,
+				CDADB02211D12E9C007A923C /* my_pthread.h */,
+				CDADB02311D12E9C007A923C /* my_sys.h */,
+				CDADB02411D12E9C007A923C /* my_xml.h */,
+				CDADB02511D12E9C007A923C /* mysql */,
+				CDADB02711D12E9C007A923C /* mysql.h */,
+				CDADB02811D12E9C007A923C /* mysql_com.h */,
+				CDADB02911D12E9C007A923C /* mysql_embed.h */,
+				CDADB02A11D12E9C007A923C /* mysql_time.h */,
+				CDADB02B11D12E9C007A923C /* mysql_version.h */,
+				CDADB02C11D12E9C007A923C /* mysqld_ername.h */,
+				CDADB02D11D12E9C007A923C /* mysqld_error.h */,
+				CDADB02E11D12E9C007A923C /* sql_common.h */,
+				CDADB02F11D12E9C007A923C /* sql_state.h */,
+				CDADB03011D12E9C007A923C /* sslopt-case.h */,
+				CDADB03111D12E9C007A923C /* sslopt-longopts.h */,
+				CDADB03211D12E9C007A923C /* sslopt-vars.h */,
+				CDADB03311D12E9C007A923C /* typelib.h */,
+			);
+			name = include;
+			path = mysql/include;
+			sourceTree = SOURCE_ROOT;
+		};
+		CDADB02511D12E9C007A923C /* mysql */ = {
+			isa = PBXGroup;
+			children = (
+				CDADB02611D12E9C007A923C /* plugin.h */,
+			);
+			path = mysql;
+			sourceTree = "<group>";
+		};
+		CDADB03411D12EB6007A923C /* opt */ = {
+			isa = PBXGroup;
+			children = (
+				CDADB03511D12EB6007A923C /* libmysql.dll */,
+				CDADB03611D12EB6007A923C /* libmysql.lib */,
+				CDADB03711D12EB6007A923C /* mysqlclient.lib */,
+				CDADB03811D12EB6007A923C /* mysys.lib */,
+				CDADB03911D12EB6007A923C /* regex.lib */,
+				CDADB03A11D12EB6007A923C /* strings.lib */,
+				CDADB03B11D12EB6007A923C /* zlib.lib */,
+			);
+			name = opt;
+			path = mysql/lib/opt;
+			sourceTree = SOURCE_ROOT;
+		};
 		CDEE43CB11CF65A400E436A1 /* addons */ = {
 			isa = PBXGroup;
 			children = (
@@ -639,6 +762,7 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				CDADB00F11D12E68007A923C /* mysql */,
 				CDEE43CB11CF65A400E436A1 /* addons */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* cubu.h */,
@@ -880,6 +1004,7 @@
 					../../../libs/poco/include,
 					../../../addons/,
 				);
+				LIBRARY_SEARCH_PATHS = "mysql/opt//**";
 				OTHER_CPLUSPLUSFLAGS = (
 					"-D__MACOSX_CORE__",
 					"-lpthread",
@@ -925,6 +1050,7 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_7)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_8)",
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../libs/freeimage/lib/osx\"";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_14 = "\"$(SRCROOT)/../../../libs/fmodex/lib/osx\"";
@@ -935,6 +1061,7 @@
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_5 = "\"$(SRCROOT)/../../../libs/poco/lib/osx\"";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_6 = "\"$(SRCROOT)/../../../libs/rtAudio/lib/osx\"";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_7 = "\"$(SRCROOT)/addons/ofxOpenCv/libs/opencv/lib/osx\"";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_8 = "\"$(SRCROOT)/mysql/lib/opt\"";
 				PREBINDING = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)Universal";
 				WRAPPER_EXTENSION = app;
@@ -968,6 +1095,7 @@
 					../../../libs/poco/include,
 					../../../addons/,
 				);
+				LIBRARY_SEARCH_PATHS = "mysql/opt//**";
 				OTHER_CPLUSPLUSFLAGS = (
 					"-D__MACOSX_CORE__",
 					"-lpthread",
@@ -1005,6 +1133,7 @@
 					../../../libs/poco/include,
 					../../../addons/,
 				);
+				LIBRARY_SEARCH_PATHS = "mysql/opt//**";
 				OTHER_CPLUSPLUSFLAGS = (
 					"-D__MACOSX_CORE__",
 					"-lpthread",
@@ -1052,6 +1181,7 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_7)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_8)",
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../libs/freeimage/lib/osx\"";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_14 = "\"$(SRCROOT)/../../../libs/fmodex/lib/osx\"";
@@ -1062,6 +1192,7 @@
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_5 = "\"$(SRCROOT)/../../../libs/poco/lib/osx\"";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_6 = "\"$(SRCROOT)/../../../libs/rtAudio/lib/osx\"";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_7 = "\"$(SRCROOT)/addons/ofxOpenCv/libs/opencv/lib/osx\"";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_8 = "\"$(SRCROOT)/mysql/lib/opt\"";
 				PREBINDING = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)Debug";
 				WRAPPER_EXTENSION = app;
@@ -1105,6 +1236,7 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_7)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_8)",
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../libs/freeimage/lib/osx\"";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_14 = "\"$(SRCROOT)/../../../libs/fmodex/lib/osx\"";
@@ -1115,6 +1247,7 @@
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_5 = "\"$(SRCROOT)/../../../libs/poco/lib/osx\"";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_6 = "\"$(SRCROOT)/../../../libs/rtAudio/lib/osx\"";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_7 = "\"$(SRCROOT)/addons/ofxOpenCv/libs/opencv/lib/osx\"";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_8 = "\"$(SRCROOT)/mysql/lib/opt\"";
 				PREBINDING = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

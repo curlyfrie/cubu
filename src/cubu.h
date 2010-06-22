@@ -11,7 +11,10 @@
 #include "dbhandler.h"
 
 #include <iostream>
-#include <my_global.h>
+#if defined (__WIN32__)
+	#include <my_global.h>
+#endif
+
 #include <mysql.h>
 
 class cubu : public ofBaseApp{
