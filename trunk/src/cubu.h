@@ -10,6 +10,10 @@
 #include "ofxSQLiteHeaders.h"
 #include "dbhandler.h"
 
+#include <iostream>
+#include <my_global.h>
+#include <mysql.h>
+
 class cubu : public ofBaseApp{
 
 	public:
@@ -41,6 +45,15 @@ class cubu : public ofBaseApp{
 		ofxCvGrayscaleImage	grayDiff;
 		ofxCvColorImage colorImg;
 		ofxFiducialTracker fidfinder;
+
+		void setupMYSQLDB();
+
+		MYSQL *connection;
+		MYSQL mysql;
+		MYSQL_RES *result;
+		MYSQL_ROW row;
+		int query_state;
+
 	
 	int getRotDirection();
 	
