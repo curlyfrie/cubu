@@ -7,8 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CD372D3A11C8C6DB00744E7F /* dbhandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD372D3911C8C6DB00744E7F /* dbhandler.cpp */; };
-		CD78071E11CB6E190050AB1D /* cubuButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD78071D11CB6E190050AB1D /* cubuButton.cpp */; };
+		64E426DB11D160C800C76E74 /* libdbug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E426D011D160C800C76E74 /* libdbug.a */; };
+		64E426DC11D160C800C76E74 /* libheap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E426D111D160C800C76E74 /* libheap.a */; };
+		64E426DD11D160C800C76E74 /* libmyisam.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E426D211D160C800C76E74 /* libmyisam.a */; };
+		64E426DE11D160C800C76E74 /* libmyisammrg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E426D311D160C800C76E74 /* libmyisammrg.a */; };
+		64E426DF11D160C800C76E74 /* libmysqlclient_r.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E426D411D160C800C76E74 /* libmysqlclient_r.a */; };
+		64E426E011D160C800C76E74 /* libmysqlclient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E426D611D160C800C76E74 /* libmysqlclient.a */; };
+		64E426E111D160C800C76E74 /* libmystrings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E426D811D160C800C76E74 /* libmystrings.a */; };
+		64E426E211D160C800C76E74 /* libmysys.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E426D911D160C800C76E74 /* libmysys.a */; };
+		64E426E311D160C800C76E74 /* libvio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E426DA11D160C800C76E74 /* libvio.a */; };
 		CDADB03C11D12EB6007A923C /* libmysql.lib in Frameworks */ = {isa = PBXBuildFile; fileRef = CDADB03611D12EB6007A923C /* libmysql.lib */; };
 		CDADB03D11D12EB6007A923C /* mysqlclient.lib in Frameworks */ = {isa = PBXBuildFile; fileRef = CDADB03711D12EB6007A923C /* mysqlclient.lib */; };
 		CDADB03E11D12EB6007A923C /* mysys.lib in Frameworks */ = {isa = PBXBuildFile; fileRef = CDADB03811D12EB6007A923C /* mysys.lib */; };
@@ -106,10 +113,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		CD372D3811C8C6DB00744E7F /* dbhandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dbhandler.h; sourceTree = "<group>"; };
-		CD372D3911C8C6DB00744E7F /* dbhandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dbhandler.cpp; sourceTree = "<group>"; };
-		CD78071C11CB6E190050AB1D /* cubuButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cubuButton.h; sourceTree = "<group>"; };
-		CD78071D11CB6E190050AB1D /* cubuButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cubuButton.cpp; sourceTree = "<group>"; };
+		64E426D011D160C800C76E74 /* libdbug.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libdbug.a; path = mysql/mac/libdbug.a; sourceTree = SOURCE_ROOT; };
+		64E426D111D160C800C76E74 /* libheap.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libheap.a; path = mysql/mac/libheap.a; sourceTree = SOURCE_ROOT; };
+		64E426D211D160C800C76E74 /* libmyisam.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libmyisam.a; path = mysql/mac/libmyisam.a; sourceTree = SOURCE_ROOT; };
+		64E426D311D160C800C76E74 /* libmyisammrg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libmyisammrg.a; path = mysql/mac/libmyisammrg.a; sourceTree = SOURCE_ROOT; };
+		64E426D411D160C800C76E74 /* libmysqlclient_r.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libmysqlclient_r.a; path = mysql/mac/libmysqlclient_r.a; sourceTree = SOURCE_ROOT; };
+		64E426D511D160C800C76E74 /* libmysqlclient_r.la */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = libmysqlclient_r.la; path = mysql/mac/libmysqlclient_r.la; sourceTree = SOURCE_ROOT; };
+		64E426D611D160C800C76E74 /* libmysqlclient.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libmysqlclient.a; path = mysql/mac/libmysqlclient.a; sourceTree = SOURCE_ROOT; };
+		64E426D711D160C800C76E74 /* libmysqlclient.la */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = libmysqlclient.la; path = mysql/mac/libmysqlclient.la; sourceTree = SOURCE_ROOT; };
+		64E426D811D160C800C76E74 /* libmystrings.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libmystrings.a; path = mysql/mac/libmystrings.a; sourceTree = SOURCE_ROOT; };
+		64E426D911D160C800C76E74 /* libmysys.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libmysys.a; path = mysql/mac/libmysys.a; sourceTree = SOURCE_ROOT; };
+		64E426DA11D160C800C76E74 /* libvio.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvio.a; path = mysql/mac/libvio.a; sourceTree = SOURCE_ROOT; };
 		CDADB01311D12E9C007A923C /* config-win.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "config-win.h"; sourceTree = "<group>"; };
 		CDADB01411D12E9C007A923C /* decimal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = decimal.h; sourceTree = "<group>"; };
 		CDADB01511D12E9C007A923C /* errmsg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = errmsg.h; sourceTree = "<group>"; };
@@ -240,7 +254,7 @@
 		E45BE9770E8CC7DD009D7055 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = /System/Library/Frameworks/CoreServices.framework; sourceTree = "<absolute>"; };
 		E45BE9790E8CC7DD009D7055 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
 		E45BE97A0E8CC7DD009D7055 /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = /System/Library/Frameworks/QuickTime.framework; sourceTree = "<absolute>"; };
-		E4B69B5B0A3A1756003C02F2 /* Cubu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cubu.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4B69B5B0A3A1756003C02F2 /* CubuDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CubuDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4B69E1D0A3A1BDC003C02F2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
 		E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; path = cubu.cpp; sourceTree = "<group>"; };
 		E4B69E1F0A3A1BDC003C02F2 /* cubu.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = cubu.h; sourceTree = "<group>"; };
@@ -296,15 +310,43 @@
 				CDADB03F11D12EB6007A923C /* regex.lib in Frameworks */,
 				CDADB04011D12EB6007A923C /* strings.lib in Frameworks */,
 				CDADB04111D12EB6007A923C /* zlib.lib in Frameworks */,
+				64E426DB11D160C800C76E74 /* libdbug.a in Frameworks */,
+				64E426DC11D160C800C76E74 /* libheap.a in Frameworks */,
+				64E426DD11D160C800C76E74 /* libmyisam.a in Frameworks */,
+				64E426DE11D160C800C76E74 /* libmyisammrg.a in Frameworks */,
+				64E426DF11D160C800C76E74 /* libmysqlclient_r.a in Frameworks */,
+				64E426E011D160C800C76E74 /* libmysqlclient.a in Frameworks */,
+				64E426E111D160C800C76E74 /* libmystrings.a in Frameworks */,
+				64E426E211D160C800C76E74 /* libmysys.a in Frameworks */,
+				64E426E311D160C800C76E74 /* libvio.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		64E426CF11D160AF00C76E74 /* mac */ = {
+			isa = PBXGroup;
+			children = (
+				64E426D011D160C800C76E74 /* libdbug.a */,
+				64E426D111D160C800C76E74 /* libheap.a */,
+				64E426D211D160C800C76E74 /* libmyisam.a */,
+				64E426D311D160C800C76E74 /* libmyisammrg.a */,
+				64E426D411D160C800C76E74 /* libmysqlclient_r.a */,
+				64E426D511D160C800C76E74 /* libmysqlclient_r.la */,
+				64E426D611D160C800C76E74 /* libmysqlclient.a */,
+				64E426D711D160C800C76E74 /* libmysqlclient.la */,
+				64E426D811D160C800C76E74 /* libmystrings.a */,
+				64E426D911D160C800C76E74 /* libmysys.a */,
+				64E426DA11D160C800C76E74 /* libvio.a */,
+			);
+			name = mac;
+			sourceTree = "<group>";
+		};
 		CDADB00F11D12E68007A923C /* mysql */ = {
 			isa = PBXGroup;
 			children = (
+				64E426CF11D160AF00C76E74 /* mac */,
 				CDADB03411D12EB6007A923C /* opt */,
 				CDADB01211D12E9C007A923C /* include */,
 			);
@@ -751,7 +793,7 @@
 		E4B69B4A0A3A1720003C02F2 = {
 			isa = PBXGroup;
 			children = (
-				E4B69B5B0A3A1756003C02F2 /* Cubu.app */,
+				E4B69B5B0A3A1756003C02F2 /* CubuDebug.app */,
 				E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */,
 				E4B69E1C0A3A1BDC003C02F2 /* src */,
 				E4C2422310CC54B6004149E2 /* openFrameworks */,
@@ -767,10 +809,6 @@
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* cubu.h */,
 				E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */,
-				CD372D3811C8C6DB00744E7F /* dbhandler.h */,
-				CD372D3911C8C6DB00744E7F /* dbhandler.cpp */,
-				CD78071C11CB6E190050AB1D /* cubuButton.h */,
-				CD78071D11CB6E190050AB1D /* cubuButton.cpp */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -878,7 +916,7 @@
 			);
 			name = Cubu;
 			productName = myOFApp;
-			productReference = E4B69B5B0A3A1756003C02F2 /* Cubu.app */;
+			productReference = E4B69B5B0A3A1756003C02F2 /* CubuDebug.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -938,8 +976,6 @@
 			files = (
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* cubu.cpp in Sources */,
-				CD372D3A11C8C6DB00744E7F /* dbhandler.cpp in Sources */,
-				CD78071E11CB6E190050AB1D /* cubuButton.cpp in Sources */,
 				CDEE445311CF65A500E436A1 /* fidtrackX.cpp in Sources */,
 				CDEE445411CF65A500E436A1 /* segment.cpp in Sources */,
 				CDEE445511CF65A500E436A1 /* treeidmap.cpp in Sources */,
@@ -1051,6 +1087,7 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_7)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_8)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_9)",
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../libs/freeimage/lib/osx\"";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_14 = "\"$(SRCROOT)/../../../libs/fmodex/lib/osx\"";
@@ -1062,6 +1099,7 @@
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_6 = "\"$(SRCROOT)/../../../libs/rtAudio/lib/osx\"";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_7 = "\"$(SRCROOT)/addons/ofxOpenCv/libs/opencv/lib/osx\"";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_8 = "\"$(SRCROOT)/mysql/lib/opt\"";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_9 = "\"$(SRCROOT)/mysql/mac\"";
 				PREBINDING = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)Universal";
 				WRAPPER_EXTENSION = app;
@@ -1095,12 +1133,16 @@
 					../../../libs/poco/include,
 					../../../addons/,
 				);
-				LIBRARY_SEARCH_PATHS = "mysql/opt//**";
+				LIBRARY_SEARCH_PATHS = (
+					"mysql/lib/opt//**",
+					mysql/mac,
+				);
 				OTHER_CPLUSPLUSFLAGS = (
 					"-D__MACOSX_CORE__",
 					"-lpthread",
 				);
 				OTHER_LDFLAGS = "";
+				PRELINK_LIBS = "wsock32.lib mysqlclient.lib mysys.lib libmysql.lib";
 				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
 			};
 			name = Debug;
@@ -1182,6 +1224,7 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_7)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_8)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_9)",
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../libs/freeimage/lib/osx\"";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_14 = "\"$(SRCROOT)/../../../libs/fmodex/lib/osx\"";
@@ -1193,6 +1236,7 @@
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_6 = "\"$(SRCROOT)/../../../libs/rtAudio/lib/osx\"";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_7 = "\"$(SRCROOT)/addons/ofxOpenCv/libs/opencv/lib/osx\"";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_8 = "\"$(SRCROOT)/mysql/lib/opt\"";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_9 = "\"$(SRCROOT)/mysql/mac\"";
 				PREBINDING = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)Debug";
 				WRAPPER_EXTENSION = app;
@@ -1237,6 +1281,7 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_7)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_8)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_9)",
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../libs/freeimage/lib/osx\"";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_14 = "\"$(SRCROOT)/../../../libs/fmodex/lib/osx\"";
@@ -1248,6 +1293,7 @@
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_6 = "\"$(SRCROOT)/../../../libs/rtAudio/lib/osx\"";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_7 = "\"$(SRCROOT)/addons/ofxOpenCv/libs/opencv/lib/osx\"";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_8 = "\"$(SRCROOT)/mysql/lib/opt\"";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_9 = "\"$(SRCROOT)/mysql/mac\"";
 				PREBINDING = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

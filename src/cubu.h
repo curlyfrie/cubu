@@ -8,7 +8,6 @@
 #include "ofxCvMain.h"
 #include "ofxFidMain.h"
 #include "ofxSQLiteHeaders.h"
-#include "dbhandler.h"
 
 #include <iostream>
 #ifdef _WIN32 || _WIN64
@@ -69,7 +68,6 @@ class cubu : public ofBaseApp{
 private:
 	
 	ofxSQLite* sqlite;
-	dbhandler* database;
 
 	vector <int> buttons;
 	int selected_button;
