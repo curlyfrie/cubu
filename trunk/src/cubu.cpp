@@ -57,6 +57,8 @@ void cubu::setup(){
 	
 	
 	// setup fiducials
+	vidGrabber.listDevices();
+	//vidGrabber.setDeviceID(<#int _deviceID#>);
 	vidGrabber.setVerbose(true);
 	vidGrabber.initGrabber(320,240);
 	colorImg.allocate(320,240);
@@ -114,9 +116,9 @@ void cubu::setupGUI()
 void cubu::setupDB(){
 //establish connection do database
 	
-	sqlite = new ofxSQLite("cubu.db");
+	sqlite = new ofxSQLite("cubu2.sqlite");
 	
-	cout << "creating table...";	
+	/*cout << "creating table...";	
 	if (SQLITE_OK != sqlite->simpleQuery(""\
 			"CREATE TABLE IF NOT EXISTS room( " \
 				" id INTEGER PRIMARY KEY AUTOINCREMENT" \
@@ -130,19 +132,18 @@ void cubu::setupDB(){
 	}
 	else
 		cout << "...successful" << endl;
-
+*/
+	//convert time to timestamp
 	// insert this client
-	sqlite->insert("room").use("number",ofToString(roomNr)).use("alarm_hour","1").use("alarm_minute","1").use("alarm_set","FALSE").execute();
+	sqlite->insert("alert").use("terminal_id",ofToString(roomNr)).use("time","00:00:00").use("aktiv","FALSE").execute();
 
 
 }
 
 void cubu::setupMYSQLDB(){
-	
-	
+		
 
-	mysql_init(&mysql);
-	//connection = mysql_real_connect(&mysql,"host","user","password","database",0,0,0);
+	mysql_init(&mysql);	//connection = mysql_real_connect(&mysql,"host","user","password","database",0,0,0);
 	connection = mysql_real_connect(&mysql,"spanish-jewelry.com","d00e2d6b","9x69rLHnf4K4yQrg","d00e2d6b",0,0,0);
 	if (connection == NULL) {
 		cout << mysql_error(&mysql) << endl;
