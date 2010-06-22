@@ -8,13 +8,9 @@
 #include "ofxCvMain.h"
 #include "ofxFidMain.h"
 #include "ofxSQLiteHeaders.h"
+#include "DBHandler.h"
 
-#include <iostream>
-#ifdef _WIN32 || _WIN64
-	#include <my_global.h>
-#endif
 
-#include <mysql.h>
 
 class cubu : public ofBaseApp{
 
@@ -48,13 +44,11 @@ class cubu : public ofBaseApp{
 		ofxCvColorImage colorImg;
 		ofxFiducialTracker fidfinder;
 
+		
+		DBHandler * dbhandler;
 		void setupMYSQLDB();
 
-		MYSQL *connection;
-		MYSQL mysql;
-		MYSQL_RES *result;
-		MYSQL_ROW row;
-		int query_state;
+
 
 	
 	int getRotDirection();

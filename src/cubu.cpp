@@ -142,22 +142,8 @@ void cubu::setupDB(){
 
 void cubu::setupMYSQLDB(){
 		
-
-	mysql_init(&mysql);	//connection = mysql_real_connect(&mysql,"host","user","password","database",0,0,0);
-	connection = mysql_real_connect(&mysql,"spanish-jewelry.com","d00e2d6b","9x69rLHnf4K4yQrg","d00e2d6b",0,0,0);
-	if (connection == NULL) {
-		cout << mysql_error(&mysql) << endl;
-	}
-	query_state = mysql_query(connection, "SELECT terminal_id FROM terminal");
-	if (query_state !=0) {
-		cout << mysql_error(connection) << endl;
-	}
-	result = mysql_store_result(connection);
-	while ( ( row = mysql_fetch_row(result)) != NULL ) {
-		cout << row[0] << endl;
-	}
-
-	cout << "mysql initialized" <<endl;
+	dbhandler = new DBHandler();
+	dbhandler->getTerminals();
 }
 
 //--------------------------------------------------------------

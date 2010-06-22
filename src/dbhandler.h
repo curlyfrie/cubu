@@ -2,15 +2,27 @@
  db handler should interact with database
  */
 
+#include "ofMain.h"
+#include <iostream>
+#ifdef _WIN32 || _WIN64
+	#include <my_global.h>
+#endif
 
-#include "ofxSQLiteHeaders.h";
+#include <mysql.h>
+#include "Terminal.h"
 
-class dbhandler {
+class DBHandler {
 
 public:
-	dbhandler();
-	~dbhandler();
+	DBHandler();
+	~DBHandler();
+	void  getTerminals();
 private:
-	ofxSQLite* sqlite;
+	MYSQL *connection;
+	MYSQL mysql;
+	MYSQL_RES *result;
+	MYSQL_ROW row;
+	int query_state;
 
+	
 };
