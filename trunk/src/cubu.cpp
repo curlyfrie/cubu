@@ -147,7 +147,7 @@ void cubu::setupMYSQLDB(){
 	if (connection == NULL) {
 		cout << mysql_error(&mysql) << endl;
 	}
-	query_state = mysql_query(connection, "SELECT number FROM room");
+	query_state = mysql_query(connection, "SELECT terminal_id FROM terminal");
 	if (query_state !=0) {
 		cout << mysql_error(connection) << endl;
 	}
