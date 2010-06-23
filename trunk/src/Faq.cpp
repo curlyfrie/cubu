@@ -22,3 +22,14 @@ Faq::Faq(int _id, std::string _question, std::string _answer)
 void Faq::printFaq(){
 	std::cout << question;
 }
+
+std::string Faq::getQuestion(){
+	return question;
+}
+
+std::string Faq::getAnswer(){
+	return answer;
+}
+int Faq::getId(){
+	return id;
+}
