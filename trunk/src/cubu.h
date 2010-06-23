@@ -105,8 +105,8 @@ private:
 	bool button_towel;
 		
 	vector<Faq*> faqs;
-	vector<Kunde*> kunden;
-	//map<int, Kunde*> kunden; 
+	map <int, Kunde*> kunden;
+
 
 
 

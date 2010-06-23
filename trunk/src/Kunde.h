@@ -28,7 +28,7 @@ public:
 	std::string getAdresse();
 	std::string getKreditkartennummer();
 	int getId();
-	
+	void printKunde();
 	~Kunde();
 	
 	
