@@ -11,6 +11,9 @@
 #include <mysql.h>
 #include "Terminal.h"
 #include "Faq.h"
+#include "Kunde.h"
+#include "Speise.h"
+#include "Service.h"
 
 class DBHandler {
 
@@ -19,6 +22,8 @@ public:
 	~DBHandler();
 	void  getTerminals();
 	vector<Faq*> getFaqs();
+	vector<Kunde*> getKunden2();
+	map<int, Kunde*> getKunden();
 	void deleteFaq(int id);
 	void printFaqs();
 private:

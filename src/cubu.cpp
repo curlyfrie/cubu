@@ -141,6 +141,7 @@ void cubu::setupMYSQLDB(){
 	dbhandler = new DBHandler();
 	dbhandler->getTerminals();
 	faqs  = dbhandler->getFaqs();
+	kunden = dbhandler->getKunden2();
 	
 }
 
@@ -398,7 +399,8 @@ void cubu::drawGUI(){
 void cubu::drawFaq(){
 	for(int i = 0; i < faqs.size(); i++)
 	{
-		franklinBook.drawString(faqs.at(i)->getQuestion(), 100,350);
+		franklinBook.drawString(faqs.at(i)->getQuestion(), 100,100 + i *100);
+		franklinBook.drawString(faqs.at(i)->getAnswer(), 150,150 + i *100);
 
 	}
 	

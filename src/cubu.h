@@ -11,6 +11,8 @@
 #include "DBHandler.h"
 #include "CubuButton.h" 
 
+
+
 class cubu : public ofBaseApp{
 
 	public:
@@ -101,8 +103,12 @@ private:
 	bool button_cancel;
 	bool button_cleanup;
 	bool button_towel;
+		
 	vector<Faq*> faqs;
-	
+	vector<Kunde*> kunden;
+	//map<int, Kunde*> kunden; 
+
+
 
 };
 

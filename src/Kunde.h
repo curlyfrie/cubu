@@ -7,8 +7,6 @@
  *
  */
 
-
-
 #include <iostream>
 
 class Kunde {
