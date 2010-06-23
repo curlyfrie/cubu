@@ -20,6 +20,10 @@ public:
 
 	Faq(int id, std::string question, std::string answer);
 	void printFaq();
+	std::string getQuestion();
+	std::string getAnswer();
+	int getId();
+	
 	~Faq();
 	
 	
