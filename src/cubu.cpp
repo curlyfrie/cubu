@@ -140,7 +140,7 @@ void cubu::setupMYSQLDB(){
 		
 	dbhandler = new DBHandler();
 	dbhandler->getTerminals();
-	dbhandler->getFaqs();
+	faqs  = dbhandler->getFaqs();
 	
 }
 
@@ -340,6 +340,7 @@ int cubu::getRotDirection()
 }
 //--------------------------------------------------------------
 void cubu::draw(){
+	drawFaq();
 
 	//set Background Color
 	ofBackground(126, 169, 203);
@@ -390,6 +391,15 @@ void cubu::drawGUI(){
 		else
 			ofSetColor(105,105,105);
 		ofRect(currentbutton->x, currentbutton->y, currentbutton->width, currentbutton->height);
+	}
+	
+}
+
+void cubu::drawFaq(){
+	for(int i = 0; i < faqs.size(); i++)
+	{
+		franklinBook.drawString(faqs.at(i)->getQuestion(), 100,350);
+
 	}
 	
 }

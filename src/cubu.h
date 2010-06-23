@@ -55,6 +55,7 @@ class cubu : public ofBaseApp{
 	void drawAlarm();
 	void setupDB();
 	void drawGUI();
+	void drawFaq();
 	
 	void setupGUI();
 	
@@ -100,6 +101,8 @@ private:
 	bool button_cancel;
 	bool button_cleanup;
 	bool button_towel;
+	vector<Faq*> faqs;
+	
 
 };
 
