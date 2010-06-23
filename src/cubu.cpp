@@ -143,10 +143,6 @@ void cubu::setupMYSQLDB(){
 	faqs  = dbhandler->getFaqs();
 	kunden = dbhandler->getKunden2();
 	
-	for(map <int, Kunde*>::iterator it = kunden.begin();it!=kunden.end(); ++it)
-	{
-		cout << "ID " << it->first;
-	}
 }
 
 //--------------------------------------------------------------
@@ -345,6 +341,19 @@ int cubu::getRotDirection()
 }
 //--------------------------------------------------------------
 void cubu::draw(){
+	
+	//test : get kunde with id 1
+	map <int, Kunde*>::iterator it = 	kunden.find(1);
+	Kunde * k = it->second;
+	franklinBook.drawString(k->getVorname() + " " + k->getNachname(), 10,20);
+	
+	/*
+	 for(map <int, Kunde*>::iterator it = kunden.begin();it!=kunden.end(); ++it)
+	 {
+	 cout << "ID " << it->first << it->second->getVorname();
+	 }*/
+
+	
 	drawFaq();
 
 	//set Background Color
