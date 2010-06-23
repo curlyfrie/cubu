@@ -8,6 +8,7 @@
  */
 
 #include <iostream>
+#include <string>
 
 class Kunde {
 	
