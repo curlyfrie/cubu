@@ -116,13 +116,132 @@ vector<Faq*> DBHandler::getFaqs() {
 		faqs.push_back(faq);
 		
 	}
-
+	
 	mysql_free_result(result);
 	return faqs;	
-
+	
 	
 	
 }
+vector<Kunde*> DBHandler::getKunden2() {
+	query_state = mysql_query(connection, "SELECT * FROM kunde");
+	if (query_state !=0) {
+		cout << mysql_error(connection) << endl;
+	}
+	vector <Kunde*> kunden; 
+	unsigned int num_fields;
+	unsigned int i;
+	
+	result = mysql_store_result(connection);
+	
+	num_fields = mysql_num_fields(result);
+	while ( ( row = mysql_fetch_row(result)) ) {
+		unsigned long *lengths;
+		lengths = mysql_fetch_lengths(result);
+		int id;
+		std::string vorname;
+		std::string nachname;
+		std::string adresse;
+		std::string kreditkartennummer;
+		
+		for( i = 0; i < num_fields; i++)
+		{
+			if(i== 0)
+				id = (int)row[i];
+			
+			if(i== 1)
+				vorname = row[i];
+			
+			if(i== 2)
+				nachname = row[i];
+			if(i== 3)
+				adresse = row[i];
+			if(i== 4)
+				kreditkartennummer = row[i];
+			
+			
+			printf("[%.*s] ", (int) lengths[i],
+				   row[i] ? row[i] : "NULL");
+		}
+		
+		 Kunde  * kunde = new Kunde(id, vorname, nachname, adresse, kreditkartennummer);
+		
+		printf("\n");
+		
+		kunden.push_back(kunde);
+		
+	}
+	
+	mysql_free_result(result);
+	return kunden;	
+	
+	
+	
+}
+
+map <int, Kunde*> DBHandler::getKunden() {
+	
+	query_state = mysql_query(connection, "SELECT * FROM kunden");
+	if (query_state !=0) {
+		cout << mysql_error(connection) << endl;
+	}
+	map <int, Kunde*> kunden;
+
+	unsigned int num_fields;
+	unsigned int i;
+	
+	result = mysql_store_result(connection);
+	
+	num_fields = mysql_num_fields(result);
+/*<
+	while ( ( row = mysql_fetch_row(result)) ) {
+		unsigned long *lengths;
+		lengths = mysql_fetch_lengths(result);
+		int id;
+		std::string vorname;
+		std::string nachname;
+		std::string adresse;
+		std::string kreditkartennummer;
+
+		
+		for( i = 0; i < num_fields; i++)
+		{
+			if(i== 0)
+				id = (int)row[i];
+			
+			if(i== 1)
+				vorname = row[i];
+			
+			if(i== 2)
+				nachname = row[i];
+			if(i== 3)
+				adresse = row[i];
+			if(i== 4)
+				kreditkartennummer = row[i];
+			
+			
+			printf("[%.*s] ", (int) lengths[i],
+				   row[i] ? row[i] : "NULL");
+		}
+		/*Kunde  * kunde = new Kunde(id, vorname, nachname, adresse, "test");
+		printf("\n");
+
+		map<int,Kunde>::iterator iter;
+
+		kunden.insert(make_pair(id, kunde));
+	
+		
+	}
+*/	
+//	mysql_free_result(result);
+	return kunden;	
+	
+	
+	
+}
+
+
+
 
 void DBHandler::getTerminals() {
 	query_state = mysql_query(connection, "SELECT * FROM terminal");
