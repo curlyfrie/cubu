@@ -1,6 +1,5 @@
 #include "cubu.h"
 
-
 cubu::cubu()
 {
 	//setup() seems to be enough
@@ -49,11 +48,11 @@ void cubu::setup(){
 	// define threshold to find fiducial
 	fiducial_threshold =135;
 	
-	// define font size
-	font_size = 20.0f;
+	// set fontsize
+	font_size = 32;
 	
 	// load font
-	franklinBook.loadFont("frabk.ttf",32);
+	franklinBook.loadFont("frabk.ttf",font_size);
 	
 	
 	// setup fiducials
@@ -93,18 +92,15 @@ void cubu::setupGUI()
 			// do cool stuff here
 		}
 		else if (active_side == side_roomservice) {
-			//gui.setPage("Roomservice");
 			
 			// insert buttons into vector
-			// int value => x position of button
-			buttons.push_back(100);
-			buttons.push_back(300);
+			buttons.push_back(new cubuButton(100,200));
+			buttons.push_back(new cubuButton(300,200));
 		}
 		else if (active_side == side_temperature) {
 			// do cool stuff here
 		}
 	}
-	
 	
 	
 	//buttons.push_back(15);
@@ -150,23 +146,8 @@ void cubu::setupMYSQLDB(){
 
 //--------------------------------------------------------------
 void cubu::update(){
-	
-	//WARNING: DEBUGGING OF DB ONLY!!!!
-	// BROKEN! UPDATE FIELDS!!
-	/*
-		cout << "selecting from DB...";
-		ofxSQLiteSelect sel = sqlite->select("number,alarm").from("room");
-		sel.execute().begin();
-		while(sel.hasNext()) {
-			int number = sel.getInt();
-			int alarm = sel.getInt();
-			cout << "number: " << number << " alarm: " << alarm << endl;
-			sel.next();
-		}
-		cout << "done" << endl;
-	 */
-	//END OF DEBUGGING SECTION
-	
+
+	// updateGUI
 	setupGUI();
 	
 	//ofBackground(255, 255, 255);
@@ -243,24 +224,15 @@ void cubu::update(){
 			}
 			
 			// update index of selected button
-			//
 			int previous = selected_button;
-			
-			/*
-			if(getRotDirection() == 1){
-				selected_button += 1;
-			}
-				
-			else if (getRotDirection() == -1) {
-				selected_button -= 1;
-			}
-			*/
-			// easier, should work as well
 			selected_button = selected_button + getRotDirection();
+			
 			
 			// revert selection if index exceeds no of buttons
 			if(selected_button < 0 || selected_button > buttons.size()-1)
 				selected_button = previous;
+			
+			buttons.at(selected_button)->select(true);
 			
 			//cout << "selected button" << selected_button << endl;
 		}
@@ -409,21 +381,16 @@ void cubu::draw(){
 void cubu::drawGUI(){
 // draws the gui
 	
-	if(active_side == side_roomservice){
-		for(int i = 0; i < buttons.size(); i++){
-			ofFill();
-			if(selected_button == i){
-				ofSetColor(222,20,30);
-				ofRect(buttons.at(i), 200, 100, 40);
-			}
-			else {
-				ofSetColor(146,146,146);
-				ofRect(buttons.at(i), 200, 100, 40);
-			}
-		}
-		
+	cubuButton* currentbutton;
+	for(int i = 0; i < buttons.size(); i++){
+		currentbutton = buttons.at(i);
+		ofFill();
+		if(currentbutton->selected)
+			ofSetColor(238,0,0);
+		else
+			ofSetColor(105,105,105);
+		ofRect(currentbutton->x, currentbutton->y, currentbutton->width, currentbutton->height);
 	}
-	
 	
 }
 

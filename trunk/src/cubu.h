@@ -9,8 +9,7 @@
 #include "ofxFidMain.h"
 #include "ofxSQLiteHeaders.h"
 #include "DBHandler.h"
-
-
+#include "CubuButton.h" 
 
 class cubu : public ofBaseApp{
 
@@ -63,9 +62,8 @@ private:
 	
 	ofxSQLite* sqlite;
 
-	vector <int> buttons;
 	int selected_button;
-	vector<string> buttons2;
+	vector<cubuButton*> buttons;
 	
 	float font_size;
 	
