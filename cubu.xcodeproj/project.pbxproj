@@ -19,6 +19,7 @@
 		64E426E211D160C800C76E74 /* libmysys.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E426D911D160C800C76E74 /* libmysys.a */; };
 		64E426E311D160C800C76E74 /* libvio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E426DA11D160C800C76E74 /* libvio.a */; };
 		B7C1815611D1EF6B00E8AF29 /* Faq.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7C1815511D1EF6B00E8AF29 /* Faq.cpp */; };
+		CD78221411D20C7C00F85BFA /* cubuButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD78221311D20C7C00F85BFA /* cubuButton.cpp */; };
 		CDADB03C11D12EB6007A923C /* libmysql.lib in Frameworks */ = {isa = PBXBuildFile; fileRef = CDADB03611D12EB6007A923C /* libmysql.lib */; };
 		CDADB03D11D12EB6007A923C /* mysqlclient.lib in Frameworks */ = {isa = PBXBuildFile; fileRef = CDADB03711D12EB6007A923C /* mysqlclient.lib */; };
 		CDADB03E11D12EB6007A923C /* mysys.lib in Frameworks */ = {isa = PBXBuildFile; fileRef = CDADB03811D12EB6007A923C /* mysys.lib */; };
@@ -133,6 +134,8 @@
 		64E426DA11D160C800C76E74 /* libvio.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvio.a; path = mysql/mac/libvio.a; sourceTree = SOURCE_ROOT; };
 		B7C1815411D1EF6B00E8AF29 /* Faq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Faq.h; sourceTree = "<group>"; };
 		B7C1815511D1EF6B00E8AF29 /* Faq.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Faq.cpp; sourceTree = "<group>"; };
+		CD78221211D20C7C00F85BFA /* cubuButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cubuButton.h; sourceTree = "<group>"; };
+		CD78221311D20C7C00F85BFA /* cubuButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cubuButton.cpp; sourceTree = "<group>"; };
 		CDADB01311D12E9C007A923C /* config-win.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "config-win.h"; sourceTree = "<group>"; };
 		CDADB01411D12E9C007A923C /* decimal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = decimal.h; sourceTree = "<group>"; };
 		CDADB01511D12E9C007A923C /* errmsg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = errmsg.h; sourceTree = "<group>"; };
@@ -263,7 +266,7 @@
 		E45BE9770E8CC7DD009D7055 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = /System/Library/Frameworks/CoreServices.framework; sourceTree = "<absolute>"; };
 		E45BE9790E8CC7DD009D7055 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
 		E45BE97A0E8CC7DD009D7055 /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = /System/Library/Frameworks/QuickTime.framework; sourceTree = "<absolute>"; };
-		E4B69B5B0A3A1756003C02F2 /* CubuDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CubuDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4B69B5B0A3A1756003C02F2 /* Cubu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cubu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4B69E1D0A3A1BDC003C02F2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
 		E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; path = cubu.cpp; sourceTree = "<group>"; };
 		E4B69E1F0A3A1BDC003C02F2 /* cubu.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = cubu.h; sourceTree = "<group>"; };
@@ -802,7 +805,7 @@
 		E4B69B4A0A3A1720003C02F2 = {
 			isa = PBXGroup;
 			children = (
-				E4B69B5B0A3A1756003C02F2 /* CubuDebug.app */,
+				E4B69B5B0A3A1756003C02F2 /* Cubu.app */,
 				E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */,
 				E4B69E1C0A3A1BDC003C02F2 /* src */,
 				E4C2422310CC54B6004149E2 /* openFrameworks */,
@@ -813,6 +816,8 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				CD78221211D20C7C00F85BFA /* cubuButton.h */,
+				CD78221311D20C7C00F85BFA /* cubuButton.cpp */,
 				648D421711D1822E0079562A /* dbhandler.cpp */,
 				648D421811D1822E0079562A /* dbhandler.h */,
 				648D421911D1822E0079562A /* Terminal.cpp */,
@@ -931,7 +936,7 @@
 			);
 			name = Cubu;
 			productName = myOFApp;
-			productReference = E4B69B5B0A3A1756003C02F2 /* CubuDebug.app */;
+			productReference = E4B69B5B0A3A1756003C02F2 /* Cubu.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1013,6 +1018,7 @@
 				648D421B11D1822E0079562A /* dbhandler.cpp in Sources */,
 				648D421C11D1822E0079562A /* Terminal.cpp in Sources */,
 				B7C1815611D1EF6B00E8AF29 /* Faq.cpp in Sources */,
+				CD78221411D20C7C00F85BFA /* cubuButton.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

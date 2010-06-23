@@ -1,53 +1,38 @@
 /*
- *  cubuButton.cpp
+ *  CubuButton.cpp
  *  cubu
  *
- *  Created by Patrick Stipsits on 18.06.10.
+ *  Created by Patrick Stipsits on 23.06.10.
  *  Copyright 2010 __MyCompanyName__. All rights reserved.
  *
  */
 
 #include "cubuButton.h"
 
-cubuButton::cubuButton()
-{
-	id = -1;
+cubuButton::cubuButton(){
 	
-	x = 1;
-	y = 1;
+	x = 0;
+	y = 0;
 	
-	// set color of button
-	//	color.a = 1;
-	color.r = 123;
-	color.g = 123;
-	color.b = 123;
-	
-	// set shape of button
-	shape = ofRectangle::ofRectangle();
-	shape.width = 100;
-	shape.height = 40;
-	
+	setDefaultValues();
 }
 
-
-cubuButton::cubuButton(int px, int py)
-{
-	id = -1;
+cubuButton::cubuButton(int px, int py){
 	
 	x = px;
 	y = py;
-	cout << "x = " << x << endl;
-	cout << "y = " << y << endl;
 	
-	// set color of button
-//	color.a = 1;
-	color.r = 123;
-	color.g = 123;
-	color.b = 123;
+	setDefaultValues();
+	
+}
 
-	// set shape of button
-	shape = ofRectangle::ofRectangle();
-	shape.width = 100;
-	shape.height = 40;
+void cubuButton::setDefaultValues(){
+	
+	selected = false;
+	height = 50;
+	width = 150;
+}
 
+void cubuButton::select(bool value){
+	selected = value;
 }
