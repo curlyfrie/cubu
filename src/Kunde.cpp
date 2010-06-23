@@ -22,7 +22,9 @@ Kunde::Kunde(int _id, std::string _vn, std::string _nn,std::string _adresse, std
 	kreditkartennummer = _kknr;
 	
 }
-
+void Kunde::printKunde(){
+	std::cout << vorname << " " << nachname<<std::endl << adresse;
+}
 std::string Kunde::getVorname(){
 	return vorname;
 }

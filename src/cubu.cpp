@@ -143,6 +143,10 @@ void cubu::setupMYSQLDB(){
 	faqs  = dbhandler->getFaqs();
 	kunden = dbhandler->getKunden2();
 	
+	for(map <int, Kunde*>::iterator it = kunden.begin();it!=kunden.end(); ++it)
+	{
+		cout << "ID " << it->first;
+	}
 }
 
 //--------------------------------------------------------------
