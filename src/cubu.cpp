@@ -144,6 +144,8 @@ void cubu::setupMYSQLDB(){
 		
 	dbhandler = new DBHandler();
 	dbhandler->getTerminals();
+	dbhandler->getFaqs();
+	
 }
 
 //--------------------------------------------------------------
