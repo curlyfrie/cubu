@@ -18,6 +18,7 @@
 		64E426E111D160C800C76E74 /* libmystrings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E426D811D160C800C76E74 /* libmystrings.a */; };
 		64E426E211D160C800C76E74 /* libmysys.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E426D911D160C800C76E74 /* libmysys.a */; };
 		64E426E311D160C800C76E74 /* libvio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E426DA11D160C800C76E74 /* libvio.a */; };
+		B7C1815611D1EF6B00E8AF29 /* Faq.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7C1815511D1EF6B00E8AF29 /* Faq.cpp */; };
 		CDADB03C11D12EB6007A923C /* libmysql.lib in Frameworks */ = {isa = PBXBuildFile; fileRef = CDADB03611D12EB6007A923C /* libmysql.lib */; };
 		CDADB03D11D12EB6007A923C /* mysqlclient.lib in Frameworks */ = {isa = PBXBuildFile; fileRef = CDADB03711D12EB6007A923C /* mysqlclient.lib */; };
 		CDADB03E11D12EB6007A923C /* mysys.lib in Frameworks */ = {isa = PBXBuildFile; fileRef = CDADB03811D12EB6007A923C /* mysys.lib */; };
@@ -130,6 +131,8 @@
 		64E426D811D160C800C76E74 /* libmystrings.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libmystrings.a; path = mysql/mac/libmystrings.a; sourceTree = SOURCE_ROOT; };
 		64E426D911D160C800C76E74 /* libmysys.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libmysys.a; path = mysql/mac/libmysys.a; sourceTree = SOURCE_ROOT; };
 		64E426DA11D160C800C76E74 /* libvio.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvio.a; path = mysql/mac/libvio.a; sourceTree = SOURCE_ROOT; };
+		B7C1815411D1EF6B00E8AF29 /* Faq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Faq.h; sourceTree = "<group>"; };
+		B7C1815511D1EF6B00E8AF29 /* Faq.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Faq.cpp; sourceTree = "<group>"; };
 		CDADB01311D12E9C007A923C /* config-win.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "config-win.h"; sourceTree = "<group>"; };
 		CDADB01411D12E9C007A923C /* decimal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = decimal.h; sourceTree = "<group>"; };
 		CDADB01511D12E9C007A923C /* errmsg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = errmsg.h; sourceTree = "<group>"; };
@@ -819,6 +822,8 @@
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* cubu.h */,
 				E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */,
+				B7C1815411D1EF6B00E8AF29 /* Faq.h */,
+				B7C1815511D1EF6B00E8AF29 /* Faq.cpp */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -1007,6 +1012,7 @@
 				CDEE449911CF669B00E436A1 /* ofxSQLiteUpdate.cpp in Sources */,
 				648D421B11D1822E0079562A /* dbhandler.cpp in Sources */,
 				648D421C11D1822E0079562A /* Terminal.cpp in Sources */,
+				B7C1815611D1EF6B00E8AF29 /* Faq.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
