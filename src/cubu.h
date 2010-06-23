@@ -10,6 +10,7 @@
 #include "ofxSQLiteHeaders.h"
 #include "DBHandler.h"
 #include "CubuButton.h" 
+#include <vector>
 
 
 

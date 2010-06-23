@@ -232,9 +232,18 @@ void cubu::update(){
 			// revert selection if index exceeds no of buttons
 			if(selected_button < 0 || selected_button > buttons.size()-1)
 				selected_button = previous;
+			try
+			{
+				buttons.at(selected_button)->select(true);
+			}
+			catch (exception& e)
+			{
+				cout << "Standard exception: " << e.what() << endl;
+
+			}
 			
-			buttons.at(selected_button)->select(true);
-			
+
+
 			//cout << "selected button" << selected_button << endl;
 		}
 		else{
