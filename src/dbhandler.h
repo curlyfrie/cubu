@@ -18,7 +18,7 @@ public:
 	DBHandler();
 	~DBHandler();
 	void  getTerminals();
-	void  getFaqs();
+	vector<Faq*> getFaqs();
 	void deleteFaq(int id);
 	void printFaqs();
 private:

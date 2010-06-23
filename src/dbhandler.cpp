@@ -76,7 +76,7 @@ std::string[] DBHandler::printFaqs(){
 */
 
 
-void DBHandler::getFaqs() {
+vector<Faq*> DBHandler::getFaqs() {
 	query_state = mysql_query(connection, "SELECT * FROM faq");
 	if (query_state !=0) {
 		cout << mysql_error(connection) << endl;
@@ -116,8 +116,9 @@ void DBHandler::getFaqs() {
 		faqs.push_back(faq);
 		
 	}
+
 	mysql_free_result(result);
-	
+	return faqs;	
 
 	
 	
