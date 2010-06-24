@@ -39,6 +39,7 @@ void cubu::setup(){
 	// reset helpers
 	active_side = -1;
 	alarmset = false;
+	buttonset = false;
 	previous_angle = -1;
 	current_angle = -1;
 	
@@ -218,28 +219,38 @@ void cubu::update(){
 			else if(fiducialID == side_roomservice){
 				stringtodraw = "Roomservice";
 				active_side = side_roomservice;
+
 			}
 			else if(fiducialID == side_temperature){
 				stringtodraw = "Marker 6: Temperature Control";
 				active_side = side_temperature;
 			}
 			
-			// update index of selected button
-			int previous = selected_button;
-			selected_button = selected_button + getRotDirection();
+			if(buttons.size()>0){
 			
-			
-			// revert selection if index exceeds no of buttons
-			if(selected_button < 0 || selected_button > buttons.size()-1)
-				selected_button = previous;
-			try
-			{
-				buttons.at(selected_button)->select(true);
-			}
-			catch (exception& e)
-			{
-				cout << "Standard exception: " << e.what() << endl;
+				// update index of selected button
+				int previous = selected_button;
+				selected_button = selected_button + getRotDirection();
+				
+				
+				// revert selection if index exceeds no of buttons
+				if(selected_button < 0 || selected_button > buttons.size()-1)
+					selected_button = previous;
+				try
+				{
+					buttons.at(selected_button)->select(true);
 
+					if(buttonset)
+						cout << "button confirmed: true   " << selected_button << endl;
+					else
+						cout << "button confirmed: false   " << selected_button << endl;
+
+				}
+				catch (exception& e)
+				{
+					cout << "Standard exception: " << e.what() << endl;
+
+				}
 			}
 			
 
@@ -300,8 +311,16 @@ void cubu::saveAlarmtoDB(){
 //save current alarm time to DB
 	
 	//cout << "saving current alarm time to db" << ofToString(alarm_hour) << ":" << ofToString(alarm_minute) << endl;
+	try
+	{
+		sqlite->update("room").use("alarm_hour",ofToString(alarm_hour)).use("alarm_minute", ofToString(alarm_minute)).where("number",roomNr).execute();
+	}
+	catch (exception& e)
+	{
+		cout << "Standard exception: " << e.what() << endl;
+
+	}
 	
-	sqlite->update("room").use("alarm_hour",ofToString(alarm_hour)).use("alarm_minute", ofToString(alarm_minute)).where("number",roomNr).execute();
 }
 //--------------------------------------------------------------
 void cubu::getAlarmfromDB(){
@@ -502,14 +521,25 @@ void cubu::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void cubu::mousePressed(int x, int y, int button){
-	if (button==2) {
-	if(active_side == side_alarm && !alarmset){
-		alarmset = true;
-		saveAlarmtoDB();
-	}
-	else if (active_side == side_alarm && alarmset) {
-		alarmset = false;
-	}
+	if (button==1) {
+		if(active_side == side_alarm && !alarmset){
+			alarmset = true;
+			
+			//doesn't work yet
+			//saveAlarmtoDB();
+		}
+		else if (active_side == side_alarm && alarmset) {
+			alarmset = false;
+		}
+		if(active_side == side_roomservice && !buttonset){
+		buttonset = true;
+		
+		//doesn't work yet
+		//saveAlarmtoDB();
+		}
+		else if (active_side == side_roomservice && buttonset){
+			buttonset = false;
+		}
 	}
 }
 
