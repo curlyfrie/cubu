@@ -161,6 +161,12 @@ void cubu::setupMYSQLDB(){
 	dbhandler->getTerminals();
 	faqs  = dbhandler->getFaqs();
 	kunden = dbhandler->getKunden2();
+
+	int kundenid = dbhandler->getKundenId(roomID);
+	
+	map<int, Kunde*>::iterator kundenIt = kunden.find(kundenid);
+	
+	Kunde * k = kundenIt->second;
 	
 }
 
@@ -396,10 +402,7 @@ int cubu::getRotDirection()
 //--------------------------------------------------------------
 void cubu::draw(){
 	
-	//test : get kunde with id 1
-	map <int, Kunde*>::iterator it = 	kunden.find(1);
-	Kunde * k = it->second;
-	franklinBook.drawString(k->getVorname() + " " + k->getNachname(), 10,20);
+	//franklinBook.drawString(k->getVorname() + " " + k->getNachname(), 10,20);
 	
 	/*
 	 for(map <int, Kunde*>::iterator it = kunden.begin();it!=kunden.end(); ++it)
