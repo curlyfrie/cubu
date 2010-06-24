@@ -38,8 +38,9 @@ void cubu::setup(){
 	
 	// reset helpers
 	active_side = -1;
+	prev_side = -1;
 	alarmset = false;
-	buttonset = false;
+	buttonset = -1;
 	previous_angle = -1;
 	current_angle = -1;
 	
@@ -72,6 +73,9 @@ void cubu::setup(){
 void cubu::setupGUI()
 // prepares the gui to be drawn
 {
+
+	buttonset = -1;
+
 	if(active_side == -1){
 		//gui.setPage("empty");
 
@@ -84,15 +88,19 @@ void cubu::setupGUI()
 		
 		if(active_side == side_fun){
 			// do cool stuff here
+			buttons.clear();
 		}
 		else if (active_side == side_activities) {
 			// do cool stuff here
+			buttons.clear();
 		}
 		else if (active_side == side_alarm) {
 			// do cool stuff here
+			buttons.clear();
 		}
 		else if (active_side == side_food) {
 			// do cool stuff here
+			buttons.clear();
 		}
 		else if (active_side == side_roomservice) {
 			
@@ -104,7 +112,13 @@ void cubu::setupGUI()
 		}
 		else if (active_side == side_temperature) {
 			// do cool stuff here
+			buttons.clear();
+			buttons.push_back(new cubuButton(500,700));
+			buttons.push_back(new cubuButton(600,700));
+			buttons.push_back(new cubuButton(800,700));
 		}
+		else
+			buttons.clear();
 	}
 	
 	
@@ -153,8 +167,6 @@ void cubu::setupMYSQLDB(){
 //--------------------------------------------------------------
 void cubu::update(){
 
-	// updateGUI
-	setupGUI();
 	
 	//ofBackground(255, 255, 255);
 	
@@ -162,6 +174,15 @@ void cubu::update(){
 	vidGrabber.grabFrame();
 	if(vidGrabber.isFrameNew())
 	{
+		
+		// updateGUI
+		if(prev_side != active_side)
+			setupGUI();
+
+		prev_side = active_side;
+
+
+
 		colorImg.setFromPixels(vidGrabber.getPixels(), 320,240);
 		grayImage = colorImg;
 		grayBg = grayImage;
@@ -191,11 +212,9 @@ void cubu::update(){
 			
 			// check wich side is active
 			if(fiducialID == side_activities){
-				cout << "Marker 1: Activities" << endl;;
 				active_side = side_activities;
 			}
 			else if(fiducialID == side_alarm){
-				cout << "Marker 2: Alarm" << endl;
 				active_side = side_alarm;
 				
 				// set a new alarm
@@ -213,24 +232,20 @@ void cubu::update(){
 				}
 			}
 			else if(fiducialID == side_fun){
-				cout << "Marker 3: Fun" << endl;
 				active_side = side_fun;
 			}
 			else if(fiducialID == side_food){
-				cout << "Marker 4: Food" << endl;
 				active_side = side_food;
 			}
 			else if(fiducialID == side_roomservice){
-				cout << "Marker 5: Roomservice" << endl;
 				active_side = side_roomservice;
 
 			}
 			else if(fiducialID == side_temperature){
-				cout << "Marker 6: Temperature" << endl;
 				active_side = side_temperature;
 			}
 						
-			if(buttons.size()>0){
+			if(buttons.size()>0 && buttonset <= 0){
 			
 				// update index of selected button
 				int previous = selected_button;
@@ -242,7 +257,15 @@ void cubu::update(){
 					selected_button = previous;
 				try
 				{	
-					buttons.at(selected_button)->select(true);
+					
+						
+					for (int i = 0; i< buttons.size(); i++)
+					{	
+						if(i == selected_button)
+							buttons.at(i)->select(true);
+						else
+							buttons.at(i)->select(false);
+					}
 /*
 					if(buttonset)
 						cout << "button confirmed: true   " << selected_button << endl;
@@ -270,7 +293,6 @@ void cubu::update(){
 			update();
 */
 		}
-		
 	}
 
 }
@@ -386,7 +408,7 @@ void cubu::draw(){
 	 }*/
 
 	
-	drawFaq();
+	//drawFaq();
 
 	//set Background Color
 	ofBackground(126, 169, 203);
@@ -455,8 +477,10 @@ void cubu::drawGUI(){
 	for(int i = 0; i < buttons.size(); i++){
 		currentbutton = buttons.at(i);
 		ofFill();
-		if(currentbutton->selected)
+		if(currentbutton->selected && buttonset == i)
 			ofSetColor(238,0,0);
+		else if(currentbutton->selected)
+			ofSetColor(100,0,0);
 		else
 			ofSetColor(105,105,105);
 		ofRect(currentbutton->x, currentbutton->y, currentbutton->width, currentbutton->height);
@@ -465,6 +489,7 @@ void cubu::drawGUI(){
 }
 
 void cubu::drawFaq(){
+	
 	for(int i = 0; i < faqs.size(); i++)
 	{
 		franklinBook.drawString(faqs.at(i)->getQuestion(), 100,100 + i *100);
@@ -558,15 +583,13 @@ void cubu::mousePressed(int x, int y, int button){
 		else if (active_side == side_alarm && alarmset) {
 			alarmset = false;
 		}
-		if(active_side == side_roomservice && !buttonset){
-		buttonset = true;
+
+		if(buttonset < 0){
+			buttonset = selected_button;
+		}
+		else
+			buttonset = -1;
 		
-		//doesn't work yet
-		//saveAlarmtoDB();
-		}
-		else if (active_side == side_roomservice && buttonset){
-			buttonset = false;
-		}
 	}
 }
 
