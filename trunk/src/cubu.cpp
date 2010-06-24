@@ -114,8 +114,8 @@ void cubu::setupGUI()
 			// do cool stuff here
 			buttons.clear();
 			buttons.push_back(new cubuButton(500,700));
-			buttons.push_back(new cubuButton(600,700));
-			buttons.push_back(new cubuButton(800,700));
+			buttons.push_back(new cubuButton(700,700));
+			buttons.push_back(new cubuButton(900,700));
 		}
 		else
 			buttons.clear();
@@ -458,9 +458,10 @@ void cubu::drawGUI(){
 		if(active_side == side_food)	
 			franklinBook.drawString("Food", 100,200);	
 
-		if(active_side == side_alarm)	
-			franklinBook.drawString("Alarm", 100,200);	
-
+		if(active_side == side_alarm){	
+			franklinBook.drawString("Alarm", 100,200);
+			drawAlarm();
+		}
 		if(active_side == side_roomservice)	
 			franklinBook.drawString("Room Service", 100,200);	
 
@@ -473,7 +474,7 @@ void cubu::drawGUI(){
 		if(active_side == side_fun)	
 			franklinBook.drawString("Fun!", 100,200);	
 
-}
+	}
 	
 	
 	cubuButton* currentbutton;
@@ -506,7 +507,7 @@ void cubu::drawFaq(){
 void cubu::drawAlarm() {
 //draw any cool gfx for alarm here
 	
-	franklinBook.drawString(stringtodraw, 100,310);
+	franklinBook.drawString("  AA "+rotation, 100,310);
 	if(alarmset)
 		franklinBook.drawString("klick or press 'a' to reset", 100,350);
 }
