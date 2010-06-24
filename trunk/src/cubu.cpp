@@ -162,11 +162,11 @@ void cubu::setupMYSQLDB(){
 	faqs  = dbhandler->getFaqs();
 	kunden = dbhandler->getKunden2();
 
-	int kundenid = dbhandler->getKundenId(roomID);
+	//int kundenid = dbhandler->getKundenId(roomID);
 	
-	map<int, Kunde*>::iterator kundenIt = kunden.find(kundenid);
+	//map<int, Kunde*>::iterator kundenIt = kunden.find(kundenid);
 	
-	Kunde * k = kundenIt->second;
+	//Kunde * k = kundenIt->second;
 	
 }
 
