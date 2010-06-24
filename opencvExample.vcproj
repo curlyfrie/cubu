@@ -199,6 +199,14 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\cubuButton.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\cubuButton.h"
+				>
+			</File>
+			<File
 				RelativePath=".\src\DBHandler.cpp"
 				>
 			</File>
@@ -207,7 +215,39 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\Faq.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\Faq.h"
+				>
+			</File>
+			<File
+				RelativePath=".\src\Kunde.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\Kunde.h"
+				>
+			</File>
+			<File
 				RelativePath=".\src\main.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\Service.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\Service.h"
+				>
+			</File>
+			<File
+				RelativePath=".\src\Speise.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\Speise.h"
 				>
 			</File>
 			<File
