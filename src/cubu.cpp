@@ -424,24 +424,25 @@ void cubu::draw(){
 void cubu::drawGUI(){
 // draws the gui
 	
+
 	if(active_side != -1){
-		if(active_side == 0)	
-			franklinBook.drawString("Air Condition", 100,200);	
-
-		if(active_side == 1)	
-			franklinBook.drawString("Alarm", 100,200);	
-
-		if(active_side == 2)	
+		if(active_side == side_food)	
 			franklinBook.drawString("Food", 100,200);	
 
-		if(active_side == 3)	
+		if(active_side == side_alarm)	
+			franklinBook.drawString("Alarm", 100,200);	
+
+		if(active_side == side_roomservice)	
+			franklinBook.drawString("Room Service", 100,200);	
+
+		if(active_side == side_temperature)	
 			franklinBook.drawString("Air Condition", 100,200);	
 
-		if(active_side == 4)	
-			franklinBook.drawString("Massage", 100,200);	
+		if(active_side == side_activities)	
+			franklinBook.drawString("Activities", 100,200);	
 
-		if(active_side == 5)	
-			franklinBook.drawString("Additional Services", 100,200);	
+		if(active_side == side_fun)	
+			franklinBook.drawString("Fun!", 100,200);	
 
 }
 	
