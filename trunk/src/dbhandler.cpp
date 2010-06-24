@@ -31,6 +31,9 @@ DBHandler::~DBHandler()
 	
 }
 
+
+
+
 void DBHandler::deleteFaq(int id)
 {
 	
@@ -246,6 +249,39 @@ map <int, Kunde*> DBHandler::getKunden2() {
 	
 	
 }
+
+
+int DBHandler::getKundenId(int terminalId) {
+	cout << "+++ getting kunden data";
+	query_state = mysql_query(connection, "SELECT kunde_id FROM terminalkunde where terminal_id = 1");
+	if (query_state !=0) {
+		cout << mysql_error(connection) << endl;
+	}
+	int kunden_id;
+	unsigned int num_fields;
+	unsigned int i;
+	
+	result = mysql_store_result(connection);
+	
+	num_fields = mysql_num_fields(result);
+	while ( ( row = mysql_fetch_row(result)) ) {
+		unsigned long *lengths;
+		lengths = mysql_fetch_lengths(result);
+		for( i = 0; i < num_fields; i++)
+		{
+			kunden_id = (int) row[i];
+			cout << num_fields << " " <<kunden_id<<"++!"<<row[i]<<endl;
+		}
+		printf("\n");
+		
+	}
+	mysql_free_result(result);
+	
+	
+	return kunden_id;
+	
+}
+
 
 
 

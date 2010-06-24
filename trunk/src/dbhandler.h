@@ -26,7 +26,7 @@ public:
 	vector<Speise*> getSpeisen();
 	vector<Service*> getService();
 	map <int, Kunde*> getKunden2();
-
+	int getKundenId(int terminal_id);
 	void deleteFaq(int id);
 	void printFaqs();
 private:
