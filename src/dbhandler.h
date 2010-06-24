@@ -20,6 +20,7 @@ class DBHandler {
 public:
 	DBHandler();
 	~DBHandler();
+	void setAlarm(int terminal_id, int hour, int minute);
 	void  getTerminals();
 	vector<Faq*> getFaqs();
 	vector<Speise*> getSpeisen();
