@@ -20,6 +20,8 @@ DBHandler::DBHandler()
 		cout << mysql_error(&mysql) << endl;
 	}
 	
+	setAlarm(0, 10 , 20);
+	
 	
 	
 }
@@ -40,6 +42,20 @@ void DBHandler::deleteFaq(int id)
 	
 	std::string query = "DELETE FROM faq where faq_id = " + idString;
 	 mysql_query(connection,query.c_str());	
+}
+
+void DBHandler::setAlarm(int terminal_id, int hour, int minute)
+{
+	
+	std::stringstream hstr;
+	hstr << hour;
+	std::stringstream mstr;
+	mstr << minute;
+
+	std::string query = "insert into alarm (terminal_id, time, active) values (0,'2010-06-24 "+hstr.str() +":"+ mstr.str() +":00', true  )";
+	cout << query;
+	mysql_query(connection,query.c_str());	
+
 }
 
 
