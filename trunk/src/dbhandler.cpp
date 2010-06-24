@@ -41,39 +41,6 @@ void DBHandler::deleteFaq(int id)
 	std::string query = "DELETE FROM faq where faq_id = " + idString;
 	 mysql_query(connection,query.c_str());	
 }
-/*
-std::string[] DBHandler::printFaqs(){
-	std::string[] output;
-	query_state = mysql_query(connection, "SELECT * FROM faq");
-	if (query_state !=0) {
-		cout << mysql_error(connection) << endl;
-	}
-	
-	unsigned int num_fields;
-	unsigned int i;
-	
-	result = mysql_store_result(connection);
-	
-	num_fields = mysql_num_fields(result);
-	while ( ( row = mysql_fetch_row(result)) ) {
-		unsigned long *lengths;
-		lengths = mysql_fetch_lengths(result);
-		for( i = 0; i < num_fields; i++)
-		{
-			printf("[%.*s] ", (int) lengths[i],
-				   row[i] ? row[i] : "NULL");
-		} 
-		printf("\n");
-		
-	}
-	mysql_free_result(result);
-	
-	// just a little test
-	Terminal * t = new Terminal(2,'bla','1234');
-	
-}
-
-*/
 
 
 vector<Faq*> DBHandler::getFaqs() {
@@ -119,10 +86,91 @@ vector<Faq*> DBHandler::getFaqs() {
 	
 	mysql_free_result(result);
 	return faqs;	
-	
-	
-	
 }
+vector<Speise*> DBHandler::getSpeisen() {
+	query_state = mysql_query(connection, "SELECT * FROM speise");
+	if (query_state !=0) {
+		cout << mysql_error(connection) << endl;
+	}
+	vector <Speise*> speisen; 
+	unsigned int num_fields;
+	unsigned int i;
+	
+	result = mysql_store_result(connection);
+	
+	num_fields = mysql_num_fields(result);
+	while ( ( row = mysql_fetch_row(result)) ) {
+		unsigned long *lengths;
+		lengths = mysql_fetch_lengths(result);
+		int id;
+		std::string name;
+		std::string beschreibung;
+		float preis;
+		
+		for( i = 0; i < num_fields; i++)
+		{
+			if(i== 0)
+				id = (int)row[i];
+			
+			if(i== 1)
+				name = row[i];
+			
+			if(i== 2)
+				beschreibung = row[i];
+			if(i == 3)
+				preis = atof(row[i]);
+			
+		}
+
+		speisen.push_back(new Speise(id, name,beschreibung, preis));
+		
+	}
+	
+	mysql_free_result(result);
+	return speisen;	
+}
+
+vector<Service*> DBHandler::getService() {
+	query_state = mysql_query(connection, "SELECT * FROM service");
+	if (query_state !=0) {
+		cout << mysql_error(connection) << endl;
+	}
+	vector <Service*> services; 
+	unsigned int num_fields;
+	unsigned int i;
+	
+	result = mysql_store_result(connection);
+	
+	num_fields = mysql_num_fields(result);
+	while ( ( row = mysql_fetch_row(result)) ) {
+		unsigned long *lengths;
+		lengths = mysql_fetch_lengths(result);
+		int id;
+		std::string name;
+		std::string beschreibung;
+		
+		for( i = 0; i < num_fields; i++)
+		{
+			if(i== 0)
+				id = (int)row[i];
+			
+			if(i== 1)
+				name = row[i];
+			
+			if(i== 2)
+				beschreibung = row[i];
+			
+		}
+		
+		services.push_back(new Service(id, name,beschreibung));
+		
+	}
+	
+	mysql_free_result(result);
+	return services;	
+}
+
+
 map <int, Kunde*> DBHandler::getKunden2() {
 	query_state = mysql_query(connection, "SELECT * FROM kunde");
 	if (query_state !=0) {

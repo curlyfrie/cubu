@@ -22,6 +22,8 @@ public:
 	~DBHandler();
 	void  getTerminals();
 	vector<Faq*> getFaqs();
+	vector<Speise*> getSpeisen();
+	vector<Service*> getService();
 	map <int, Kunde*> getKunden2();
 
 	void deleteFaq(int id);
