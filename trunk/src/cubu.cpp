@@ -31,10 +31,10 @@ void cubu::setup(){
 	// set no. of marker for sides
 	side_activities = 4;
 	side_alarm = 1;
-	side_food = 3;
-	side_roomservice = 2;
+	side_food = 0;
+	side_roomservice = 3;
 	side_fun = 5;
-	side_temperature = 6;
+	side_temperature = 2;
 	
 	// reset helpers
 	active_side = -1;
@@ -74,11 +74,13 @@ void cubu::setupGUI()
 {
 	if(active_side == -1){
 		//gui.setPage("empty");
+
+		
 	}
 	else{
 		
 		//empty the list of buttons
-		buttons.clear();
+		
 		
 		if(active_side == side_fun){
 			// do cool stuff here
@@ -94,9 +96,11 @@ void cubu::setupGUI()
 		}
 		else if (active_side == side_roomservice) {
 			
+			buttons.clear();
 			// insert buttons into vector
 			buttons.push_back(new cubuButton(100,200));
 			buttons.push_back(new cubuButton(300,200));
+			
 		}
 		else if (active_side == side_temperature) {
 			// do cool stuff here
@@ -187,11 +191,11 @@ void cubu::update(){
 			
 			// check wich side is active
 			if(fiducialID == side_activities){
-				stringtodraw = "Marker 1: Activities";
+				cout << "Marker 1: Activities" << endl;;
 				active_side = side_activities;
 			}
 			else if(fiducialID == side_alarm){
-				stringtodraw = "Marker 2: Alarm";
+				cout << "Marker 2: Alarm" << endl;
 				active_side = side_alarm;
 				
 				// set a new alarm
@@ -209,23 +213,23 @@ void cubu::update(){
 				}
 			}
 			else if(fiducialID == side_fun){
-				stringtodraw = "Marker 3: Fun";
+				cout << "Marker 3: Fun" << endl;
 				active_side = side_fun;
 			}
 			else if(fiducialID == side_food){
-				stringtodraw = "Marker 4: Food";
+				cout << "Marker 4: Food" << endl;
 				active_side = side_food;
 			}
 			else if(fiducialID == side_roomservice){
-				stringtodraw = "Roomservice";
+				cout << "Marker 5: Roomservice" << endl;
 				active_side = side_roomservice;
 
 			}
 			else if(fiducialID == side_temperature){
-				stringtodraw = "Marker 6: Temperature Control";
+				cout << "Marker 6: Temperature" << endl;
 				active_side = side_temperature;
 			}
-			
+						
 			if(buttons.size()>0){
 			
 				// update index of selected button
@@ -237,14 +241,14 @@ void cubu::update(){
 				if(selected_button < 0 || selected_button > buttons.size()-1)
 					selected_button = previous;
 				try
-				{
+				{	
 					buttons.at(selected_button)->select(true);
-
+/*
 					if(buttonset)
 						cout << "button confirmed: true   " << selected_button << endl;
 					else
 						cout << "button confirmed: false   " << selected_button << endl;
-
+*/
 				}
 				catch (exception& e)
 				{
