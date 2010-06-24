@@ -332,7 +332,7 @@ void cubu::setAlarm()
 	
 	std::stringstream stream3;
 	stream3 << alarm_hour;
-	stringtodraw = stringtodraw + " " + stream3.str()  + "h:" +  stream2.str() + "min";
+	stringtodraw =  " " + stream3.str()  + "h:" +  stream2.str() + "min";
 	
 	//cout << "set alarm to" << alarm_hour << "." << alarm_minute << endl;
 	//cout << "set Alarm:" << stringtodraw << endl;

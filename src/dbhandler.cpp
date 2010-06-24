@@ -270,7 +270,7 @@ int DBHandler::getKundenId(int terminalId) {
 		for( i = 0; i < num_fields; i++)
 		{
 			kunden_id = (int) row[i];
-			cout << num_fields << " " <<kunden_id<<"++!"<<row[i]<<endl;
+			cout << num_fields << " " <<row[i]<<endl;
 		}
 		printf("\n");
 		
