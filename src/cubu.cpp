@@ -424,6 +424,28 @@ void cubu::draw(){
 void cubu::drawGUI(){
 // draws the gui
 	
+	if(active_side != -1){
+		if(active_side == 0)	
+			franklinBook.drawString("Air Condition", 100,200);	
+
+		if(active_side == 1)	
+			franklinBook.drawString("Alarm", 100,200);	
+
+		if(active_side == 2)	
+			franklinBook.drawString("Food", 100,200);	
+
+		if(active_side == 3)	
+			franklinBook.drawString("Air Condition", 100,200);	
+
+		if(active_side == 4)	
+			franklinBook.drawString("Massage", 100,200);	
+
+		if(active_side == 5)	
+			franklinBook.drawString("Additional Services", 100,200);	
+
+}
+	
+	
 	cubuButton* currentbutton;
 	for(int i = 0; i < buttons.size(); i++){
 		currentbutton = buttons.at(i);
