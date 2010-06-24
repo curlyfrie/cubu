@@ -55,7 +55,7 @@ void cubu::setup(){
 	
 	// load font
 	franklinBook.loadFont("frabk.ttf",font_size);
-	
+	buttonlabel.loadFont("frabk.ttf", 12);
 	
 	// setup fiducials
 	vidGrabber.listDevices();
@@ -106,16 +106,16 @@ void cubu::setupGUI()
 			
 			buttons.clear();
 			// insert buttons into vector
-			buttons.push_back(new cubuButton(100,200));
-			buttons.push_back(new cubuButton(300,200));
+			buttons.push_back(new cubuButton(100,200,"Clean up"));
+			buttons.push_back(new cubuButton(300,200,"towels"));
 			
 		}
 		else if (active_side == side_temperature) {
 			// do cool stuff here
 			buttons.clear();
-			buttons.push_back(new cubuButton(500,700));
-			buttons.push_back(new cubuButton(700,700));
-			buttons.push_back(new cubuButton(900,700));
+			buttons.push_back(new cubuButton(500,700,"button1"));
+			buttons.push_back(new cubuButton(700,700,"button2"));
+			buttons.push_back(new cubuButton(900,700,"button3"));
 		}
 		else
 			buttons.clear();
@@ -485,6 +485,8 @@ void cubu::drawGUI(){
 		else
 			ofSetColor(105,105,105);
 		ofRect(currentbutton->x, currentbutton->y, currentbutton->width, currentbutton->height);
+		ofSetColor(255, 255, 255);
+		buttonlabel.drawString(currentbutton->label, currentbutton->x+currentbutton->height/2, currentbutton->y+currentbutton->width/4);
 	}
 	
 }
@@ -574,6 +576,26 @@ void cubu::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void cubu::mousePressed(int x, int y, int button){
+	if(button == 0){
+		int temp = -1;
+		// check if any button was hit
+		for(int i = 0; i < buttons.size(); i ++){
+			if(buttons.at(i)->click(x,y) == true){
+				cout << "you have hit button: " << i << endl; 
+				buttons.at(i)->select(true);
+				temp = i;
+				break;
+			}
+				
+		}
+		// if selection was made: deselect every other button 
+		if(temp != -1){
+			for(int i = 0; i < buttons.size(); i++){
+				if(i != temp)
+					buttons.at(i)->select(false);
+			}
+		}
+	}
 	if (button==1) {
 		if(active_side == side_alarm && !alarmset){
 			alarmset = true;

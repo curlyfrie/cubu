@@ -6,6 +6,7 @@
  * and it works!
  *
  */
+#include <iostream>
 
 class cubuButton {
 	
@@ -15,12 +16,14 @@ public:
 	int width;
 	int height;
 	
+	std::string label;
 	bool selected;
 	
 	void select(bool value);
+	bool click(int clickx, int clicky);
 	
 	cubuButton();
-	cubuButton(int px, int py);
+	cubuButton(int px, int py, std::string plabel);
 	~cubuButton();
 	
 private:
