@@ -578,6 +578,7 @@ void cubu::mousePressed(int x, int y, int button){
 			alarmset = true;
 			
 			//doesn't work yet
+			dbhandler->setAlarm(0, alarm_hour, alarm_minute);
 			//saveAlarmtoDB();
 		}
 		else if (active_side == side_alarm && alarmset) {

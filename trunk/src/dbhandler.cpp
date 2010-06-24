@@ -22,9 +22,6 @@ DBHandler::DBHandler()
 		cout << mysql_error(&mysql) << endl;
 	}
 	
-	setAlarm(0, 10 , 20);
-	
-	
 	
 }
 DBHandler::~DBHandler()
