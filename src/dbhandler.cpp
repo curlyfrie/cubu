@@ -9,6 +9,8 @@
 #include "DBHandler.h"
 #include <sstream>
 #include <string>
+#include "time.h"
+
 using namespace std;
 DBHandler::DBHandler()
 // setup connection to database
@@ -53,7 +55,6 @@ void DBHandler::setAlarm(int terminal_id, int hour, int minute)
 	mstr << minute;
 
 	std::string query = "insert into alarm (terminal_id, time, active) values (0,'2010-06-24 "+hstr.str() +":"+ mstr.str() +":00', true  )";
-	cout << query;
 	mysql_query(connection,query.c_str());	
 
 }
