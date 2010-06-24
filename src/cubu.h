@@ -68,7 +68,7 @@ private:
 
 	int selected_button;
 	vector<cubuButton*> buttons;
-	
+
 	float font_size;
 	
 	int side_food;
@@ -78,6 +78,7 @@ private:
 	int side_activities;
 	int side_fun;
 	int active_side;
+	int prev_side;
 	
 	//variables for every side
 	string rotation;	
@@ -88,7 +89,7 @@ private:
 	
 	//alarm variables & fnc
 	bool alarmset;
-	bool buttonset;
+	int buttonset;
 	int alarm_minute;
 	int alarm_hour;
 	void setAlarm();
