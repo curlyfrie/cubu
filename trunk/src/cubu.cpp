@@ -234,7 +234,7 @@ void cubu::update(){
 					
 					std::stringstream stream3;
 					stream3 << alarm_hour;
-					stringtodraw = stringtodraw + " is set to: " + stream3.str()  + "h:" +  stream2.str() + "min";
+					stringtodraw = " is set to: " + stream3.str()  + "h:" +  stream2.str() + "min";
 				}
 			}
 			else if(fiducialID == side_fun){
@@ -423,9 +423,6 @@ void cubu::draw(){
 	//draw font
 	ofSetColor(0x3366aa);
 	
-	if(active_side == side_alarm)
-		drawAlarm();
-	
 	
 	//franklinBook.drawString(stringtodraw, 100,310);
 	franklinBook.drawString(rotation, 100, 100);
@@ -507,7 +504,7 @@ void cubu::drawFaq(){
 void cubu::drawAlarm() {
 //draw any cool gfx for alarm here
 	
-	franklinBook.drawString("  AA "+rotation, 100,310);
+	franklinBook.drawString(stringtodraw, 100,310);
 	if(alarmset)
 		franklinBook.drawString("klick or press 'a' to reset", 100,350);
 }
