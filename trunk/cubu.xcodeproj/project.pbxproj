@@ -18,6 +18,9 @@
 		64E426E111D160C800C76E74 /* libmystrings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E426D811D160C800C76E74 /* libmystrings.a */; };
 		64E426E211D160C800C76E74 /* libmysys.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E426D911D160C800C76E74 /* libmysys.a */; };
 		64E426E311D160C800C76E74 /* libvio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E426DA11D160C800C76E74 /* libvio.a */; };
+		B7ACF9F111D3CFD2005A156A /* Kunde.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7ACF9EB11D3CFD2005A156A /* Kunde.cpp */; };
+		B7ACF9F211D3CFD2005A156A /* Service.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7ACF9ED11D3CFD2005A156A /* Service.cpp */; };
+		B7ACF9F311D3CFD2005A156A /* Speise.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7ACF9EF11D3CFD2005A156A /* Speise.cpp */; };
 		B7C1815611D1EF6B00E8AF29 /* Faq.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7C1815511D1EF6B00E8AF29 /* Faq.cpp */; };
 		CD78221411D20C7C00F85BFA /* cubuButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD78221311D20C7C00F85BFA /* cubuButton.cpp */; };
 		CDADB03C11D12EB6007A923C /* libmysql.lib in Frameworks */ = {isa = PBXBuildFile; fileRef = CDADB03611D12EB6007A923C /* libmysql.lib */; };
@@ -132,6 +135,12 @@
 		64E426D811D160C800C76E74 /* libmystrings.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libmystrings.a; path = mysql/mac/libmystrings.a; sourceTree = SOURCE_ROOT; };
 		64E426D911D160C800C76E74 /* libmysys.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libmysys.a; path = mysql/mac/libmysys.a; sourceTree = SOURCE_ROOT; };
 		64E426DA11D160C800C76E74 /* libvio.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvio.a; path = mysql/mac/libvio.a; sourceTree = SOURCE_ROOT; };
+		B7ACF9EB11D3CFD2005A156A /* Kunde.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Kunde.cpp; sourceTree = "<group>"; };
+		B7ACF9EC11D3CFD2005A156A /* Kunde.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kunde.h; sourceTree = "<group>"; };
+		B7ACF9ED11D3CFD2005A156A /* Service.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Service.cpp; sourceTree = "<group>"; };
+		B7ACF9EE11D3CFD2005A156A /* Service.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Service.h; sourceTree = "<group>"; };
+		B7ACF9EF11D3CFD2005A156A /* Speise.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Speise.cpp; sourceTree = "<group>"; };
+		B7ACF9F011D3CFD2005A156A /* Speise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Speise.h; sourceTree = "<group>"; };
 		B7C1815411D1EF6B00E8AF29 /* Faq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Faq.h; sourceTree = "<group>"; };
 		B7C1815511D1EF6B00E8AF29 /* Faq.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Faq.cpp; sourceTree = "<group>"; };
 		CD78221211D20C7C00F85BFA /* cubuButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cubuButton.h; sourceTree = "<group>"; };
@@ -816,6 +825,12 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				B7ACF9EB11D3CFD2005A156A /* Kunde.cpp */,
+				B7ACF9EC11D3CFD2005A156A /* Kunde.h */,
+				B7ACF9ED11D3CFD2005A156A /* Service.cpp */,
+				B7ACF9EE11D3CFD2005A156A /* Service.h */,
+				B7ACF9EF11D3CFD2005A156A /* Speise.cpp */,
+				B7ACF9F011D3CFD2005A156A /* Speise.h */,
 				CD78221211D20C7C00F85BFA /* cubuButton.h */,
 				CD78221311D20C7C00F85BFA /* cubuButton.cpp */,
 				648D421711D1822E0079562A /* dbhandler.cpp */,
@@ -1019,6 +1034,9 @@
 				648D421C11D1822E0079562A /* Terminal.cpp in Sources */,
 				B7C1815611D1EF6B00E8AF29 /* Faq.cpp in Sources */,
 				CD78221411D20C7C00F85BFA /* cubuButton.cpp in Sources */,
+				B7ACF9F111D3CFD2005A156A /* Kunde.cpp in Sources */,
+				B7ACF9F211D3CFD2005A156A /* Service.cpp in Sources */,
+				B7ACF9F311D3CFD2005A156A /* Speise.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
