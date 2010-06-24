@@ -88,6 +88,7 @@ private:
 	
 	//alarm variables & fnc
 	bool alarmset;
+	bool buttonset;
 	int alarm_minute;
 	int alarm_hour;
 	void setAlarm();
