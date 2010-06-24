@@ -13,7 +13,6 @@
 #include <vector>
 
 
-
 class cubu : public ofBaseApp{
 
 	public:
@@ -38,6 +37,7 @@ class cubu : public ofBaseApp{
 		void windowResized(int w, int h);
 	
 		ofTrueTypeFont franklinBook;
+		ofTrueTypeFont buttonlabel;
 	
 		ofVideoGrabber vidGrabber;
 		ofxCvGrayscaleImage grayImage;
@@ -49,8 +49,6 @@ class cubu : public ofBaseApp{
 		
 		DBHandler * dbhandler;
 		void setupMYSQLDB();
-
-
 
 	
 	int getRotDirection();
@@ -100,12 +98,6 @@ private:
 	int fiducial_threshold;
 	bool showFiducialWindow;
 	
-	// button variables...this is going to be looooong
-	// and maybe not even necessary....
-	bool button_ok;
-	bool button_cancel;
-	bool button_cleanup;
-	bool button_towel;
 		
 	vector<Faq*> faqs;
 	map <int, Kunde*> kunden;
