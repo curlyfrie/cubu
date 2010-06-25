@@ -11,6 +11,7 @@ cubu::~cubu()
 }
 //--------------------------------------------------------------
 void cubu::setup(){
+	showFaq = false;
 	
 	// 
 	setupGUI();
@@ -403,7 +404,9 @@ void cubu::draw(){
 void cubu::drawGUI(){
 // draws the gui
 	
-
+	if(showFaq == true)
+		drawFaq();
+		
 	if(active_side != -1){
 		if(active_side == side_food)	
 			franklinBook.drawString("Food", 100,200);	
@@ -470,6 +473,10 @@ void cubu::keyPressed(int key){
 	switch (key){
 			
 		// press f to turn fiducialwindow ON or OFF
+		case 'h':
+
+			showFaq  = !showFaq; break;
+			
 		case 'f':
 			if(showFiducialWindow)
 				showFiducialWindow = false;
