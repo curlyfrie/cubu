@@ -97,6 +97,7 @@ private:
 	
 		
 	vector<Faq*> faqs;
+	vector<Speise*> speisen;
 	map <int, Kunde*> kunden;
 
 
