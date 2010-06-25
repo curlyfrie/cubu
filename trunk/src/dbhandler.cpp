@@ -70,7 +70,6 @@ Terminal * DBHandler::getTerminal(int terminal_id)
 	}
 
 	Terminal * terminal = new Terminal(terminal_id, zimmer, telnr);
-	cout << "terminall id " << terminal_id<<endl;
 	return terminal;
 		
 	
@@ -89,15 +88,20 @@ void DBHandler::deleteFaq(int id)
 	 mysql_query(connection,query.c_str());	
 }
 
-void DBHandler::insertTerminalSpeise(Terminal* terminal, Speise* speise)
+void DBHandler::insertTerminalSpeise(Terminal* terminal, Speise* speise, int anzahl, float sumpreis)
 {
 	int terminal_id = terminal->getId();
 	int speise_id = speise->getId();
 	std::stringstream terminalstr;
-	terminalstr << terminal_id;
 	std::stringstream speisestr;
+	std::stringstream anzahlstr;
+	std::stringstream sumpreisstr;
+	
+	terminalstr << terminal_id;
 	speisestr << speise_id;
-	std::string query = "insert into terminalspeise (terminal_id, speise_id, datum) values ('" + terminalstr.str() + "',' " + speisestr.str() + "' , now())";
+	anzahlstr << anzahl;
+	sumpreisstr << sumpreis;
+	std::string query = "insert into terminalspeise (terminal_id, speise_id, datum, anzahl, sumpreis) values ('" + terminalstr.str() + "',' " + speisestr.str() + "' , now(), '"+ anzahlstr.str()+ "', "+sumpreisstr.str()+"')";
 	cout << query<<endl;
 	mysql_query(connection,query.c_str());
 }
