@@ -38,14 +38,17 @@ void cubu::setup(){
 	
 	// reset helpers
 	active_side = -1;
+
+	cout << "IM SETUPPPP" << endl;
 	prev_side = -1;
-	alarmset = false;
-	buttonset = -1;
 	previous_angle = -1;
 	current_angle = -1;
+
+
+	alarmset = false;
+	buttonset = -1;
+	time = 0;
 	
-	//Setup Database
-	//setupDB();
 	
 	// define threshold to find fiducial
 	fiducial_threshold =135;
@@ -67,6 +70,8 @@ void cubu::setup(){
 	grayBg.allocate(320,240);
 	grayDiff.allocate(320,240);
 
+
+	//Datenbank starten
 	setupMYSQLDB();
 }
 //--------------------------------------------------------------
@@ -120,10 +125,7 @@ void cubu::setupGUI()
 		else
 			buttons.clear();
 	}
-	
-	
-	//buttons.push_back(15);
-	
+		
 }
 
 
@@ -153,20 +155,19 @@ void cubu::setupMYSQLDB(){
 //--------------------------------------------------------------
 void cubu::update(){
 
-	
-	//ofBackground(255, 255, 255);
+	//cout << active_side << endl;
 	
 	// update fiducial
 	vidGrabber.grabFrame();
+
 	if(vidGrabber.isFrameNew())
 	{
 		
-		// updateGUI
+		// updateGUI if cube side has changed
 		if(prev_side != active_side)
 			setupGUI();
 
 		prev_side = active_side;
-
 
 
 		colorImg.setFromPixels(vidGrabber.getPixels(), 320,240);
@@ -182,6 +183,7 @@ void cubu::update(){
 		
 		// find fiducials...
 		if (fidfinder.fiducialsList.size() == 1){
+			time  = 0;
 			
 			ofxFiducial fiducial = fidfinder.fiducialsList.front();
 			fiducialID =  fiducial.getId();
@@ -193,16 +195,17 @@ void cubu::update(){
 			//.. and print it (debugging)
 			stream << current_angle;
 			rotation = "current angle: " + stream.str();
-			//cout << "angle == "<< current_angle << endl;
-			
-			
+						
 			// check wich side is active
 			if(fiducialID == side_activities){
 				active_side = side_activities;
 			}
 			else if(fiducialID == side_alarm){
 				active_side = side_alarm;
-				
+
+//Aufruf der alarm action die alles weiter handelt
+
+			/*	
 				// set a new alarm
 				if(!alarmset){
 					setAlarm();
@@ -216,6 +219,8 @@ void cubu::update(){
 					stream3 << alarm_hour;
 					stringtodraw = " is set to: " + stream3.str()  + "h:" +  stream2.str() + "min";
 				}
+				*/
+
 			}
 			else if(fiducialID == side_fun){
 				active_side = side_fun;
@@ -225,13 +230,13 @@ void cubu::update(){
 			}
 			else if(fiducialID == side_roomservice){
 				active_side = side_roomservice;
-
 			}
 			else if(fiducialID == side_temperature){
 				active_side = side_temperature;
 			}
 						
-			if(buttons.size()>0 && buttonset <= 0){
+			
+			if(buttons.size()>0){
 			
 				// update index of selected button
 				int previous = selected_button;
@@ -241,10 +246,7 @@ void cubu::update(){
 				// revert selection if index exceeds no of buttons
 				if(selected_button < 0 || selected_button > buttons.size()-1)
 					selected_button = previous;
-				try
-				{	
 					
-						
 					for (int i = 0; i< buttons.size(); i++)
 					{	
 						if(i == selected_button)
@@ -252,27 +254,24 @@ void cubu::update(){
 						else
 							buttons.at(i)->select(false);
 					}
-/*
-					if(buttonset)
-						cout << "button confirmed: true   " << selected_button << endl;
-					else
-						cout << "button confirmed: false   " << selected_button << endl;
-*/
-				}
-				catch (exception& e)
-				{
-					cout << "Standard exception: " << e.what() << endl;
-
-				}
+				
 			}
 			
-
 
 			//cout << "selected button" << selected_button << endl;
 		}
 		else{
-			stringtodraw = "NO MARKER VISIBLE";
-			active_side = -1;
+			time++;
+			//cout << "time:  " << time << "  ";
+
+			//überbrückung kurzes nicht erkennens des markers
+			if (time > 10){
+				stringtodraw = "NO MARKER VISIBLE";
+				active_side = -1;
+				time = 0;
+
+				//cout << endl << "IM TIMER ELSE BLA" << endl;
+			}
 			/*fiducial_threshold += 10;
 			if(fiducial_threshold > 200)
 				fiducial_threshold = 50;
@@ -340,6 +339,32 @@ int cubu::getRotDirection()
 	if(abs(gap) < sensitivity)
 		return 0;
 	
+	if(gap >= 0){
+
+		if (gap <= 180){
+			//CW
+			direction = -1;
+		}
+		else{
+			//CCW
+			direction = 1;
+		}
+	}
+	else{
+
+		if (gap > -180){
+			//CCW
+			direction = 1;
+		}
+		else{
+			//CW
+			direction = -1;
+		}
+	}
+		
+
+	/*
+	
 	// turn-direction is CW
 	if(current_angle < previous_angle){
 		direction = 1;
@@ -347,7 +372,8 @@ int cubu::getRotDirection()
 	// turn-direction is CCW
  	else if(current_angle > previous_angle)
 		direction = -1;
-	
+	*/
+
 	// set the new angle
 	previous_angle = current_angle;
 	
