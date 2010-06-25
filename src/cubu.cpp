@@ -404,8 +404,12 @@ void cubu::draw(){
 void cubu::drawGUI(){
 // draws the gui
 	
-	if(showFaq == true)
+	if(active_side == -1 && showFaq == true)
 		drawFaq();
+	else {
+		showFaq = false;
+	}
+
 		
 	if(active_side != -1){
 		if(active_side == side_food)	
