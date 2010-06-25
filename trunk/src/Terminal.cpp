@@ -6,7 +6,7 @@
 
 #include "Terminal.h"
 
-Terminal::Terminal(int id, char name, char telnumber)
+Terminal::Terminal(int id, std::string name, std::string telnumber)
 {
 
 	name = name;
@@ -17,5 +17,8 @@ Terminal::Terminal(int id, char name, char telnumber)
 }
 
 
+int Terminal::getId(){
+	return id;
+}
 
 

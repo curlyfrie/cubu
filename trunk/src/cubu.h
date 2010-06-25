@@ -21,7 +21,7 @@ class cubu : public ofBaseApp{
 	
 		int roomID;
 		int roomNr;
-
+		Terminal * terminal;
 	
 		void setup();
 		void update();
