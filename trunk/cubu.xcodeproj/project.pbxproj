@@ -23,6 +23,7 @@
 		B7ACF9F311D3CFD2005A156A /* Speise.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7ACF9EF11D3CFD2005A156A /* Speise.cpp */; };
 		B7C1815611D1EF6B00E8AF29 /* Faq.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7C1815511D1EF6B00E8AF29 /* Faq.cpp */; };
 		CD78221411D20C7C00F85BFA /* cubuButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD78221311D20C7C00F85BFA /* cubuButton.cpp */; };
+		CDA96FB911D54ACF00B403E5 /* Display.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDA96FB811D54ACF00B403E5 /* Display.cpp */; };
 		CDADB03C11D12EB6007A923C /* libmysql.lib in Frameworks */ = {isa = PBXBuildFile; fileRef = CDADB03611D12EB6007A923C /* libmysql.lib */; };
 		CDADB03D11D12EB6007A923C /* mysqlclient.lib in Frameworks */ = {isa = PBXBuildFile; fileRef = CDADB03711D12EB6007A923C /* mysqlclient.lib */; };
 		CDADB03E11D12EB6007A923C /* mysys.lib in Frameworks */ = {isa = PBXBuildFile; fileRef = CDADB03811D12EB6007A923C /* mysys.lib */; };
@@ -137,6 +138,8 @@
 		B7C1815511D1EF6B00E8AF29 /* Faq.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Faq.cpp; sourceTree = "<group>"; };
 		CD78221211D20C7C00F85BFA /* cubuButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cubuButton.h; sourceTree = "<group>"; };
 		CD78221311D20C7C00F85BFA /* cubuButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cubuButton.cpp; sourceTree = "<group>"; };
+		CDA96FB711D54ACF00B403E5 /* Display.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Display.h; sourceTree = "<group>"; };
+		CDA96FB811D54ACF00B403E5 /* Display.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Display.cpp; sourceTree = "<group>"; };
 		CDADB01311D12E9C007A923C /* config-win.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "config-win.h"; sourceTree = "<group>"; };
 		CDADB01411D12E9C007A923C /* decimal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = decimal.h; sourceTree = "<group>"; };
 		CDADB01511D12E9C007A923C /* errmsg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = errmsg.h; sourceTree = "<group>"; };
@@ -248,7 +251,7 @@
 		E45BE9770E8CC7DD009D7055 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = /System/Library/Frameworks/CoreServices.framework; sourceTree = "<absolute>"; };
 		E45BE9790E8CC7DD009D7055 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
 		E45BE97A0E8CC7DD009D7055 /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = /System/Library/Frameworks/QuickTime.framework; sourceTree = "<absolute>"; };
-		E4B69B5B0A3A1756003C02F2 /* CubuDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CubuDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4B69B5B0A3A1756003C02F2 /* Cubu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cubu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4B69E1D0A3A1BDC003C02F2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
 		E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; path = cubu.cpp; sourceTree = "<group>"; };
 		E4B69E1F0A3A1BDC003C02F2 /* cubu.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = cubu.h; sourceTree = "<group>"; };
@@ -736,7 +739,7 @@
 		E4B69B4A0A3A1720003C02F2 = {
 			isa = PBXGroup;
 			children = (
-				E4B69B5B0A3A1756003C02F2 /* CubuDebug.app */,
+				E4B69B5B0A3A1756003C02F2 /* Cubu.app */,
 				E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */,
 				E4B69E1C0A3A1BDC003C02F2 /* src */,
 				E4C2422310CC54B6004149E2 /* openFrameworks */,
@@ -747,6 +750,8 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				CDA96FB711D54ACF00B403E5 /* Display.h */,
+				CDA96FB811D54ACF00B403E5 /* Display.cpp */,
 				B7ACF9EB11D3CFD2005A156A /* Kunde.cpp */,
 				B7ACF9EC11D3CFD2005A156A /* Kunde.h */,
 				B7ACF9ED11D3CFD2005A156A /* Service.cpp */,
@@ -873,7 +878,7 @@
 			);
 			name = Cubu;
 			productName = myOFApp;
-			productReference = E4B69B5B0A3A1756003C02F2 /* CubuDebug.app */;
+			productReference = E4B69B5B0A3A1756003C02F2 /* Cubu.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -951,6 +956,7 @@
 				B7ACF9F111D3CFD2005A156A /* Kunde.cpp in Sources */,
 				B7ACF9F211D3CFD2005A156A /* Service.cpp in Sources */,
 				B7ACF9F311D3CFD2005A156A /* Speise.cpp in Sources */,
+				CDA96FB911D54ACF00B403E5 /* Display.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
