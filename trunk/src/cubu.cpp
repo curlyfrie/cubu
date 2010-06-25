@@ -190,7 +190,9 @@ void cubu::update(){
 
 			// get rotation of marker
 			std::stringstream stream;
-			current_angle = fiducial.getAngleDeg();
+
+			if(fiducial.getAngleDeg() != 360)
+				current_angle = fiducial.getAngleDeg();
 			
 			//.. and print it (debugging)
 			stream << current_angle;
@@ -362,6 +364,8 @@ int cubu::getRotDirection()
 		}
 	}
 		
+
+	cout << "ROTATION: cur: " << current_angle << " prev: " << previous_angle << " gap: " <<gap << "  " << direction << endl;
 
 	/*
 	
