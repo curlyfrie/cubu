@@ -108,27 +108,17 @@ void cubu::setupGUI()
 			buttons.clear();
 		}
 		else if (active_side == side_roomservice) {
-			
 
-			/*
-			 
-			buttons.clear();
-			
-			// insert buttons into vector
-			buttons.push_back(new cubuButton(100,200,"Clean up"));
-			buttons.push_back(new cubuButton(300,200,"towels"));
-			*/
-		}
-		else if (active_side == side_temperature) {
-			// do cool stuff here
-			
 			Display* display;
 			display = new Display();
 			display->drawRoomservice(&buttons);
 			
-			for(int i = 0; buttons.size(); i ++) {
-				cout << "buttons: " << buttons.at(i)->label << endl;  
-			}
+		}
+		else if (active_side == side_temperature) {
+			// do cool stuff here
+			
+
+		
 			/*
 			buttons.clear();
 			buttons.push_back(new cubuButton(500,700,"button1"));
@@ -155,6 +145,7 @@ void cubu::setupMYSQLDB(){
 	//terminal mit id 1 wird geladen
 	terminal = dbhandler->getTerminal(1);
 	
+
 	//int kundenid = dbhandler->getKundenId(roomID);
 	
 	//map<int, Kunde*>::iterator kundenIt = kunden.find(kundenid);
@@ -458,9 +449,10 @@ void cubu::drawGUI(){
 
 		
 	if(active_side != -1){
-		if(active_side == side_food)	
+		if(active_side == side_food) {
 			franklinBook.drawString("Food", 100,200);	
-
+			drawFood();
+		}
 		if(active_side == side_alarm){	
 			franklinBook.drawString("Alarm", 100,200);
 			drawAlarm();
@@ -508,6 +500,12 @@ void cubu::drawFaq(){
 	
 }
 
+void cubu::drawFood(){
+	
+	for(int i = 0; i < speisen.size(); i++)
+		buttons.push_back(new cubuButton(400,200,speisen.at(i)->getName()));
+	
+}
 //--------------------------------------------------------------
 void cubu::drawAlarm() {
 //draw any cool gfx for alarm here
