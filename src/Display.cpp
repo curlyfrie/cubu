@@ -30,6 +30,11 @@ vector<cubuButton*> Display::drawRoomservice(){
 }
 
 void Display::drawRoomservice( vector<cubuButton*> * todraw){
+	
+	todraw->push_back(new cubuButton(500,700,"deinemutter"));
+	todraw->push_back(new cubuButton(700,700,"button2"));
+	todraw->push_back(new cubuButton(900,700,"button3"));
+
 	/*
 	vector<cubuButton*>* returnVector;
 	returnVector.push_back(new cubuButton(500,700,"deinemutter"));
