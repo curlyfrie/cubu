@@ -19,7 +19,7 @@ void cubu::setup(){
 	
 	//nr and ID of this room: WARNING, HARD CODED!
 	roomNr = 101;
-	roomID = 1;	
+	roomID = 1;
 	
 	//	show fiducial window YES or NO
 	//	can be switched with 'f'
@@ -136,7 +136,8 @@ void cubu::setupMYSQLDB(){
 	faqs  = dbhandler->getFaqs();
 	speisen = dbhandler->getSpeisen();
 	kunden = dbhandler->getKunden2();
-	
+	//terminal mit id 1 wird geladen
+	terminal = dbhandler->getTerminal(1);
 	
 	cout << "testausgabe speisen"<<endl;
 	for(int i = 0; i < speisen.size(); i++)

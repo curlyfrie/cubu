@@ -30,8 +30,48 @@ DBHandler::~DBHandler()
 
 	
 }
-
-
+Terminal * DBHandler::getTerminal(int terminal_id)
+{
+	return NULL;
+	std::stringstream terminalidstr;
+	terminalidstr << terminal_id;
+	
+	std::string query =  "SELECT * FROM terminal where id = " + terminalidstr.str();
+	query_state = mysql_query(connection,query.c_str());
+	
+	unsigned int num_fields;
+	unsigned int i;
+	
+	result = mysql_store_result(connection);
+	
+	num_fields = mysql_num_fields(result);
+	int id;
+	std::string zimmer;
+	std::string telnr;
+	
+	
+	while ( ( row = mysql_fetch_row(result)) ) {
+		unsigned long *lengths;
+		lengths = mysql_fetch_lengths(result);
+				
+		for( i = 0; i < num_fields; i++)
+		{
+			if(i== 0)
+				id = (int)row[i];
+			
+			if(i== 1)
+				zimmer = row[i];
+			
+			if(i== 2)
+				telnr = row[i];
+			
+		}
+	}
+		Terminal * terminal = new Terminal(id, zimmer, telnr);
+		return terminal;
+		
+	
+}
 
 
 void DBHandler::deleteFaq(int id)
@@ -44,6 +84,18 @@ void DBHandler::deleteFaq(int id)
 	
 	std::string query = "DELETE FROM faq where faq_id = " + idString;
 	 mysql_query(connection,query.c_str());	
+}
+
+void DBHandler::insertTerminalSpeise(Terminal* terminal, Speise* speise)
+{
+	int terminal_id = terminal->getId();
+	int speise_id = speise->getId();
+	std::stringstream terminalstr;
+	terminalstr << terminal_id;
+	std::stringstream speisestr;
+	speisestr << speise_id;
+	std::string query = "insert into terminalspeise (terminal_id, speise_id) values ('" + terminalstr.str() + "',' " + speisestr.str() + "' )";
+	mysql_query(connection,query.c_str());
 }
 
 void DBHandler::setAlarm(int terminal_id, int hour, int minute)
@@ -313,7 +365,7 @@ void DBHandler::getTerminals() {
 	mysql_free_result(result);
 	
 	// just a little test
-	Terminal * t = new Terminal(2,'bla','1234');
+	//xTerminal * t = new Terminal(2,'bla','1234');
 	
 	
 }

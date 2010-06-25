@@ -22,6 +22,7 @@ public:
 	~DBHandler();
 	void setAlarm(int terminal_id, int hour, int minute);
 	void  getTerminals();
+	Terminal * getTerminal(int terminal_id);
 	vector<Faq*> getFaqs();
 	vector<Speise*> getSpeisen();
 	vector<Service*> getService();
@@ -29,6 +30,8 @@ public:
 	int getKundenId(int terminal_id);
 	void deleteFaq(int id);
 	void printFaqs();
+	
+	void insertTerminalSpeise(Terminal* terminal, Speise* speise);
 private:
 	MYSQL *connection;
 	MYSQL mysql;
