@@ -7,12 +7,12 @@
 
 class Terminal {
 private:
-	int id;
+	int terminal_id;
 	std::string name;
 	std::string telnumber;
 	
 public:
-	Terminal(int id, std::string name, std::string telnumber);
+	Terminal(int terminal_id, std::string name, std::string telnumber);
 	
 	int getId();
 	~Terminal();

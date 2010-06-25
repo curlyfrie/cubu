@@ -6,19 +6,19 @@
 
 #include "Terminal.h"
 
-Terminal::Terminal(int id, std::string name, std::string telnumber)
+Terminal::Terminal(int _terminal_id, std::string name, std::string telnumber)
 {
 
 	name = name;
 	telnumber = telnumber;
-	id = id;
+	terminal_id = _terminal_id;
 	
 	
 }
 
 
 int Terminal::getId(){
-	return id;
+	return terminal_id;
 }
 
 

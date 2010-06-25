@@ -141,12 +141,13 @@ void cubu::setupMYSQLDB(){
 	//terminal mit id 1 wird geladen
 	terminal = dbhandler->getTerminal(1);
 	
-	cout << "testausgabe speisen"<<endl;
-	for(int i = 0; i < speisen.size(); i++)
-		cout << speisen.at(i)->getName()<<endl;
 	//int kundenid = dbhandler->getKundenId(roomID);
 	
 	//map<int, Kunde*>::iterator kundenIt = kunden.find(kundenid);
+	
+	//mittels der zeile kann in die db terminal, speise eingefŸgt werden
+//	dbhandler->insertTerminalSpeise(terminal, speisen.at(0));
+	
 	
 	//Kunde * k = kundenIt->second;
 	

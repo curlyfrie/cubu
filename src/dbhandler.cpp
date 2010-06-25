@@ -37,7 +37,6 @@ Terminal * DBHandler::getTerminal(int terminal_id)
 	terminalidstr << terminal_id;
 	
 	std::string query =  "SELECT * FROM terminal where terminal_id = " + terminalidstr.str();
-	cout << query;
 
 	query_state = mysql_query(connection,query.c_str());
 	
@@ -59,7 +58,7 @@ Terminal * DBHandler::getTerminal(int terminal_id)
 		for( i = 0; i < num_fields; i++)
 		{
 			if(i== 0)
-				id = (int)row[i];
+				id = atoi(row[i]);
 			
 			if(i== 1)
 				zimmer = row[i];
@@ -69,8 +68,10 @@ Terminal * DBHandler::getTerminal(int terminal_id)
 			
 		}
 	}
-		Terminal * terminal = new Terminal(id, zimmer, telnr);
-		return terminal;
+
+	Terminal * terminal = new Terminal(terminal_id, zimmer, telnr);
+	cout << "terminall id " << terminal_id<<endl;
+	return terminal;
 		
 	
 }
@@ -96,7 +97,8 @@ void DBHandler::insertTerminalSpeise(Terminal* terminal, Speise* speise)
 	terminalstr << terminal_id;
 	std::stringstream speisestr;
 	speisestr << speise_id;
-	std::string query = "insert into terminalspeise (terminal_id, speise_id) values ('" + terminalstr.str() + "',' " + speisestr.str() + "' )";
+	std::string query = "insert into terminalspeise (terminal_id, speise_id, datum) values ('" + terminalstr.str() + "',' " + speisestr.str() + "' , now())";
+	cout << query<<endl;
 	mysql_query(connection,query.c_str());
 }
 
@@ -136,7 +138,7 @@ vector<Faq*> DBHandler::getFaqs() {
 		for( i = 0; i < num_fields; i++)
 		{
 			if(i== 0)
-				id = (int)row[i];
+				id = atoi(row[i]);
 			
 			if(i== 1)
 				question = row[i];
@@ -173,16 +175,16 @@ vector<Speise*> DBHandler::getSpeisen() {
 	while ( ( row = mysql_fetch_row(result)) ) {
 		unsigned long *lengths;
 		lengths = mysql_fetch_lengths(result);
-		int id;
+		int speise_id;
 		std::string name;
 		std::string beschreibung;
 		float preis;
 		
 		for( i = 0; i < num_fields; i++)
 		{
-			if(i== 0)
-				id = (int)row[i];
-			
+			if(i== 0){
+				speise_id = atoi(row[i]);
+			}
 			if(i== 1)
 				name = row[i];
 			
@@ -192,8 +194,8 @@ vector<Speise*> DBHandler::getSpeisen() {
 				preis = atof(row[i]);
 			
 		}
-
-		speisen.push_back(new Speise(id, name,beschreibung, preis));
+		
+		speisen.push_back(new Speise(speise_id, name,beschreibung, preis));
 		
 	}
 	
@@ -223,7 +225,7 @@ vector<Service*> DBHandler::getService() {
 		for( i = 0; i < num_fields; i++)
 		{
 			if(i== 0)
-				id = (int)row[i];
+				id = atoi(row[i]);
 			
 			if(i== 1)
 				name = row[i];
@@ -268,7 +270,7 @@ map <int, Kunde*> DBHandler::getKunden2() {
 		for( i = 0; i < num_fields; i++)
 		{
 			if(i== 0)
-				id = (int)row[i];
+				id = atoi(row[i]);
 			
 			if(i== 1)
 				vorname = row[i];
@@ -323,7 +325,7 @@ int DBHandler::getKundenId(int terminalId) {
 		lengths = mysql_fetch_lengths(result);
 		for( i = 0; i < num_fields; i++)
 		{
-			kunden_id = (int) row[i];
+			kunden_id = atoi(row[i]);
 			cout << num_fields << " " <<row[i]<<endl;
 		}
 		printf("\n");
