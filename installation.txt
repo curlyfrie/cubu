@@ -17,7 +17,7 @@ VISUAL STUDIO 2008:
 ----------------------
 
 [C/C++: General: Additional Include Directories]
-mysql\includes
+mysql\include
 
 [Linker: General: Additional Library Directories]]
 mysql\lib\opt
