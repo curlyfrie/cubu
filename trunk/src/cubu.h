@@ -54,6 +54,7 @@ class cubu : public ofBaseApp{
 	int getRotDirection();
 	
 	void drawAlarm();
+	void drawFood();
 	void drawGUI();
 	void drawFaq();
 	
