@@ -8,8 +8,9 @@
 #include "ofxCvMain.h"
 #include "ofxFidMain.h"
 #include "DBHandler.h"
-#include "CubuButton.h" 
+
 #include <vector>
+#include "Display.h"
 
 
 class cubu : public ofBaseApp{
@@ -60,7 +61,7 @@ class cubu : public ofBaseApp{
 	
 private:
 	
-
+	Display display;
 	int selected_button;
 	vector<cubuButton*> buttons;
 
