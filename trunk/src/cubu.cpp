@@ -109,18 +109,32 @@ void cubu::setupGUI()
 		}
 		else if (active_side == side_roomservice) {
 			
+
+			/*
+			 
 			buttons.clear();
+			
 			// insert buttons into vector
 			buttons.push_back(new cubuButton(100,200,"Clean up"));
 			buttons.push_back(new cubuButton(300,200,"towels"));
-			
+			*/
 		}
 		else if (active_side == side_temperature) {
 			// do cool stuff here
+			
+			Display* display;
+			display = new Display();
+			display->drawRoomservice(&buttons);
+			
+			for(int i = 0; buttons.size(); i ++) {
+				cout << "buttons: " << buttons.at(i)->label << endl;  
+			}
+			/*
 			buttons.clear();
 			buttons.push_back(new cubuButton(500,700,"button1"));
 			buttons.push_back(new cubuButton(700,700,"button2"));
 			buttons.push_back(new cubuButton(900,700,"button3"));
+			 */
 		}
 		else
 			buttons.clear();

@@ -23,7 +23,7 @@ public:
 	
 	
 	Display();
-	~Display();
+	//~Display();
 	
 	vector<cubuButton*> drawRoomservice();
 	void drawRoomservice( vector<cubuButton*> * todraw);
