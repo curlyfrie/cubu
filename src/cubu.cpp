@@ -133,8 +133,13 @@ void cubu::setupMYSQLDB(){
 	dbhandler = new DBHandler();
 	dbhandler->getTerminals();
 	faqs  = dbhandler->getFaqs();
+	speisen = dbhandler->getSpeisen();
 	kunden = dbhandler->getKunden2();
-
+	
+	
+	cout << "testausgabe speisen"<<endl;
+	for(int i = 0; i < speisen.size(); i++)
+		cout << speisen.at(i)->getName()<<endl;
 	//int kundenid = dbhandler->getKundenId(roomID);
 	
 	//map<int, Kunde*>::iterator kundenIt = kunden.find(kundenid);
