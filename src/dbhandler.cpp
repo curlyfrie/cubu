@@ -32,11 +32,13 @@ DBHandler::~DBHandler()
 }
 Terminal * DBHandler::getTerminal(int terminal_id)
 {
-	return NULL;
+
 	std::stringstream terminalidstr;
 	terminalidstr << terminal_id;
 	
-	std::string query =  "SELECT * FROM terminal where id = " + terminalidstr.str();
+	std::string query =  "SELECT * FROM terminal where terminal_id = " + terminalidstr.str();
+	cout << query;
+
 	query_state = mysql_query(connection,query.c_str());
 	
 	unsigned int num_fields;
