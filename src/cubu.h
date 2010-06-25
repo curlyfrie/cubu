@@ -95,6 +95,7 @@ private:
 	int fiducial_threshold;
 	bool showFiducialWindow;
 	
+	bool showFaq;
 		
 	vector<Faq*> faqs;
 	vector<Speise*> speisen;
