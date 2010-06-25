@@ -107,35 +107,19 @@ void cubu::setupGUI()
 		else if (active_side == side_food) {
 			// do cool stuff here
 			buttons.clear();
-
-			test = 0;
-
-			cout << test << endl;
-
-			display = new Display();
-						
-			cout << test << endl;
-
 		}
 		else if (active_side == side_roomservice) {
-			
-			buttons.clear();
-			// insert buttons into vector
-			buttons.push_back(new cubuButton(100,200,"Clean up"));
-			buttons.push_back(new cubuButton(300,200,"towels"));
 
+			Display* display;
+			display = new Display();
+			display->drawRoomservice(&buttons);
 			
 		}
 		else if (active_side == side_temperature) {
 			// do cool stuff here
 			
-			Display* display;
-			display = new Display();
-			display->drawRoomservice(&buttons);
-			
-			for(int i = 0; buttons.size(); i ++) {
-				cout << "buttons: " << buttons.at(i)->label << endl;  
-			}
+
+		
 			/*
 			buttons.clear();
 			buttons.push_back(new cubuButton(500,700,"button1"));
@@ -437,9 +421,10 @@ void cubu::drawGUI(){
 
 		
 	if(active_side != -1){
-		if(active_side == side_food)	
+		if(active_side == side_food) {
 			franklinBook.drawString("Food", 100,200);	
-
+			drawFood();
+		}
 		if(active_side == side_alarm){	
 			franklinBook.drawString("Alarm", 100,200);
 			drawAlarm();
@@ -489,6 +474,12 @@ void cubu::drawFaq(){
 	
 }
 
+void cubu::drawFood(){
+	
+	for(int i = 0; i < speisen.size(); i++)
+		buttons.push_back(new cubuButton(400,200,speisen.at(i)->getName()));
+	
+}
 //--------------------------------------------------------------
 void cubu::drawAlarm() {
 //draw any cool gfx for alarm here
