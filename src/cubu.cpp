@@ -16,10 +16,13 @@ void cubu::setup(){
 	// 
 	setupGUI();
 	selected_button = 0;
+
 	
 	//nr and ID of this room: WARNING, HARD CODED!
 	roomNr = 101;
 	roomID = 1;
+
+
 	
 	//	show fiducial window YES or NO
 	//	can be switched with 'f'
@@ -38,8 +41,6 @@ void cubu::setup(){
 	
 	// reset helpers
 	active_side = -1;
-
-	cout << "IM SETUPPPP" << endl;
 	prev_side = -1;
 	previous_angle = -1;
 	current_angle = -1;
@@ -106,19 +107,35 @@ void cubu::setupGUI()
 		else if (active_side == side_food) {
 			// do cool stuff here
 			buttons.clear();
+
+			test = 0;
+
+			cout << test << endl;
+
+			display = new Display();
+						
+			cout << test << endl;
+
 		}
 		else if (active_side == side_roomservice) {
+			
+			buttons.clear();
+			// insert buttons into vector
+			buttons.push_back(new cubuButton(100,200,"Clean up"));
+			buttons.push_back(new cubuButton(300,200,"towels"));
 
-			Display* display;
-			display = new Display();
-			display->drawRoomservice(&buttons);
 			
 		}
 		else if (active_side == side_temperature) {
 			// do cool stuff here
 			
-
-		
+			Display* display;
+			display = new Display();
+			display->drawRoomservice(&buttons);
+			
+			for(int i = 0; buttons.size(); i ++) {
+				cout << "buttons: " << buttons.at(i)->label << endl;  
+			}
 			/*
 			buttons.clear();
 			buttons.push_back(new cubuButton(500,700,"button1"));
@@ -145,7 +162,6 @@ void cubu::setupMYSQLDB(){
 	//terminal mit id 1 wird geladen
 	terminal = dbhandler->getTerminal(1);
 	
-
 	//int kundenid = dbhandler->getKundenId(roomID);
 	
 	//map<int, Kunde*>::iterator kundenIt = kunden.find(kundenid);
@@ -203,7 +219,9 @@ void cubu::update(){
 			//.. and print it (debugging)
 			stream << current_angle;
 			rotation = "current angle: " + stream.str();
-						
+			
+
+
 			// check wich side is active
 			if(fiducialID == side_activities){
 				active_side = side_activities;
@@ -244,6 +262,7 @@ void cubu::update(){
 			}
 						
 			
+			//Button Selection via rotation
 			if(buttons.size()>0){
 			
 				// update index of selected button
@@ -255,41 +274,31 @@ void cubu::update(){
 				if(selected_button < 0 || selected_button > buttons.size()-1)
 					selected_button = previous;
 					
-					for (int i = 0; i< buttons.size(); i++)
-					{	
-						if(i == selected_button)
-							buttons.at(i)->select(true);
-						else
-							buttons.at(i)->select(false);
-					}
-				
+				for (int i = 0; i< buttons.size(); i++)
+				{	
+					if(i == selected_button)
+						buttons.at(i)->select(true);
+					else
+						buttons.at(i)->select(false);
+				}				
 			}
-			
 
-			//cout << "selected button" << selected_button << endl;
 		}
 		else{
+			
+			//wenn kein marker aktiv: time erhoehen
 			time++;
-			//cout << "time:  " << time << "  ";
-
+			
 			//überbrückung kurzes nicht erkennens des markers
 			if (time > 10){
-				stringtodraw = "NO MARKER VISIBLE";
 				active_side = -1;
 				time = 0;
-
-				//cout << endl << "IM TIMER ELSE BLA" << endl;
 			}
-			/*fiducial_threshold += 10;
-			if(fiducial_threshold > 200)
-				fiducial_threshold = 50;
-			update();
-*/
 		}
 	}
-
 }
 //--------------------------------------------------------------
+
 void cubu::setAlarm()
 // set the alarm timer form user input
 {
@@ -338,7 +347,7 @@ void cubu::getAlarmfromDB(){
 
 //--------------------------------------------------------------
 int cubu::getRotDirection()
-// returns +1 if (marker)rotation is CW, -1 if rotation is CCW and 0 if nothing has changed
+// returns -1 if (marker)rotation is CW, +1 if rotation is CCW and 0 if nothing has changed
 {
 	int direction;
 	
@@ -371,53 +380,33 @@ int cubu::getRotDirection()
 	}
 		
 
-	cout << "ROTATION: cur: " << current_angle << " prev: " << previous_angle << " gap: " <<gap << "  " << direction << endl;
-
-	/*
-	
-	// turn-direction is CW
-	if(current_angle < previous_angle){
-		direction = 1;
-	}
-	// turn-direction is CCW
- 	else if(current_angle > previous_angle)
-		direction = -1;
-	*/
+//	cout << "ROTATION: cur: " << current_angle << " prev: " << previous_angle << " gap: " <<gap << "  " << direction << endl;
 
 	// set the new angle
 	previous_angle = current_angle;
 	
-	//cout << "direction" << direction << endl;
 	return direction;
 }
 //--------------------------------------------------------------
 void cubu::draw(){
 	
-	//franklinBook.drawString(k->getVorname() + " " + k->getNachname(), 10,20);
-	
-	/*
-	 for(map <int, Kunde*>::iterator it = kunden.begin();it!=kunden.end(); ++it)
-	 {
-	 cout << "ID " << it->first << it->second->getVorname();
-	 }*/
-
-	
-	//drawFaq();
-
 	//set Background Color
-	ofBackground(126, 169, 203);
+	//ofBackground(126, 169, 203);
+
+	//draw font
+	//ofSetColor(0x3366aa);
+	
 	
 	//draw GUI
-	//gui.draw();
 	drawGUI();
+
+
 	
-	//draw font
-	ofSetColor(0x3366aa);
+	//franklinBook.drawString(rotation, 100, 100);
 	
-	
-	//franklinBook.drawString(stringtodraw, 100,310);
-	franklinBook.drawString(rotation, 100, 100);
-	
+
+
+
 	// draw fiducial window
 	if(showFiducialWindow)
 	{
@@ -431,15 +420,14 @@ void cubu::draw(){
 			fiducial->drawCorners( 20, 430 );//draw corners
 			//cout << "fiducial " << fiducial->getId() << " found at ( " << fiducial->getX() << "," << fiducial->getY() << " )" << endl;
 		}
-		
-		//cout << "rotation == " << rotation;
 	}
 	
-
 }
 //--------------------------------------------------------------
 void cubu::drawGUI(){
 // draws the gui
+
+
 	
 	if(active_side == -1 && showFaq == true)
 		drawFaq();
@@ -449,10 +437,9 @@ void cubu::drawGUI(){
 
 		
 	if(active_side != -1){
-		if(active_side == side_food) {
+		if(active_side == side_food)	
 			franklinBook.drawString("Food", 100,200);	
-			drawFood();
-		}
+
 		if(active_side == side_alarm){	
 			franklinBook.drawString("Alarm", 100,200);
 			drawAlarm();
@@ -460,9 +447,11 @@ void cubu::drawGUI(){
 		if(active_side == side_roomservice)	
 			franklinBook.drawString("Room Service", 100,200);	
 
-		if(active_side == side_temperature)	
+		if(active_side == side_temperature){	
 			franklinBook.drawString("Air Condition", 100,200);	
 
+
+		}
 		if(active_side == side_activities)	
 			franklinBook.drawString("Activities", 100,200);	
 
@@ -500,12 +489,6 @@ void cubu::drawFaq(){
 	
 }
 
-void cubu::drawFood(){
-	
-	for(int i = 0; i < speisen.size(); i++)
-		buttons.push_back(new cubuButton(400,200,speisen.at(i)->getName()));
-	
-}
 //--------------------------------------------------------------
 void cubu::drawAlarm() {
 //draw any cool gfx for alarm here
@@ -584,6 +567,10 @@ void cubu::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void cubu::mousePressed(int x, int y, int button){
+	
+	//ACTION - Aufruf statt hier..
+	/////////////////////////////////
+	
 	if(button == 0){
 		int temp = -1;
 		// check if any button was hit
@@ -634,4 +621,3 @@ void cubu::mouseReleased(int x, int y, int button){
 void cubu::windowResized(int w, int h){
 
 }
-
