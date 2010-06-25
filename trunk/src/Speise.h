@@ -13,13 +13,13 @@ class Speise {
 	
 	
 private:
-	int id;
+	int speise_id;
 	std::string name;
 	std::string beschreibung;
 	float preis;
 public:
 	
-	Speise(int id, std::string name, std::string beschreibung, float preis);
+	Speise(int speise_id, std::string name, std::string beschreibung, float preis);
 	std::string getName();
 	std::string getBeschreibung();
 	float getPreis();

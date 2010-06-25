@@ -9,10 +9,10 @@
 
 #include "Speise.h"
 
-Speise::Speise(int _id, std::string _name, std::string _beschreibung, float _preis)
+Speise::Speise(int _speise_id, std::string _name, std::string _beschreibung, float _preis)
 {
 	
-	id = _id;
+	speise_id = _speise_id;
 	name = _name;
 	beschreibung = _beschreibung;
 	preis = _preis;
@@ -32,5 +32,5 @@ float Speise::getPreis(){
 }
 
 int Speise::getId(){
-	return id;
+	return speise_id;
 }
