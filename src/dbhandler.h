@@ -31,7 +31,7 @@ public:
 	void deleteFaq(int id);
 	void printFaqs();
 	
-	void insertTerminalSpeise(Terminal* terminal, Speise* speise);
+	void insertTerminalSpeise(Terminal* terminal, Speise* speise, int anzahl, float sumpreis);
 private:
 	MYSQL *connection;
 	MYSQL mysql;
