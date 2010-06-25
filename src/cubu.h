@@ -7,7 +7,6 @@
 
 #include "ofxCvMain.h"
 #include "ofxFidMain.h"
-#include "ofxSQLiteHeaders.h"
 #include "DBHandler.h"
 #include "CubuButton.h" 
 #include <vector>
@@ -54,7 +53,6 @@ class cubu : public ofBaseApp{
 	int getRotDirection();
 	
 	void drawAlarm();
-	void setupDB();
 	void drawGUI();
 	void drawFaq();
 	
@@ -62,7 +60,6 @@ class cubu : public ofBaseApp{
 	
 private:
 	
-	ofxSQLite* sqlite;
 
 	int selected_button;
 	vector<cubuButton*> buttons;

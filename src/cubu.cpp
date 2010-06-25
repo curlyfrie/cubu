@@ -7,7 +7,6 @@ cubu::cubu()
 
 cubu::~cubu()
 {
-	//delete sqlite;
 	// exit should do the same stuff
 }
 //--------------------------------------------------------------
@@ -127,33 +126,7 @@ void cubu::setupGUI()
 }
 
 
-//--------------------------------------------------------------
-void cubu::setupDB(){
-//establish connection do database
-	
-	sqlite = new ofxSQLite("cubu2.sqlite");
-	
-	/*cout << "creating table...";	
-	if (SQLITE_OK != sqlite->simpleQuery(""\
-			"CREATE TABLE IF NOT EXISTS room( " \
-				" id INTEGER PRIMARY KEY AUTOINCREMENT" \
-				",number INTEGER" \
-				",alarm_hour INTEGER" \
-				",alarm_minute INTEGER" \
- 				",alarm_set BOOLEAN" \
-			");"
-										 )) {
-		cout << "ERROR CREATE TABLE\n";
-	}
-	else
-		cout << "...successful" << endl;
-*/
-	//convert time to timestamp
-	// insert this client
-	sqlite->insert("alert").use("terminal_id",ofToString(roomNr)).use("time","00:00:00").use("aktiv","FALSE").execute();
 
-
-}
 
 void cubu::setupMYSQLDB(){
 		
@@ -340,37 +313,12 @@ void cubu::setAlarm()
 }
 //--------------------------------------------------------------
 void cubu::saveAlarmtoDB(){
-//save current alarm time to DB
-	
-	//cout << "saving current alarm time to db" << ofToString(alarm_hour) << ":" << ofToString(alarm_minute) << endl;
-	try
-	{
-		sqlite->update("room").use("alarm_hour",ofToString(alarm_hour)).use("alarm_minute", ofToString(alarm_minute)).where("number",roomNr).execute();
-	}
-	catch (exception& e)
-	{
-		cout << "Standard exception: " << e.what() << endl;
 
-	}
 	
 }
 //--------------------------------------------------------------
 void cubu::getAlarmfromDB(){
-	//get the current alarm setting for this room
 
-	//sqlite->update("room").use("alarm",ofToString(alarm_hour) + ofToString(alarm_minute)).where("number",roomNr).execute();
-	
-	cout << "selecting from DB...";
-	ofxSQLiteSelect sel = sqlite->select("number,alarm_hour,alarm_minute").from("room").where("number",roomNr);
-	sel.execute().begin();
-	while(sel.hasNext()) {
-		int number = sel.getInt();
-		int alarm_hour = sel.getInt();
-		int alarm_minute = sel.getInt();
-		cout << "roomnumber: " << number << " alarm: " << alarm_hour << ":" << alarm_minute << endl;
-		sel.next();
-	}
-	cout << "done" << endl;
 	
 }
 
