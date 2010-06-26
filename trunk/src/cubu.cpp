@@ -166,7 +166,7 @@ void cubu::setupMYSQLDB(){
 	dbhandler = new DBHandler();
 	dbhandler->getTerminals();
 	faqs  = dbhandler->getFaqs();
-	//speisen = dbhandler->getSpeisen();
+	speisen = dbhandler->getSpeisen();
 
 	kunden = dbhandler->getKunden2();
 	//terminal mit id 1 wird geladen
@@ -524,7 +524,10 @@ void cubu::drawFaq(){
 void cubu::drawFood(){
 	
 	for(int i = 0; i < speisen.size(); i++)
-		buttons.push_back(new cubuButton(400,200,speisen.at(i)->getName()));
+	{
+		cout << "drawfood"<< speisen.at(i)->getName()<<endl;
+		buttons.push_back(new cubuButton(500,200 + i * 50 ,speisen.at(i)->getName()));
+	}
 	
 }
 //--------------------------------------------------------------
