@@ -21,7 +21,7 @@ public:
 	
 	cubuString();
 	cubuString(std::string ptext, float px, float py, std::string pfont, int psize);
-	cubuString::cubuString(std::string ptext, float px, float py);
+	cubuString(std::string ptext, float px, float py);
 	~cubuString();
 	
 private:
