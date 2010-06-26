@@ -27,9 +27,10 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 
 		pic->push_back(new cubuPic("img/cleaning.jpg", 500, 100));
 
-	//	string->push_back(new cubuString("TEST", 100, 100,"verdana.ttf", 32));
-	//	string->push_back(new cubuString("TEST", 300, 100,"brit.ttf", 32));
-	//	string->push_back(new cubuString("AAAA", 100, 300));
+		//string->push_back(new cubuString("TEST", 100, 100,"verdana.ttf", 32, 0xFFFFFF));
+		//string->push_back(new cubuString("TEST", 300, 100,"brit.ttf", 32));
+		//string->push_back(new cubuString("AAAA", 100, 300));
+		string->push_back(new cubuString("Roomservice"));
 	}
 
 	else if (guiname == "alarm1") {
