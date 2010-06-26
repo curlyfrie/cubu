@@ -58,7 +58,9 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 	
 	}	
 	else if (guiname == "Drinks") {
-		button->clear();		
+		button->clear();	
+		string->clear();
+		pic->clear();
 		speisen = dbhandler->getSpeisen(1);
 		string->push_back(new cubuString("Drinks", 100, 100,"verdana.ttf", 32));
 	
@@ -70,7 +72,9 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 		}
 	}
 	else if (guiname == "Menu") {
-		button->clear();
+		button->clear();	
+		string->clear();
+		pic->clear();
 		speisen = dbhandler->getSpeisen(0);
 		string->push_back(new cubuString("The Menu", 100, 100,"verdana.ttf", 32));
 		int y = 150; 

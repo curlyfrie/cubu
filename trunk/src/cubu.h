@@ -42,6 +42,8 @@ class cubu : public ofBaseApp{
 		void mouseReleased(int x, int y, int button);
 		void windowResized(int w, int h);
 	
+	void clearAll();
+	
 	// set no. of marker for sides
 
 	
