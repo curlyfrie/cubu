@@ -15,7 +15,8 @@ public:
 	int y;
 	int width;
 	int height;
-	
+	int action;
+	std:string guiname;
 	std::string label;
 	bool selected;
 	
