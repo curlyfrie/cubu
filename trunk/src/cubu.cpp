@@ -412,6 +412,10 @@ int cubu::getRotDirection()
 }
 //--------------------------------------------------------------
 void cubu::draw(){
+	ofSetColor(255,255,255);
+	ofImage img;
+	img.loadImage("img/background.png");
+	img.draw(0,0);
 	
 	//set Background Color
 	//ofBackground(126, 169, 203);
@@ -433,7 +437,8 @@ void cubu::draw(){
 	// draw fiducial window
 	if(showFiducialWindow)
 	{
-		ofSetColor(255,255,255);
+				
+		
 		grayDiff.draw(20, 450);
 		//colorImg.draw(20,430);
 	
