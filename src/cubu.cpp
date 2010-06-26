@@ -502,7 +502,8 @@ void cubu::drawGUI(){
 			ofSetColor(100,0,0);
 		else
 			ofSetColor(105,105,105);
-		ofRect(currentbutton->x, currentbutton->y, currentbutton->width, currentbutton->height);
+		ofRectangle rect = buttonlabel.getStringBoundingBox(currentbutton->label, 0,0);
+		ofRect(currentbutton->x, currentbutton->y, currentbutton->height+rect.width, currentbutton->height);
 		ofSetColor(255, 255, 255);
 		buttonlabel.drawString(currentbutton->label, currentbutton->x+currentbutton->height/2, currentbutton->y+currentbutton->width/4);
 	}
