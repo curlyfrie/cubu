@@ -13,7 +13,7 @@ cubu::~cubu()
 void cubu::setup(){
 	showFaq = false;
 	
-	// 
+	
 	setupGUI();
 	selected_button = 0;
 
@@ -50,7 +50,6 @@ void cubu::setup(){
 	buttonset = -1;
 	time = 0;
 	
-	display = new Display();
 	
 	// define threshold to find fiducial
 	fiducial_threshold =135;
@@ -98,33 +97,19 @@ void cubu::setupGUI()
 		
 		if(active_side == side_fun){
 			// do cool stuff here
-			//buttons.clear();
-
-			
-			display->draw("roomservice1", &buttons, &strings);
+			buttons.clear();
 		}
 		else if (active_side == side_activities) {
 			// do cool stuff here
-			//buttons.clear();
-			
-			
-			display->draw("activities1", &buttons, &strings);
+			buttons.clear();
 		}
 		else if (active_side == side_alarm) {
 			// do cool stuff here
-			//buttons.clear();
-
-			
-			
-			display->draw("alarm1", &buttons, &strings);
+			buttons.clear();
 		}
 		else if (active_side == side_food) {
 			// do cool stuff here
-			//buttons.clear();
-
-			
-			
-			display->draw("food1", &buttons, &strings);
+			buttons.clear();
 		}
 		else if (active_side == side_roomservice) {
 
@@ -137,7 +122,8 @@ void cubu::setupGUI()
 */
 			//strings.push_back(new cubuString());
 
-			
+			Display* display;
+			display = new Display();
 			display->draw("roomservice1", &buttons, &strings);
 
 			
@@ -145,9 +131,6 @@ void cubu::setupGUI()
 		else if (active_side == side_temperature) {
 			// do cool stuff here
 			
-			
-			
-			display->draw("temperature1", &buttons, &strings);
 
 		
 			/*
@@ -610,8 +593,6 @@ void cubu::mouseDragged(int x, int y, int button){
 //--------------------------------------------------------------
 void cubu::mousePressed(int x, int y, int button){
 	
-
-	
 	//ACTION - Aufruf statt hier..
 	/////////////////////////////////
 	
@@ -622,7 +603,6 @@ void cubu::mousePressed(int x, int y, int button){
 			if(buttons.at(i)->click(x,y) == true){
 				cout << "you have hit button: " << i << endl; 
 				buttons.at(i)->select(true);
-			    display->draw(buttons.at(i)->label, &buttons, &strings);
 				temp = i;
 				break;
 			}
@@ -648,22 +628,16 @@ void cubu::mousePressed(int x, int y, int button){
 			alarmset = false;
 		}
 
-		else if (active_side == side_activities) {
-			
-		}
-
 		if(buttonset < 0){
 			buttonset = selected_button;
 
 			//TEST per klick GUI LADEN
 			// works
 
-			cout << "hitted button: " << buttonset << endl;
 
-		/*	Display* display;
+				Display* display;
 			display = new Display();
 			display->draw("roomservice1", &buttons, &strings);
-			*/
 		}
 		else
 			buttonset = -1;

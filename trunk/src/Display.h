@@ -1,10 +1,7 @@
 /*
  *  Display.h
  *  cubu
- *
- *  Created by Patrick Stipsits on 25.06.10.
- *  Copyright 2010 __MyCompanyName__. All rights reserved.
- *
+
  */
 
 
