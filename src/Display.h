@@ -36,6 +36,9 @@ public:
 	
 	vector<cubuButton*> drawRoomservice();
 	void drawRoomservice( vector<cubuButton*> * todraw);
+	
+	DBHandler *dbhandler;
+	vector<Speise*> speisen;
 
 	void draw(std::string pguiname, vector<cubuButton*> * button, vector<cubuString*> * string, vector<cubuPic*> * pic);
 

@@ -181,58 +181,6 @@ Speise * DBHandler::getSpeise(int speise_id)
 	
 }
 
-Speise * DBHandler::getSpeise(int speise_id, int typ)
-{
-	
-	
-	std::string query =  "SELECT * FROM speise where typ = " + typ;
-	
-	query_state = mysql_query(connection,query.c_str());
-	
-	unsigned int num_fields;
-	unsigned int i;
-	
-	result = mysql_store_result(connection);
-	
-	num_fields = mysql_num_fields(result);
-	int id;
-	std::string name;
-	std::string beschreibung;
-	std::string bild;
-	float preis;
-	
-	while ( ( row = mysql_fetch_row(result)) ) {
-		unsigned long *lengths;
-		lengths = mysql_fetch_lengths(result);
-		
-		for( i = 0; i < num_fields; i++)
-		{
-			if(i== 0)
-				id = atoi(row[i]);
-			
-			if(i== 1)
-				name = row[i];
-			
-			if(i== 2)
-				beschreibung = row[i];
-			if(i== 3)
-				preis = atoi(row[i]);
-			
-			if(i== 4)
-				bild = row[i];
-			if(i== 5)
-				typ = atoi(row[i]);
-			
-			
-		}
-	}
-	
-	Speise * speise = new Speise(speise_id, name, beschreibung, preis, bild, typ);
-	return speise;
-	
-	
-}
-
 void DBHandler::deleteFaq(int id)
 {
 	
@@ -283,7 +231,7 @@ vector<Bestellung *> DBHandler::getBestellungen(Terminal * terminal)
 	terminalstr << terminal_id;
 
 	vector<Bestellung *> bestellungen;
-	std::string query = "SELECT s.speise_id, s.name, s.beschreibung, s.preis, ts.anzahl, ts.sumpreis FROM terminalspeise ts, speise s WHERE ts.terminal_id = " + terminalstr.str() ;
+	std::string query = "SELECT s.speise_id, s.name, s.beschreibung, s.preis, s.bild, s.typ, ts.anzahl, ts.sumpreis FROM terminalspeise ts, speise s WHERE ts.terminal_id = " + terminalstr.str() ;
 	
 	cout << query << endl;
 	query_state = mysql_query(connection, query.c_str());
@@ -302,6 +250,8 @@ vector<Bestellung *> DBHandler::getBestellungen(Terminal * terminal)
 	int speise_id;
 	std::string name;
 	std::string beschreibung;
+	std::string bild;
+	int typ;
 	int anzahl;
 	float preis;
 	float sumpreis;
@@ -322,13 +272,17 @@ vector<Bestellung *> DBHandler::getBestellungen(Terminal * terminal)
 			if(i==3)
 				preis = atoi(row[i]);
 			if(i==4)
-				anzahl = atoi(row[i]); 
+				bild = row[i];
 			if(i==5)
+				typ = atoi(row[i]);
+			if(i==6)
+				anzahl = atoi(row[i]); 
+			if(i==7)
 				sumpreis = atoi(row[i]);
 			cout << name<<endl;	
 			
 		}
-		Speise * speise = new Speise(speise_id, name, beschreibung, preis);
+		Speise * speise = new Speise(speise_id, name, beschreibung, preis, bild, typ);
 		cout << "BTest " << speise->getName()<<endl;
 	bestellungen.push_back(new Bestellung(speise_id,anzahl, sumpreis ) );
 	}
@@ -503,6 +457,8 @@ vector<Speise*> DBHandler::getSpeisen() {
 		unsigned long *lengths;
 		lengths = mysql_fetch_lengths(result);
 		int speise_id;
+		int typ;
+		std::string bild;
 		std::string name;
 		std::string beschreibung;
 		float preis;
@@ -519,16 +475,73 @@ vector<Speise*> DBHandler::getSpeisen() {
 				beschreibung = row[i];
 			if(i == 3)
 				preis = atof(row[i]);
+			if(i== 4)
+				bild = row[i];
+			if(i== 5)
+				typ = atoi(row[i]);
 			
 		}
 		
-		speisen.push_back(new Speise(speise_id, name,beschreibung, preis));
+		speisen.push_back(new Speise(speise_id, name,beschreibung, preis, bild, typ));
 		
 	}
 	
 	mysql_free_result(result);
 	return speisen;	
 }
+
+vector<Speise*> DBHandler::getSpeisen(int typ) {
+	std::stringstream typstr;
+	typstr << typ;
+
+	query_state = mysql_query(connection, "SELECT * FROM speise where typ = 0");
+	if (query_state !=0) {
+		cout << mysql_error(connection) << endl;
+	}
+	vector <Speise*> speisen; 
+	unsigned int num_fields;
+	unsigned int i;
+	
+	result = mysql_store_result(connection);
+	
+	num_fields = mysql_num_fields(result);
+	while ( ( row = mysql_fetch_row(result)) ) {
+		unsigned long *lengths;
+		lengths = mysql_fetch_lengths(result);
+		int speise_id;
+		std::string name;
+		std::string beschreibung;
+		std::string bild;
+		float preis;
+		
+		for( i = 0; i < num_fields; i++)
+		{
+			if(i== 0){
+				speise_id = atoi(row[i]);
+			}
+			if(i== 1)
+				name = row[i];
+			
+			if(i== 2)
+				beschreibung = row[i];
+			if(i == 3)
+				preis = atof(row[i]);
+			
+			if(i== 4)
+				bild = row[i];
+			if(i== 5)
+				typ = atoi(row[i]);
+			
+		}
+		
+		speisen.push_back(new Speise(speise_id, name,beschreibung, preis, bild, typ));
+		
+	}
+	
+	mysql_free_result(result);
+	return speisen;	
+}
+
 
 vector<Service*> DBHandler::getService() {
 	query_state = mysql_query(connection, "SELECT * FROM service");

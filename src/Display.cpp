@@ -8,6 +8,7 @@
 #include "cubu.h"
 
 Display::Display() {
+	dbhandler = new DBHandler();
 
 }
 
@@ -17,7 +18,7 @@ Display::~Display()
 }
 
 void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cubuString*> * string, vector<cubuPic*> * pic){
-	
+
 	guiname = pguiname;
 	
 	if(guiname == "roomservice1"){
@@ -65,8 +66,14 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 	}
 	else if (guiname == "Menu") {
 		button->clear();
+		speisen = dbhandler->getSpeisen(0);
 		string->push_back(new cubuString("The Menu", 100, 100,"verdana.ttf", 32));
-		
+		int y = 150; 
+		for(int i = 0; i < speisen.size(); i++) {
+			
+			button->push_back(new cubuButton(400,y,speisen.at(i)->getName()));
+			y += 100;
+		}
 	
 	}
 	else if (guiname == "temperature1") {

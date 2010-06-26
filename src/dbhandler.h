@@ -26,6 +26,7 @@ public:
 	Terminal * getTerminal(int terminal_id);
 	vector<Faq*> getFaqs();
 	vector<Speise*> getSpeisen();
+	vector<Speise*> getSpeisen(int typ);
 	vector<Service*> getService();
 	map <int, Kunde*> getKunden2();
 	int getKundenId(int terminal_id);
@@ -36,7 +37,6 @@ public:
 	Kunde * getKunde(int kunde_id);
 	Kunde * getKunde(Terminal * Terminal);
 	Speise * getSpeise(int speise_id);
-	Speise * getSpeise(int speise_id, int typ);
 	void insertTerminalService(Terminal * terminal, Service * service);
 	void insertTerminalSpeise(Terminal* terminal, Speise* speise, int anzahl, float sumpreis);
 	
