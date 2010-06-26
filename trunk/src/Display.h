@@ -6,7 +6,8 @@
  *  Copyright 2010 __MyCompanyName__. All rights reserved.
  *
  */
-#include "cubuButton.h" 
+#include "cubuButton.h"
+#include "cubuString.h" 
 #include <vector>
 #include "ofMain.h"
 

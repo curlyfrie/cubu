@@ -85,6 +85,9 @@ void cubu::setupGUI()
 	if(active_side == -1){
 		//gui.setPage("empty");
 
+		buttons.clear();
+		strings.clear();
+
 		
 	}
 	else{
@@ -110,9 +113,18 @@ void cubu::setupGUI()
 		}
 		else if (active_side == side_roomservice) {
 
+			//font.loadFont("frabk.ttf",32);
+			
+			strings.push_back(new cubuString("TEST", 100, 100,"verdana.ttf", 32));
+			strings.push_back(new cubuString("TEST", 300, 100,"brit.ttf", 32));
+			strings.push_back(new cubuString("AAAA", 100, 300));
+
+			//strings.push_back(new cubuString());
+
 			Display* display;
 			display = new Display();
 			display->drawRoomservice(&buttons);
+
 			
 		}
 		else if (active_side == side_temperature) {
@@ -147,6 +159,7 @@ void cubu::setupMYSQLDB(){
 	//terminal mit id 1 wird geladen
 	terminal = dbhandler->getTerminal(1);
 	
+
 	bestellungen = dbhandler->getBestellungen(terminal);
 	for(int i = 0; i < bestellungen.size(); i++)
 	{
@@ -458,7 +471,14 @@ void cubu::drawGUI(){
 
 	}
 	
-	
+
+	cubuString * currentstring;
+	for(int i = 0; i < strings.size(); i++){
+		currentstring = strings.at(i);
+
+		currentstring->font.drawString(currentstring->text, currentstring->x, currentstring->y);
+	}
+
 	cubuButton* currentbutton;
 	for(int i = 0; i < buttons.size(); i++){
 		currentbutton = buttons.at(i);
@@ -609,6 +629,14 @@ void cubu::mousePressed(int x, int y, int button){
 
 		if(buttonset < 0){
 			buttonset = selected_button;
+
+			//TEST per klick GUI LADEN
+			// works
+
+
+				Display* display;
+			display = new Display();
+			display->drawRoomservice(&buttons);
 		}
 		else
 			buttonset = -1;
