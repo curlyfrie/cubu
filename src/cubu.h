@@ -107,7 +107,8 @@ private:
 	
 	vector <Bestellung *> bestellungen;
 	Kunde* kunde; // kunde der am terminal eingeloggt ist
-
+	Speise * speise;
+	
 
 
 };
