@@ -166,7 +166,7 @@ void cubu::setupMYSQLDB(){
 	dbhandler = new DBHandler();
 	dbhandler->getTerminals();
 	faqs  = dbhandler->getFaqs();
-	speisen = dbhandler->getSpeisen();
+	//speisen = dbhandler->getSpeisen();
 
 	kunden = dbhandler->getKunden2();
 	//terminal mit id 1 wird geladen
@@ -473,9 +473,9 @@ void cubu::drawGUI(){
 			franklinBook.drawString("Alarm", 100,200);
 			drawAlarm();
 		}
-		if(active_side == side_roomservice)	
-			franklinBook.drawString("Room Service", 100,200);	
-
+		if(active_side == side_roomservice){	
+			franklinBook.drawString("Room Service", 100,200);
+		}
 		if(active_side == side_temperature){	
 			franklinBook.drawString("Air Condition", 100,200);	
 
