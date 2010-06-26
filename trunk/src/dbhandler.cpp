@@ -76,6 +76,57 @@ Terminal * DBHandler::getTerminal(int terminal_id)
 }
 
 
+
+Kunde * DBHandler::getKunde(int kunde_id)
+{
+	
+	std::stringstream kundeidstr;
+	kundeidstr << kunde_id;
+	
+	std::string query =  "SELECT * FROM kunde where kunde_id = " + kundeidstr.str();
+	
+	query_state = mysql_query(connection,query.c_str());
+	
+	unsigned int num_fields;
+	unsigned int i;
+	
+	result = mysql_store_result(connection);
+	
+	num_fields = mysql_num_fields(result);
+	int id;
+	std::string vorname;
+	std::string nachname;
+	std::string adresse;
+	std::string kreditkartennummer;
+	
+	while ( ( row = mysql_fetch_row(result)) ) {
+		unsigned long *lengths;
+		lengths = mysql_fetch_lengths(result);
+		
+		for( i = 0; i < num_fields; i++)
+		{
+			if(i== 0)
+				id = atoi(row[i]);
+			
+			if(i== 1)
+				vorname = row[i];
+			
+			if(i== 2)
+				nachname = row[i];
+			if(i== 3)
+				adresse = row[i];
+			if(i== 4)
+				kreditkartennummer = row[i];
+			
+		}
+	}
+	
+	Kunde * kunde = new Kunde(kunde_id,vorname, nachname, adresse, kreditkartennummer);
+	return kunde;
+	
+	
+}
+
 void DBHandler::deleteFaq(int id)
 {
 	
@@ -105,6 +156,126 @@ void DBHandler::insertTerminalSpeise(Terminal* terminal, Speise* speise, int anz
 	cout << query<<endl;
 	mysql_query(connection,query.c_str());
 }
+void DBHandler::insertTerminalService(Terminal* terminal, Service * service)
+{
+	int terminal_id = terminal->getId();
+	int service_id = service->getId();
+	std::stringstream terminalstr;
+	std::stringstream servicestr;
+	
+	terminalstr << terminal_id;
+	servicestr << service_id;
+
+	std::string query = "insert into terminalservice(terminal_id, service_id) values ('" + terminalstr.str() + "',' " + servicestr.str() + "' , now(), ')";
+	cout << query<<endl;
+	mysql_query(connection,query.c_str());
+}
+vector<Bestellung *> DBHandler::getBestellungen(Terminal * terminal)
+{
+	int terminal_id = terminal->getId();
+	std::stringstream terminalstr;
+	terminalstr << terminal_id;
+
+	vector<Bestellung *> bestellungen;
+	std::string query = "SELECT s.speise_id, s.name, s.beschreibung, s.preis, ts.anzahl, ts.sumpreis FROM terminalspeise ts, speise s WHERE ts.terminal_id = " + terminalstr.str() ;
+	
+	cout << query << endl;
+	query_state = mysql_query(connection, query.c_str());
+	
+	if (query_state !=0) {
+		cout << mysql_error(connection) << endl;
+	}
+	
+	unsigned int num_fields;
+	unsigned int i;
+	
+	result = mysql_store_result(connection);
+	
+	num_fields = mysql_num_fields(result);
+	
+	int speise_id;
+	std::string name;
+	std::string beschreibung;
+	int anzahl;
+	float preis;
+	float sumpreis;
+	
+	while ( ( row = mysql_fetch_row(result)) ) {
+		unsigned long *lengths;
+		lengths = mysql_fetch_lengths(result);
+		
+		for( i = 0; i < num_fields; i++)
+		{
+			
+		if(i==0)
+			speise_id = atoi(row[i]);
+			if(i==1)
+				name = row[i];
+			if(i==2)
+				beschreibung = row[i]; 
+			if(i==3)
+				preis = atoi(row[i]);
+			if(i==4)
+				anzahl = atoi(row[i]); 
+			if(i==5)
+				sumpreis = atoi(row[i]);
+			cout << name<<endl;	
+			
+		}
+		Speise * speise = new Speise(speise_id, name, beschreibung, preis);
+		cout << "BTest " << speise->getName()<<endl;
+	bestellungen.push_back(new Bestellung(speise,anzahl, sumpreis ) );
+	}
+	
+	mysql_free_result(result);
+
+	return bestellungen;	
+	
+}
+
+
+Kunde * DBHandler::getKunde(Terminal * terminal)
+{
+	int terminal_id = terminal->getId();
+	std::stringstream terminalstr;
+	terminalstr << terminal_id;
+	
+	Kunde * kunde;
+	std::string query = "SELECT t.kunde_id FROM terminalkunde t NATURAL JOIN kunde WHERE t.terminal_id = " + terminalstr.str();
+	query_state = mysql_query(connection, query.c_str());
+	
+	if (query_state !=0) {
+		cout << mysql_error(connection) << endl;
+	}
+
+	unsigned int num_fields;
+	unsigned int i;
+	
+	result = mysql_store_result(connection);
+	
+	num_fields = mysql_num_fields(result);
+	
+	int kunde_id;
+
+	while ( ( row = mysql_fetch_row(result)) ) {
+		unsigned long *lengths;
+		lengths = mysql_fetch_lengths(result);
+		
+		for( i = 0; i < num_fields; i++)
+		{
+			if(i== 0){
+				kunde_id = atoi(row[i]);
+			}
+		}
+	}
+	
+	kunde = getKunde(kunde_id);
+	
+	mysql_free_result(result);
+	return kunde;	
+	
+}
+
 
 void DBHandler::setAlarm(int terminal_id, int hour, int minute)
 {

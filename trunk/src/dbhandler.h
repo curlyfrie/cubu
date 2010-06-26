@@ -14,6 +14,7 @@
 #include "Kunde.h"
 #include "Speise.h"
 #include "Service.h"
+#include "Bestellung.h"
 
 class DBHandler {
 
@@ -23,6 +24,8 @@ public:
 	void setAlarm(int terminal_id, int hour, int minute);
 	void  getTerminals();
 	Terminal * getTerminal(int terminal_id);
+	Kunde * getKunde(int kunde_id);
+	Kunde * getKunde(Terminal * Terminal);
 	vector<Faq*> getFaqs();
 	vector<Speise*> getSpeisen();
 	vector<Service*> getService();
@@ -31,7 +34,10 @@ public:
 	void deleteFaq(int id);
 	void printFaqs();
 	
+	void insertTerminalService(Terminal * terminal, Service * service);
 	void insertTerminalSpeise(Terminal* terminal, Speise* speise, int anzahl, float sumpreis);
+	
+	vector<Bestellung *>  getBestellungen(Terminal * terminal);
 private:
 	MYSQL *connection;
 	MYSQL mysql;

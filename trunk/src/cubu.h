@@ -104,7 +104,9 @@ private:
 	vector<Faq*> faqs;
 	vector<Speise*> speisen;
 	map <int, Kunde*> kunden;
-
+	
+	vector <Bestellung *> bestellungen;
+	Kunde* kunde; // kunde der am terminal eingeloggt ist
 
 
 

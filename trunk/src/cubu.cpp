@@ -141,10 +141,22 @@ void cubu::setupMYSQLDB(){
 	dbhandler = new DBHandler();
 	dbhandler->getTerminals();
 	faqs  = dbhandler->getFaqs();
-	speisen = dbhandler->getSpeisen();
+	//speisen = dbhandler->getSpeisen();
+
 	kunden = dbhandler->getKunden2();
 	//terminal mit id 1 wird geladen
 	terminal = dbhandler->getTerminal(1);
+	
+	bestellungen = dbhandler->getBestellungen(terminal);
+	for(int i = 0; i < bestellungen.size(); i++)
+	{
+		Speise * speise =  bestellungen.at(i)->getSpeise();
+		cout << "bestellte Speise " ;
+	//	cout << speise.getName();
+
+	}
+	kunde = dbhandler->getKunde(terminal);
+	
 	
 	//int kundenid = dbhandler->getKundenId(roomID);
 	
