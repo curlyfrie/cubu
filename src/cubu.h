@@ -38,6 +38,8 @@ class cubu : public ofBaseApp{
 	
 		ofTrueTypeFont franklinBook;
 		ofTrueTypeFont buttonlabel;
+
+		ofTrueTypeFont font;
 	
 		ofVideoGrabber vidGrabber;
 		ofxCvGrayscaleImage grayImage;
@@ -65,6 +67,8 @@ private:
 	Display display;
 	int selected_button;
 	vector<cubuButton*> buttons;
+	vector<cubuString*> strings;
+
 
 	float font_size;
 	
@@ -103,12 +107,13 @@ private:
 		
 	vector<Faq*> faqs;
 	vector<Speise*> speisen;
+	vector<Bestellung*> bestellungen;
+
 	map <int, Kunde*> kunden;
-	
-	vector <Bestellung *> bestellungen;
-	Kunde* kunde; // kunde der am terminal eingeloggt ist
 	Speise * speise;
-	
+	Kunde * kunde;
+
+
 
 
 };
