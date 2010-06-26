@@ -150,8 +150,9 @@ void cubu::setupMYSQLDB(){
 	bestellungen = dbhandler->getBestellungen(terminal);
 	for(int i = 0; i < bestellungen.size(); i++)
 	{
-		bestellungen.at(i)->getSpeise(speise);
-		cout << "bestellte Speise " ;
+		
+		cout << "bestellte Speisen " ;
+		speise = dbhandler->getSpeise(bestellungen.at(i)->getSpeiseId());
 		cout << speise->getName();
 
 	}

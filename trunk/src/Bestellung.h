@@ -16,17 +16,17 @@ class Bestellung {
 	
 	
 private:
-	Speise * speise;
+	int speise_id;
 	int anzahl;
 	float sumpreis;
 public:
 	
-	Bestellung( Speise * speise, int _anzahl, float _sumpreis );
+	Bestellung(int speise_id, int _anzahl, float _sumpreis );
 	void printFaq();
 	std::string getQuestion();
 	std::string getAnswer();
 	int getId();
-	void getSpeise(Speise * speise2);
+	int getSpeiseId();
 	int getAnzahl();
 	float getSumpreis();
 	

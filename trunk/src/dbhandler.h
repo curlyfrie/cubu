@@ -34,6 +34,7 @@ public:
 	void deleteFaq(int id);
 	void printFaqs();
 	
+	Speise * getSpeise(int speise_id);
 	void insertTerminalService(Terminal * terminal, Service * service);
 	void insertTerminalSpeise(Terminal* terminal, Speise* speise, int anzahl, float sumpreis);
 	

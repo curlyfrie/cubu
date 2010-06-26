@@ -10,20 +10,20 @@
 #include "Bestellung.h"
 
 
-Bestellung::Bestellung(Speise * speise, int _anzahl, float _sumpreis)
+Bestellung::Bestellung(int _speise_id, int _anzahl, float _sumpreis)
 {
 	
-	speise = speise;
+	speise_id = _speise_id;
 	anzahl = _anzahl;
 	sumpreis = _sumpreis;
 
 	
 	
 }
-void Bestellung::getSpeise(Speise * speise2)
+int Bestellung::getSpeiseId()
 {
 	
-	speise2 = speise;
+	return speise_id;
 }
 
 int Bestellung::getAnzahl()
