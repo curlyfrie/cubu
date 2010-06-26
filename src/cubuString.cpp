@@ -9,12 +9,23 @@ cubuString::cubuString(){
 	setDefaultValues();
 }
 
+cubuString::cubuString( std::string ptext, float px, float py, std::string pfont, int psize, int pcolor){
+	
+	x = px;
+	y = py;
+	text = ptext;
+	color = pcolor;
+	font.loadFont(pfont,psize);
+
+}
 cubuString::cubuString( std::string ptext, float px, float py, std::string pfont, int psize){
 	
 	x = px;
 	y = py;
 	text = ptext;
+	color = 0x000000;
 	font.loadFont(pfont,psize);
+
 }
 
 cubuString::cubuString( std::string ptext, float px, float py){
@@ -22,7 +33,18 @@ cubuString::cubuString( std::string ptext, float px, float py){
 	x = px;
 	y = py;
 	text = ptext;
+	color = 0x000000;
 	font.loadFont("frabk.ttf",100);
+	
+}
+
+cubuString::cubuString( std::string ptext){
+	
+	x = 20;
+	y = 100;
+	text = ptext;
+	color = 0x000000;
+	font.loadFont("bankg.ttf",32);
 	
 }
 

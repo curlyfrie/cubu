@@ -445,6 +445,7 @@ void cubu::drawGUI(){
 	for(int i = 0; i < strings.size(); i++){
 		currentstring = strings.at(i);
 
+		ofSetColor(currentstring->color);
 		currentstring->font.drawString(currentstring->text, currentstring->x, currentstring->y);
 	}
 
