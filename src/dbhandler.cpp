@@ -3,7 +3,6 @@
  *
  *  Created by Patrick Stipsits on 16.06.10.
  *  Copyright 2010 __MyCompanyName__. All rights reserved.
- *
  */
 
 #include "DBHandler.h"
