@@ -48,10 +48,20 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 		button->push_back(new cubuButton(400,200,"Wine"));
 		button->push_back(new cubuButton(400,250,"Menu"));
 	
+	}	
+	else if (guiname == "Drinks") {
+		button->clear();
+		string->push_back(new cubuString("Drinks", 100, 100,"verdana.ttf", 32));
+	
 	}
 	else if (guiname == "Wine") {
 		button->clear();
 		string->push_back(new cubuString("The Wine List", 100, 100,"verdana.ttf", 32));
+	
+	}
+	else if (guiname == "Menu") {
+		button->clear();
+		string->push_back(new cubuString("The Menu", 100, 100,"verdana.ttf", 32));
 	
 	}
 	else if (guiname == "temperature1") {
