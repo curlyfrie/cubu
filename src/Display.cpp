@@ -13,27 +13,21 @@ Display::Display() {
 
 }
 
-vector<cubuButton*> Display::drawRoomservice(){
-//draw the gui for side roomservice
-	
-	vector<cubuButton*> returnVector;
-	
-	//update the vector
-	buttonVector.clear();
 
-	returnVector.push_back(new cubuButton(500,700,"deinemutter"));
-	returnVector.push_back(new cubuButton(700,700,"button2"));
-	returnVector.push_back(new cubuButton(900,700,"button3"));
+void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cubuString*> * string){
 	
-	return returnVector;
-
-}
-
-void Display::drawRoomservice( vector<cubuButton*> * todraw){
+	guiname = pguiname;
 	
-	todraw->push_back(new cubuButton(500,700,"deinemutter"));
-	todraw->push_back(new cubuButton(700,700,"button2"));
-	todraw->push_back(new cubuButton(900,700,"button3"));
+	if(guiname == "roomservice1"){
+		button->push_back(new cubuButton(500,700,"deinemutter"));
+		button->push_back(new cubuButton(700,700,"button2"));
+		button->push_back(new cubuButton(900,700,"button3"));
+
+		string->push_back(new cubuString("TEST", 100, 100,"verdana.ttf", 32));
+		string->push_back(new cubuString("TEST", 300, 100,"brit.ttf", 32));
+		string->push_back(new cubuString("AAAA", 100, 300));
+	}
+
 
 	/*
 	vector<cubuButton*>* returnVector;
