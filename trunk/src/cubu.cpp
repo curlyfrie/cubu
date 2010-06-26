@@ -50,7 +50,6 @@ void cubu::setup(){
 
 
 	alarmset = false;
-	buttonset = -1;
 	time = 0;
 	
 	
@@ -91,8 +90,6 @@ void cubu::setupGUI()
 	pics.clear();
 
 	Display *display =new Display();
-
-	buttonset = -1;
 
 	if(active_side == -1){
 		//gui.setPage("empty");
@@ -277,7 +274,7 @@ void cubu::update(){
 						
 			
 			//Button Selection via rotation
-			if(buttons.size()>0 && buttonset<0){
+			if(buttons.size()>0){
 			
 				// update index of selected button
 				int previous = selected_button;
@@ -466,9 +463,7 @@ void cubu::drawGUI(){
 	for(int i = 0; i < buttons.size(); i++){
 		currentbutton = buttons.at(i);
 		ofFill();
-		if(currentbutton->selected && buttonset == i)
-			ofSetColor(238,0,0);
-		else if(currentbutton->selected)
+		if(currentbutton->selected)
 			ofSetColor(100,0,0);
 		else
 			ofSetColor(105,105,105);
@@ -595,7 +590,7 @@ void cubu::mousePressed(int x, int y, int button){
 			if(buttons.at(i)->click(x,y) == true){
 				cout << "you have hit button: " << i << endl; 
 				buttons.at(i)->select(true);
-				display->draw(buttons.at(buttonset)->label, &buttons, &strings, &pics);
+				display->draw(buttons.at(selected_button)->label, &buttons, &strings, &pics);
 				temp = i;
 				break;
 			}
@@ -621,20 +616,18 @@ void cubu::mousePressed(int x, int y, int button){
 		else if (active_side == side_alarm && alarmset) {
 			alarmset = false;
 		}
-		else if(buttonset < 0){
-			buttonset = selected_button;
-
+		else{
+			
 			//TEST per klick GUI LADEN
 			// works
 			
-			display->draw(buttons.at(buttonset)->label, &buttons, &strings, &pics);
+			display->draw(buttons.at(selected_button)->label, &buttons, &strings, &pics);
 		/*	Display* display;
 			display = new Display();
 			display->draw("roomservice1", &buttons, &strings, &pics);
 			*/
 		}
-		else
-			buttonset = -1;
+
 		
 	}
 }
