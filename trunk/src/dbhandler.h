@@ -24,8 +24,6 @@ public:
 	void setAlarm(int terminal_id, int hour, int minute);
 	void  getTerminals();
 	Terminal * getTerminal(int terminal_id);
-	Kunde * getKunde(int kunde_id);
-	Kunde * getKunde(Terminal * Terminal);
 	vector<Faq*> getFaqs();
 	vector<Speise*> getSpeisen();
 	vector<Service*> getService();
@@ -34,6 +32,9 @@ public:
 	void deleteFaq(int id);
 	void printFaqs();
 	
+	Service * getService(int service_id);
+	Kunde * getKunde(int kunde_id);
+	Kunde * getKunde(Terminal * Terminal);
 	Speise * getSpeise(int speise_id);
 	void insertTerminalService(Terminal * terminal, Service * service);
 	void insertTerminalSpeise(Terminal* terminal, Speise* speise, int anzahl, float sumpreis);

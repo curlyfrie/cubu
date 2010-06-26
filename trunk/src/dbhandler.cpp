@@ -295,7 +295,7 @@ Kunde * DBHandler::getKunde(Terminal * terminal)
 	if (query_state !=0) {
 		cout << mysql_error(connection) << endl;
 	}
-
+	
 	unsigned int num_fields;
 	unsigned int i;
 	
@@ -304,7 +304,7 @@ Kunde * DBHandler::getKunde(Terminal * terminal)
 	num_fields = mysql_num_fields(result);
 	
 	int kunde_id;
-
+	
 	while ( ( row = mysql_fetch_row(result)) ) {
 		unsigned long *lengths;
 		lengths = mysql_fetch_lengths(result);
@@ -321,6 +321,52 @@ Kunde * DBHandler::getKunde(Terminal * terminal)
 	
 	mysql_free_result(result);
 	return kunde;	
+	
+}
+
+
+Service * DBHandler::getService(int service_id)
+{
+	
+	std::stringstream serviceidstr;
+	serviceidstr << service_id;
+	
+	std::string query =  "SELECT * FROM service where service_id = " + serviceidstr.str();
+	
+	query_state = mysql_query(connection,query.c_str());
+	
+	unsigned int num_fields;
+	unsigned int i;
+	
+	result = mysql_store_result(connection);
+	
+	num_fields = mysql_num_fields(result);
+	int id;
+	std::string name;
+	std::string beschreibung;
+	
+	
+	while ( ( row = mysql_fetch_row(result)) ) {
+		unsigned long *lengths;
+		lengths = mysql_fetch_lengths(result);
+		
+		for( i = 0; i < num_fields; i++)
+		{
+			if(i== 0)
+				id = atoi(row[i]);
+			
+			if(i== 1)
+				name = row[i];
+			
+			if(i== 2)
+				beschreibung = row[i];
+			
+			
+		}
+	}
+	
+	Service  * service = new Service(service_id, name, beschreibung);
+	return service;
 	
 }
 
