@@ -49,6 +49,7 @@ void cubu::setup(){
 	time = 0;
 	
 	
+	
 	// define threshold to find fiducial
 	fiducial_threshold =135;
 	
@@ -72,6 +73,9 @@ void cubu::setup(){
 
 	//Datenbank starten
 	setupMYSQLDB();
+	
+	display = new Display();
+	display->franklinBook = franklinBook;
 }
 //--------------------------------------------------------------
 void cubu::setupGUI()
@@ -92,10 +96,16 @@ void cubu::setupGUI()
 		
 		//empty the list of buttons
 		
-		
+		Display *display =new Display();
 		if(active_side == side_fun){
 			// do cool stuff here
+
+			//buttons.clear();
+
+			display->draw("roomservice1", &buttons, &strings);
+
 			buttons.clear();
+
 		}
 		else if (active_side == side_activities) {
 			// do cool stuff here
