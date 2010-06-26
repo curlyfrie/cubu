@@ -445,7 +445,7 @@ std::string DBHandler::getAlarm(int terminal_id){
 		// note: result is only 1 row IN THIS CASE
 		alarmstring = row[0];
 
-		}
+		
 	}	
 	mysql_free_result(result);
 	return alarmstring;	
