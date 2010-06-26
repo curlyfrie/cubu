@@ -50,7 +50,6 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 	}
 	else if (guiname == "food1") {
 		button->push_back(new cubuButton(400,150,"Drinks"));
-		button->push_back(new cubuButton(400,200,"Wine"));
 		button->push_back(new cubuButton(400,250,"Menu"));
 	
 	}	
