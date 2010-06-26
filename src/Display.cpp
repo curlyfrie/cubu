@@ -7,12 +7,16 @@
  *
  */
 
-#include "Display.h"
+#include "cubu.h"
 
 Display::Display() {
 
 }
 
+Display::~Display()
+{
+	// exit should do the same stuff
+}
 
 void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cubuString*> * string){
 	
@@ -27,6 +31,13 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 		string->push_back(new cubuString("TEST", 300, 100,"brit.ttf", 32));
 		string->push_back(new cubuString("AAAA", 100, 300));
 	}
+
+
+	
+		cubu* c;
+		c = new cubu();
+
+		cout << "AAAAAAAAAAAAAAAAAAAAAAA" << c->side_fun << endl;
 
 
 	/*
