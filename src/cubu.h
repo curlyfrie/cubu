@@ -7,6 +7,8 @@
 #include "ofxFidMain.h"
 #include <vector>
 #include <iostream>
+#include "ofImage.h"
+
 
 #include "DBHandler.h"
 #include "cubuButton.h"
