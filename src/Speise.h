@@ -6,8 +6,10 @@
  *  Copyright 2010 __MyCompanyName__. All rights reserved.
  *
  */
-
+#ifndef SPEISE_H
+#define SPEISE_H
 #include <iostream>
+
 
 class Speise {
 	
@@ -29,3 +31,4 @@ public:
 	
 	
 };
+#endif
