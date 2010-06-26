@@ -13,6 +13,7 @@
 #include "DBHandler.h"
 #include "cubuButton.h"
 #include "cubuString.h" 
+#include "cubuPic.h" 
 #include "Display.h"
 
 #include "ofEvents.h"
@@ -91,6 +92,7 @@ private:
 	int selected_button;
 	vector<cubuButton*> buttons;
 	vector<cubuString*> strings;
+	vector<cubuPic*> pics;
 
 
 	float font_size;

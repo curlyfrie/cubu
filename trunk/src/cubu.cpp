@@ -11,6 +11,11 @@ cubu::~cubu()
 }
 //--------------------------------------------------------------
 void cubu::setup(){
+
+	buttons.clear();
+	strings.clear();
+	pics.clear();
+
 	showFaq = false;
 	
 	
@@ -73,75 +78,56 @@ void cubu::setup(){
 
 	//Datenbank starten
 	setupMYSQLDB();
-	
-	display = new Display();
-	display->franklinBook = franklinBook;
+
 }
 //--------------------------------------------------------------
 void cubu::setupGUI()
 // prepares the gui to be drawn
 {
 
+	buttons.clear();
+	strings.clear();
+	pics.clear();
+
+	Display *display =new Display();
+
 	buttonset = -1;
 
 	if(active_side == -1){
 		//gui.setPage("empty");
 
-		buttons.clear();
-		strings.clear();
-
-		
 	}
 	else{
 		
-		//empty the list of buttons
-		
-		Display *display =new Display();
 		if(active_side == side_fun){
-			// do cool stuff here
 
-			//buttons.clear();
-
-			display->draw("roomservice1", &buttons, &strings);
-
-			buttons.clear();
+//			display->draw("roomservice1", &buttons, &strings, &pics);
 
 		}
 		else if (active_side == side_activities) {
 			// do cool stuff here
-			display->draw("activities1", &buttons, &strings);
+			display->draw("activities1", &buttons, &strings, &pics);
 		}
 		else if (active_side == side_alarm) {
 			// do cool stuff here
 
-			display->draw("alarm1", &buttons, &strings);
+			display->draw("alarm1", &buttons, &strings, &pics);
 		}
 		else if (active_side == side_food) {
 			// do cool stuff here
 
-			display->draw("food1", &buttons, &strings);
+			display->draw("food1", &buttons, &strings, &pics);
 		}
 		else if (active_side == side_roomservice) {
 
-			//font.loadFont("frabk.ttf",32);
-			
-			/*
-			strings.push_back(new cubuString("TEST", 100, 100,"verdana.ttf", 32));
-			strings.push_back(new cubuString("TEST", 300, 100,"brit.ttf", 32));
-			strings.push_back(new cubuString("AAAA", 100, 300));
-*/
-			//strings.push_back(new cubuString());
-
-			Display* display;
-			display = new Display();
-			display->draw("roomservice1", &buttons, &strings);
+			display->draw("roomservice1", &buttons, &strings, &pics);
 
 			
 		}
 		else if (active_side == side_temperature) {
 			// do cool stuff here
 
-			display->draw("temperature1", &buttons, &strings);
+			display->draw("temperature1", &buttons, &strings, &pics);
 			
 
 		
@@ -152,8 +138,7 @@ void cubu::setupGUI()
 			buttons.push_back(new cubuButton(900,700,"button3"));
 			 */
 		}
-		else
-			buttons.clear();
+	
 	}
 		
 }
@@ -428,12 +413,6 @@ void cubu::draw(){
 	drawGUI();
 
 
-	
-	//franklinBook.drawString(rotation, 100, 100);
-	
-
-
-
 	// draw fiducial window
 	if(showFiducialWindow)
 	{
@@ -455,40 +434,12 @@ void cubu::draw(){
 void cubu::drawGUI(){
 // draws the gui
 
-
-	
-	if(active_side == -1 && showFaq == true)
-		drawFaq();
-	else {
-		showFaq = false;
+	cubuPic * currentpic;
+	for(int i = 0; i < pics.size(); i++){
+		currentpic = pics.at(i);
+		currentpic->pic.draw(currentpic->x,currentpic->y);
 	}
 
-		
-	if(active_side != -1){
-		if(active_side == side_food) {
-			franklinBook.drawString("Food", 100,200);	
-			drawFood();
-		}
-		if(active_side == side_alarm){	
-			franklinBook.drawString("Alarm", 100,200);
-			drawAlarm();
-		}
-		if(active_side == side_roomservice){	
-			franklinBook.drawString("Room Service", 100,200);
-		}
-		if(active_side == side_temperature){	
-			franklinBook.drawString("Air Condition", 100,200);	
-
-
-		}
-		if(active_side == side_activities)	
-			franklinBook.drawString("Activities", 100,200);	
-
-		if(active_side == side_fun)	
-			franklinBook.drawString("Fun!", 100,200);	
-
-	}
-	
 
 	cubuString * currentstring;
 	for(int i = 0; i < strings.size(); i++){
@@ -627,7 +578,7 @@ void cubu::mousePressed(int x, int y, int button){
 			if(buttons.at(i)->click(x,y) == true){
 				cout << "you have hit button: " << i << endl; 
 				buttons.at(i)->select(true);
-				display->draw(buttons.at(buttonset)->label, &buttons, &strings);
+				display->draw(buttons.at(buttonset)->label, &buttons, &strings, &pics);
 				temp = i;
 				break;
 			}
@@ -659,10 +610,10 @@ void cubu::mousePressed(int x, int y, int button){
 			//TEST per klick GUI LADEN
 			// works
 
-			display->draw(buttons.at(buttonset)->label, &buttons, &strings);
+			display->draw(buttons.at(buttonset)->label, &buttons, &strings, &pics);
 		/*	Display* display;
 			display = new Display();
-			display->draw("roomservice1", &buttons, &strings);
+			display->draw("roomservice1", &buttons, &strings, &pics);
 			*/
 		}
 		else

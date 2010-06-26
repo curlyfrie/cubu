@@ -37,7 +37,7 @@ public:
 	vector<cubuButton*> drawRoomservice();
 	void drawRoomservice( vector<cubuButton*> * todraw);
 
-	void draw(std::string pguiname, vector<cubuButton*> * button, vector<cubuString*> * string);
+	void draw(std::string pguiname, vector<cubuButton*> * button, vector<cubuString*> * string, vector<cubuPic*> * pic);
 
 	void click(int x, int y);
 };
