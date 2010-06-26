@@ -146,6 +146,59 @@ Speise * DBHandler::getSpeise(int speise_id)
 	int id;
 	std::string name;
 	std::string beschreibung;
+	std::string bild;
+	int typ;
+	float preis;
+	
+	while ( ( row = mysql_fetch_row(result)) ) {
+		unsigned long *lengths;
+		lengths = mysql_fetch_lengths(result);
+		
+		for( i = 0; i < num_fields; i++)
+		{
+			if(i== 0)
+				id = atoi(row[i]);
+			
+			if(i== 1)
+				name = row[i];
+			
+			if(i== 2)
+				beschreibung = row[i];
+			if(i== 3)
+				preis = atoi(row[i]);
+			if(i== 4)
+				bild = row[i];
+		  	if(i== 5)
+				typ = atoi(row[i]);
+			
+			
+		}
+	}
+	
+	Speise * speise = new Speise(speise_id, name, beschreibung, preis, bild, typ);
+	return speise;
+	
+	
+}
+
+Speise * DBHandler::getSpeise(int speise_id, int typ)
+{
+	
+	
+	std::string query =  "SELECT * FROM speise where typ = " + typ;
+	
+	query_state = mysql_query(connection,query.c_str());
+	
+	unsigned int num_fields;
+	unsigned int i;
+	
+	result = mysql_store_result(connection);
+	
+	num_fields = mysql_num_fields(result);
+	int id;
+	std::string name;
+	std::string beschreibung;
+	std::string bild;
 	float preis;
 	
 	while ( ( row = mysql_fetch_row(result)) ) {
@@ -165,11 +218,16 @@ Speise * DBHandler::getSpeise(int speise_id)
 			if(i== 3)
 				preis = atoi(row[i]);
 			
+			if(i== 4)
+				bild = row[i];
+			if(i== 5)
+				typ = atoi(row[i]);
+			
 			
 		}
 	}
 	
-	Speise * speise = new Speise(speise_id, name, beschreibung, preis);
+	Speise * speise = new Speise(speise_id, name, beschreibung, preis, bild, typ);
 	return speise;
 	
 	

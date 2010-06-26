@@ -36,6 +36,7 @@ public:
 	Kunde * getKunde(int kunde_id);
 	Kunde * getKunde(Terminal * Terminal);
 	Speise * getSpeise(int speise_id);
+	Speise * getSpeise(int speise_id, int typ);
 	void insertTerminalService(Terminal * terminal, Service * service);
 	void insertTerminalSpeise(Terminal* terminal, Speise* speise, int anzahl, float sumpreis);
 	
