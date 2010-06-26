@@ -1,10 +1,3 @@
-/*
- *  dbhandler.cpp
- *
- *  Created by Patrick Stipsits on 16.06.10.
- *  Copyright 2010 __MyCompanyName__. All rights reserved.
- */
-
 #include "DBHandler.h"
 #include <sstream>
 #include <string>
@@ -415,6 +408,65 @@ void DBHandler::setAlarm(int terminal_id, int hour, int minute)
 		std::string query1 = "insert into alarm (terminal_id, time, active) values (0,'2010-06-24 "+hstr.str() +":"+ mstr.str() +":00', true  )";
 		mysql_query(connection,query1.c_str());	
 	}
+
+}
+
+std::string DBHandler::getAlarm(int terminal_id){
+	
+	//returnvalue
+	std::string alarmstring;
+	
+	std::stringstream terminalstream;
+	terminalstream << terminal_id;
+	
+	//complete query
+	std:string query = "SELECT * FROM alarm WHERE terminal_id =" + terminalstream.str();
+	
+	//ask mighty database
+	query_state = mysql_query(connection,query.c_str() );
+	
+	if (query_state !=0) {
+		cout << mysql_error(connection) << endl;
+	}
+	
+	unsigned int num_fields;
+	unsigned int i;
+	
+	result = mysql_store_result(connection);
+	
+	num_fields = mysql_num_fields(result);
+	while ( ( row = mysql_fetch_row(result)) ) {
+		unsigned long *lengths;
+		lengths = mysql_fetch_lengths(result);
+		int id;
+		// initialize alarm values
+		std::string question;
+		std::string answer;
+		
+		for( i = 0; i < num_fields; i++)
+		{
+			/*
+			if(i== 0)
+				id = atoi(row[i]);
+			
+			if(i== 1)
+				question = row[i];
+			*/
+			
+			if(i== 2)
+				alarmstring = row[i];
+			
+			
+			//	printf("[%.*s] ", (int) lengths[i],
+			//		   row[i] ? row[i] : "NULL");
+			 
+		}
+		
+	}
+	
+	mysql_free_result(result);
+	return alarmstring;	
+	
 
 }
 
