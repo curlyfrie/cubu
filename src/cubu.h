@@ -71,7 +71,8 @@ class cubu : public ofBaseApp{
 	void drawFaq();
 	
 	void setupGUI();
-	
+
+
 	
 	int side_food;
 	int side_alarm;
@@ -93,7 +94,7 @@ private:
 
 	float font_size;
 	
-	
+
 	//variables for every side
 	string rotation;	
 	int previous_angle;

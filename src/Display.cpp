@@ -8,9 +8,6 @@
  */
 
 #include "cubu.h"
-#include "cubu.h"
-
-
 
 Display::Display() {
 
@@ -20,11 +17,6 @@ Display::~Display()
 {
 	// exit should do the same stuff
 }
-
-
-
-
-
 
 void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cubuString*> * string){
 	
