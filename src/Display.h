@@ -31,6 +31,16 @@ public:
 
 	Display();
 	~Display();
+
+	
+	void draw2(vector<cubuButton*> * todraw,int type);
+	
+	ofTrueTypeFont franklinBook;
+	
+	vector<cubuButton*> drawRoomservice();
+	void drawRoomservice( vector<cubuButton*> * todraw);
+
 	void draw(std::string pguiname, vector<cubuButton*> * button, vector<cubuString*> * string);
+
 	void click(int x, int y);
 };
