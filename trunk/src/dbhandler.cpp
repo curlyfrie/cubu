@@ -493,8 +493,10 @@ vector<Speise*> DBHandler::getSpeisen() {
 vector<Speise*> DBHandler::getSpeisen(int typ) {
 	std::stringstream typstr;
 	typstr << typ;
-
-	query_state = mysql_query(connection, "SELECT * FROM speise where typ = 0");
+	
+	std::string query =  "SELECT * FROM speise where typ =" + typstr.str();
+	cout << query << endl;
+	query_state = mysql_query(connection, query.c_str());
 	if (query_state !=0) {
 		cout << mysql_error(connection) << endl;
 	}
