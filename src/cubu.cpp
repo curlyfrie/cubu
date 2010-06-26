@@ -11,25 +11,25 @@ cubu::~cubu()
 }
 //--------------------------------------------------------------
 void cubu::setup(){
-
-	buttons.clear();
-	strings.clear();
-	pics.clear();
-
-	showFaq = false;
-	
-	
-	setupGUI();
-	selected_button = 0;
-
 	
 	//nr and ID of this room: WARNING, HARD CODED!
 	roomNr = 101;
 	roomID = 1;
 
+
+	alarm_hour = 6;
+	showFaq = false;
+	selected_button = 0;
+
+	buttons.clear();
+	strings.clear();
+	pics.clear();
+	
+	setupGUI();
+
 	//	show fiducial window YES or NO
 	//	can be switched with 'f'
-	showFiducialWindow = true;
+	showFiducialWindow = false;
 	
 	//sensitivity of optical marker
 	sensitivity = 5;
@@ -64,6 +64,7 @@ void cubu::setup(){
 	// load font
 	franklinBook.loadFont("frabk.ttf",font_size);
 	buttonlabel.loadFont("frabk.ttf", 12);
+	font.loadFont("bankg.ttf",32);
 	
 	// setup fiducials
 	vidGrabber.listDevices();
@@ -95,6 +96,7 @@ void cubu::setupGUI()
 
 	if(active_side == -1){
 		//gui.setPage("empty");
+		alarm_hour = 6;
 
 	}
 	else{
@@ -152,6 +154,7 @@ void cubu::setupMYSQLDB(){
 	dbhandler->getTerminals();
 	faqs  = dbhandler->getFaqs();
 	//speisen = dbhandler->getSpeisen();
+
 	kunden = dbhandler->getKunden2();
 	//terminal mit id 1 wird geladen
 	terminal = dbhandler->getTerminal(1);
@@ -238,7 +241,7 @@ void cubu::update(){
 
 //Aufruf der alarm action die alles weiter handelt
 
-			/*	
+				
 				// set a new alarm
 				if(!alarmset){
 					setAlarm();
@@ -246,13 +249,17 @@ void cubu::update(){
 				// alarm is already set
 				else {
 					std::stringstream stream2;
+					
+					if(alarm_minute == 0)
+						stream2 << "00";
+					else
 					stream2 << alarm_minute;
 					
 					std::stringstream stream3;
 					stream3 << alarm_hour;
-					stringtodraw = " is set to: " + stream3.str()  + "h:" +  stream2.str() + "min";
+					stringtodraw = " " + stream3.str()  + "h:" +  stream2.str() + "min\n\nAlarm is set";
 				}
-				*/
+				
 
 			}
 			else if(fiducialID == side_fun){
@@ -270,7 +277,7 @@ void cubu::update(){
 						
 			
 			//Button Selection via rotation
-			if(buttons.size()>0){
+			if(buttons.size()>0 && buttonset<0){
 			
 				// update index of selected button
 				int previous = selected_button;
@@ -329,13 +336,18 @@ void cubu::setAlarm()
 	}
 	if(alarm_hour < 0)
 		alarm_hour = 0;
+
 	
 	std::stringstream stream2;
-	stream2 << alarm_minute;
+	
+	if(alarm_minute == 0)
+		stream2 << "00";
+	else
+		stream2 << alarm_minute;
 	
 	std::stringstream stream3;
 	stream3 << alarm_hour;
-	stringtodraw =  " " + stream3.str()  + "h:" +  stream2.str() + "min";
+	stringtodraw = " "+ stream3.str()  + "h:" +  stream2.str() + "min";
 	
 	//cout << "set alarm to" << alarm_hour << "." << alarm_minute << endl;
 	//cout << "set Alarm:" << stringtodraw << endl;
@@ -433,6 +445,8 @@ void cubu::draw(){
 void cubu::drawGUI(){
 // draws the gui
 
+	
+
 	cubuPic * currentpic;
 	for(int i = 0; i < pics.size(); i++){
 		currentpic = pics.at(i);
@@ -464,6 +478,9 @@ void cubu::drawGUI(){
 		buttonlabel.drawString(currentbutton->label, currentbutton->x+currentbutton->height/2, currentbutton->y+currentbutton->width/4);
 	}
 	
+
+	if(active_side == side_alarm)
+		font.drawString(stringtodraw, 630, 270);
 }
 
 void cubu::drawFaq(){
@@ -593,6 +610,7 @@ void cubu::mousePressed(int x, int y, int button){
 		}
 	}
 	if (button==1) {
+		
 		if(active_side == side_alarm && !alarmset){
 			alarmset = true;
 			
@@ -603,13 +621,12 @@ void cubu::mousePressed(int x, int y, int button){
 		else if (active_side == side_alarm && alarmset) {
 			alarmset = false;
 		}
-
-		if(buttonset < 0){
+		else if(buttonset < 0){
 			buttonset = selected_button;
 
 			//TEST per klick GUI LADEN
 			// works
-
+			
 			display->draw(buttons.at(buttonset)->label, &buttons, &strings, &pics);
 		/*	Display* display;
 			display = new Display();
