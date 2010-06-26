@@ -50,6 +50,7 @@ void cubu::setup(){
 	buttonset = -1;
 	time = 0;
 	
+	display = new Display();
 	
 	// define threshold to find fiducial
 	fiducial_threshold =135;
@@ -99,16 +100,14 @@ void cubu::setupGUI()
 			// do cool stuff here
 			//buttons.clear();
 
-			Display *display;
-			display = new Display();
+			
 			display->draw("roomservice1", &buttons, &strings);
 		}
 		else if (active_side == side_activities) {
 			// do cool stuff here
 			//buttons.clear();
 			
-			Display *display;
-			display = new Display();
+			
 			display->draw("activities1", &buttons, &strings);
 		}
 		else if (active_side == side_alarm) {
@@ -116,8 +115,7 @@ void cubu::setupGUI()
 			//buttons.clear();
 
 			
-			Display *display;
-			display = new Display();
+			
 			display->draw("alarm1", &buttons, &strings);
 		}
 		else if (active_side == side_food) {
@@ -125,8 +123,7 @@ void cubu::setupGUI()
 			//buttons.clear();
 
 			
-			Display *display;
-			display = new Display();
+			
 			display->draw("food1", &buttons, &strings);
 		}
 		else if (active_side == side_roomservice) {
@@ -140,8 +137,7 @@ void cubu::setupGUI()
 */
 			//strings.push_back(new cubuString());
 
-			Display *display;
-			display = new Display();
+			
 			display->draw("roomservice1", &buttons, &strings);
 
 			
@@ -150,8 +146,7 @@ void cubu::setupGUI()
 			// do cool stuff here
 			
 			
-			Display *display;
-			display = new Display();
+			
 			display->draw("temperature1", &buttons, &strings);
 
 		
@@ -616,9 +611,7 @@ void cubu::mouseDragged(int x, int y, int button){
 void cubu::mousePressed(int x, int y, int button){
 	
 
-	Display* display;
-	display = new Display();
-
+	
 	//ACTION - Aufruf statt hier..
 	/////////////////////////////////
 	

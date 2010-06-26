@@ -14,6 +14,8 @@
 #include "cubuString.h" 
 #include "Display.h"
 
+#include "ofEvents.h"
+
 
 class cubu : public ofBaseApp{
 
@@ -37,6 +39,12 @@ class cubu : public ofBaseApp{
 		void mousePressed(int x, int y, int button);
 		void mouseReleased(int x, int y, int button);
 		void windowResized(int w, int h);
+	
+	// set no. of marker for sides
+
+	
+	void blub(ofMouseEventArgs & mouseEventArgs );
+	void blub2(int a,int b, int c);
 	
 		ofTrueTypeFont franklinBook;
 		ofTrueTypeFont buttonlabel;
@@ -63,12 +71,21 @@ class cubu : public ofBaseApp{
 	void drawFaq();
 	
 	void setupGUI();
-
-		int side_fun;
+	
+	
+	int side_food;
+	int side_alarm;
+	int side_temperature;
+	int	side_roomservice;
+	int side_activities;
+	int side_fun;
+	int active_side;
+	int prev_side;
+	
 	
 private:
 	
-	Display display;
+	Display *display;
 	int selected_button;
 	vector<cubuButton*> buttons;
 	vector<cubuString*> strings;
@@ -76,14 +93,6 @@ private:
 
 	float font_size;
 	
-
-	int side_alarm;
-	int side_temperature;
-	int	side_roomservice;
-	int side_activities;
-	int side_food;
-	int active_side;
-	int prev_side;
 	
 	//variables for every side
 	string rotation;	
