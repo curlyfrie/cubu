@@ -22,8 +22,6 @@ void cubu::setup(){
 	roomNr = 101;
 	roomID = 1;
 
-
-	
 	//	show fiducial window YES or NO
 	//	can be switched with 'f'
 	showFiducialWindow = true;
