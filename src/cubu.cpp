@@ -534,16 +534,7 @@ void cubu::keyPressed(int key){
 			break;
 		//DEBUGGIN AHEAD!
 		case 'b':
-			//getAlarmfromDB();
-			//database = new dbhandler();
-			
-			/*
-			cubuButton* button2;
-			button2 = new cubuButton(10,14);
-			cout << "button2" << endl;
-			cout << "shape witdh: " << button2->shape.width << endl;
-			 */
-			
+			///cout << "alarm == " <<   dbhandler->getAlarm(0);
 			
 			break;
 		case '-':

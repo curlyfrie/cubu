@@ -22,6 +22,7 @@ public:
 	DBHandler();
 	~DBHandler();
 	void setAlarm(int terminal_id, int hour, int minute);
+	std::string getAlarm(int terminal_id);
 	void  getTerminals();
 	Terminal * getTerminal(int terminal_id);
 	vector<Faq*> getFaqs();
