@@ -127,6 +127,55 @@ Kunde * DBHandler::getKunde(int kunde_id)
 	
 }
 
+
+Speise * DBHandler::getSpeise(int speise_id)
+{
+	
+	std::stringstream speiseidstr;
+	speiseidstr << speise_id;
+	
+	std::string query =  "SELECT * FROM speise where speise_id = " + speiseidstr.str();
+	
+	query_state = mysql_query(connection,query.c_str());
+	
+	unsigned int num_fields;
+	unsigned int i;
+	
+	result = mysql_store_result(connection);
+	
+	num_fields = mysql_num_fields(result);
+	int id;
+	std::string name;
+	std::string beschreibung;
+	float preis;
+	
+	while ( ( row = mysql_fetch_row(result)) ) {
+		unsigned long *lengths;
+		lengths = mysql_fetch_lengths(result);
+		
+		for( i = 0; i < num_fields; i++)
+		{
+			if(i== 0)
+				id = atoi(row[i]);
+			
+			if(i== 1)
+				name = row[i];
+			
+			if(i== 2)
+				beschreibung = row[i];
+			if(i== 3)
+				preis = atoi(row[i]);
+			
+			
+		}
+	}
+	
+	Speise * speise = new Speise(speise_id, name, beschreibung, preis);
+	return speise;
+	
+	
+}
+
 void DBHandler::deleteFaq(int id)
 {
 	
@@ -224,7 +273,7 @@ vector<Bestellung *> DBHandler::getBestellungen(Terminal * terminal)
 		}
 		Speise * speise = new Speise(speise_id, name, beschreibung, preis);
 		cout << "BTest " << speise->getName()<<endl;
-	bestellungen.push_back(new Bestellung(speise,anzahl, sumpreis ) );
+	bestellungen.push_back(new Bestellung(speise_id,anzahl, sumpreis ) );
 	}
 	
 	mysql_free_result(result);
