@@ -152,7 +152,6 @@ void cubu::setupMYSQLDB(){
 	dbhandler->getTerminals();
 	faqs  = dbhandler->getFaqs();
 	//speisen = dbhandler->getSpeisen();
-
 	kunden = dbhandler->getKunden2();
 	//terminal mit id 1 wird geladen
 	terminal = dbhandler->getTerminal(1);
