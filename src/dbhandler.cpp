@@ -207,7 +207,6 @@ void DBHandler::insertTerminalSpeise(Terminal* terminal, Speise* speise, int anz
 	anzahlstr << anzahl;
 	sumpreisstr << sumpreis;
 	std::string query = "insert into terminalspeise (terminal_id, speise_id, datum, anzahl, sumpreis) values ('" + terminalstr.str() + "',' " + speisestr.str() + "' , now(), '"+ anzahlstr.str()+ "', "+sumpreisstr.str()+"')";
-	cout << query<<endl;
 	mysql_query(connection,query.c_str());
 }
 void DBHandler::insertTerminalService(Terminal* terminal, Service * service)
@@ -221,7 +220,6 @@ void DBHandler::insertTerminalService(Terminal* terminal, Service * service)
 	servicestr << service_id;
 
 	std::string query = "insert into terminalservice(terminal_id, service_id) values ('" + terminalstr.str() + "',' " + servicestr.str() + "' , now(), ')";
-	cout << query<<endl;
 	mysql_query(connection,query.c_str());
 }
 vector<Bestellung *> DBHandler::getBestellungen(Terminal * terminal)
@@ -232,8 +230,7 @@ vector<Bestellung *> DBHandler::getBestellungen(Terminal * terminal)
 
 	vector<Bestellung *> bestellungen;
 	std::string query = "SELECT s.speise_id, s.name, s.beschreibung, s.preis, s.bild, s.typ, ts.anzahl, ts.sumpreis FROM terminalspeise ts, speise s WHERE ts.terminal_id = " + terminalstr.str() ;
-	
-	cout << query << endl;
+
 	query_state = mysql_query(connection, query.c_str());
 	
 	if (query_state !=0) {
@@ -279,11 +276,9 @@ vector<Bestellung *> DBHandler::getBestellungen(Terminal * terminal)
 				anzahl = atoi(row[i]); 
 			if(i==7)
 				sumpreis = atoi(row[i]);
-			cout << name<<endl;	
 			
 		}
 		Speise * speise = new Speise(speise_id, name, beschreibung, preis, bild, typ);
-		cout << "BTest " << speise->getName()<<endl;
 	bestellungen.push_back(new Bestellung(speise_id,anzahl, sumpreis ) );
 	}
 	
@@ -522,7 +517,6 @@ vector<Speise*> DBHandler::getSpeisen(int typ) {
 	typstr << typ;
 	
 	std::string query =  "SELECT * FROM speise where typ =" + typstr.str();
-	cout << query << endl;
 	query_state = mysql_query(connection, query.c_str());
 	if (query_state !=0) {
 		cout << mysql_error(connection) << endl;
