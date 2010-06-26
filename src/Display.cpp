@@ -16,7 +16,7 @@ Display::~Display()
 	// exit should do the same stuff
 }
 
-void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cubuString*> * string){
+void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cubuString*> * string, vector<cubuPic*> * pic){
 	
 	guiname = pguiname;
 	
@@ -24,6 +24,8 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 		button->push_back(new cubuButton(400,150,"Do not Disturb"));
 		button->push_back(new cubuButton(400,200,"Towels"));
 		button->push_back(new cubuButton(400,250,"Clean Up"));
+
+		pic->push_back(new cubuPic("img/cleaning.jpg", 500, 100));
 
 	//	string->push_back(new cubuString("TEST", 100, 100,"verdana.ttf", 32));
 	//	string->push_back(new cubuString("TEST", 300, 100,"brit.ttf", 32));
