@@ -27,6 +27,7 @@ public:
 	float getPreis();
 	int getId();
 	
+	
 	~Speise();
 	
 	

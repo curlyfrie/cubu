@@ -24,6 +24,7 @@ std::string Speise::getName(){
 	return name;
 }
 
+
 std::string Speise::getBeschreibung(){
 	return beschreibung;
 }
