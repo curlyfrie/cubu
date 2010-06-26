@@ -412,6 +412,7 @@ void DBHandler::setAlarm(int terminal_id, int hour, int minute)
 }
 
 std::string DBHandler::getAlarm(int terminal_id){
+//get the time of alarm
 	
 	//returnvalue
 	std::string alarmstring;
@@ -420,7 +421,9 @@ std::string DBHandler::getAlarm(int terminal_id){
 	terminalstream << terminal_id;
 	
 	//complete query
-	std:string query = "SELECT * FROM alarm WHERE terminal_id =" + terminalstream.str();
+	//std:string query = "SELECT * FROM alarm WHERE terminal_id =" + terminalstream.str();
+	std:string query = "SELECT time(time) FROM alarm WHERE terminal_id = " + terminalstream.str();
+
 	
 	//ask mighty database
 	query_state = mysql_query(connection,query.c_str() );
@@ -438,35 +441,14 @@ std::string DBHandler::getAlarm(int terminal_id){
 	while ( ( row = mysql_fetch_row(result)) ) {
 		unsigned long *lengths;
 		lengths = mysql_fetch_lengths(result);
-		int id;
-		// initialize alarm values
-		std::string question;
-		std::string answer;
 		
-		for( i = 0; i < num_fields; i++)
-		{
-			/*
-			if(i== 0)
-				id = atoi(row[i]);
-			
-			if(i== 1)
-				question = row[i];
-			*/
-			
-			if(i== 2)
-				alarmstring = row[i];
-			
-			
-			//	printf("[%.*s] ", (int) lengths[i],
-			//		   row[i] ? row[i] : "NULL");
-			 
+		// note: result is only 1 row IN THIS CASE
+		alarmstring = row[0];
+
 		}
-		
-	}
-	
+	}	
 	mysql_free_result(result);
 	return alarmstring;	
-	
 
 }
 
