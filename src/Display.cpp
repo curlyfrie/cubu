@@ -34,7 +34,8 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 	}
 
 	else if (guiname == "alarm1") {
-	
+		string->push_back(new cubuString("Set Alarm"));
+		pic->push_back(new cubuPic("img/backgrounds/alarm.png", 20, 150));
 	}
 	else if (guiname == "activities1") {
 		button->push_back(new cubuButton(400,150,"Wellness"));

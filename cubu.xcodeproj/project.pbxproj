@@ -20,6 +20,7 @@
 		64E426E111D160C800C76E74 /* libmystrings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E426D811D160C800C76E74 /* libmystrings.a */; };
 		64E426E211D160C800C76E74 /* libmysys.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E426D911D160C800C76E74 /* libmysys.a */; };
 		64E426E311D160C800C76E74 /* libvio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E426DA11D160C800C76E74 /* libvio.a */; };
+		64F131F211D6736F0044DC26 /* cubuPic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64F131F011D6736F0044DC26 /* cubuPic.cpp */; };
 		B7ACF9F111D3CFD2005A156A /* Kunde.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7ACF9EB11D3CFD2005A156A /* Kunde.cpp */; };
 		B7ACF9F211D3CFD2005A156A /* Service.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7ACF9ED11D3CFD2005A156A /* Service.cpp */; };
 		B7ACF9F311D3CFD2005A156A /* Speise.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7ACF9EF11D3CFD2005A156A /* Speise.cpp */; };
@@ -134,6 +135,8 @@
 		64E426D811D160C800C76E74 /* libmystrings.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libmystrings.a; path = mysql/mac/libmystrings.a; sourceTree = SOURCE_ROOT; };
 		64E426D911D160C800C76E74 /* libmysys.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libmysys.a; path = mysql/mac/libmysys.a; sourceTree = SOURCE_ROOT; };
 		64E426DA11D160C800C76E74 /* libvio.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvio.a; path = mysql/mac/libvio.a; sourceTree = SOURCE_ROOT; };
+		64F131F011D6736F0044DC26 /* cubuPic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cubuPic.cpp; sourceTree = "<group>"; };
+		64F131F111D6736F0044DC26 /* cubuPic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cubuPic.h; sourceTree = "<group>"; };
 		B7ACF9EB11D3CFD2005A156A /* Kunde.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Kunde.cpp; sourceTree = "<group>"; };
 		B7ACF9EC11D3CFD2005A156A /* Kunde.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kunde.h; sourceTree = "<group>"; };
 		B7ACF9ED11D3CFD2005A156A /* Service.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Service.cpp; sourceTree = "<group>"; };
@@ -756,6 +759,8 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				64F131F011D6736F0044DC26 /* cubuPic.cpp */,
+				64F131F111D6736F0044DC26 /* cubuPic.h */,
 				6441673911D639330094AE15 /* cubuString.h */,
 				6441673A11D639330094AE15 /* cubuString.cpp */,
 				6441657711D61D1E0094AE15 /* Bestellung.cpp */,
@@ -969,6 +974,7 @@
 				CDA96FB911D54ACF00B403E5 /* Display.cpp in Sources */,
 				6441657911D61D1E0094AE15 /* Bestellung.cpp in Sources */,
 				6441673B11D639330094AE15 /* cubuString.cpp in Sources */,
+				64F131F211D6736F0044DC26 /* cubuPic.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
