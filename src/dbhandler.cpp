@@ -385,14 +385,41 @@ Service * DBHandler::getService(int service_id)
 
 void DBHandler::setAlarm(int terminal_id, int hour, int minute)
 {
+	cout << "IMSET" << endl;
+
 	
 	std::stringstream hstr;
 	hstr << hour;
 	std::stringstream mstr;
 	mstr << minute;
 
-	std::string query = "insert into alarm (terminal_id, time, active) values (0,'2010-06-24 "+hstr.str() +":"+ mstr.str() +":00', true  )";
-	mysql_query(connection,query.c_str());	
+	query_state = mysql_query(connection, "SELECT * FROM alarm WHERE terminal_id = 0");
+	if (query_state !=0) {
+		cout << mysql_error(connection) << endl;
+	}
+	
+	unsigned int num_fields;
+	unsigned int i;
+	
+	result = mysql_store_result(connection);
+	
+	num_fields = mysql_num_rows(result);
+	
+	mysql_free_result(result);
+
+	if(num_fields > 0){
+	
+	cout << "=========>>>>00000===========" << endl;
+	std::string query1 = "update alarm set time = '2010-06-24 "+hstr.str() +":"+ mstr.str() +":00' where terminal_id = 0";
+	mysql_query(connection,query1.c_str());	
+
+
+	}
+	else
+	{
+		std::string query1 = "insert into alarm (terminal_id, time, active) values (0,'2010-06-24 "+hstr.str() +":"+ mstr.str() +":00', true  )";
+		mysql_query(connection,query1.c_str());	
+	}
 
 }
 

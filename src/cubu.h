@@ -107,7 +107,6 @@ private:
 	
 	//alarm variables & fnc
 	bool alarmset;
-	int buttonset;
 	int time;
 
 	int alarm_minute;
