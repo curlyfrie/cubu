@@ -10,23 +10,21 @@
 #include "cubuString.h" 
 #include <vector>
 #include "ofMain.h"
+#include <iostream>
 
 using namespace std;
 
 class Display {
 
 private:
-	
-	vector<cubuButton*> buttonVector;
 	ofTrueTypeFont buttonlabel;
 	
 public:
 	
-	
+	std::string guiname;
+
 	Display();
 	//~Display();
-	
-	vector<cubuButton*> drawRoomservice();
-	void drawRoomservice( vector<cubuButton*> * todraw);
+	void draw(std::string pguiname, vector<cubuButton*> * button, vector<cubuString*> * string);
 	void click(int x, int y);
 };

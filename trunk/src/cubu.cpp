@@ -115,15 +115,16 @@ void cubu::setupGUI()
 
 			//font.loadFont("frabk.ttf",32);
 			
+			/*
 			strings.push_back(new cubuString("TEST", 100, 100,"verdana.ttf", 32));
 			strings.push_back(new cubuString("TEST", 300, 100,"brit.ttf", 32));
 			strings.push_back(new cubuString("AAAA", 100, 300));
-
+*/
 			//strings.push_back(new cubuString());
 
 			Display* display;
 			display = new Display();
-			display->drawRoomservice(&buttons);
+			display->draw("roomservice1", &buttons, &strings);
 
 			
 		}
@@ -636,7 +637,7 @@ void cubu::mousePressed(int x, int y, int button){
 
 				Display* display;
 			display = new Display();
-			display->drawRoomservice(&buttons);
+			display->draw("roomservice1", &buttons, &strings);
 		}
 		else
 			buttonset = -1;
