@@ -4,12 +4,14 @@
 
 
 #include "ofMain.h"
-
 #include "ofxCvMain.h"
 #include "ofxFidMain.h"
-#include "DBHandler.h"
-
 #include <vector>
+#include <iostream>
+
+#include "DBHandler.h"
+#include "cubuButton.h"
+#include "cubuString.h" 
 #include "Display.h"
 
 
@@ -61,6 +63,8 @@ class cubu : public ofBaseApp{
 	void drawFaq();
 	
 	void setupGUI();
+
+		int side_fun;
 	
 private:
 	
@@ -72,12 +76,12 @@ private:
 
 	float font_size;
 	
-	int side_food;
+
 	int side_alarm;
 	int side_temperature;
 	int	side_roomservice;
 	int side_activities;
-	int side_fun;
+	int side_food;
 	int active_side;
 	int prev_side;
 	

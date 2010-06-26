@@ -6,11 +6,17 @@
  *  Copyright 2010 __MyCompanyName__. All rights reserved.
  *
  */
-#include "cubuButton.h"
-#include "cubuString.h" 
-#include <vector>
+
+
+/*
 #include "ofMain.h"
-#include <iostream>
+
+#include "ofxCvMain.h"
+#include "ofxFidMain.h"
+#include "DBHandler.h"
+
+#include <vector>
+#include "Display.h"*/
 
 using namespace std;
 
@@ -24,7 +30,7 @@ public:
 	std::string guiname;
 
 	Display();
-	//~Display();
+	~Display();
 	void draw(std::string pguiname, vector<cubuButton*> * button, vector<cubuString*> * string);
 	void click(int x, int y);
 };
