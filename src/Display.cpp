@@ -54,14 +54,16 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 	
 	}	
 	else if (guiname == "Drinks") {
-		button->clear();
+		button->clear();		
+		speisen = dbhandler->getSpeisen(1);
 		string->push_back(new cubuString("Drinks", 100, 100,"verdana.ttf", 32));
 	
-	}
-	else if (guiname == "Wine") {
-		button->clear();
-		string->push_back(new cubuString("The Wine List", 100, 100,"verdana.ttf", 32));
-	
+		int y = 150; 
+		for(int i = 0; i < speisen.size(); i++) {
+			
+			button->push_back(new cubuButton(400,y,speisen.at(i)->getName()));
+			y += 100;
+		}
 	}
 	else if (guiname == "Menu") {
 		button->clear();
