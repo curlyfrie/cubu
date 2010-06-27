@@ -105,7 +105,7 @@ void cubu::setupGUI()
 		
 		if(active_side == side_fun){
 
-//			display->draw("roomservice1", &buttons, &strings, &pics);
+			display->draw("fun1", &buttons, &strings, &pics);
 
 		}
 		else if (active_side == side_activities) {
