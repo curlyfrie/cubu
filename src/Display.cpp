@@ -59,6 +59,17 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 	else if (guiname == "fun1") {
 		string->push_back(new cubuString("Fun"));
 		pic->push_back(new cubuPic("img/backgrounds/fun.png", 20, 150));
+		/*
+		speisen = dbhandler->getSpeisen(0);
+		string->push_back(new cubuString("Food"));
+		pic->push_back(new cubuPic("img/backgrounds/food1.png", 20, 150));
+		
+		int y = 180; 
+		for(int i = 0; i < speisen.size(); i++) {
+			
+			button->push_back(new cubuButton(400,y,speisen.at(i)->getName()));
+			y += 40;
+		}*/
 	
 	}
 	else if (guiname == "food1") {
