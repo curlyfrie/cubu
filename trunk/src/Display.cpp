@@ -180,15 +180,21 @@ void Display::click(int x, int y){
 	
 }
 
-void Display::drawFoodDetail(std::string pguiname, vector<cubuButton*> * button, vector<cubuString*> * string, vector<cubuPic*> * pic, int id){
+void Display::drawDetail(std::string pguiname, vector<cubuButton*> * button, vector<cubuString*> * string, vector<cubuPic*> * pic, int id){
+
+	button->clear();	
+	string->clear();
+	pic->clear();
 
 	Speise *s = dbhandler->getSpeise(id);
-	cout << s->getName()<< endl; /*
-	string->push_back(new cubuString("Beschreibung"));
-	pic->push_back(new cubuPic("img/detail/schnipo.jpg", 20, 150));
-	cubuButton *cb = button->at(0);
-	cout << "label: " << cb->label << endl;
-	button->push_back(new cubuButton(400,200,"order"));
-	button->push_back(new cubuButton(470,200,"back"));
-	*/
+	string->push_back(new cubuString(s->getName()));
+	pic->push_back(new cubuPic(s->getBild(), 20, 150));
+
+	std::stringstream stream;
+	stream << s->getBeschreibung();
+
+	string->push_back(new cubuString(stream.str(), 400, 200, "frabk.ttf", 13));
+	button->push_back(new cubuButton(400,400,"order"));
+	button->push_back(new cubuButton(500,400,"back"));
+	
 }

@@ -44,7 +44,7 @@ public:
 	vector<Dienstleistung*> dienstleistung;
 
 	void draw(std::string pguiname, vector<cubuButton*> * button, vector<cubuString*> * string, vector<cubuPic*> * pic);
-	void drawFoodDetail(std::string pguiname, vector<cubuButton*> * button, vector<cubuString*> * string, vector<cubuPic*> * pic, int id);
+	void drawDetail(std::string pguiname, vector<cubuButton*> * button, vector<cubuString*> * string, vector<cubuPic*> * pic, int id);
 
 	void click(int x, int y);
 };
