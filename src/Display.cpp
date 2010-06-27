@@ -74,26 +74,30 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 		string->clear();
 		pic->clear();
 		speisen = dbhandler->getSpeisen(1);
-		string->push_back(new cubuString("Drinks", 100, 100,"verdana.ttf", 32));
+		string->push_back(new cubuString("Drinks"));
+		pic->push_back(new cubuPic("img/backgrounds/drink1.png", 20, 150));
 	
-		int y = 150; 
+		int y = 180; 
 		for(int i = 0; i < speisen.size(); i++) {
 			
-			button->push_back(new cubuButton(400,y,speisen.at(i)->getName()));
-			y += 100;
+			button->push_back(new cubuButton(500,y,speisen.at(i)->getName()));
+			y += 40;
 		}
 	}
 	else if (guiname == "Menu") {
 		button->clear();	
 		string->clear();
 		pic->clear();
+		
 		speisen = dbhandler->getSpeisen(0);
-		string->push_back(new cubuString("The Menu", 100, 100,"verdana.ttf", 32));
-		int y = 150; 
+		string->push_back(new cubuString("Food"));
+		pic->push_back(new cubuPic("img/backgrounds/food1.png", 20, 150));
+		
+		int y = 180; 
 		for(int i = 0; i < speisen.size(); i++) {
 			
 			button->push_back(new cubuButton(400,y,speisen.at(i)->getName()));
-			y += 100;
+			y += 40;
 		}
 	
 	}
