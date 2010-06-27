@@ -103,6 +103,8 @@ void cubu::setupGUI()
 		//gui.setPage("empty");
 		alarm_hour = 6;
 
+		display->draw("start", &buttons, &strings, &pics);
+
 	}
 	else{
 		
