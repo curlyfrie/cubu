@@ -654,8 +654,12 @@ void cubu::mousePressed(int x, int y, int button){
 			dbhandler->setTemperatur(terminalID, temperature);
 			tempset = temperature;
 		}
+		else if(active_side == side_fun && guiname=="back"){
+			guiname = "food1";
+			//display->draw(&buttons,&strings,&pics);
+		} 
 		else if(active_side == side_fun){
-			display->drawDienstleistungDetail(&buttons,&strings,&pics,buttons.at(selected_button)->menuid);
+			display->drawDienstleistungDetail(guiname,&buttons,&strings,&pics,buttons.at(selected_button)->menuid);
 		}
 		else{
 			

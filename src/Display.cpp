@@ -205,16 +205,12 @@ void Display::drawDetail(std::string pguiname, vector<cubuButton*> * button, vec
 	
 }
 
-void Display::drawDienstleistungDetail(vector<cubuButton*> * button, vector<cubuString*> * string, vector<cubuPic*> * pic, int id){
+void Display::drawDienstleistungDetail(std::string pguiname,vector<cubuButton*> * button, vector<cubuString*> * string, vector<cubuPic*> * pic, int id){
 	button->clear();
 	string->clear();
 	pic->clear();
 	Dienstleistung *d = dbhandler->getDienstleistung(id);
 	string->push_back(new cubuString(d->getName()));
-	
-	verdana.loadFont("verdana.ttf",14);
-	
-	
 	string->push_back(new cubuString(d->getBeschreibung()+"\n\nKontakt: \n"+d->getKontakt(),420,240,"verdana.ttf", 14, 0xFFFFFF));
 	pic->push_back(new cubuPic("img/backgrounds/empty.png", 20, 180));
 	pic->push_back(new cubuPic(d->getBild(), 30, 190));
