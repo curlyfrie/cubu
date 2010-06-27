@@ -7,6 +7,7 @@
 
 #include "cubu.h"
 
+
 Display::Display()
 {	dbhandler = new DBHandler();
 
@@ -29,6 +30,10 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 	pic->clear();
 
 	guiname = pguiname;
+	
+	if (guiname=="back") {
+		guiname = "start";
+	}
 	
 	if(guiname == "roomservice1"){
 		
@@ -83,6 +88,27 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 		button->push_back(new cubuButton(160,510,"Wellness"));
 		button->push_back(new cubuButton(470,510,"Beauty"));
 		button->push_back(new cubuButton(770,510,"Sports"));
+	}
+	else if (guiname == "FAQ") {
+		string->push_back(new cubuString("Frequently Asked Questions"));
+		//pic->push_back(new cubuPic("img/backgrounds/empty.png", 20, 150));
+		std::string questions="";
+		vector<Faq*>  faqs = dbhandler->getFaqs();
+		int y = 150;
+		for (int i=0; i<faqs.size(); i++) {
+			Faq * f = faqs.at(i);
+			string->push_back(new cubuString(f->getQuestion(),30, y, "frabk.ttf", 14));
+			y+=17;
+			string->push_back(new cubuString(f->getAnswer(),30, y, "frabk.ttf", 12));
+			ofTrueTypeFont frab;
+			frab.loadFont("frabk.ttf",12);
+			ofRectangle rect = frab.getStringBoundingBox(f->getAnswer(), 30,y);
+			y+=rect.height+15;
+		}
+		
+		button->push_back(new cubuButton(30,690,"back"));
+		
+		
 	}
 	else if (guiname == "Wellness") {
 		string->push_back(new cubuString("Wellness"));
