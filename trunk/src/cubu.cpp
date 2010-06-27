@@ -619,7 +619,7 @@ void cubu::mousePressed(int x, int y, int button){
 		}
 	}
 	if (button==1) {
-		
+		cout << guiname << endl;	
 		if(active_side == side_alarm && !alarmset){
 			alarmset = true;
 					
@@ -630,16 +630,25 @@ void cubu::mousePressed(int x, int y, int button){
 			alarmset = false;
 			dbhandler->deleteAlarm(terminalID);
 		}
-		else if(active_side == side_food && guiname == "Drinks" || guiname == "Menu"){
-			
+		else if(active_side == side_food && guiname == "Drinks" || guiname == "Menu") {	
+			guiname = "describe";
 			display->drawDetail(guiname, &buttons, &strings, &pics, buttons.at(selected_button)->menuid);
+		}
 
-		/*	int menuid = buttons.at(selected_button)->getMenuid();
-			Speise *speise = dbhandler->getSpeise(menuid);
-			float preis = speise->getPreis();
-			dbhandler->insertTerminalSpeise(terminalID,menuid,1, preis);
+		else if(guiname == "describe") {
+			guiname = "food1";
+			if (buttons.at(selected_button)->label == "back") {
+				display->draw(guiname, &buttons, &strings, &pics);
+			}
+			else {
+				int menuid = buttons.at(selected_button)->getMenuid();
+
+				Speise *speise = dbhandler->getSpeise(menuid);
+				float preis = speise->getPreis();
+				dbhandler->insertTerminalSpeise(terminalID,menuid,1, preis);
+				display->draw(guiname, &buttons, &strings, &pics);
+			}
 			//saveAlarmtoDB();
-*/
 		}
 		else if (active_side == side_temperature) {
 			dbhandler->setTemperatur(terminalID, temperature);
