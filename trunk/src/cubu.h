@@ -104,6 +104,7 @@ private:
 	int previous_angle;
 	int current_angle;
 	string stringtodraw;
+	string stringtodraw2;
 	int sensitivity;
 	
 	//alarm variables & fnc
