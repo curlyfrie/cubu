@@ -79,6 +79,7 @@ class cubu : public ofBaseApp{
 		Display *display;
 		int selected_button;
 		vector<cubuButton*> buttons;
+		vector<cubuButton*> button_detail;
 		vector<cubuString*> strings;
 		vector<cubuPic*> pics;
 
