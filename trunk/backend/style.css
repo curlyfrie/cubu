@@ -1,0 +1,89 @@
+* {
+	margin:0px;
+}
+
+body {
+	background-color:#f1f1f1;
+	text-align: center;
+
+}
+
+#site{ margin: 0px auto; text-align: left; width: 918px;}
+
+
+h2 {
+	color:#ff8f00;
+	margin: 20px 0 20px;
+}
+
+h3 {
+	
+	margin: 15px 0 10px;
+}
+h4 {
+	
+	margin: 15px 0 5px;
+}
+
+#head {
+	background-image:url("bilder/homepage.png");
+	width: 918px;
+	height: 167px;
+}
+
+#menu {
+	width: 918px;
+	background-image:url("bilder/homepage.png");
+	background-position:0 -168px;
+        padding: 5px 0 0 2px;
+	height: 29px;
+	color: #ffffff;
+	font-family: sans-serif;
+}
+
+#menu a {
+	color: #ffffff;
+	font-size: 14px;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+#menu a:hover {
+	text-decoration:underline;
+}
+
+#menu ul { 
+        margin: 0 0 0 20px;
+        padding: 0;
+        list-style-type: none;
+        border-left: 1px solid #fff;
+ }
+ #menu li { 
+        color:white;
+        display: inline; 
+        padding: 0 10px;
+        border-right: 1px solid #fff;
+ }
+
+#content {
+	width: 818px;
+	background-image:url("bilder/contentbg.png");
+	background-position:0 -200px;
+	padding: 40px 50px 30px 50px;
+	text-align: justify;
+	font-family: sans-serif;
+}
+
+#footer {
+	width: 918px;
+	background-image:url("bilder/homepage.png");
+	background-position:0 -245px;
+	height:15px;
+}
+table{
+	width:100%;
+}
+table#neukunde{
+	width:auto;
+}
+
