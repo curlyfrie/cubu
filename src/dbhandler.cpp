@@ -730,6 +730,120 @@ vector<Speise*> DBHandler::getSpeisen(int typ) {
 	return speisen;	
 }
 
+vector<Wellness*> DBHandler::getWellness() {
+	
+	std::string query =  "SELECT * FROM wellness";
+
+	query_state = mysql_query(connection, query.c_str());
+	if (query_state !=0) {
+		cout << mysql_error(connection) << endl;
+	}
+	vector <Wellness*> wellness; 
+	unsigned int num_fields;
+	unsigned int i;
+	
+	result = mysql_store_result(connection);
+	
+	num_fields = mysql_num_fields(result);
+	while ( ( row = mysql_fetch_row(result)) ) {
+		unsigned long *lengths;
+		lengths = mysql_fetch_lengths(result);
+		int wellness_id;
+		std::string name;
+		std::string beschreibung;
+		int prioritaet;
+		std::string datum;
+		float preis;
+		int typ;
+		
+		for( i = 0; i < num_fields; i++)
+		{
+			if(i== 0){
+				wellness_id = atoi(row[i]);
+			}
+			if(i== 1)
+				name = row[i];
+			
+			if(i== 2)
+				beschreibung = row[i];
+			if(i == 3)
+				prioritaet = atof(row[i]);
+			if(i == 4)
+				datum = row[i];
+			if(i== 5)
+				preis = atof(row[i]);
+			if(i== 6)
+				typ = atof(row[i]);
+
+			
+		}
+		wellness.push_back(new Wellness(wellness_id, name,beschreibung, preis, typ, prioritaet,datum));
+		
+	}
+	
+	mysql_free_result(result);
+	return wellness;	
+}
+
+vector<Wellness*> DBHandler::getWellness(int typ) {
+	std::stringstream typstr;
+	typstr << typ;
+	
+	std::string query =  "SELECT * FROM wellness where typ =" + typstr.str();
+	cout << "getsPeisen " << query << endl;
+	query_state = mysql_query(connection, query.c_str());
+	if (query_state !=0) {
+		cout << mysql_error(connection) << endl;
+	}
+	vector <Wellness*> wellness; 
+	unsigned int num_fields;
+	unsigned int i;
+	
+	result = mysql_store_result(connection);
+	
+	num_fields = mysql_num_fields(result);
+	while ( ( row = mysql_fetch_row(result)) ) {
+		unsigned long *lengths;
+		lengths = mysql_fetch_lengths(result);
+		int wellness_id;
+		std::string name;
+		std::string beschreibung;
+		int prioritaet;
+		std::string datum;
+		float preis;
+		int typ;
+		
+		for( i = 0; i < num_fields; i++)
+		{
+			if(i== 0){
+				wellness_id = atoi(row[i]);
+			}
+			if(i== 1)
+				name = row[i];
+			
+			if(i== 2)
+				beschreibung = row[i];
+			if(i == 3)
+				prioritaet = atof(row[i]);
+			if(i == 4)
+				datum = row[i];
+			if(i== 5)
+				preis = atof(row[i]);
+			if(i== 6)
+				typ = atof(row[i]);
+			
+			
+		}
+		wellness.push_back(new Wellness(wellness_id, name,beschreibung, preis,typ, prioritaet, datum));
+		
+	}
+	
+	mysql_free_result(result);
+	return wellness;	
+}
+
+
+
 
 vector<Service*> DBHandler::getService() {
 	query_state = mysql_query(connection, "SELECT * FROM service");

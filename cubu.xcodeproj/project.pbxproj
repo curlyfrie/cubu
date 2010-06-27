@@ -21,6 +21,8 @@
 		64E426E211D160C800C76E74 /* libmysys.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E426D911D160C800C76E74 /* libmysys.a */; };
 		64E426E311D160C800C76E74 /* libvio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E426DA11D160C800C76E74 /* libvio.a */; };
 		64F131F211D6736F0044DC26 /* cubuPic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64F131F011D6736F0044DC26 /* cubuPic.cpp */; };
+		64F1337711D79ED90044DC26 /* Wellness.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64F1337611D79ED90044DC26 /* Wellness.cpp */; };
+		64F133EF11D7AB760044DC26 /* Dienstleistung.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64F133EE11D7AB760044DC26 /* Dienstleistung.cpp */; };
 		B7ACF9F111D3CFD2005A156A /* Kunde.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7ACF9EB11D3CFD2005A156A /* Kunde.cpp */; };
 		B7ACF9F211D3CFD2005A156A /* Service.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7ACF9ED11D3CFD2005A156A /* Service.cpp */; };
 		B7ACF9F311D3CFD2005A156A /* Speise.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7ACF9EF11D3CFD2005A156A /* Speise.cpp */; };
@@ -137,6 +139,10 @@
 		64E426DA11D160C800C76E74 /* libvio.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvio.a; path = mysql/mac/libvio.a; sourceTree = SOURCE_ROOT; };
 		64F131F011D6736F0044DC26 /* cubuPic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cubuPic.cpp; sourceTree = "<group>"; };
 		64F131F111D6736F0044DC26 /* cubuPic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cubuPic.h; sourceTree = "<group>"; };
+		64F1337511D79ED90044DC26 /* Wellness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wellness.h; sourceTree = "<group>"; };
+		64F1337611D79ED90044DC26 /* Wellness.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Wellness.cpp; sourceTree = "<group>"; };
+		64F133ED11D7AB760044DC26 /* Dienstleistung.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dienstleistung.h; sourceTree = "<group>"; };
+		64F133EE11D7AB760044DC26 /* Dienstleistung.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dienstleistung.cpp; sourceTree = "<group>"; };
 		B7ACF9EB11D3CFD2005A156A /* Kunde.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Kunde.cpp; sourceTree = "<group>"; };
 		B7ACF9EC11D3CFD2005A156A /* Kunde.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kunde.h; sourceTree = "<group>"; };
 		B7ACF9ED11D3CFD2005A156A /* Service.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Service.cpp; sourceTree = "<group>"; };
@@ -759,6 +765,8 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				64F133ED11D7AB760044DC26 /* Dienstleistung.h */,
+				64F133EE11D7AB760044DC26 /* Dienstleistung.cpp */,
 				64F131F011D6736F0044DC26 /* cubuPic.cpp */,
 				64F131F111D6736F0044DC26 /* cubuPic.h */,
 				6441673911D639330094AE15 /* cubuString.h */,
@@ -773,6 +781,8 @@
 				B7ACF9EE11D3CFD2005A156A /* Service.h */,
 				B7ACF9EF11D3CFD2005A156A /* Speise.cpp */,
 				B7ACF9F011D3CFD2005A156A /* Speise.h */,
+				64F1337511D79ED90044DC26 /* Wellness.h */,
+				64F1337611D79ED90044DC26 /* Wellness.cpp */,
 				CD78221211D20C7C00F85BFA /* cubuButton.h */,
 				CD78221311D20C7C00F85BFA /* cubuButton.cpp */,
 				648D421711D1822E0079562A /* dbhandler.cpp */,
@@ -975,6 +985,8 @@
 				6441657911D61D1E0094AE15 /* Bestellung.cpp in Sources */,
 				6441673B11D639330094AE15 /* cubuString.cpp in Sources */,
 				64F131F211D6736F0044DC26 /* cubuPic.cpp in Sources */,
+				64F1337711D79ED90044DC26 /* Wellness.cpp in Sources */,
+				64F133EF11D7AB760044DC26 /* Dienstleistung.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

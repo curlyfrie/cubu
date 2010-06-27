@@ -15,6 +15,7 @@
 #include "Speise.h"
 #include "Service.h"
 #include "Bestellung.h"
+#include "Wellness.h"
 
 class DBHandler {
 
@@ -40,7 +41,8 @@ public:
 	void printFaqs();
 	
 	
-	
+	vector<Wellness*>  getWellness();
+	vector<Wellness*>  getWellness(int typ);
 	Service * getService(int service_id);
 	Kunde * getKunde(int kunde_id);
 	Kunde * getKunde(Terminal * Terminal);
