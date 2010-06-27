@@ -642,10 +642,3 @@ void cubu::mouseReleased(int x, int y, int button){
 void cubu::windowResized(int w, int h){
 
 }
-
-void cubu::clearAll() {
-	buttons.clear();
-	strings.clear();
-	pics.clear();
-
-}
