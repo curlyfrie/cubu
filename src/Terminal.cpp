@@ -18,6 +18,7 @@ Terminal::Terminal(int _terminal_id, std::string name, std::string telnumber)
 
 
 int Terminal::getId(){
+	cout << "terminal id " << terminal_id << endl;
 	return terminal_id;
 }
 
