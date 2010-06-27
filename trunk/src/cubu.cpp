@@ -12,17 +12,14 @@ cubu::~cubu()
 //--------------------------------------------------------------
 void cubu::setup(){
 
-
-
 	//Datenbank starten
 	setupMYSQLDB();
 
 	
-	//ID of this room: WARNING, HARD CODED!
-	terminalID = 1;
 
 	display = new Display(terminalID);
 	
+
 	alarm_hour = 6;
 	showFaq = false;
 	selected_button = 0;
