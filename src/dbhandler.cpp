@@ -397,10 +397,9 @@ void DBHandler::setAlarm(int terminal_id, int hour, int minute)
 
 	if(num_fields > 0){
 	
-	cout << "=========>>>>00000===========" << endl;
-	std::string query1 = "update alarm set time = '2010-06-24 "+hstr.str() +":"+ mstr.str() +":00' where terminal_id = 0";
-	mysql_query(connection,query1.c_str());	
-
+		cout << "=========>>>>00000===========" << endl;
+		std::string query1 = "update alarm set time = '2010-06-24 "+hstr.str() +":"+ mstr.str() +":00' where terminal_id = 0";
+		mysql_query(connection,query1.c_str());	
 
 	}
 	else
@@ -412,7 +411,7 @@ void DBHandler::setAlarm(int terminal_id, int hour, int minute)
 }
 
 std::string DBHandler::getAlarm(int terminal_id){
-//get the time of alarm
+//get the time of alarm in this format: hh:mm
 	
 	//returnvalue
 	std::string alarmstring;
@@ -438,15 +437,18 @@ std::string DBHandler::getAlarm(int terminal_id){
 	result = mysql_store_result(connection);
 	
 	num_fields = mysql_num_fields(result);
+	
+	if(num_fields == 0){
+		alarmstring == "";
+		return alarmstring;
+	}
 	while ( ( row = mysql_fetch_row(result)) ) {
 		unsigned long *lengths;
 		lengths = mysql_fetch_lengths(result);
-		
 		// note: result is only 1 row IN THIS CASE
 		alarmstring = row[0];
-
-		
-	}	
+		alarmstring.erase(5);
+	}
 	mysql_free_result(result);
 	return alarmstring;	
 

@@ -534,7 +534,7 @@ void cubu::keyPressed(int key){
 			break;
 		//DEBUGGIN AHEAD!
 		case 'b':
-			///cout << "alarm == " <<   dbhandler->getAlarm(0);
+			//cout << "alarm == " <<   dbhandler->getAlarm(0);
 			
 			break;
 		case '-':
