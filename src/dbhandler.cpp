@@ -186,6 +186,18 @@ void DBHandler::deleteFaq(int id)
 	 mysql_query(connection,query.c_str());	
 }
 
+void DBHandler::deleteAlarm(int terminal_id)
+{
+	
+	std::string idString;
+	std::stringstream out;
+	out << terminal_id;
+	idString = out.str();
+	
+	std::string query = "DELETE FROM alarm where terminal_id = " + idString;
+	mysql_query(connection,query.c_str());	
+}
+
 void DBHandler::insertTerminalSpeise(Terminal* terminal, Speise* speise, int anzahl, float sumpreis)
 {
 	int terminal_id = terminal->getId();
