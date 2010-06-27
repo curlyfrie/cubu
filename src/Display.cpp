@@ -53,6 +53,27 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 		string->push_back(new cubuString("Set Alarm"));
 		pic->push_back(new cubuPic("img/backgrounds/alarm.png", 20, 150));
 	}
+	else if (guiname == "start") {
+		string->push_back(new cubuString("Welcome"));
+		pic->push_back(new cubuPic("img/backgrounds/start.png", 20, 150));
+		
+		
+		button->push_back(new cubuButton(920,160,"FAQ"));
+		
+		//bestellungen
+		string->push_back(new cubuString("Your Orders:",50,310,"frabk.ttf", 20,0xFFFFFF));
+		
+		float temperature = dbhandler->getTemperatur(terminalid);
+		std::stringstream out;
+		out << temperature;
+		string->push_back(new cubuString("Room Temperature:  "+out.str()+" C",50,620,"frabk.ttf", 14,0xFFFFFF));
+		
+		std::string alarm = dbhandler->getAlarm(terminalid);
+		if (alarm!="") {
+			string->push_back(new cubuString("Alarm Timer:  "+alarm,420,620,"frabk.ttf", 14,0xFFFFFF));
+		}
+		
+	}
 	else if (guiname == "activities1") {
 		string->push_back(new cubuString("Hotel Activities"));
 		pic->push_back(new cubuPic("img/backgrounds/empty.png", 20, 150));
