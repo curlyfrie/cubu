@@ -12,6 +12,8 @@ cubu::~cubu()
 //--------------------------------------------------------------
 void cubu::setup(){
 
+	display = new Display();
+
 	//Datenbank starten
 	setupMYSQLDB();
 
@@ -58,7 +60,7 @@ void cubu::setup(){
 	time = 0;
 	
 
-	temperature = 20;
+	temperature = dbhandler->getTemperatur(terminalID);
 	
 	time = 0;
 	
@@ -132,15 +134,7 @@ void cubu::setupGUI()
 			// do cool stuff here
 
 			display->draw("temperature1", &buttons, &strings, &pics);
-			
-
-		
-			/*
-			buttons.clear();
-			buttons.push_back(new cubuButton(500,700,"button1"));
-			buttons.push_back(new cubuButton(700,700,"button2"));
-			buttons.push_back(new cubuButton(900,700,"button3"));
-			 */
+	
 		}
 	
 	}
@@ -274,7 +268,7 @@ void cubu::update(){
 				active_side = side_temperature;
 				setTemp();
 			}
-						
+				
 			
 			//Button Selection via rotation
 			if(buttons.size()>0){
@@ -302,6 +296,9 @@ void cubu::update(){
 			
 			//wenn kein marker aktiv: time erhoehen
 			time++;
+			
+			//temp set
+			temperature = dbhandler->getTemperatur(terminalID);
 			
 			//überbrückung kurzes nicht erkennens des markers
 			if (time > 10){
@@ -378,15 +375,6 @@ void cubu::setTemp()
 	std::string s;
 	for(int i=0; i<5; i++){
 		
-		/*stream2 << 
-
-		s = stream2.str();
-		s.insert(2, ".");
-		s.insert(5, " C\n");
-		cout << s << endl;
-		stringtodraw += s;
-		stream2.clear();
-		s = "";*/
 		std::stringstream stream2;
 		stream2 << (temperature-1+(i*0.5))*10;
 
@@ -394,18 +382,16 @@ void cubu::setTemp()
 		stemp.insert(2, ".");
 
 		if(i!= 2){
-			s += stemp+"C\n";
+			s += stemp+" C\n";
 		}
 		else{
-			s += "\n\n\n\n\n";
-			stringtodraw2 = stemp+"C\n";
+			s += "\n\n\n\n";
+			stringtodraw2 = stemp+" C\n";
 		}
 		
 	}
 
 	stringtodraw = s;
-	//cout << "set alarm to" << alarm_hour << "." << alarm_minute << endl;
-	//cout << "set Alarm:" << stringtodraw << endl;
 	
 }
 
@@ -456,23 +442,14 @@ void cubu::draw(){
 	ofImage img;
 	img.loadImage("img/background.png");
 	img.draw(0,0);
-	
-	//set Background Color
-	//ofBackground(126, 169, 203);
-
-	//draw font
-	//ofSetColor(0x3366aa);
-	
-	
+		
 	//draw GUI
 	drawGUI();
 
 
 	// draw fiducial window
 	if(showFiducialWindow)
-	{
-				
-		
+	{		
 		grayDiff.draw(20, 450);
 		//colorImg.draw(20,430);
 	
@@ -489,14 +466,11 @@ void cubu::draw(){
 void cubu::drawGUI(){
 // draws the gui
 
-	
-
 	cubuPic * currentpic;
 	for(int i = 0; i < pics.size(); i++){
 		currentpic = pics.at(i);
 		currentpic->pic.draw(currentpic->x,currentpic->y);
 	}
-
 
 	cubuString * currentstring;
 	for(int i = 0; i < strings.size(); i++){
@@ -524,44 +498,17 @@ void cubu::drawGUI(){
 	if(active_side == side_alarm)
 		font.drawString(stringtodraw, 630, 270);
 	else if(active_side == side_temperature){
+		ofSetColor(0x777777);
 		font.loadFont("bankg.ttf",20);
-		font.drawString(stringtodraw, 710, 240);
+		font.drawString(stringtodraw, 710, 255);
+		ofSetColor(0x000000);
 		font.loadFont("bankg.ttf",32);
 		font.drawString(stringtodraw2, 680, 360);
 		
 	}
 }
 
-void cubu::drawFaq(){
-	
-	for(int i = 0; i < faqs.size(); i++)
-	{
-		franklinBook.drawString(faqs.at(i)->getQuestion(), 100,100 + i *100);
-		franklinBook.drawString(faqs.at(i)->getAnswer(), 150,150 + i *100);
 
-	}
-	
-}
-
-void cubu::drawFood(){
-	
-	for(int i = 0; i < speisen.size(); i++)
-	{
-		cout << "drawfood"<< speisen.at(i)->getName()<<endl;
-		buttons.push_back(new cubuButton(500,200 + i * 50 ,speisen.at(i)->getName()));
-	}
-	
-}
-//--------------------------------------------------------------
-void cubu::drawAlarm() {
-//draw any cool gfx for alarm here
-	
-	franklinBook.drawString(stringtodraw, 100,310);
-	if(alarmset)
-		franklinBook.drawString("klick or press 'a' to reset", 100,350);
-}
-
-//--------------------------------------------------------------
 void cubu::keyPressed(int key){
 	
 	switch (key){
@@ -624,9 +571,6 @@ void cubu::mousePressed(int x, int y, int button){
 	
 	//ACTION - Aufruf statt hier..
 	/////////////////////////////////
-	
-	Display *display;
-	display = new Display();
 
 	if(button == 0){
 		int temp = -1;
@@ -669,6 +613,9 @@ void cubu::mousePressed(int x, int y, int button){
 			float preis = speise->getPreis();
 			dbhandler->insertTerminalSpeise(terminalID,menuid,1, preis);
 			//saveAlarmtoDB();
+		}
+		else if (active_side == side_temperature) {
+			dbhandler->setTemperatur(terminalID, temperature);
 		}
 		else{
 			

@@ -41,13 +41,13 @@ class cubu : public ofBaseApp{
 		void mouseReleased(int x, int y, int button);
 		void windowResized(int w, int h);
 	
-	void clearAll();
-	
-	// set no. of marker for sides
+		void clearAll();
+		
+		// set no. of marker for sides
 
-	
-	void blub(ofMouseEventArgs & mouseEventArgs );
-	void blub2(int a,int b, int c);
+		
+		void blub(ofMouseEventArgs & mouseEventArgs );
+		void blub2(int a,int b, int c);
 	
 		ofTrueTypeFont franklinBook;
 		ofTrueTypeFont buttonlabel;
@@ -66,75 +66,66 @@ class cubu : public ofBaseApp{
 		void setupMYSQLDB();
 
 	
-	int getRotDirection();
-	
-	void drawAlarm();
-	void drawFood();
-	void drawGUI();
-	void drawFaq();
-	
-	void setupGUI();
-
-
-	
-	int side_food;
-	int side_alarm;
-	int side_temperature;
-	int	side_roomservice;
-	int side_activities;
-	int side_fun;
-	int active_side;
-	int prev_side;
-	
-	
-private:
-	
-	Display *display;
-	int selected_button;
-	vector<cubuButton*> buttons;
-	vector<cubuString*> strings;
-	vector<cubuPic*> pics;
-
-
-	float font_size;
-	
-
-	//variables for every side
-	string rotation;	
-	int previous_angle;
-	int current_angle;
-	string stringtodraw;
-	string stringtodraw2;
-	int sensitivity;
-	
-	//alarm variables & fnc
-	bool alarmset;
-	int time;
-	
-	float temperature;
-	int alarm_minute;
-	int alarm_hour;
-
-	void setAlarm();
-	void setTemp();
-	
-	//fiducial variables
-	int fiducial_threshold;
-	bool showFiducialWindow;
-	
-	bool showFaq;
+		int getRotDirection();
 		
-	vector<Faq*> faqs;
-	vector<Speise*> speisen;
-	vector<Bestellung*> bestellungen;
-	string guiname;
+		void drawGUI();
+		void setupGUI();
+		
+		int side_food;
+		int side_alarm;
+		int side_temperature;
+		int	side_roomservice;
+		int side_activities;
+		int side_fun;
+		int active_side;
+		int prev_side;
+		
+	
+	private:
+		
+		Display *display;
+		int selected_button;
+		vector<cubuButton*> buttons;
+		vector<cubuString*> strings;
+		vector<cubuPic*> pics;
 
-	map <int, Kunde*> kunden;
-	Speise * speise;
-	Kunde * kunde;
 
+		float font_size;
+		
 
+		//variables for every side
+		string rotation;	
+		int previous_angle;
+		int current_angle;
+		string stringtodraw;
+		string stringtodraw2;
+		int sensitivity;
+		
+		//alarm variables & fnc
+		bool alarmset;
+		int time;
+		
+		float temperature;
+		int alarm_minute;
+		int alarm_hour;
 
+		void setAlarm();
+		void setTemp();
+		
+		//fiducial variables
+		int fiducial_threshold;
+		bool showFiducialWindow;
+		
+		bool showFaq;
+			
+		vector<Faq*> faqs;
+		vector<Speise*> speisen;
+		vector<Bestellung*> bestellungen;
+		string guiname;
+
+		map <int, Kunde*> kunden;
+		Speise * speise;
+		Kunde * kunde;
 
 };
 
