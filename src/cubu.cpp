@@ -654,6 +654,9 @@ void cubu::mousePressed(int x, int y, int button){
 			dbhandler->setTemperatur(terminalID, temperature);
 			tempset = temperature;
 		}
+		else if(active_side == side_fun){
+			display->drawDienstleistungDetail(&buttons,&strings,&pics,buttons.at(selected_button)->menuid);
+		}
 		else{
 			
 			//TEST per klick GUI LADEN
@@ -665,6 +668,7 @@ void cubu::mousePressed(int x, int y, int button){
 			display->draw("roomservice1", &buttons, &strings, &pics);
 			*/
 		}
+		
 
 		
 	}
