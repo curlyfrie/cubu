@@ -617,7 +617,7 @@ void cubu::mousePressed(int x, int y, int button){
 		}
 		else if(active_side == side_food && guiname == "Drinks" || guiname == "Menu"){
 			
-			display->drawFoodDetail("describe", &button_detail, &strings, &pics, buttons.at(selected_button)->menuid);
+			display->drawDetail(guiname, &buttons, &strings, &pics, buttons.at(selected_button)->menuid);
 
 		/*	int menuid = buttons.at(selected_button)->getMenuid();
 			Speise *speise = dbhandler->getSpeise(menuid);
