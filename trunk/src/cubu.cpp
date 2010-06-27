@@ -297,13 +297,20 @@ void cubu::update(){
 			//wenn kein marker aktiv: time erhoehen
 			time++;
 
-			guiname = "";
 
 			//temp set
 			temperature = dbhandler->getTemperatur(terminalID);
-			
+
+
+		/*	buttons.clear();
+			strings.clear();
+			pics.clear();
+
+		*/	
 			//überbrückung kurzes nicht erkennens des markers
 			if (time > 10){
+				
+				guiname = "";
 				active_side = -1;
 				time = 0;
 			}
@@ -609,13 +616,15 @@ void cubu::mousePressed(int x, int y, int button){
 			dbhandler->deleteAlarm(terminalID);
 		}
 		else if(active_side == side_food && guiname == "Drinks" || guiname == "Menu"){
+			
+			display->drawFoodDetail("describe", &button_detail, &strings, &pics, buttons.at(selected_button)->menuid);
 
-			int menuid = buttons.at(selected_button)->getMenuid();
-			cout << "menid: " << menuid << endl;
+		/*	int menuid = buttons.at(selected_button)->getMenuid();
 			Speise *speise = dbhandler->getSpeise(menuid);
 			float preis = speise->getPreis();
 			dbhandler->insertTerminalSpeise(terminalID,menuid,1, preis);
 			//saveAlarmtoDB();
+*/
 		}
 		else if (active_side == side_temperature) {
 			dbhandler->setTemperatur(terminalID, temperature);

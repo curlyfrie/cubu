@@ -24,7 +24,6 @@ Display::~Display()
 
 void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cubuString*> * string, vector<cubuPic*> * pic){
 
-
 	button->clear();	
 	string->clear();
 	pic->clear();
@@ -103,6 +102,7 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 	
 	}
 	else if (guiname == "food1") {
+
 		string->push_back(new cubuString("Food & Drinks"));
 		pic->push_back(new cubuPic("img/backgrounds/empty.png", 20, 150));
 		pic->push_back(new cubuPic("img/menu/drinks.png", 250, 180));
@@ -160,6 +160,7 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 		pic->push_back(new cubuPic("img/backgrounds/temperature.png", 20, 150));
 	
 	}
+
 	else {
 	}
 
@@ -177,4 +178,17 @@ void Display::click(int x, int y){
 //check if any button was hit and call the corresponding action
 
 	
+}
+
+void Display::drawFoodDetail(std::string pguiname, vector<cubuButton*> * button, vector<cubuString*> * string, vector<cubuPic*> * pic, int id){
+
+	Speise *s = dbhandler->getSpeise(id);
+	cout << s->getName()<< endl; /*
+	string->push_back(new cubuString("Beschreibung"));
+	pic->push_back(new cubuPic("img/detail/schnipo.jpg", 20, 150));
+	cubuButton *cb = button->at(0);
+	cout << "label: " << cb->label << endl;
+	button->push_back(new cubuButton(400,200,"order"));
+	button->push_back(new cubuButton(470,200,"back"));
+	*/
 }
