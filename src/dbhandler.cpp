@@ -158,7 +158,7 @@ Speise * DBHandler::getSpeise(int speise_id)
 			if(i== 2)
 				beschreibung = row[i];
 			if(i== 3)
-				preis = atoi(row[i]);
+				preis = atof(row[i]);
 			if(i== 4)
 				bild = row[i];
 		  	if(i== 5)
@@ -186,6 +186,7 @@ void DBHandler::deleteFaq(int id)
 	 mysql_query(connection,query.c_str());	
 }
 
+
 void DBHandler::deleteAlarm(int terminal_id)
 {
 	
@@ -198,21 +199,71 @@ void DBHandler::deleteAlarm(int terminal_id)
 	mysql_query(connection,query.c_str());	
 }
 
-void DBHandler::insertTerminalSpeise(Terminal* terminal, Speise* speise, int anzahl, float sumpreis)
+void DBHandler::insertTerminalSpeise(int terminal_id, int speise_id, int anzahl, float sumpreis)
 {
-	int terminal_id = terminal->getId();
-	int speise_id = speise->getId();
 	std::stringstream terminalstr;
 	std::stringstream speisestr;
 	std::stringstream anzahlstr;
+	std::stringstream anzstr;
 	std::stringstream sumpreisstr;
 	
 	terminalstr << terminal_id;
 	speisestr << speise_id;
 	anzahlstr << anzahl;
 	sumpreisstr << sumpreis;
-	std::string query = "insert into terminalspeise (terminal_id, speise_id, datum, anzahl, sumpreis) values ('" + terminalstr.str() + "',' " + speisestr.str() + "' , now(), '"+ anzahlstr.str()+ "', "+sumpreisstr.str()+"')";
-	mysql_query(connection,query.c_str());
+
+	std::string query = "SELECT anzahl FROM terminalspeise where terminal_id = " + terminalstr.str() + " and speise_id = " + speisestr.str();
+	query_state = mysql_query(connection,query.c_str() );
+	if (query_state !=0) {
+		cout << mysql_error(connection) << endl;
+	}
+
+	unsigned int num_fields;
+
+	result = mysql_store_result(connection);
+	
+	num_fields = mysql_num_rows(result);
+
+	int anz;
+	
+	while ( ( row = mysql_fetch_row(result)) ) {
+		unsigned long *lengths;
+		lengths = mysql_fetch_lengths(result);
+		
+		for(int i = 0; i < num_fields; i++)
+		{
+			if(i== 0){
+				anz = atoi(row[i]);
+			}
+		}
+	}
+	
+	mysql_free_result(result);
+
+	if(num_fields > 0){
+		cout << "anz " << anz << endl;
+		anz++;
+		cout << "anz " << anz << endl;
+		anzstr << anz;
+
+		std::string query1 = "update terminalspeise set anzahl = " + anzstr.str() + ", datum = now() where terminal_id = " + terminalstr.str() + " and speise_id = " + speisestr.str();
+	
+		query_state = mysql_query(connection,query1.c_str());	
+
+		if (query_state !=0) {
+			cout << mysql_error(connection) << endl;
+		}
+
+	}
+	else
+	{
+		std::string query1 = "insert into terminalspeise (terminal_id, speise_id, datum, anzahl, sumpreis) values ('" + terminalstr.str() + "',' " + speisestr.str() + "' , now(), '"+ anzahlstr.str()+ "', '"+sumpreisstr.str()+"')";
+		query_state = mysql_query(connection,query1.c_str());
+		if (query_state !=0) {
+			cout << mysql_error(connection) << endl;
+		}
+	}
+
 }
 void DBHandler::insertTerminalService(Terminal* terminal, Service * service)
 {
@@ -272,7 +323,7 @@ vector<Bestellung *> DBHandler::getBestellungen(Terminal * terminal)
 			if(i==2)
 				beschreibung = row[i]; 
 			if(i==3)
-				preis = atoi(row[i]);
+				preis = atof(row[i]);
 			if(i==4)
 				bild = row[i];
 			if(i==5)
@@ -280,7 +331,7 @@ vector<Bestellung *> DBHandler::getBestellungen(Terminal * terminal)
 			if(i==6)
 				anzahl = atoi(row[i]); 
 			if(i==7)
-				sumpreis = atoi(row[i]);
+				sumpreis = atof(row[i]);
 			
 		}
 		Speise * speise = new Speise(speise_id, name, beschreibung, preis, bild, typ);

@@ -40,7 +40,7 @@ public:
 	Kunde * getKunde(Terminal * Terminal);
 	Speise * getSpeise(int speise_id);
 	void insertTerminalService(Terminal * terminal, Service * service);
-	void insertTerminalSpeise(Terminal* terminal, Speise* speise, int anzahl, float sumpreis);
+	void insertTerminalSpeise(int terminal_id, int speise_id, int anzahl, float sumpreis);
 	
 	vector<Bestellung *>  getBestellungen(Terminal * terminal);
 private:
