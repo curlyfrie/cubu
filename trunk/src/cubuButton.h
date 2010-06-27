@@ -16,17 +16,19 @@ public:
 	int width;
 	int height;
 	int action;
-	std::string guiname;
+	int menuid;
 	std::string label;
 	bool selected;
 	
 	void select(bool value);
 	bool click(int clickx, int clicky);
-	
+	int getMenuid();
 	cubuButton();
 	cubuButton(int px, int py, std::string plabel);
+	cubuButton(int px, int py, std::string plabel, int menuid);
 	~cubuButton();
 	
 private:
+	
 	void setDefaultValues();
 };

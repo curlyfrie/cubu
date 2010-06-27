@@ -54,7 +54,8 @@ void cubu::setup(){
 		alarmset = true;
 	else
 		alarmset = false;
-
+	guiname = "";
+	time = 0;
 	
 
 	temperature = 20;
@@ -661,12 +662,21 @@ void cubu::mousePressed(int x, int y, int button){
 			alarmset = false;
 			dbhandler->deleteAlarm(terminalID);
 		}
+		else if(active_side == side_food && guiname == "Drinks" || guiname == "Menu"){
+
+			int menuid = buttons.at(selected_button)->getMenuid();
+			cout << "menid: " << menuid << endl;
+			Speise *speise = dbhandler->getSpeise(menuid);
+			float preis = speise->getPreis();
+			dbhandler->insertTerminalSpeise(terminalID,menuid,1, preis);
+			//saveAlarmtoDB();
+		}
 		else{
 			
 			//TEST per klick GUI LADEN
 			// works
-			
-			display->draw(buttons.at(selected_button)->label, &buttons, &strings, &pics);
+			guiname = buttons.at(selected_button)->label;
+			display->draw(guiname, &buttons, &strings, &pics);
 		/*	Display* display;
 			display = new Display();
 			display->draw("roomservice1", &buttons, &strings, &pics);

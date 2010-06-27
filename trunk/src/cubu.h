@@ -127,6 +127,7 @@ private:
 	vector<Faq*> faqs;
 	vector<Speise*> speisen;
 	vector<Bestellung*> bestellungen;
+	string guiname;
 
 	map <int, Kunde*> kunden;
 	Speise * speise;

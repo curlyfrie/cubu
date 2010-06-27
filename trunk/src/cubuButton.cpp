@@ -14,7 +14,7 @@ cubuButton::cubuButton(){
 	x = 0;
 	y = 0;
 	label = "";
-	
+	menuid = 0;
 	setDefaultValues();
 }
 
@@ -26,6 +26,20 @@ cubuButton::cubuButton(int px, int py, std::string plabel){
 	
 	setDefaultValues();
 	
+}
+
+cubuButton::cubuButton(int px, int py, std::string plabel, int pmenuid){
+	
+	x = px;
+	y = py;
+	label = plabel;
+	menuid = pmenuid;
+	setDefaultValues();
+	
+}
+
+int cubuButton::getMenuid() {
+	return menuid;
 }
 
 void cubuButton::setDefaultValues(){
