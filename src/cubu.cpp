@@ -96,7 +96,7 @@ void cubu::setupGUI()
 	strings.clear();
 	pics.clear();
 
-	Display *display =new Display();
+	Display *display =new Display(terminalID);
 
 	if(active_side == -1){
 		//gui.setPage("empty");
