@@ -174,7 +174,6 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 		for(int i = 0; i < speisen.size(); i++) {
 			
 			button->push_back(new cubuButton(400,y,speisen.at(i)->getName(),speisen.at(i)->getId()));
-			y += 50;
 			y += 40;
 		}
 	
