@@ -186,6 +186,8 @@ void Display::drawDetail(std::string pguiname, vector<cubuButton*> * button, vec
 	string->clear();
 	pic->clear();
 
+	guiname = pguiname;
+
 	Speise *s = dbhandler->getSpeise(id);
 	string->push_back(new cubuString(s->getName()));
 	pic->push_back(new cubuPic(s->getBild(), 20, 150));
@@ -194,7 +196,7 @@ void Display::drawDetail(std::string pguiname, vector<cubuButton*> * button, vec
 	stream << s->getBeschreibung();
 
 	string->push_back(new cubuString(stream.str(), 400, 200, "frabk.ttf", 13));
-	button->push_back(new cubuButton(400,400,"order"));
+	button->push_back(new cubuButton(400,400,"order", id));
 	button->push_back(new cubuButton(500,400,"back"));
 	
 }
