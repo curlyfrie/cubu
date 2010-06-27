@@ -86,7 +86,8 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 	
 	}
 	else if (guiname == "temperature1") {
-		
+		string->push_back(new cubuString("Room Temperature"));
+		pic->push_back(new cubuPic("img/backgrounds/temperature.png", 20, 150));
 	
 	}
 	else {
