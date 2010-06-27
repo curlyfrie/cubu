@@ -24,6 +24,11 @@ Display::~Display()
 
 void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cubuString*> * string, vector<cubuPic*> * pic){
 
+
+	button->clear();	
+	string->clear();
+	pic->clear();
+
 	guiname = pguiname;
 	
 	if(guiname == "roomservice1"){
@@ -98,9 +103,7 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 	
 	}	
 	else if (guiname == "Drinks") {
-		button->clear();	
-		string->clear();
-		pic->clear();
+
 		speisen = dbhandler->getSpeisen(1);
 		
 		string->push_back(new cubuString("Drinks"));
@@ -114,9 +117,6 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 		}
 	}
 	else if (guiname == "Menu") {
-		button->clear();	
-		string->clear();
-		pic->clear();
 		
 		speisen = dbhandler->getSpeisen(0);
 		string->push_back(new cubuString("Food"));
@@ -125,7 +125,7 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 		int y = 180; 
 		for(int i = 0; i < speisen.size(); i++) {
 			
-			button->push_back(new cubuButton(400,y,speisen.at(i)->getName()));
+			button->push_back(new cubuButton(400,y,speisen.at(i)->getName(),speisen.at(i)->getId()));
 			y += 50;
 			y += 40;
 		}

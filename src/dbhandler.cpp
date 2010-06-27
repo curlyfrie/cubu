@@ -444,7 +444,12 @@ void DBHandler::setAlarm(int terminal_id, int hour, int minute)
 	std::stringstream mstr;
 	mstr << minute;
 
-	query_state = mysql_query(connection, "SELECT * FROM alarm WHERE terminal_id = 0");
+	std::stringstream terminalstream;
+	terminalstream << terminal_id;
+	
+
+	std:string query = "SELECT * FROM alarm WHERE terminal_id = " + terminalstream.str();
+	query_state = mysql_query(connection,query.c_str() );
 	if (query_state !=0) {
 		cout << mysql_error(connection) << endl;
 	}
@@ -460,14 +465,13 @@ void DBHandler::setAlarm(int terminal_id, int hour, int minute)
 
 	if(num_fields > 0){
 	
-		cout << "=========>>>>00000===========" << endl;
-		std::string query1 = "update alarm set time = '2010-06-24 "+hstr.str() +":"+ mstr.str() +":00' where terminal_id = 0";
+		std::string query1 = "update alarm set time = '2010-06-24 "+hstr.str() +":"+ mstr.str() +":00' where terminal_id = " + terminalstream.str();
 		mysql_query(connection,query1.c_str());	
 
 	}
 	else
 	{
-		std::string query1 = "insert into alarm (terminal_id, time, active) values (0,'2010-06-24 "+hstr.str() +":"+ mstr.str() +":00', true  )";
+		std::string query1 = "insert into alarm (terminal_id, time, active) values ("+terminalstream.str()+",'2010-06-24 "+hstr.str() +":"+ mstr.str() +":00', true  )";
 		mysql_query(connection,query1.c_str());	
 	}
 

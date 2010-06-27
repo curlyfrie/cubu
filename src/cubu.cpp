@@ -296,7 +296,9 @@ void cubu::update(){
 			
 			//wenn kein marker aktiv: time erhoehen
 			time++;
-			
+
+			guiname = "";
+
 			//temp set
 			temperature = dbhandler->getTemperatur(terminalID);
 			
@@ -367,7 +369,7 @@ void cubu::setTemp()
 	
 	// smoothness is hardcoded!
 	
-	if(temperature > 15 && temperature < 30)
+	if(temperature > 15 || temperature < 30)
 		temperature += direction*0.5;
 	
 	//Ausgabestring formatieren
@@ -579,6 +581,7 @@ void cubu::mousePressed(int x, int y, int button){
 			if(buttons.at(i)->click(x,y) == true){
 				cout << "you have hit button: " << i << endl; 
 				buttons.at(i)->select(true);
+				selected_button = i;
 				display->draw(buttons.at(selected_button)->label, &buttons, &strings, &pics);
 				temp = i;
 				break;
