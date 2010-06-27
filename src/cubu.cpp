@@ -28,8 +28,6 @@ void cubu::setup(){
 	strings.clear();
 	pics.clear();
 	
-	setupGUI();
-
 	//	show fiducial window YES or NO
 	//	can be switched with 'f'
 	showFiducialWindow = false;
@@ -84,6 +82,9 @@ void cubu::setup(){
 	grayBg.allocate(320,240);
 	grayDiff.allocate(320,240);
 
+
+	setupGUI();
+
 }
 //--------------------------------------------------------------
 void cubu::setupGUI()
@@ -106,7 +107,6 @@ void cubu::setupGUI()
 		if(active_side == side_fun){
 
 			display->draw("fun1", &buttons, &strings, &pics);
-
 		}
 		else if (active_side == side_activities) {
 			// do cool stuff here
@@ -387,11 +387,19 @@ void cubu::setTemp()
 		stringtodraw += s;
 		stream2.clear();
 		s = "";*/
-
 		std::stringstream stream2;
-		stream2 << (temperature-1+(i*0.5))*100;
-		
-		s += stream2.str()+"C\n";
+		stream2 << (temperature-1+(i*0.5))*10;
+
+		std::string stemp = stream2.str();
+		stemp.insert(2, ".");
+
+		if(i!= 2){
+			s += stemp+"C\n";
+		}
+		else{
+			s += "\n\n\n\n\n";
+			stringtodraw2 = stemp+"C\n";
+		}
 		
 	}
 
@@ -515,8 +523,13 @@ void cubu::drawGUI(){
 
 	if(active_side == side_alarm)
 		font.drawString(stringtodraw, 630, 270);
-	else if(active_side == side_temperature)
-		font.drawString(stringtodraw, 630, 270);
+	else if(active_side == side_temperature){
+		font.loadFont("bankg.ttf",20);
+		font.drawString(stringtodraw, 710, 240);
+		font.loadFont("bankg.ttf",32);
+		font.drawString(stringtodraw2, 680, 360);
+		
+	}
 }
 
 void cubu::drawFaq(){
