@@ -64,30 +64,19 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 		button->push_back(new cubuButton(770,510,"Sports"));
 	}
 	else if (guiname == "Wellness") {
-		string->push_back(new cubuString("Hotel Activities"));
+		string->push_back(new cubuString("Wellness"));
 		pic->push_back(new cubuPic("img/backgrounds/empty.png", 20, 150));
-		pic->push_back(new cubuPic("img/menu/wellness.png", 100, 180));
-		pic->push_back(new cubuPic("img/menu/beauty.png", 400, 180));
-		button->push_back(new cubuButton(160,510,"Wellness"));
-		button->push_back(new cubuButton(470,510,"Beauty"));
-		button->push_back(new cubuButton(770,510,"Sports"));
+		
 	}
 	else if (guiname == "Beauty") {
-		string->push_back(new cubuString("Hotel Activities"));
+		string->push_back(new cubuString("Beauty"));
 		pic->push_back(new cubuPic("img/backgrounds/empty.png", 20, 150));
-		pic->push_back(new cubuPic("img/menu/wellness.png", 100, 180));
-		pic->push_back(new cubuPic("img/menu/beauty.png", 400, 180));
-		button->push_back(new cubuButton(160,510,"Wellness"));
-		button->push_back(new cubuButton(470,510,"Beauty"));
-		button->push_back(new cubuButton(770,510,"Sports"));
+		
 	}
 	else if (guiname == "Sports") {
-		string->push_back(new cubuString("Hotel Activities"));
+		string->push_back(new cubuString("Sports"));
 		pic->push_back(new cubuPic("img/backgrounds/empty.png", 20, 150));
-		pic->push_back(new cubuPic("img/menu/wellness.png", 100, 180));
-		button->push_back(new cubuButton(160,510,"Wellness"));
-		button->push_back(new cubuButton(470,510,"Beauty"));
-		button->push_back(new cubuButton(770,510,"Sports"));
+		
 	}
 	else if (guiname == "fun1") {
 		string->push_back(new cubuString("Fun"));
@@ -96,7 +85,7 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 		
 		int y = 180; 
 		for(int i = 0; i < dienstleistung.size(); i++) {
-			button->push_back(new cubuButton(400,y,dienstleistung.at(i)->getName()));
+			button->push_back(new cubuButton(400,y,dienstleistung.at(i)->getName(),dienstleistung.at(i)->getId()));
 			y += 40;
 		}
 	
@@ -125,6 +114,21 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 		}
 		string->push_back(bestellungenString);
 	
+	} else if (guiname == "dienstleistunginfo") {
+		
+		cout << "test erfolgreich. congrats elias. go for president!";
+		/*
+		speisen = dbhandler->getDiensleistung();
+		
+		string->push_back(new cubuString("Drinks"));
+		pic->push_back(new cubuPic("img/backgrounds/drink1.png", 20, 150));
+		
+		int y = 180; 
+		for(int i = 0; i < speisen.size(); i++) {
+			button->push_back(new cubuButton(400,y,speisen.at(i)->getName(),speisen.at(i)->getId()));
+			y += 50;
+			
+		}*/
 	}	
 	else if (guiname == "Drinks") {
 
@@ -199,4 +203,21 @@ void Display::drawDetail(std::string pguiname, vector<cubuButton*> * button, vec
 	button->push_back(new cubuButton(400,400,"order", id));
 	button->push_back(new cubuButton(500,400,"back"));
 	
+}
+
+void Display::drawDienstleistungDetail(vector<cubuButton*> * button, vector<cubuString*> * string, vector<cubuPic*> * pic, int id){
+	button->clear();
+	string->clear();
+	pic->clear();
+	Dienstleistung *d = dbhandler->getDienstleistung(id);
+	string->push_back(new cubuString(d->getName()));
+	
+	verdana.loadFont("verdana.ttf",14);
+	
+	
+	string->push_back(new cubuString(d->getBeschreibung()+"\n\nKontakt: \n"+d->getKontakt(),420,240,"verdana.ttf", 14, 0xFFFFFF));
+	pic->push_back(new cubuPic("img/backgrounds/empty.png", 20, 180));
+	pic->push_back(new cubuPic(d->getBild(), 30, 190));
+	button->push_back(new cubuButton(900,570,"back"));
+									  
 }
