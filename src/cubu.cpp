@@ -16,9 +16,8 @@ void cubu::setup(){
 	setupMYSQLDB();
 
 	
-	//nr and ID of this room: WARNING, HARD CODED!
-	roomNr = 101;
-	terminalID = 0;
+	//ID of this room: WARNING, HARD CODED!
+	terminalID = 1;
 
 
 	alarm_hour = 6;
@@ -58,9 +57,11 @@ void cubu::setup(){
 	else
 		alarmset = false;
 
+	
+
+	temperature = 20;
+	
 	time = 0;
-	
-	
 	
 	// define threshold to find fiducial
 	fiducial_threshold =135;
@@ -240,8 +241,7 @@ void cubu::update(){
 			else if(fiducialID == side_alarm){
 				active_side = side_alarm;
 
-//Aufruf der alarm action die alles weiter handelt
-
+				//Aufruf der alarm action
 				
 				// set a new alarm
 				if(!alarmset){
@@ -272,6 +272,7 @@ void cubu::update(){
 			}
 			else if(fiducialID == side_temperature){
 				active_side = side_temperature;
+				setTemp();
 			}
 						
 			
@@ -361,18 +362,45 @@ void cubu::setAlarm()
 	//cout << "set Alarm:" << stringtodraw << endl;
 	
 }
-//--------------------------------------------------------------
-void cubu::saveAlarmtoDB(){
+void cubu::setTemp()
+// set the temp
+{
+	// get current rotation
+	int direction = getRotDirection();
+	
+	// smoothness is hardcoded!
+	
+	if(temperature > 15 && temperature < 30)
+		temperature += direction*0.5;
+	
+	//Ausgabestring formatieren
+	
+	std::string s;
+	for(int i=0; i<5; i++){
+		
+		/*stream2 << 
 
+		s = stream2.str();
+		s.insert(2, ".");
+		s.insert(5, " C\n");
+		cout << s << endl;
+		stringtodraw += s;
+		stream2.clear();
+		s = "";*/
+
+		std::stringstream stream2;
+		stream2 << (temperature-1+(i*0.5))*100;
+		
+		s += stream2.str()+"C\n";
+		
+	}
+
+	stringtodraw = s;
+	//cout << "set alarm to" << alarm_hour << "." << alarm_minute << endl;
+	//cout << "set Alarm:" << stringtodraw << endl;
 	
 }
-//--------------------------------------------------------------
-void cubu::getAlarmfromDB(){
 
-	
-}
-
-//--------------------------------------------------------------
 int cubu::getRotDirection()
 // returns -1 if (marker)rotation is CW, +1 if rotation is CCW and 0 if nothing has changed
 {
@@ -486,6 +514,8 @@ void cubu::drawGUI(){
 	
 
 	if(active_side == side_alarm)
+		font.drawString(stringtodraw, 630, 270);
+	else if(active_side == side_temperature)
 		font.drawString(stringtodraw, 630, 270);
 }
 

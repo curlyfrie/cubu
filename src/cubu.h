@@ -27,7 +27,6 @@ class cubu : public ofBaseApp{
 		~cubu();
 	
 		int terminalID;
-		int roomNr;
 		Terminal * terminal;
 	
 		void setup();
@@ -110,12 +109,13 @@ private:
 	//alarm variables & fnc
 	bool alarmset;
 	int time;
-
+	
+	float temperature;
 	int alarm_minute;
 	int alarm_hour;
+
 	void setAlarm();
-	void saveAlarmtoDB();
-	void getAlarmfromDB();
+	void setTemp();
 	
 	//fiducial variables
 	int fiducial_threshold;
