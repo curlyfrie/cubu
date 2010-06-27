@@ -27,13 +27,15 @@ public:
 	std::string guiname;
 
 	Display();
+	Display(int terminalid);
+	
 	~Display();
 
 	
 	void draw2(vector<cubuButton*> * todraw,int type);
 	
 	ofTrueTypeFont franklinBook;
-	
+	int terminalid;
 	vector<cubuButton*> drawRoomservice();
 	void drawRoomservice( vector<cubuButton*> * todraw);
 	
