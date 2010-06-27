@@ -100,6 +100,7 @@ class cubu : public ofBaseApp{
 		int time;
 		
 		float temperature;
+		float tempset;
 		int alarm_minute;
 		int alarm_hour;
 
