@@ -659,8 +659,10 @@ void cubu::mousePressed(int x, int y, int button){
 			display->draw(guiname, &buttons, &strings, &pics);
 		} 
 		else if(active_side == side_fun){
+
 			guiname="detaildienst";
 			display->drawDienstleistungDetail(guiname,&buttons,&strings,&pics,buttons.at(selected_button)->menuid);
+
 		}
 		else{
 			
@@ -677,6 +679,12 @@ void cubu::mousePressed(int x, int y, int button){
 
 		
 	}
+
+
+	//reset button selection;
+	selected_button = 0;
+
+
 }
 
 //--------------------------------------------------------------

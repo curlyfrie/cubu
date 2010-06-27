@@ -744,6 +744,7 @@ Dienstleistung * DBHandler::getDienstleistung(int dienstleistung_id) {
 	if (query_state !=0) {
 		cout << mysql_error(connection) << endl;
 	}
+	
 	Dienstleistung * dienstleistung; 
 	unsigned int num_fields;
 	unsigned int i;
