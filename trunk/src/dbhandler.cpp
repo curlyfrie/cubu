@@ -285,7 +285,7 @@ vector<Bestellung *> DBHandler::getBestellungen(Terminal * terminal)
 	terminalstr << terminal_id;
 
 	vector<Bestellung *> bestellungen;
-	std::string query = "SELECT s.speise_id, s.name, s.beschreibung, s.preis, s.bild, s.typ, sum(ts.anzahl) as anzahl, ts.sumpreis FROM terminalspeise ts, speise s WHERE ts.terminal_id = " + terminalstr.str()  + " GROUP BY s.speise_id, ts.terminal_id";
+	std::string query = "SELECT s.speise_id, s.name, s.beschreibung, s.preis, s.bild, s.typ, sum(ts.anzahl) as anzahl, ts.sumpreis FROM terminalspeise ts NATURAL JOIN speise s WHERE ts.terminal_id = " + terminalstr.str()  + " GROUP BY s.speise_id, ts.terminal_id";
 	cout << query << endl;
 	query_state = mysql_query(connection, query.c_str());
 	
