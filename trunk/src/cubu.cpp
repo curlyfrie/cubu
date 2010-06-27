@@ -106,7 +106,6 @@ void cubu::setupGUI()
 	else{
 		
 		if(active_side == side_fun){
-
 			display->draw("fun1", &buttons, &strings, &pics);
 		}
 		else if (active_side == side_activities) {

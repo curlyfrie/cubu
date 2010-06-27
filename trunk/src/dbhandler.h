@@ -24,6 +24,10 @@ public:
 	void setAlarm(int terminal_id, int hour, int minute);
 	std::string getAlarm(int terminal_id);
 	void deleteAlarm(int terminal_id);
+	
+	void setTemperatur(int terminal_id, float temperatur);
+	float getTemperatur(int terminal_id);
+	
 	void  getTerminals();
 	Terminal * getTerminal(int terminal_id);
 	vector<Faq*> getFaqs();
@@ -34,6 +38,8 @@ public:
 	int getKundenId(int terminal_id);
 	void deleteFaq(int id);
 	void printFaqs();
+	
+	
 	
 	Service * getService(int service_id);
 	Kunde * getKunde(int kunde_id);

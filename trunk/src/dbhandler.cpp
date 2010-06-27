@@ -473,6 +473,71 @@ void DBHandler::setAlarm(int terminal_id, int hour, int minute)
 
 }
 
+float DBHandler::getTemperatur(int terminal_id){
+	//returnvalue
+	float temperatur;
+	
+	std::stringstream terminalstream;
+	terminalstream << terminal_id;
+	
+	std:string query = "SELECT * FROM temperatur WHERE terminal_id = " + terminalstream.str();
+
+	//ask mighty database
+	query_state = mysql_query(connection,query.c_str() );
+	
+	temperatur = 20;
+	
+	if (query_state !=0) {
+		cout << mysql_error(connection) << endl;
+	}
+	
+	result = mysql_store_result(connection);
+	
+	while ( ( row = mysql_fetch_row(result)) ) {
+		temperatur = atof(row[1]);
+	}
+	
+	return temperatur;	
+}
+
+
+void DBHandler::setTemperatur(int terminal_id,float temperatur){
+	//returnvalue
+	std::ostringstream temp;
+	temp << temperatur;
+
+	std::stringstream terminalstream;
+	terminalstream << terminal_id;
+	
+	std:string query = "SELECT * FROM temperatur WHERE terminal_id = " + terminalstream.str();
+	query_state = mysql_query(connection, query.c_str());
+	if (query_state !=0) {
+		cout << mysql_error(connection) << endl;
+	}
+	unsigned int num_fields;
+	unsigned int i;
+	result = mysql_store_result(connection);
+	num_fields = mysql_num_rows(result);
+	mysql_free_result(result);
+
+	cout <<temp.str()<<endl;
+	cout<<temperatur<<endl;
+	
+	if(num_fields > 0){
+		 query = "UPDATE temperatur SET temperatur="+temp.str()+" WHERE terminal_id = " + terminalstream.str();
+		query_state = mysql_query(connection, query.c_str());
+	} else {
+		query = "INSERT INTO temperatur (temperatur) values ("+temp.str()+") WHERE terminal_id = " + terminalstream.str();
+		query_state = mysql_query(connection, query.c_str());
+	}
+	
+
+	
+
+}
+
+
+
 std::string DBHandler::getAlarm(int terminal_id){
 //get the time of alarm in this format: hh:mm
 	
