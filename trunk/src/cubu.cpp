@@ -535,7 +535,6 @@ void cubu::keyPressed(int key){
 		//DEBUGGIN AHEAD!
 		case 'b':
 			//cout << "alarm == " <<   dbhandler->getAlarm(0);
-			
 			break;
 		case '-':
 			fiducial_threshold-=5;
