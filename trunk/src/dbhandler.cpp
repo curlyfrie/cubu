@@ -730,6 +730,55 @@ vector<Speise*> DBHandler::getSpeisen(int typ) {
 	return speisen;	
 }
 
+vector<Dienstleistung*> DBHandler::getDienstleistungen() {
+	
+	std::string query =  "SELECT * FROM dienstleistung";
+	
+	query_state = mysql_query(connection, query.c_str());
+	if (query_state !=0) {
+		cout << mysql_error(connection) << endl;
+	}
+	vector <Dienstleistung*> dienstleistung; 
+	unsigned int num_fields;
+	unsigned int i;
+	
+	result = mysql_store_result(connection);
+	
+	num_fields = mysql_num_fields(result);
+	while ( ( row = mysql_fetch_row(result)) ) {
+		unsigned long *lengths;
+		lengths = mysql_fetch_lengths(result);
+		int dienst_id;
+		std::string name;
+		std::string beschreibung;
+		int prioritaet;
+		std::string datum;
+		std::string kontakt;
+		
+		for( i = 0; i < num_fields; i++)
+		{
+			if(i == 0)
+				dienst_id = atoi(row[i]);
+			if(i == 1)
+				name = row[i];
+			if(i == 2)
+				beschreibung = row[i];
+			if(i == 3)
+				kontakt = row[i];
+			if(i == 4)
+				prioritaet = atof(row[i]);
+			if(i == 5)
+				datum = row[i];
+			
+		}
+		dienstleistung.push_back(new Dienstleistung(dienst_id, name,beschreibung, kontakt,prioritaet,datum));
+		
+	}
+	
+	mysql_free_result(result);
+	return dienstleistung;	
+}
+
 vector<Wellness*> DBHandler::getWellness() {
 	
 	std::string query =  "SELECT * FROM wellness";
