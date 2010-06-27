@@ -7,9 +7,14 @@
 
 #include "cubu.h"
 
-Display::Display() {
-	dbhandler = new DBHandler();
+Display::Display()
+{	dbhandler = new DBHandler();
 
+}
+Display::Display(int _terminalid) {
+	dbhandler = new DBHandler();
+	terminalid = _terminalid;
+	
 }
 
 Display::~Display()
@@ -79,6 +84,21 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 		pic->push_back(new cubuPic("img/menu/food.png", 550, 180));
 		button->push_back(new cubuButton(320,510,"Drinks"));
 		button->push_back(new cubuButton(620,510,"Menu"));
+		
+		
+		//display orders
+		vector <Bestellung*> bestellungen = dbhandler->getBestellungen(dbhandler->getTerminal(terminalid));
+		
+		cubuString * bestellungenString = new cubuString("Offene Bestellungen:\n",10, 600, "frabk.ttf", 10);
+		for (int i = 0; i < bestellungen.size(); i++)
+		{
+			std::stringstream anzahlStr;
+			anzahlStr << bestellungen.at(i)->getAnzahl();
+			cout <<"\n" + anzahlStr.str() + " " + dbhandler->getSpeise(bestellungen.at(i)->getSpeiseId())->getName();
+			bestellungenString->appendString("\n" + anzahlStr.str() + " " + dbhandler->getSpeise(bestellungen.at(i)->getSpeiseId())->getName());
+			
+		}
+		string->push_back(bestellungenString);
 	
 	}	
 	else if (guiname == "Drinks") {
@@ -86,6 +106,7 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 		string->clear();
 		pic->clear();
 		speisen = dbhandler->getSpeisen(1);
+		
 		string->push_back(new cubuString("Drinks"));
 		pic->push_back(new cubuPic("img/backgrounds/drink1.png", 20, 150));
 	

@@ -285,8 +285,8 @@ vector<Bestellung *> DBHandler::getBestellungen(Terminal * terminal)
 	terminalstr << terminal_id;
 
 	vector<Bestellung *> bestellungen;
-	std::string query = "SELECT s.speise_id, s.name, s.beschreibung, s.preis, s.bild, s.typ, ts.anzahl, ts.sumpreis FROM terminalspeise ts, speise s WHERE ts.terminal_id = " + terminalstr.str() ;
-
+	std::string query = "SELECT s.speise_id, s.name, s.beschreibung, s.preis, s.bild, s.typ, sum(ts.anzahl) as anzahl, ts.sumpreis FROM terminalspeise ts, speise s WHERE ts.terminal_id = " + terminalstr.str()  + " GROUP BY s.speise_id, ts.terminal_id";
+	cout << query << endl;
 	query_state = mysql_query(connection, query.c_str());
 	
 	if (query_state !=0) {
@@ -681,6 +681,7 @@ vector<Speise*> DBHandler::getSpeisen(int typ) {
 	typstr << typ;
 	
 	std::string query =  "SELECT * FROM speise where typ =" + typstr.str();
+	cout << "getsPeisen " << query << endl;
 	query_state = mysql_query(connection, query.c_str());
 	if (query_state !=0) {
 		cout << mysql_error(connection) << endl;
@@ -720,7 +721,7 @@ vector<Speise*> DBHandler::getSpeisen(int typ) {
 				typ = atoi(row[i]);
 			
 		}
-		
+		cout << speise_id << endl;
 		speisen.push_back(new Speise(speise_id, name,beschreibung, preis, bild, typ));
 		
 	}
