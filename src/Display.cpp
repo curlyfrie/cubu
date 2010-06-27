@@ -22,16 +22,22 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 	guiname = pguiname;
 	
 	if(guiname == "roomservice1"){
-		button->push_back(new cubuButton(400,150,"Do not Disturb"));
-		button->push_back(new cubuButton(400,200,"Towels"));
-		button->push_back(new cubuButton(400,250,"Clean Up"));
+		
+		string->push_back(new cubuString("Room Service"));
+		pic->push_back(new cubuPic("img/backgrounds/empty.png", 20, 150));
+		pic->push_back(new cubuPic("img/menu/disturb.png", 100, 180));
+		pic->push_back(new cubuPic("img/menu/towels.png", 400, 180));
+		pic->push_back(new cubuPic("img/menu/cleaning.png", 700, 180));
+		
+		button->push_back(new cubuButton(140,510,"Do not Disturb"));
+		button->push_back(new cubuButton(465,510,"Towels"));
+		button->push_back(new cubuButton(760,510,"Clean Up"));
 
-		pic->push_back(new cubuPic("img/cleaning.jpg", 500, 100));
+		
 
 		//string->push_back(new cubuString("TEST", 100, 100,"verdana.ttf", 32, 0xFFFFFF));
 		//string->push_back(new cubuString("TEST", 300, 100,"brit.ttf", 32));
 		//string->push_back(new cubuString("AAAA", 100, 300));
-		string->push_back(new cubuString("Roomservice"));
 	}
 
 	else if (guiname == "alarm1") {
@@ -51,7 +57,7 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 	
 	}
 	else if (guiname == "fun1") {
-		
+		string->push_back(new cubuString("Fun"));
 	
 	}
 	else if (guiname == "food1") {
