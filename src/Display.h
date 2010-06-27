@@ -41,6 +41,7 @@ public:
 	
 	DBHandler *dbhandler;
 	vector<Speise*> speisen;
+	vector<Dienstleistung*> dienstleistung;
 
 	void draw(std::string pguiname, vector<cubuButton*> * button, vector<cubuString*> * string, vector<cubuPic*> * pic);
 
