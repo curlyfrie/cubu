@@ -102,8 +102,11 @@ void cubu::setupGUI()
 	if(active_side == -1){
 		//gui.setPage("empty");
 		alarm_hour = 6;
+		
 
 		display->draw("start", &buttons, &strings, &pics);
+		
+		
 
 	}
 	else{
@@ -656,6 +659,9 @@ void cubu::mousePressed(int x, int y, int button){
 		}
 		else if(active_side == side_fun && guiname=="detaildienst"){
 			guiname = "fun1";
+			display->draw(guiname, &buttons, &strings, &pics);
+		} 
+		else if(guiname=="FAQ"){
 			display->draw(guiname, &buttons, &strings, &pics);
 		} 
 		else if(active_side == side_fun){
