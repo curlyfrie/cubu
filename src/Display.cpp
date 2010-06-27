@@ -99,16 +99,15 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 		button->push_back(new cubuButton(320,510,"Drinks"));
 		button->push_back(new cubuButton(620,510,"Menu"));
 		
-		
 		//display orders
 		vector <Bestellung*> bestellungen = dbhandler->getBestellungen(dbhandler->getTerminal(terminalid));
-		
+		cout << "best: " << bestellungen.size() << endl;
 		cubuString * bestellungenString = new cubuString("Offene Bestellungen:\n",10, 600, "frabk.ttf", 10);
 		for (int i = 0; i < bestellungen.size(); i++)
 		{
 			std::stringstream anzahlStr;
 			anzahlStr << bestellungen.at(i)->getAnzahl();
-			cout <<"\n" + anzahlStr.str() + " " + dbhandler->getSpeise(bestellungen.at(i)->getSpeiseId())->getName();
+		//	cout <<"\n" + anzahlStr.str() + " " + dbhandler->getSpeise(bestellungen.at(i)->getSpeiseId())->getName();
 			bestellungenString->appendString("\n" + anzahlStr.str() + " " + dbhandler->getSpeise(bestellungen.at(i)->getSpeiseId())->getName());
 			
 		}
@@ -198,8 +197,11 @@ void Display::drawDetail(std::string pguiname, vector<cubuButton*> * button, vec
 
 	std::stringstream stream;
 	stream << s->getBeschreibung();
-
+	
+	std::stringstream preis;
+	preis << s->getPreis();
 	string->push_back(new cubuString(stream.str(), 400, 200, "frabk.ttf", 13));
+	string->push_back(new cubuString("Euro " + preis.str() , 400, 350, "frabk.ttf", 13));
 	button->push_back(new cubuButton(400,400,"order", id));
 	button->push_back(new cubuButton(500,400,"back"));
 	
