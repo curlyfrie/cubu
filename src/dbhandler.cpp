@@ -758,6 +758,8 @@ vector<Dienstleistung*> DBHandler::getDienstleistungen() {
 		int prioritaet;
 		std::string datum;
 		std::string kontakt;
+		std::string bild;
+
 		
 		for( i = 0; i < num_fields; i++)
 		{
@@ -773,9 +775,11 @@ vector<Dienstleistung*> DBHandler::getDienstleistungen() {
 				prioritaet = atof(row[i]);
 			if(i == 5)
 				datum = row[i];
+			if(i == 6)
+				bild = row[i];
 			
 		}
-		dienstleistung.push_back(new Dienstleistung(dienst_id, name,beschreibung, kontakt,prioritaet,datum));
+		dienstleistung.push_back(new Dienstleistung(dienst_id, name,beschreibung, kontakt,prioritaet,datum,bild));
 		
 	}
 	

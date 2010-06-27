@@ -25,14 +25,17 @@ private:
 	int prioritaet;
 	std::string datum;
 	std::string kontakt;
+	std::string bild;
 public:
 	
-	Dienstleistung(int dienstleistung_id, std::string name, std::string beschreibung, std::string kontakt, int prioritaet, std::string datum);
+	Dienstleistung(int dienstleistung_id, std::string name, std::string beschreibung, std::string kontakt, int prioritaet, std::string datum,std::string bild);
 	std::string getName();
 	std::string getBeschreibung();
 	float getPreis();
 	int getId();
 	std::string getKontakt();
+	std::string getBild();
+
 	
 	~Dienstleistung();
 	
