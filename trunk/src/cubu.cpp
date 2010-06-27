@@ -61,6 +61,7 @@ void cubu::setup(){
 	
 
 	temperature = dbhandler->getTemperatur(terminalID);
+	tempset = temperature;
 	
 	time = 0;
 	
@@ -298,10 +299,6 @@ void cubu::update(){
 			time++;
 
 
-			//temp set
-			temperature = dbhandler->getTemperatur(terminalID);
-
-
 		/*	buttons.clear();
 			strings.clear();
 			pics.clear();
@@ -313,6 +310,12 @@ void cubu::update(){
 				guiname = "";
 				active_side = -1;
 				time = 0;
+				
+				guiname = "";
+
+				//temp set
+				temperature = dbhandler->getTemperatur(terminalID);
+				tempset = temperature;
 			}
 		}
 	}
@@ -376,9 +379,14 @@ void cubu::setTemp()
 	
 	// smoothness is hardcoded!
 	
-	if(temperature > 15 || temperature < 30)
-		temperature += direction*0.5;
-	
+	if(temperature > 15 && direction == -1)
+	{	
+			temperature += direction*0.5;
+	}
+	else if(temperature < 30 && direction == 1)
+	{	
+			temperature += direction*0.5;
+	}
 	//Ausgabestring formatieren
 	
 	std::string s;
@@ -513,7 +521,14 @@ void cubu::drawGUI(){
 		ofSetColor(0x000000);
 		font.loadFont("bankg.ttf",32);
 		font.drawString(stringtodraw2, 680, 360);
-		
+
+		std::stringstream stream2;
+		stream2 << tempset*10;
+		std::string stemp = stream2.str();
+		stemp.insert(2, ".");
+		ofSetColor(0xFFFFFF);
+		font.loadFont("bankg.ttf",20);
+		font.drawString("Temperature is set to: "+stemp, 560, 560);	
 	}
 }
 
@@ -628,6 +643,7 @@ void cubu::mousePressed(int x, int y, int button){
 		}
 		else if (active_side == side_temperature) {
 			dbhandler->setTemperatur(terminalID, temperature);
+			tempset = temperature;
 		}
 		else{
 			
