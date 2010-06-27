@@ -11,10 +11,14 @@ cubu::~cubu()
 }
 //--------------------------------------------------------------
 void cubu::setup(){
+
+	//Datenbank starten
+	setupMYSQLDB();
+
 	
 	//nr and ID of this room: WARNING, HARD CODED!
 	roomNr = 101;
-	roomID = 1;
+	terminalID = 0;
 
 
 	alarm_hour = 6;
@@ -49,7 +53,11 @@ void cubu::setup(){
 	current_angle = -1;
 
 
-	alarmset = false;
+	if(dbhandler->getAlarm(terminalID) != "")
+		alarmset = true;
+	else
+		alarmset = false;
+
 	time = 0;
 	
 	
@@ -74,10 +82,6 @@ void cubu::setup(){
 	grayImage.allocate(320,240);
 	grayBg.allocate(320,240);
 	grayDiff.allocate(320,240);
-
-
-	//Datenbank starten
-	setupMYSQLDB();
 
 }
 //--------------------------------------------------------------
@@ -169,7 +173,7 @@ void cubu::setupMYSQLDB(){
 	kunde = dbhandler->getKunde(terminal);
 	
 	
-	//int kundenid = dbhandler->getKundenId(roomID);
+	//int kundenid = dbhandler->getKundenId(terminalID);
 	
 	//map<int, Kunde*>::iterator kundenIt = kunden.find(kundenid);
 	
@@ -245,16 +249,14 @@ void cubu::update(){
 				}
 				// alarm is already set
 				else {
-					std::stringstream stream2;
+
+					//getAlarm String formatieren
 					
-					if(alarm_minute == 0)
-						stream2 << "00";
-					else
-					stream2 << alarm_minute;
+					std::string s = dbhandler->getAlarm(terminalID);
+					s.insert(2, "h");
+					s.insert(6, "min");
 					
-					std::stringstream stream3;
-					stream3 << alarm_hour;
-					stringtodraw = " " + stream3.str()  + "h:" +  stream2.str() + "min\n\nAlarm is set";
+					stringtodraw = " " + s + "\n\nAlarm is set";
 				}
 				
 
@@ -323,27 +325,36 @@ void cubu::setAlarm()
 		alarm_hour += 1;
 		alarm_minute = 0;
 	}
-	if(alarm_hour >= 24){
+	else if(alarm_hour >= 24){
 		alarm_hour = 0;
 		alarm_minute = 0;
 	}
-	if(alarm_minute < 0){
-		alarm_hour -= 1;
-		alarm_minute = 0;
+	else if(alarm_minute < 0){
+		if(alarm_hour == 0)
+			alarm_hour = 23;
+		else
+			alarm_hour -= 1;
+		
+		alarm_minute = 50;
 	}
-	if(alarm_hour < 0)
+	else if(alarm_hour < 0)
 		alarm_hour = 0;
-
+	
+	//Ausgabestring formatieren
 	
 	std::stringstream stream2;
+	std::stringstream stream3;
 	
 	if(alarm_minute == 0)
 		stream2 << "00";
 	else
 		stream2 << alarm_minute;
+
+	if(alarm_hour < 10)
+		stream3 << "0" << alarm_hour;
+	else
+		stream3 << alarm_hour;
 	
-	std::stringstream stream3;
-	stream3 << alarm_hour;
 	stringtodraw = " "+ stream3.str()  + "h:" +  stream2.str() + "min";
 	
 	//cout << "set alarm to" << alarm_hour << "." << alarm_minute << endl;
@@ -532,10 +543,11 @@ void cubu::keyPressed(int key){
 				alarmset = false;
 			}
 			break;
-		//DEBUGGIN AHEAD!
+		/*//DEBUGGIN AHEAD!
 		case 'b':
-			//cout << "alarm == " <<   dbhandler->getAlarm(0);
-			break;
+			///cout << "alarm == " <<   dbhandler->getAlarm(0);
+			
+			break;*/
 		case '-':
 			fiducial_threshold-=5;
 			cout<<"threshold = "<<fiducial_threshold<<endl;
@@ -598,13 +610,13 @@ void cubu::mousePressed(int x, int y, int button){
 		
 		if(active_side == side_alarm && !alarmset){
 			alarmset = true;
-			
-			
-			dbhandler->setAlarm(roomID, alarm_hour, alarm_minute);
+					
+			dbhandler->setAlarm(terminalID, alarm_hour, alarm_minute);
 			//saveAlarmtoDB();
 		}
 		else if (active_side == side_alarm && alarmset) {
 			alarmset = false;
+			dbhandler->deleteAlarm(terminalID);
 		}
 		else{
 			

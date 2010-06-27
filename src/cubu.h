@@ -26,7 +26,7 @@ class cubu : public ofBaseApp{
 		cubu();
 		~cubu();
 	
-		int roomID;
+		int terminalID;
 		int roomNr;
 		Terminal * terminal;
 	
