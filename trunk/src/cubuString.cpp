@@ -48,7 +48,11 @@ cubuString::cubuString( std::string ptext){
 	
 }
 
+void cubuString::appendString(std::string text2)
+{
+	text = text + text2;
 
+}
 void cubuString::setDefaultValues(){
 	
 	x = 100;
