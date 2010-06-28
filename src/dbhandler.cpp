@@ -394,6 +394,33 @@ void DBHandler::insertTerminalSpeise(int terminal_id, int speise_id, int anzahl,
 	
 }
 
+void DBHandler::insertTerminalWellness(int terminal_id, int wellness_id, float preis, int time)
+{	try{
+	std::stringstream terminalstr;
+	std::stringstream wellnessstr;
+	std::stringstream preisstr;
+	std::stringstream timestr;
+	
+	terminalstr << terminal_id;
+	wellnessstr << wellness_id;
+	preisstr << preis;
+	timestr << time;
+	
+	std::string query = "insert into terminalwellness(terminal_id, wellness_id, preis, datum) values ('" + terminalstr.str() + "',' " + wellnessstr.str() + "' , '" + preisstr.str() + "', '2010-06-24 "+timestr.str() +":00:00' )";
+	
+	cout << "query = " << query << endl;
+	query_state = mysql_query(connection,query.c_str());
+	if (query_state !=0) {
+		cout << mysql_error(connection) << endl;
+	}
+
+}
+	catch (...) {
+		cout << "Exception ";
+		
+	}
+}
+
 void DBHandler::insertTerminalService(int terminal_id, int service_id)
 {	try{
 	cout << "insertTerminalService" << endl;

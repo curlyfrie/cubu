@@ -64,6 +64,8 @@ void cubu::setup(){
 	tempset = temperature;
 
 	time_wellness = 12;
+	id_wellness = 0;
+	
 	
 	time = 0;
 	
@@ -581,7 +583,7 @@ void cubu::drawGUI(){
 		font.loadFont("bankg.ttf",20);
 		font.drawString("Temperature is set to: "+stemp, 560, 560);	
 	}
-	else if(active_side == side_activities){
+	else if(guiname == "describewell"){
 		ofSetColor(0x777777);
 		font.loadFont("bankg.ttf",20);
 		font.drawString(stringtodraw, 710, 255);
@@ -692,24 +694,17 @@ void cubu::mousePressed(int x, int y, int button){
 		}
 		else if(active_side == side_activities && guiname == "Wellness" || guiname == "Beauty" || guiname == "Sports") {	
 			guiname = "describewell";
-			display->drawDetail(guiname, &buttons, &strings, &pics, buttons.at(selected_button)->menuid);
-			//setTime();
+			id_wellness = buttons.at(selected_button)->menuid;
+			display->drawDetail(guiname, &buttons, &strings, &pics, id_wellness);
 		}
 
 		else if(active_side == side_activities && guiname == "describewell") {
 			guiname = "activities1";
-			if (buttons.at(selected_button)->label == "back") {
-				display->draw(guiname, &buttons, &strings, &pics);
-			}
-			else {
-				int menuid = buttons.at(selected_button)->getMenuid();
+			Wellness *well = dbhandler->getWell(id_wellness);
+			float preis = well->getPreis();
+			dbhandler->insertTerminalWellness(terminalID,id_wellness, preis, time_wellness);
+			display->draw(guiname, &buttons, &strings, &pics);
 
-				Wellness *well = dbhandler->getWell(menuid);
-				float preis = well->getPreis();
-			//	dbhandler->insertTerminalWellness(terminalID,menuid,1, preis);
-				display->draw(guiname, &buttons, &strings, &pics);
-			}
-			//saveAlarmtoDB();
 		}
 
 		else if(active_side == side_food && guiname == "Drinks" || guiname == "Menu") {	
