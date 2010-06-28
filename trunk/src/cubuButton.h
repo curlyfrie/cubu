@@ -19,6 +19,7 @@ public:
 	int menuid;
 	std::string label;
 	bool selected;
+	std::string guiname;
 	
 	void select(bool value);
 	bool click(int clickx, int clicky);
@@ -26,6 +27,8 @@ public:
 	cubuButton();
 	cubuButton(int px, int py, std::string plabel);
 	cubuButton(int px, int py, std::string plabel, int menuid);
+	cubuButton(int px, int py, std::string plabel, std::string pguiname);
+	cubuButton(int px, int py, std::string plabel, int menuid, std::string pguiname);
 	~cubuButton();
 	
 private:

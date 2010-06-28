@@ -673,11 +673,10 @@ void cubu::mousePressed(int x, int y, int button){
 		// check if any button was hit
 		for(int i = 0; i < buttons.size(); i ++){
 			if(buttons.at(i)->click(x,y) == true){
-				cout << "you have hit button: " << i << endl; 
 				buttons.at(i)->select(true);
 				selected_button = i;
-				display->draw(buttons.at(selected_button)->label, &buttons, &strings, &pics);
 				temp = i;
+				cout << "you have hit button: " << i << "guiname: " << buttons.at(selected_button)->guiname << endl; 
 				break;
 			}
 				
@@ -688,8 +687,37 @@ void cubu::mousePressed(int x, int y, int button){
 				if(i != temp)
 					buttons.at(i)->select(false);
 			}
+		
+			cout << "calling draw() with guiname = " << buttons.at(selected_button)->guiname << endl;
+			
+			if(active_side == side_food && buttons.at(selected_button)->guiname == "Menu")
+				display->draw(buttons.at(selected_button)->guiname, &buttons, &strings, &pics);
+			else if(active_side == side_food && buttons.at(selected_button)->guiname == "Drinks" )
+				display->draw(buttons.at(selected_button)->guiname, &buttons, &strings, &pics);
+			else if(active_side == side_food && buttons.at(selected_button)->guiname == "describe")
+				display->drawDetail("describe", &buttons, &strings, &pics, buttons.at(selected_button)->menuid);
+			else if (active_side == side_food && buttons.at(selected_button)->guiname != "describe" && buttons.at(selected_button)->guiname != "Drinks"  && buttons.at(selected_button)->guiname != "Menu") {
+				guiname = "food1";
+				if (buttons.at(selected_button)->label == "back") {
+					display->draw(guiname, &buttons, &strings, &pics);
+				}
+				else {
+					int menuid = buttons.at(selected_button)->getMenuid();
+					
+					Speise *speise = dbhandler->getSpeise(menuid);
+					float preis = speise->getPreis();
+					dbhandler->insertTerminalSpeise(terminalID,menuid,1, preis);
+					display->draw(guiname, &buttons, &strings, &pics);
+				}
+			}
+
 		}
+		
+		
 	}
+	
+ 
+
 	if (button==1) {
 		cout << guiname << endl;	
 		if(active_side == side_alarm && !alarmset){

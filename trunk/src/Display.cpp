@@ -36,19 +36,6 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 	}
 	
 	if(guiname == "roomservice1"){
-/*
- //MOCK UP VERSION
-		string->push_back(new cubuString("Room Service"));
-		pic->push_back(new cubuPic("img/backgrounds/empty.png", 20, 150));
-		pic->push_back(new cubuPic("img/menu/disturb.png", 100, 180));
-		pic->push_back(new cubuPic("img/menu/towels.png", 400, 180));
-		pic->push_back(new cubuPic("img/menu/cleaning.png", 700, 180));
-		
-		button->push_back(new cubuButton(140,510,"Do not Disturb"));
-		button->push_back(new cubuButton(465,510,"Towels"));
-		button->push_back(new cubuButton(760,510,"Clean Up"));
-*/
-
 		
 		//DYNAMIC VERSION
 		string->push_back(new cubuString("Room Service"));
@@ -70,7 +57,7 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 				
 				for(int j = 0; j < bookedServices.size(); j++){
 					if(current->getId() == bookedServices.at(j)){
-						pic->push_back(new cubuPic("img/menu/selected.png", 100, 180));
+						pic->push_back(new cubuPic("img/menu/selected.png", 95, 177));
 						pic->push_back(new cubuPic("img/menu/disturb.png", 100, 180));			
 					}
 				}
@@ -81,7 +68,7 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 				
 				for(int j = 0; j < bookedServices.size(); j++){
 					if(current->getId() == bookedServices.at(j)){
-						pic->push_back(new cubuPic("img/menu/selected.png", 400, 180));
+						pic->push_back(new cubuPic("img/menu/selected.png", 395, 177));
 						pic->push_back(new cubuPic("img/menu/towels.png", 400, 180));
 					}
 						
@@ -93,7 +80,7 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 				
 				for(int j = 0; j < bookedServices.size(); j++){
 					if(current->getId() == bookedServices.at(j)){
-						pic->push_back(new cubuPic("img/menu/selected.png", 700, 180));
+						pic->push_back(new cubuPic("img/menu/selected.png", 695, 177));
 						pic->push_back(new cubuPic("img/menu/cleaning.png", 700, 180));			
 					}
 						
@@ -248,8 +235,8 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 		pic->push_back(new cubuPic("img/backgrounds/empty.png", 20, 150));
 		pic->push_back(new cubuPic("img/menu/drinks.png", 250, 180));
 		pic->push_back(new cubuPic("img/menu/food.png", 550, 180));
-		button->push_back(new cubuButton(320,510,"Drinks"));
-		button->push_back(new cubuButton(620,510,"Menu"));
+		button->push_back(new cubuButton(320,510,"Drinks","Drinks"));
+		button->push_back(new cubuButton(620,510,"Menu","Menu"));
 		
 		//display orders
 		vector <Bestellung*> bestellungen = dbhandler->getBestellungen(dbhandler->getTerminal(terminalid));
@@ -287,13 +274,14 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 		
 		string->push_back(new cubuString("Drinks"));
 		pic->push_back(new cubuPic("img/backgrounds/drink1.png", 20, 150));
-	
+
 		int y = 180; 
 		for(int i = 0; i < speisen.size(); i++) {
-			button->push_back(new cubuButton(400,y,speisen.at(i)->getName(),speisen.at(i)->getId()));
+			button->push_back(new cubuButton(400,y,speisen.at(i)->getName(),speisen.at(i)->getId(), "describe"));
 			y += 50;
 			
 		}
+
 	}
 	else if (guiname == "Menu") {
 		
@@ -304,7 +292,7 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 		int y = 180; 
 		for(int i = 0; i < speisen.size(); i++) {
 			
-			button->push_back(new cubuButton(400,y,speisen.at(i)->getName(),speisen.at(i)->getId()));
+			button->push_back(new cubuButton(400,y,speisen.at(i)->getName(),speisen.at(i)->getId(), "describe"));
 			y += 40;
 		}
 	
@@ -343,6 +331,8 @@ void Display::drawDetail(std::string pguiname, vector<cubuButton*> * button, vec
 	guiname = pguiname;
 
 	if (guiname == "describe") {
+		
+		cout << "drawDetail(): decribe" << endl;
 		Speise *s = dbhandler->getSpeise(id);
 		string->push_back(new cubuString(s->getName()));
 		pic->push_back(new cubuPic(s->getBild(), 20, 150));
@@ -354,7 +344,7 @@ void Display::drawDetail(std::string pguiname, vector<cubuButton*> * button, vec
 		preis << s->getPreis();
 		string->push_back(new cubuString(stream.str(), 400, 200, "frabk.ttf", 13));
 		string->push_back(new cubuString("Euro " + preis.str() , 400, 350, "frabk.ttf", 13));
-		button->push_back(new cubuButton(400,400,"order", id));
+		button->push_back(new cubuButton(400,400,"order", id,"food1"));
 		button->push_back(new cubuButton(500,400,"back"));
 	}
 	else if (guiname == "describewell") {
