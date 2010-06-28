@@ -628,7 +628,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 670";
 		rLen = 0;
-		rLoc = 15692;
+		rLoc = 18213;
 		rType = 0;
 		vrLen = 1344;
 		vrLoc = 13339;
@@ -803,7 +803,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 670";
 		rLen = 0;
-		rLoc = 15692;
+		rLoc = 18213;
 		rType = 0;
 		vrLen = 1372;
 		vrLoc = 13339;
@@ -867,7 +867,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 670";
 		rLen = 21;
-		rLoc = 15678;
+		rLoc = 18199;
 		rType = 0;
 		vrLen = 1429;
 		vrLoc = 13343;
@@ -1097,7 +1097,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 679";
 		rLen = 0;
-		rLoc = 16602;
+		rLoc = 19123;
 		rType = 0;
 		vrLen = 1332;
 		vrLoc = 13367;
@@ -1107,7 +1107,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 679";
 		rLen = 0;
-		rLoc = 16602;
+		rLoc = 19123;
 		rType = 0;
 		vrLen = 995;
 		vrLoc = 14047;
@@ -1127,7 +1127,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 671";
 		rLen = 0;
-		rLoc = 15532;
+		rLoc = 18053;
 		rType = 0;
 		vrLen = 1105;
 		vrLoc = 13980;
@@ -1137,7 +1137,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 679";
 		rLen = 0;
-		rLoc = 15847;
+		rLoc = 18368;
 		rType = 0;
 		vrLen = 1128;
 		vrLoc = 13980;
@@ -1147,7 +1147,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 679";
 		rLen = 0;
-		rLoc = 15847;
+		rLoc = 18368;
 		rType = 0;
 		vrLen = 1128;
 		vrLoc = 13980;
@@ -1224,7 +1224,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 680";
 		rLen = 0;
-		rLoc = 16602;
+		rLoc = 19123;
 		rType = 0;
 		vrLen = 1073;
 		vrLoc = 11859;
@@ -1234,7 +1234,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 697";
 		rLen = 0;
-		rLoc = 16602;
+		rLoc = 19123;
 		rType = 0;
 		vrLen = 1259;
 		vrLoc = 14277;
@@ -1244,7 +1244,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 694";
 		rLen = 0;
-		rLoc = 16376;
+		rLoc = 18897;
 		rType = 0;
 		vrLen = 1185;
 		vrLoc = 14208;
@@ -1254,7 +1254,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 694";
 		rLen = 0;
-		rLoc = 16376;
+		rLoc = 18897;
 		rType = 0;
 		vrLen = 1197;
 		vrLoc = 14208;
@@ -1304,7 +1304,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 693";
 		rLen = 0;
-		rLoc = 16376;
+		rLoc = 18897;
 		rType = 0;
 		vrLen = 1377;
 		vrLoc = 14147;
@@ -1354,7 +1354,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 626";
 		rLen = 0;
-		rLoc = 14095;
+		rLoc = 14123;
 		rType = 0;
 		vrLen = 1790;
 		vrLoc = 12649;
@@ -1424,7 +1424,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 627";
 		rLen = 0;
-		rLoc = 14095;
+		rLoc = 14123;
 		rType = 0;
 		vrLen = 1628;
 		vrLoc = 12085;
@@ -1434,7 +1434,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 625";
 		rLen = 0;
-		rLoc = 14092;
+		rLoc = 14120;
 		rType = 0;
 		vrLen = 1828;
 		vrLoc = 12647;
@@ -1444,7 +1444,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 736";
 		rLen = 0;
-		rLoc = 14092;
+		rLoc = 14120;
 		rType = 0;
 		vrLen = 1537;
 		vrLoc = 15720;
@@ -1454,7 +1454,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 625";
 		rLen = 0;
-		rLoc = 14092;
+		rLoc = 14120;
 		rType = 0;
 		vrLen = 1755;
 		vrLoc = 12085;
@@ -1634,7 +1634,7 @@
 		fRef = CDA96FB811D54ACF00B403E5 /* Display.cpp */;
 		name = "Display.cpp: 246";
 		rLen = 0;
-		rLoc = 8061;
+		rLoc = 8190;
 		rType = 0;
 		vrLen = 2088;
 		vrLoc = 6156;
@@ -1694,7 +1694,7 @@
 		fRef = CDA96FB811D54ACF00B403E5 /* Display.cpp */;
 		name = "Display.cpp: 246";
 		rLen = 0;
-		rLoc = 8059;
+		rLoc = 8188;
 		rType = 0;
 		vrLen = 1950;
 		vrLoc = 6514;
@@ -1704,7 +1704,7 @@
 		fRef = CDA96FB811D54ACF00B403E5 /* Display.cpp */;
 		name = "Display.cpp: 246";
 		rLen = 0;
-		rLoc = 8059;
+		rLoc = 8188;
 		rType = 0;
 		vrLen = 1954;
 		vrLoc = 6514;
@@ -1774,7 +1774,7 @@
 		fRef = CDA96FB811D54ACF00B403E5 /* Display.cpp */;
 		name = "Display.cpp: 204";
 		rLen = 0;
-		rLoc = 6458;
+		rLoc = 6557;
 		rType = 0;
 		vrLen = 2153;
 		vrLoc = 5365;
@@ -1784,7 +1784,7 @@
 		fRef = CDA96FB811D54ACF00B403E5 /* Display.cpp */;
 		name = "Display.cpp: 205";
 		rLen = 0;
-		rLoc = 6529;
+		rLoc = 6628;
 		rType = 0;
 		vrLen = 2142;
 		vrLoc = 5376;
@@ -1794,7 +1794,7 @@
 		fRef = CDA96FB811D54ACF00B403E5 /* Display.cpp */;
 		name = "Display.cpp: 240";
 		rLen = 0;
-		rLoc = 7778;
+		rLoc = 7907;
 		rType = 0;
 		vrLen = 1806;
 		vrLoc = 6860;
@@ -1834,7 +1834,7 @@
 		fRef = CDA96FB811D54ACF00B403E5 /* Display.cpp */;
 		name = "Display.cpp: 220";
 		rLen = 1;
-		rLoc = 7238;
+		rLoc = 7367;
 		rType = 0;
 		vrLen = 2001;
 		vrLoc = 6115;
@@ -1864,7 +1864,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 660";
 		rLen = 0;
-		rLoc = 14087;
+		rLoc = 14115;
 		rType = 0;
 		vrLen = 1968;
 		vrLoc = 13079;
@@ -1884,7 +1884,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 626";
 		rLen = 0;
-		rLoc = 14087;
+		rLoc = 14115;
 		rType = 0;
 		vrLen = 1726;
 		vrLoc = 11965;
@@ -1914,7 +1914,7 @@
 		fRef = CDA96FB811D54ACF00B403E5 /* Display.cpp */;
 		name = "Display.cpp: 239";
 		rLen = 0;
-		rLoc = 7737;
+		rLoc = 7866;
 		rType = 0;
 		vrLen = 2019;
 		vrLoc = 6211;
@@ -1934,7 +1934,7 @@
 		fRef = CDA96FB811D54ACF00B403E5 /* Display.cpp */;
 		name = "Display.cpp: 252";
 		rLen = 0;
-		rLoc = 8082;
+		rLoc = 8211;
 		rType = 0;
 		vrLen = 1987;
 		vrLoc = 6552;
@@ -1944,7 +1944,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 626";
 		rLen = 0;
-		rLoc = 14087;
+		rLoc = 14115;
 		rType = 0;
 		vrLen = 1840;
 		vrLoc = 12271;
@@ -1954,7 +1954,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 625";
 		rLen = 0;
-		rLoc = 14087;
+		rLoc = 14115;
 		rType = 0;
 		vrLen = 1815;
 		vrLoc = 12272;
@@ -1974,7 +1974,7 @@
 		fRef = CDA96FB811D54ACF00B403E5 /* Display.cpp */;
 		name = "Display.cpp: 238";
 		rLen = 0;
-		rLoc = 7737;
+		rLoc = 7866;
 		rType = 0;
 		vrLen = 2099;
 		vrLoc = 5353;
@@ -1984,7 +1984,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 627";
 		rLen = 0;
-		rLoc = 14087;
+		rLoc = 14115;
 		rType = 0;
 		vrLen = 1830;
 		vrLoc = 12085;
@@ -1994,7 +1994,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 659";
 		rLen = 0;
-		rLoc = 14087;
+		rLoc = 14115;
 		rType = 0;
 		vrLen = 2023;
 		vrLoc = 13153;
@@ -2004,7 +2004,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 665";
 		rLen = 0;
-		rLoc = 14087;
+		rLoc = 14115;
 		rType = 0;
 		vrLen = 1988;
 		vrLoc = 13333;
@@ -2014,7 +2014,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 664";
 		rLen = 0;
-		rLoc = 14087;
+		rLoc = 14115;
 		rType = 0;
 		vrLen = 1968;
 		vrLoc = 13333;
@@ -2044,7 +2044,7 @@
 		fRef = CDA96FB811D54ACF00B403E5 /* Display.cpp */;
 		name = "Display.cpp: 203";
 		rLen = 0;
-		rLoc = 6401;
+		rLoc = 6485;
 		rType = 0;
 		vrLen = 2183;
 		vrLoc = 5009;
@@ -2064,7 +2064,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 734";
 		rLen = 0;
-		rLoc = 17406;
+		rLoc = 19927;
 		rType = 0;
 		vrLen = 1200;
 		vrLoc = 15646;
@@ -2094,7 +2094,7 @@
 		fRef = CDA96FB811D54ACF00B403E5 /* Display.cpp */;
 		name = "Display.cpp: 235";
 		rLen = 0;
-		rLoc = 7699;
+		rLoc = 7828;
 		rType = 0;
 		vrLen = 1892;
 		vrLoc = 6654;
@@ -2114,7 +2114,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 669";
 		rLen = 8;
-		rLoc = 15291;
+		rLoc = 17812;
 		rType = 0;
 		vrLen = 1724;
 		vrLoc = 12686;
@@ -2124,7 +2124,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 644";
 		rLen = 0;
-		rLoc = 14374;
+		rLoc = 14355;
 		rType = 0;
 		vrLen = 1595;
 		vrLoc = 12202;
@@ -2134,7 +2134,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 625";
 		rLen = 0;
-		rLoc = 14087;
+		rLoc = 14115;
 		rType = 0;
 		vrLen = 1610;
 		vrLoc = 12202;
@@ -2144,7 +2144,7 @@
 		fRef = CDA96FB811D54ACF00B403E5 /* Display.cpp */;
 		name = "Display.cpp: 235";
 		rLen = 0;
-		rLoc = 7699;
+		rLoc = 7828;
 		rType = 0;
 		vrLen = 1892;
 		vrLoc = 6654;
@@ -2154,7 +2154,7 @@
 		fRef = CDA96FB811D54ACF00B403E5 /* Display.cpp */;
 		name = "Display.cpp: 303";
 		rLen = 0;
-		rLoc = 9307;
+		rLoc = 9436;
 		rType = 0;
 		vrLen = 1807;
 		vrLoc = 9033;
@@ -2174,7 +2174,7 @@
 		fRef = CDA96FB811D54ACF00B403E5 /* Display.cpp */;
 		name = "Display.cpp: 302";
 		rLen = 0;
-		rLoc = 9265;
+		rLoc = 9394;
 		rType = 0;
 		vrLen = 1935;
 		vrLoc = 9033;
@@ -2184,7 +2184,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 625";
 		rLen = 0;
-		rLoc = 14087;
+		rLoc = 14115;
 		rType = 0;
 		vrLen = 1600;
 		vrLoc = 12202;
@@ -2194,7 +2194,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 625";
 		rLen = 0;
-		rLoc = 14087;
+		rLoc = 14115;
 		rType = 0;
 		vrLen = 1484;
 		vrLoc = 12031;
@@ -2214,7 +2214,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 626";
 		rLen = 0;
-		rLoc = 14087;
+		rLoc = 14115;
 		rType = 0;
 		vrLen = 1694;
 		vrLoc = 12620;
@@ -2234,7 +2234,7 @@
 		fRef = CDA96FB811D54ACF00B403E5 /* Display.cpp */;
 		name = "Display.cpp: 247";
 		rLen = 8;
-		rLoc = 8049;
+		rLoc = 8178;
 		rType = 0;
 		vrLen = 1787;
 		vrLoc = 6860;
@@ -2244,7 +2244,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 632";
 		rLen = 0;
-		rLoc = 14087;
+		rLoc = 14115;
 		rType = 0;
 		vrLen = 1839;
 		vrLoc = 12307;
@@ -2254,7 +2254,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 632";
 		rLen = 0;
-		rLoc = 14087;
+		rLoc = 14115;
 		rType = 0;
 		vrLen = 1720;
 		vrLoc = 12426;
@@ -2274,7 +2274,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 629";
 		rLen = 0;
-		rLoc = 14087;
+		rLoc = 14115;
 		rType = 0;
 		vrLen = 1743;
 		vrLoc = 12532;
@@ -2284,7 +2284,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 639";
 		rLen = 0;
-		rLoc = 14087;
+		rLoc = 14115;
 		rType = 0;
 		vrLen = 1619;
 		vrLoc = 12604;
@@ -2304,7 +2304,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 639";
 		rLen = 0;
-		rLoc = 14087;
+		rLoc = 14115;
 		rType = 0;
 		vrLen = 1515;
 		vrLoc = 12031;
@@ -2324,7 +2324,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 624";
 		rLen = 0;
-		rLoc = 14084;
+		rLoc = 14112;
 		rType = 0;
 		vrLen = 1621;
 		vrLoc = 12086;
@@ -2334,7 +2334,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 632";
 		rLen = 0;
-		rLoc = 14087;
+		rLoc = 14115;
 		rType = 0;
 		vrLen = 1753;
 		vrLoc = 12290;
@@ -2354,7 +2354,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 636";
 		rLen = 0;
-		rLoc = 14077;
+		rLoc = 14105;
 		rType = 0;
 		vrLen = 1551;
 		vrLoc = 12236;
@@ -2374,7 +2374,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 629";
 		rLen = 0;
-		rLoc = 14077;
+		rLoc = 14105;
 		rType = 0;
 		vrLen = 1564;
 		vrLoc = 12151;
@@ -2394,7 +2394,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 635";
 		rLen = 0;
-		rLoc = 14077;
+		rLoc = 14105;
 		rType = 0;
 		vrLen = 1566;
 		vrLoc = 12204;
@@ -2454,7 +2454,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 633";
 		rLen = 0;
-		rLoc = 14077;
+		rLoc = 14105;
 		rType = 0;
 		vrLen = 1570;
 		vrLoc = 12307;
@@ -2474,7 +2474,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 632";
 		rLen = 0;
-		rLoc = 14077;
+		rLoc = 14105;
 		rType = 0;
 		vrLen = 1741;
 		vrLoc = 12340;
@@ -2504,7 +2504,7 @@
 		fRef = CDA96FB811D54ACF00B403E5 /* Display.cpp */;
 		name = "Display.cpp: 330";
 		rLen = 0;
-		rLoc = 10386;
+		rLoc = 10515;
 		rType = 0;
 		vrLen = 1792;
 		vrLoc = 8744;
@@ -2574,7 +2574,7 @@
 		fRef = CDA96FB811D54ACF00B403E5 /* Display.cpp */;
 		name = "Display.cpp: 330";
 		rLen = 0;
-		rLoc = 10386;
+		rLoc = 10515;
 		rType = 0;
 		vrLen = 1792;
 		vrLoc = 8744;
@@ -2584,7 +2584,7 @@
 		fRef = CDA96FB811D54ACF00B403E5 /* Display.cpp */;
 		name = "Display.cpp: 261";
 		rLen = 0;
-		rLoc = 8440;
+		rLoc = 8569;
 		rType = 0;
 		vrLen = 1426;
 		vrLoc = 7585;
@@ -2594,7 +2594,7 @@
 		fRef = CDA96FB811D54ACF00B403E5 /* Display.cpp */;
 		name = "Display.cpp: 261";
 		rLen = 0;
-		rLoc = 8440;
+		rLoc = 8569;
 		rType = 0;
 		vrLen = 1429;
 		vrLoc = 7585;
@@ -2634,7 +2634,7 @@
 		fRef = CDA96FB811D54ACF00B403E5 /* Display.cpp */;
 		name = "Display.cpp: 200";
 		rLen = 0;
-		rLoc = 6210;
+		rLoc = 6294;
 		rType = 0;
 		vrLen = 2087;
 		vrLoc = 5996;
@@ -2694,7 +2694,7 @@
 		fRef = CDA96FB811D54ACF00B403E5 /* Display.cpp */;
 		name = "Display.cpp: 205";
 		rLen = 0;
-		rLoc = 6525;
+		rLoc = 6624;
 		rType = 0;
 		vrLen = 1808;
 		vrLoc = 6654;
@@ -2704,7 +2704,7 @@
 		fRef = CDA96FB811D54ACF00B403E5 /* Display.cpp */;
 		name = "Display.cpp: 200";
 		rLen = 0;
-		rLoc = 6204;
+		rLoc = 6288;
 		rType = 0;
 		vrLen = 2189;
 		vrLoc = 5873;
@@ -2794,7 +2794,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 644";
 		rLen = 0;
-		rLoc = 14071;
+		rLoc = 14099;
 		rType = 0;
 		vrLen = 1988;
 		vrLoc = 12426;
@@ -2814,14 +2814,14 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */;
 		name = "cubu.cpp: 647";
 		rLen = 0;
-		rLoc = 14081;
+		rLoc = 14109;
 		rType = 0;
 		vrLen = 1761;
 		vrLoc = 13853;
 	};
 	CD78221211D20C7C00F85BFA /* cubuButton.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1011, 736}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 737}}";
 			sepNavSelRange = "{180, 0}";
 			sepNavVisRange = "{0, 697}";
 			sepNavWindowFrame = "{{-1265, 58}, {1017, 837}}";
@@ -2870,9 +2870,9 @@
 	};
 	CDA96FB811D54ACF00B403E5 /* Display.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1020, 4628}}";
-			sepNavSelRange = "{6204, 0}";
-			sepNavVisRange = "{5873, 2189}";
+			sepNavIntBoundsRect = "{{0, 0}, {1076, 5096}}";
+			sepNavSelRange = "{11725, 0}";
+			sepNavVisRange = "{6869, 2171}";
 		};
 	};
 	CDA96FD911D54CF700B403E5 /* PBXTextBookmark */ = {
@@ -3203,8 +3203,8 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 299390004;
-			PBXWorkspaceStateSaveDate = 299390004;
+			PBXPerProjectTemplateStateSaveDate = 299396331;
+			PBXWorkspaceStateSaveDate = 299396331;
 		};
 		perUserProjectItems = {
 			CD03754911B14FBE008B9FE1 = CD03754911B14FBE008B9FE1 /* PBXTextBookmark */;
@@ -3504,10 +3504,10 @@
 	};
 	E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */ = {
 		uiCtxt = {
-			sepNavFolds = "{\n    c =     (\n                {\n            l = \"int _deviceID\";\n            r = \"{1332, 17}\";\n            s = 1;\n        }\n    );\n    r = \"{0, 17985}\";\n    s = 0;\n}";
-			sepNavIntBoundsRect = "{{0, 0}, {1447, 9451}}";
-			sepNavSelRange = "{14065, 0}";
-			sepNavVisRange = "{13837, 1761}";
+			sepNavFolds = "{\n    c =     (\n                {\n            l = \"int _deviceID\";\n            r = \"{1374, 17}\";\n            s = 1;\n        }\n    );\n    r = \"{0, 21414}\";\n    s = 0;\n}";
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 11557}}";
+			sepNavSelRange = "{14701, 0}";
+			sepNavVisRange = "{13678, 2142}";
 			sepNavWindowFrame = "{{15, 55}, {1017, 823}}";
 		};
 	};

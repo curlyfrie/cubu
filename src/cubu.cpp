@@ -721,13 +721,19 @@ void cubu::mousePressed(int x, int y, int button){
 				alarmset = false;
 				dbhandler->deleteAlarm(terminalID);
 			}
-			else if(guiname=="FAQ"){
-				display->draw(guiname, &buttons, &strings, &pics);
-			} 
 			else if(active_side == side_fun){
-				
+				cout << "bla bla bla" << endl;
 				guiname="detaildienst";
-				display->drawDienstleistungDetail(guiname,&buttons,&strings,&pics,buttons.at(selected_button)->menuid);
+				if(buttons.at(selected_button)->label != "back"){
+					cout << "deine mutter" << endl;
+					display->drawDienstleistungDetail(guiname,&buttons,&strings,&pics,buttons.at(selected_button)->menuid);
+				}
+				else{
+					cout << "have some fun" << endl;
+					guiname = "fun1";
+					display->draw(guiname, &buttons, &strings, &pics);
+				}
+					
 				
 			}
 			else if (active_side == side_roomservice) {
@@ -761,8 +767,7 @@ void cubu::mousePressed(int x, int y, int button){
 				}
 			}
 			else if(active_side == side_activities && name == "Wellness" || name == "Beauty" || name == "Sports") {	
-				cout << "YAHOOO!" << endl;
-				guiname = "describewell";
+				guiname = name;
 				display->draw(name, &buttons, &strings, &pics);
 			}
 			else if (active_side == side_activities && name == "describewell") {
@@ -770,14 +775,23 @@ void cubu::mousePressed(int x, int y, int button){
 				id_wellness = buttons.at(selected_button)->menuid;
 				display->drawDetail(guiname, &buttons, &strings, &pics, id_wellness);
 			}
-			else if (active_side == side_activities && name != "describewell" && name != "Wellness" && name != "Beauty" && name != "Sports") {
+			else if (active_side == side_activities && guiname == "describewell") {
 				guiname = "activities1";
 				Wellness *well = dbhandler->getWell(id_wellness);
 				float preis = well->getPreis();
 				dbhandler->insertTerminalWellness(terminalID,id_wellness, preis, time_wellness);
 				display->draw(guiname, &buttons, &strings, &pics);
 			}
+			else if(buttons.at(selected_button)->guiname == "faqBack"){
+				display->draw("start", &buttons, &strings, &pics);
+			}
+			else if(buttons.at(selected_button)->guiname == "loadFAQ"){
+				display->draw("FAQ", &buttons, &strings, &pics);
+			}
+			
 
+
+		
 		}
 		
 		
