@@ -114,7 +114,7 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 		string->push_back(new cubuString("Welcome "+k->getVorname()+" "+k->getNachname()));
 		pic->push_back(new cubuPic("img/backgrounds/start.png", 20, 150));
 		
-		
+		pic->push_back(new cubuPic("img/wilson.png", 870, 30));
 		button->push_back(new cubuButton(920,160,"FAQ"));
 		
 		//bestellungen
@@ -131,6 +131,8 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 		}
 		string->push_back(bestellungenString);
 						
+		
+		// services
 		string->push_back(new cubuString("Services ordered:",350,310,"frabk.ttf", 20,0xFFFFFF));
 		vector<int> service = dbhandler->getServiceIDsOfTerminal(terminalid);
 		
@@ -146,6 +148,9 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 		}
 		string->push_back(s);
 		
+		
+		
+		// activities
 		//string->push_back(new cubuString("Rented Activities:",700,310,"frabk.ttf", 20,0xFFFFFF));
 		
 		float temperature = dbhandler->getTemperatur(terminalid);
@@ -193,7 +198,7 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 	}
 	else if (guiname == "Wellness") {
 		string->push_back(new cubuString("Wellness"));
-		pic->push_back(new cubuPic("img/backgrounds/empty.png", 20, 150));
+		pic->push_back(new cubuPic("img/backgrounds/wellness.png", 20, 150));
 		well = dbhandler->getWellness(0);
 		int y = 180; 
 		for(int i = 0; i < well.size(); i++) { 
@@ -205,7 +210,7 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 	}
 	else if (guiname == "Beauty") {
 		string->push_back(new cubuString("Beauty"));
-		pic->push_back(new cubuPic("img/backgrounds/empty.png", 20, 150));
+		pic->push_back(new cubuPic("img/backgrounds/beauty.png", 20, 150));
 		well = dbhandler->getWellness(1);
 		int y = 180; 
 		for(int i = 0; i < well.size(); i++) { 
@@ -216,7 +221,7 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 	}
 	else if (guiname == "Sports") {
 		string->push_back(new cubuString("Sports"));
-		pic->push_back(new cubuPic("img/backgrounds/empty.png", 20, 150));
+		pic->push_back(new cubuPic("img/backgrounds/sport.png", 20, 150));
 		well = dbhandler->getWellness(2);
 		int y = 180; 
 		for(int i = 0; i < well.size(); i++) { 
