@@ -15,6 +15,7 @@
 #include "Speise.h"
 #include "Service.h"
 #include "Bestellung.h"
+#include "OrderWellness.h"
 #include "Wellness.h"
 #include "Dienstleistung.h"
 
@@ -53,6 +54,7 @@ public:
 	Speise * getSpeise(int speise_id);
 	Wellness * getWell(int wellness_id);
 	Dienstleistung * getDienstleistung(int dienstleistung_id);
+	vector<OrderWellness *> getOrderedWellness(int terminal_id);
 
 	void deleteTerminalService(int terminal_id, int service_id);
 	void insertTerminalService(int terminal_id, int service_id);

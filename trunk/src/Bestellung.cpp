@@ -20,6 +20,8 @@ Bestellung::Bestellung(int _speise_id, int _anzahl, float _sumpreis)
 	
 	
 }
+
+
 int Bestellung::getSpeiseId()
 {
 	

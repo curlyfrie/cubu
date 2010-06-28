@@ -160,6 +160,23 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 		button->push_back(new cubuButton(160,510,"Wellness","Wellness"));
 		button->push_back(new cubuButton(470,510,"Beauty","Beauty"));
 		button->push_back(new cubuButton(770,510,"Sports","Sports"));
+		
+		//display orders
+		vector <OrderWellness*> wellness = dbhandler->getOrderedWellness(terminalid);
+		cout << "wellness: " << wellness.size() << endl;
+		cubuString * wellnessString = new cubuString("Gebuchte Aktivitaeten:\n",10, 600, "frabk.ttf", 10);
+		for (int i = 0; i < wellness.size(); i++)
+		{
+		//	cout <<"\n" + anzahlStr.str() + " " + dbhandler->getSpeise(bestellungen.at(i)->getSpeiseId())->getName();
+			std::stringstream datumstr;
+			datumstr << dbhandler->getWell(wellness.at(i)->getWellnessId())->getName();
+			
+			wellnessString->appendString("\n" + datumstr.str());
+			
+		}
+		string->push_back(wellnessString);
+
+
 	}
 	else if (guiname == "FAQ") {
 		string->push_back(new cubuString("Frequently Asked Questions"));

@@ -19,6 +19,7 @@ private:
 	int speise_id;
 	int anzahl;
 	float sumpreis;
+
 public:
 	
 	Bestellung(int speise_id, int _anzahl, float _sumpreis );
