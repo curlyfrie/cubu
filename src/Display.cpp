@@ -119,6 +119,34 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 		
 		//bestellungen
 		string->push_back(new cubuString("Your Orders:",50,310,"frabk.ttf", 20,0xFFFFFF));
+		vector <Bestellung*> bestellungen = dbhandler->getBestellungen(dbhandler->getTerminal(terminalid));
+		cubuString * bestellungenString = new cubuString("",60, 320, "frabk.ttf", 11,0xEFEFEF);
+		for (int i = 0; i < bestellungen.size(); i++)
+		{
+			std::stringstream anzahlStr;
+			anzahlStr << bestellungen.at(i)->getAnzahl();
+			//	cout <<"\n" + anzahlStr.str() + " " + dbhandler->getSpeise(bestellungen.at(i)->getSpeiseId())->getName();
+			bestellungenString->appendString("\n" + anzahlStr.str() + " " + dbhandler->getSpeise(bestellungen.at(i)->getSpeiseId())->getName());
+			
+		}
+		string->push_back(bestellungenString);
+						
+		string->push_back(new cubuString("Services ordered:",350,310,"frabk.ttf", 20,0xFFFFFF));
+		vector<int> service = dbhandler->getServiceIDsOfTerminal(terminalid);
+		
+		cubuString * s = new cubuString("",370, 335, "frabk.ttf", 11,0xEFEFEF);
+		for (int i = 0; i < service.size(); i++)
+		{
+			//std::stringstream anzahlStr;
+			//anzahlStr << service.at(i)->getAnzahl();
+			//s->appendString("\n" + anzahlStr.str() + " " + dbhandler->getSpeise(bestellungen.at(i)->getSpeiseId())->getName());
+			
+			s->appendString(dbhandler->getService(service.at(i))->getName()+"\n");
+			
+		}
+		string->push_back(s);
+		
+		//string->push_back(new cubuString("Rented Activities:",700,310,"frabk.ttf", 20,0xFFFFFF));
 		
 		float temperature = dbhandler->getTemperatur(terminalid);
 		std::stringstream out;

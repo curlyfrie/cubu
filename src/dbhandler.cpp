@@ -620,7 +620,7 @@ float DBHandler::getTemperatur(int terminal_id){
 	
 	std::stringstream terminalstream;
 	terminalstream << terminal_id;
-	
+	                                               
 	std:string query = "SELECT * FROM temperatur WHERE terminal_id = " + terminalstream.str();
 
 	//ask mighty database
