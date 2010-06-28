@@ -26,8 +26,6 @@ void cubu::setup(){
 	showFaq = false;
 	selected_button = 0;
 
-	time_wellness = 12;
-
 	buttons.clear();
 	strings.clear();
 	pics.clear();
@@ -64,6 +62,8 @@ void cubu::setup(){
 
 	temperature = dbhandler->getTemperatur(terminalID);
 	tempset = temperature;
+
+	time_wellness = 12;
 	
 	time = 0;
 	
@@ -239,6 +239,9 @@ void cubu::update(){
 			// check wich side is active
 			if(fiducialID == side_activities){
 				active_side = side_activities;
+				if(guiname == "describewell")
+					setTime();
+
 			}
 			else if(fiducialID == side_alarm){
 				active_side = side_alarm;
@@ -275,9 +278,6 @@ void cubu::update(){
 			else if(fiducialID == side_temperature){
 				active_side = side_temperature;
 				setTemp();
-			}
-			else if(fiducialID == side_activities){
-				setTime();
 			}
 				
 			
@@ -450,11 +450,11 @@ void cubu::setTime()
 		std::string stemp = stream2.str();
 
 		if(i!= 2){
-			s += stemp+" C\n";
+			s += stemp+":00\n";
 		}
 		else{
 			s += "\n\n\n\n";
-			stringtodraw2 = stemp+" C\n";
+			stringtodraw2 = stemp+":00\n";
 		}
 		
 	}
@@ -693,7 +693,7 @@ void cubu::mousePressed(int x, int y, int button){
 		else if(active_side == side_activities && guiname == "Wellness" || guiname == "Beauty" || guiname == "Sports") {	
 			guiname = "describewell";
 			display->drawDetail(guiname, &buttons, &strings, &pics, buttons.at(selected_button)->menuid);
-			setTime();
+			//setTime();
 		}
 
 		else if(active_side == side_activities && guiname == "describewell") {
