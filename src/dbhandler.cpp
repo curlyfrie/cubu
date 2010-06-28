@@ -558,6 +558,73 @@ vector<Bestellung *> DBHandler::getBestellungen(Terminal * terminal)
 	}
 }
 
+vector<OrderWellness *> DBHandler::getOrderedWellness(int terminal_id)
+{
+	try{
+		std::stringstream terminalstr;
+		terminalstr << terminal_id;
+		
+		vector<OrderWellness *> orderwellness;
+		std::string query = "SELECT w.wellness_id, w.name, w.beschreibung, w.prioritaet, w.typ, tw.preis, tw.datum FROM terminalwellness tw NATURAL JOIN wellness w WHERE tw.terminal_id = " + terminalstr.str()  + " GROUP BY w.wellness_id, tw.terminal_id";
+		query_state = mysql_query(connection, query.c_str());
+		
+		if (query_state !=0) {
+			cout << mysql_error(connection) << endl;
+		}
+		
+		unsigned int num_fields;
+		unsigned int i;
+		
+		result = mysql_store_result(connection);
+		
+		num_fields = mysql_num_fields(result);
+		
+		int wellness_id;
+		std::string name;
+		std::string beschreibung;
+		int prioritaet;
+		int typ;
+		float preis;
+		std::string datum;
+		
+		while ( ( row = mysql_fetch_row(result)) ) {
+			unsigned long *lengths;
+			lengths = mysql_fetch_lengths(result);
+			
+			for( i = 0; i < num_fields; i++)
+			{
+				
+				if(i==0)
+					wellness_id = atoi(row[i]);
+				if(i==1)
+					name = row[i];
+				if(i==2)
+					beschreibung = row[i]; 
+				if(i==3)
+					prioritaet = atoi(row[i]);
+				if(i==4)
+					typ = atoi(row[i]);
+				if(i==5)
+					preis = atof(row[i]);
+				if(i==6)
+					datum = row[i]; 
+			}
+			
+			Wellness * wellness = new Wellness(wellness_id, name, beschreibung, preis, typ, prioritaet, datum);
+			orderwellness.push_back(new OrderWellness(wellness_id, name, datum));
+		}
+		
+		mysql_free_result(result);
+		
+		return orderwellness;	
+	}
+	catch (...) {
+		cout << "Exception ";
+		
+	}
+}
+
+
 
 Kunde * DBHandler::getKunde(Terminal * terminal)
 {
