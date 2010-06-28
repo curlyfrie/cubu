@@ -168,10 +168,12 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 		for (int i = 0; i < wellness.size(); i++)
 		{
 		//	cout <<"\n" + anzahlStr.str() + " " + dbhandler->getSpeise(bestellungen.at(i)->getSpeiseId())->getName();
+			std::stringstream namestr;
+			namestr << dbhandler->getWell(wellness.at(i)->getWellnessId())->getName();
 			std::stringstream datumstr;
-			datumstr << dbhandler->getWell(wellness.at(i)->getWellnessId())->getName();
-			
-			wellnessString->appendString("\n" + datumstr.str());
+			datumstr << wellness.at(i)->getDatum();
+
+			wellnessString->appendString("\n" + namestr.str() + " um " + datumstr.str() + " Uhr");
 			
 		}
 		string->push_back(wellnessString);
