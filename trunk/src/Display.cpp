@@ -364,8 +364,8 @@ void Display::drawDetail(std::string pguiname, vector<cubuButton*> * button, vec
 		preis << w->getPreis();
 		string->push_back(new cubuString(stream.str(), 400, 200, "frabk.ttf", 13));
 		string->push_back(new cubuString("Euro " + preis.str() , 400, 350, "frabk.ttf", 13));
-		button->push_back(new cubuButton(400,400,"order", id));
-		button->push_back(new cubuButton(500,400,"back"));
+	//	button->push_back(new cubuButton(400,400,"order", id));
+	//	button->push_back(new cubuButton(500,400,"back"));
 	}
 	
 }
