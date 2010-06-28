@@ -58,6 +58,7 @@ public:
 	void insertTerminalService(int terminal_id, int service_id);
 	void insertTerminalService(Terminal * terminal, Service * service);
 	void insertTerminalSpeise(int terminal_id, int speise_id, int anzahl, float sumpreis);
+	void insertTerminalWellness(int terminal_id, int wellness_id, float preis, int time);
 	
 	vector<Bestellung *>  getBestellungen(Terminal * terminal);
 private:

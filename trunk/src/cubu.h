@@ -104,6 +104,7 @@ class cubu : public ofBaseApp{
 		int alarm_minute;
 		int alarm_hour;
 		int time_wellness;
+		int id_wellness;
 
 		void setAlarm();
 		void setTemp();
