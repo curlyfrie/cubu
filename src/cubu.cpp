@@ -696,9 +696,33 @@ void cubu::mousePressed(int x, int y, int button){
 		else if (active_side == side_roomservice) {
 			//cout << "selected button == " <<  buttons.at(selected_button)->label << endl;
 			
-			dbhandler->insertTerminalService(terminalID, buttons.at(selected_button)->getMenuid());
-			guiname = "roomservice1";
-			display->draw(guiname, &buttons, &strings, &pics);
+			bool deleteservice = false;
+			
+			//get services of this user
+			vector<int> bookedServices = dbhandler->getServiceIDsOfTerminal(terminalID);
+			for(int i = 0; i < bookedServices.size(); i ++){
+				
+				// if this terminal selects an already booked service...
+				if(buttons.at(selected_button)->getMenuid() == bookedServices.at(i)){
+					
+					//...delete the bitch(=service)!
+					dbhandler->deleteTerminalService(terminalID, bookedServices.at(i));
+					
+					//and redraw
+					guiname = "roomservice1";
+					display->draw(guiname, &buttons, &strings, &pics);
+					
+					deleteservice = true;
+				}
+			}
+			
+			if(!deleteservice){
+				dbhandler->insertTerminalService(terminalID, buttons.at(selected_button)->getMenuid());
+				
+				guiname = "roomservice1";
+				display->draw(guiname, &buttons, &strings, &pics);
+			}
+
 		}
 		else{
 			
