@@ -359,6 +359,7 @@ void Display::drawDetail(std::string pguiname, vector<cubuButton*> * button, vec
 	}
 	else if (guiname == "describewell") {
 		Wellness *w = dbhandler->getWell(id);
+		pic->push_back(new cubuPic("img/backgrounds/details.png", 20, 150));
 		string->push_back(new cubuString(w->getName()));
 		//pic->push_back(new cubuPic(s->getBild(), 20, 150));
 
