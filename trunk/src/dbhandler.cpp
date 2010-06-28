@@ -256,6 +256,22 @@ void DBHandler::deleteAlarm(int terminal_id)
 	mysql_query(connection,query.c_str());	
 }
 
+void DBHandler::deleteTerminalService(int terminal_id, int service_id)
+{
+	std::stringstream terminal_idStream;
+	std::stringstream service_idStream;
+
+	terminal_idStream << terminal_id;
+	service_idStream << service_id;
+	
+	std::string query = "DELETE FROM terminalservice WHERE terminal_id = " + terminal_idStream.str() + " AND service_id = " + service_idStream.str();
+	query_state = mysql_query(connection,query.c_str() );
+	if (query_state !=0) {
+		cout << mysql_error(connection) << endl;
+	}
+}
+
+
 void DBHandler::insertTerminalSpeise(int terminal_id, int speise_id, int anzahl, float sumpreis)
 {
 	std::stringstream terminalstr;
