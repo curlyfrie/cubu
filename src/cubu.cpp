@@ -26,6 +26,8 @@ void cubu::setup(){
 	showFaq = false;
 	selected_button = 0;
 
+	time_wellness = 12;
+
 	buttons.clear();
 	strings.clear();
 	pics.clear();
@@ -274,6 +276,9 @@ void cubu::update(){
 				active_side = side_temperature;
 				setTemp();
 			}
+			else if(fiducialID == side_activities){
+				setTime();
+			}
 				
 			
 			//Button Selection via rotation
@@ -417,6 +422,47 @@ void cubu::setTemp()
 	
 }
 
+void cubu::setTime()
+// set the temp
+{
+	// get current rotation
+	int direction = getRotDirection();
+	
+	// smoothness is hardcoded!
+	cout << direction << endl;
+	
+	if(time_wellness > 8 && direction == -1)
+	{	
+			time_wellness += direction;
+	}
+	else if(time_wellness < 22 && direction == 1)
+	{	
+			time_wellness += direction;
+	}
+	//Ausgabestring formatieren
+	
+	std::string s;
+	for(int i=0; i<5; i++){
+		
+		std::stringstream stream2;
+		stream2 << time_wellness-2+i;
+
+		std::string stemp = stream2.str();
+
+		if(i!= 2){
+			s += stemp+" C\n";
+		}
+		else{
+			s += "\n\n\n\n";
+			stringtodraw2 = stemp+" C\n";
+		}
+		
+	}
+
+	stringtodraw = s;
+	
+}
+
 int cubu::getRotDirection()
 // returns -1 if (marker)rotation is CW, +1 if rotation is CCW and 0 if nothing has changed
 {
@@ -535,6 +581,15 @@ void cubu::drawGUI(){
 		font.loadFont("bankg.ttf",20);
 		font.drawString("Temperature is set to: "+stemp, 560, 560);	
 	}
+	else if(active_side == side_activities){
+		ofSetColor(0x777777);
+		font.loadFont("bankg.ttf",20);
+		font.drawString(stringtodraw, 710, 255);
+		ofSetColor(0x000000);
+		font.loadFont("bankg.ttf",32);
+		font.drawString(stringtodraw2, 680, 360);
+
+	}
 }
 
 
@@ -638,6 +693,7 @@ void cubu::mousePressed(int x, int y, int button){
 		else if(active_side == side_activities && guiname == "Wellness" || guiname == "Beauty" || guiname == "Sports") {	
 			guiname = "describewell";
 			display->drawDetail(guiname, &buttons, &strings, &pics, buttons.at(selected_button)->menuid);
+			setTime();
 		}
 
 		else if(active_side == side_activities && guiname == "describewell") {
@@ -648,9 +704,9 @@ void cubu::mousePressed(int x, int y, int button){
 			else {
 				int menuid = buttons.at(selected_button)->getMenuid();
 
-			//	Wellness *well = dbhandler->getWell(menuid);
-			//	float preis = well->getPreis();
-			//	dbhandler->insertTerminalSpeise(terminalID,menuid,1, preis);
+				Wellness *well = dbhandler->getWell(menuid);
+				float preis = well->getPreis();
+			//	dbhandler->insertTerminalWellness(terminalID,menuid,1, preis);
 				display->draw(guiname, &buttons, &strings, &pics);
 			}
 			//saveAlarmtoDB();

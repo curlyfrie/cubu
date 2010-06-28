@@ -103,9 +103,11 @@ class cubu : public ofBaseApp{
 		float tempset;
 		int alarm_minute;
 		int alarm_hour;
+		int time_wellness;
 
 		void setAlarm();
 		void setTemp();
+		void setTime();
 		
 		//fiducial variables
 		int fiducial_threshold;
