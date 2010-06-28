@@ -179,10 +179,11 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 			Faq * f = faqs.at(i);
 			string->push_back(new cubuString(f->getQuestion(),30, y, "frabk.ttf", 14));
 			y+=17;
-			string->push_back(new cubuString(f->getAnswer(),30, y, "frabk.ttf", 12));
+			cubuString * cs = new cubuString(f->getAnswer(),30, y, "frabk.ttf", 12);
+			string->push_back(cs);
 			ofTrueTypeFont frab;
 			frab.loadFont("frabk.ttf",12);
-			ofRectangle rect = frab.getStringBoundingBox(f->getAnswer(), 30,y);
+			ofRectangle rect = frab.getStringBoundingBox(cs->text, 30,y);
 			y+=rect.height+15;
 		}
 		
