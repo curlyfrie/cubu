@@ -115,12 +115,14 @@ class cubu : public ofBaseApp{
 			
 		vector<Faq*> faqs;
 		vector<Speise*> speisen;
+		vector<Wellness*> wellness;
 		vector<Bestellung*> bestellungen;
 		string guiname;
 
 		map <int, Kunde*> kunden;
 		Speise * speise;
 		Kunde * kunde;
+		Wellness * well;
 
 };
 

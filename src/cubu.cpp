@@ -635,12 +635,33 @@ void cubu::mousePressed(int x, int y, int button){
 			alarmset = false;
 			dbhandler->deleteAlarm(terminalID);
 		}
+		else if(active_side == side_activities && guiname == "Wellness" || guiname == "Beauty" || guiname == "Sports") {	
+			guiname = "describewell";
+			display->drawDetail(guiname, &buttons, &strings, &pics, buttons.at(selected_button)->menuid);
+		}
+
+		else if(active_side == side_activities && guiname == "describewell") {
+			guiname = "activities1";
+			if (buttons.at(selected_button)->label == "back") {
+				display->draw(guiname, &buttons, &strings, &pics);
+			}
+			else {
+				int menuid = buttons.at(selected_button)->getMenuid();
+
+			//	Wellness *well = dbhandler->getWell(menuid);
+			//	float preis = well->getPreis();
+			//	dbhandler->insertTerminalSpeise(terminalID,menuid,1, preis);
+				display->draw(guiname, &buttons, &strings, &pics);
+			}
+			//saveAlarmtoDB();
+		}
+
 		else if(active_side == side_food && guiname == "Drinks" || guiname == "Menu") {	
 			guiname = "describe";
 			display->drawDetail(guiname, &buttons, &strings, &pics, buttons.at(selected_button)->menuid);
 		}
 
-		else if(guiname == "describe") {
+		else if(active_side == side_food && guiname == "describe") {
 			guiname = "food1";
 			if (buttons.at(selected_button)->label == "back") {
 				display->draw(guiname, &buttons, &strings, &pics);
