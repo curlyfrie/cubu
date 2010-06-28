@@ -156,6 +156,7 @@ void cubu::setupGUI()
 
 void cubu::setupMYSQLDB(){
 		
+	try{
 	dbhandler = new DBHandler();
 	dbhandler->getTerminals();
 	faqs  = dbhandler->getFaqs();
@@ -187,6 +188,11 @@ void cubu::setupMYSQLDB(){
 	
 	
 	//Kunde * k = kundenIt->second;
+	}
+	catch (...) {
+		cout << "Exception ";
+		
+	}
 	
 }
 
@@ -431,7 +437,6 @@ void cubu::setTime()
 	int direction = getRotDirection();
 	
 	// smoothness is hardcoded!
-	cout << direction << endl;
 	
 	if(time_wellness > 8 && direction == -1)
 	{	
@@ -447,7 +452,12 @@ void cubu::setTime()
 	for(int i=0; i<5; i++){
 		
 		std::stringstream stream2;
-		stream2 << time_wellness-2+i;
+		int tempt = time_wellness-2+i;
+
+		if(tempt < 10)
+			stream2 << "0" << tempt;
+		else
+			stream2 << tempt;
 
 		std::string stemp = stream2.str();
 

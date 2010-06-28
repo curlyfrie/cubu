@@ -67,6 +67,7 @@ private:
 	MYSQL_RES *result;
 	MYSQL_ROW row;
 	int query_state;
+	bool conn;
 
 	
 };
