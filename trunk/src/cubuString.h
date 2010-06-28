@@ -27,9 +27,12 @@ public:
 	cubuString(std::string ptext, float px, float py);
 	cubuString(std::string ptext);
 	void appendString(std::string text2);
+	std::string str_replace (std::string rep, std::string wit, std::string in);
 
 	~cubuString();
 	
 private:
 	void setDefaultValues();
+
+
 };

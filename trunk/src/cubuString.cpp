@@ -13,7 +13,16 @@ cubuString::cubuString( std::string ptext, float px, float py, std::string pfont
 	
 	x = px;
 	y = py;
+
 	text = ptext;
+/*
+	while(ptext.find("\\n") != string::npos){
+		text.replace(ptext.find("\\n"),2,"\n");
+	}
+*/
+
+	text = str_replace("\\n","\n",ptext);
+
 	color = pcolor;
 	font.loadFont(pfont,psize);
 
@@ -59,4 +68,17 @@ void cubuString::setDefaultValues(){
 	y = 400;
 	text = "TEST";
 	font.loadFont("frabk.ttf",100);
+}
+std::string cubuString::str_replace (std::string rep, std::string wit,std::string in) {
+  int pos;
+  while (true) {
+    pos = in.find(rep);
+    if (pos == -1) {
+      break;
+    } else {
+      in.erase(pos, rep.length());
+      in.insert(pos, wit);
+    }
+  }
+  return in;
 }
