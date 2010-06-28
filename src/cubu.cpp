@@ -3,6 +3,8 @@
 cubu::cubu()
 {
 	//setup() seems to be enough
+	
+	terminalID = 1;
 }
 
 cubu::~cubu()

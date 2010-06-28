@@ -59,7 +59,8 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 		pic->push_back(new cubuPic("img/backgrounds/alarm.png", 20, 150));
 	}
 	else if (guiname == "start") {
-		string->push_back(new cubuString("Welcome"));
+		Kunde *k = dbhandler->getKunde(dbhandler->getKundenId(terminalid));
+		string->push_back(new cubuString("Welcome "+k->getVorname()+" "+k->getNachname()));
 		pic->push_back(new cubuPic("img/backgrounds/start.png", 20, 150));
 		
 		
