@@ -32,7 +32,6 @@ class DBhandler {
 
 		}
 		$sql .= ")";
-
 		mysql_query($sql);
 
 	}
@@ -215,14 +214,14 @@ echo "<td><a href=# onclick=deleteElement(\"service\",".$row["service_id"].") >l
 		while ($row = $this->getRow($res)) {
 			echo "<tr><td>" . $row["name"] . "</td>";
 			echo "<td>" . $row["beschreibung"] . "</td>";
-echo "<td>" . $row["priotiraet"] . "</td>";
+echo "<td>" . $row["prioritaet"] . "</td>";
 echo "<td>" . $row["preis"] . "</td>";
 echo "<td>" . $row["typ"] . "</td>";
 echo "<td><a href=# onclick=deleteElement(\"wellness\",".$row["wellness_id"].") >löschen</a></td></tr>";
 
 		}
 		echo "<tr><td><input type=text name=name ></td><td><input type=text name=beschreibung ></td><td><input type=text name=preis style='width:20px'></td>
-<td><input type=text name=priotiraet style='width:20px'></td><td><input type=text name=typ style='width:20px'></td>
+<td><input type=text name=prioritaet style='width:20px'></td><td><input type=text name=typ style='width:20px'></td>
 		<td><input type=submit value=neu></td></tr>";
 		echo "</table><input type=hidden name=table value=wellness></form>";
 
