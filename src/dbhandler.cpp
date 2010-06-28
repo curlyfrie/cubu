@@ -15,7 +15,10 @@ DBHandler::DBHandler()
 		connection = mysql_real_connect(&mysql,"spanish-jewelry.com","d00e2d6b","9x69rLHnf4K4yQrg","d00e2d6b",0,0,0);
 		if (connection == NULL) {
 			cout << mysql_error(&mysql) << endl;
+			conn = false;
 		}
+		else
+			conn = true;
 	}
 	catch(...)
 	{
@@ -32,7 +35,7 @@ DBHandler::~DBHandler()
 }
 Terminal * DBHandler::getTerminal(int terminal_id)
 {
-	
+	if(conn){
 	try {
 		
 		std::stringstream terminalidstr;
@@ -80,12 +83,13 @@ Terminal * DBHandler::getTerminal(int terminal_id)
 		return NULL;
 	}	
 	
+	}
+
 }
-
-
 
 Kunde * DBHandler::getKunde(int kunde_id)
 {
+	if(conn){
 	try{
 		
 		std::stringstream kundeidstr;
@@ -137,12 +141,13 @@ Kunde * DBHandler::getKunde(int kunde_id)
 		cout << "exception";
 		return NULL;
 	}
-	
+	}
 }
 
 
 Speise * DBHandler::getSpeise(int speise_id)
 {
+	if(conn){
 	try{
 		
 		std::stringstream speiseidstr;
@@ -198,11 +203,12 @@ Speise * DBHandler::getSpeise(int speise_id)
 		cout << "exception";
 		return NULL;
 	}
-	
+	}
 }
 
 Wellness * DBHandler::getWell(int wellness_id)
 {
+	if(conn){
 	try{
 		std::stringstream wellnessidstr;
 		wellnessidstr << wellness_id;
@@ -260,11 +266,12 @@ Wellness * DBHandler::getWell(int wellness_id)
 		cout << "exception";
 		return NULL;
 	}
-	
+	}
 }
 
 void DBHandler::deleteFaq(int id)
 {
+	if(conn){
 	try{
 		std::string idString;
 		std::stringstream out;
@@ -279,11 +286,13 @@ void DBHandler::deleteFaq(int id)
 		cout << "exception";
 		
 	}
+	}
 }
 
 
 void DBHandler::deleteAlarm(int terminal_id)
 {
+	if(conn){
 	try{
 		std::string idString;
 		std::stringstream out;
@@ -297,10 +306,12 @@ void DBHandler::deleteAlarm(int terminal_id)
 		cout << "exception";
 		
 	}
+	}
 }
 
 void DBHandler::deleteTerminalService(int terminal_id, int service_id)
 {
+	if(conn){
 	try{
 		std::stringstream terminal_idStream;
 		std::stringstream service_idStream;
@@ -318,11 +329,13 @@ void DBHandler::deleteTerminalService(int terminal_id, int service_id)
 		cout << "exception";
 		
 	}
+	}
 }
 
 
 void DBHandler::insertTerminalSpeise(int terminal_id, int speise_id, int anzahl, float sumpreis)
 {
+	if(conn){
 	try{
 		std::stringstream terminalstr;
 		std::stringstream speisestr;
@@ -391,7 +404,7 @@ void DBHandler::insertTerminalSpeise(int terminal_id, int speise_id, int anzahl,
 	catch (...) {
 		cout << "Exception ";
 	}		
-	
+	}
 }
 
 void DBHandler::insertTerminalWellness(int terminal_id, int wellness_id, float preis, int time)
@@ -422,7 +435,9 @@ void DBHandler::insertTerminalWellness(int terminal_id, int wellness_id, float p
 }
 
 void DBHandler::insertTerminalService(int terminal_id, int service_id)
-{	try{
+{	
+	if(conn){
+	try{
 	cout << "insertTerminalService" << endl;
 	std::stringstream terminalstr;
 	std::stringstream servicestr;
@@ -447,9 +462,11 @@ void DBHandler::insertTerminalService(int terminal_id, int service_id)
 		cout << "Exception ";
 		
 	}
+	}
 }
 void DBHandler::insertTerminalService(Terminal* terminal, Service * service)
 {
+	if(conn){
 	try{
 		int terminal_id = terminal->getId();
 		int service_id = service->getId();
@@ -466,9 +483,11 @@ void DBHandler::insertTerminalService(Terminal* terminal, Service * service)
 		cout << "Exception ";
 		
 	}
+	}
 }
 vector<Bestellung *> DBHandler::getBestellungen(Terminal * terminal)
 {
+	if(conn){
 	try{
 		int terminal_id = terminal->getId();
 		std::stringstream terminalstr;
@@ -536,11 +555,13 @@ vector<Bestellung *> DBHandler::getBestellungen(Terminal * terminal)
 		cout << "Exception ";
 		
 	}
+	}
 }
 
 
 Kunde * DBHandler::getKunde(Terminal * terminal)
 {
+	if(conn){
 	try{
 		int terminal_id = terminal->getId();
 		std::stringstream terminalstr;
@@ -584,11 +605,13 @@ Kunde * DBHandler::getKunde(Terminal * terminal)
 		cout << "Exception ";
 		return NULL;
 	}
+	}
 }
 
 
 Service * DBHandler::getService(int service_id)
 {
+	if(conn){
 	try{
 		std::stringstream serviceidstr;
 		serviceidstr << service_id;
@@ -634,10 +657,12 @@ Service * DBHandler::getService(int service_id)
 		cout << "Exception ";
 		return NULL;
 	}
+	}
 }
 
 vector<int> DBHandler::getServiceIDsOfTerminal( int terminal_id){
-	try{
+	if(conn){
+		try{
 		std::stringstream terminalidstr;
 		terminalidstr << terminal_id;
 		
@@ -674,13 +699,14 @@ vector<int> DBHandler::getServiceIDsOfTerminal( int terminal_id){
 		cout << "Exception ";
 		
 	}
-	
+	}
 }
 
 
 
 void DBHandler::setAlarm(int terminal_id, int hour, int minute)
 {
+	if(conn){
 	try{
 		cout << "IMSET" << endl;
 		
@@ -724,11 +750,11 @@ void DBHandler::setAlarm(int terminal_id, int hour, int minute)
 	catch (...) {
 		cout << "Exception ";
 	}
-	
+	}
 }
 
 float DBHandler::getTemperatur(int terminal_id){
-	
+	if(conn){
 	try{
 		cout << terminal_id;
 		
@@ -763,10 +789,12 @@ float DBHandler::getTemperatur(int terminal_id){
 		cout << "Exception ";
 		
 	}
+	}
 }
 
 
 void DBHandler::setTemperatur(int terminal_id,float temperatur){
+	if(conn){
 	try{
 		
 		//returnvalue
@@ -805,12 +833,13 @@ void DBHandler::setTemperatur(int terminal_id,float temperatur){
 		cout << "Exception ";
 		
 	}
-	
+	}
 }
 
 
 
 std::string DBHandler::getAlarm(int terminal_id){
+	if(conn){
 	try{
 		//get the time of alarm in this format: hh:mm
 		
@@ -857,11 +886,12 @@ std::string DBHandler::getAlarm(int terminal_id){
 		cout << "Exception ";
 		
 	}
-	
+	}	
 }
 
 
 vector<Faq*> DBHandler::getFaqs() {
+	if(conn){
 	try{
 		query_state = mysql_query(connection, "SELECT * FROM faq");
 		if (query_state !=0) {
@@ -909,9 +939,11 @@ vector<Faq*> DBHandler::getFaqs() {
 		cout << "Exception ";
 		
 	}
+	}
 }
 vector<Speise*> DBHandler::getSpeisen() {
-	try{
+	if(conn){
+		try{
 		query_state = mysql_query(connection, "SELECT * FROM speise");
 		if (query_state !=0) {
 			cout << mysql_error(connection) << endl;
@@ -963,10 +995,12 @@ vector<Speise*> DBHandler::getSpeisen() {
 		cout << "Exception ";
 		
 	}
+	}
 }
 
 vector<Speise*> DBHandler::getSpeisen(int typ) {
-	try{
+	if(conn){
+		try{
 		std::stringstream typstr;
 		typstr << typ;
 		
@@ -1023,9 +1057,11 @@ vector<Speise*> DBHandler::getSpeisen(int typ) {
 		cout << "Exception ";
 		
 	}
+	}
 }
 
 Dienstleistung * DBHandler::getDienstleistung(int dienstleistung_id) {
+	if(conn){
 	try{
 		std::stringstream dienst;
 		dienst << dienstleistung_id;
@@ -1085,10 +1121,12 @@ Dienstleistung * DBHandler::getDienstleistung(int dienstleistung_id) {
 		cout << "Exception ";
 		return NULL;
 	}
+	}
 }
 
 vector<Dienstleistung*> DBHandler::getDienstleistungen() {
-	try{
+	if(conn){
+		try{
 		std::string query =  "SELECT * FROM dienstleistung";
 		
 		query_state = mysql_query(connection, query.c_str());
@@ -1143,9 +1181,11 @@ vector<Dienstleistung*> DBHandler::getDienstleistungen() {
 		cout << "Exception ";
 		
 	}
+	}
 }
 
 vector<Wellness*> DBHandler::getWellness() {
+	if(conn){
 	try{
 		std::string query =  "SELECT * FROM wellness";
 		
@@ -1203,10 +1243,12 @@ vector<Wellness*> DBHandler::getWellness() {
 		cout << "Exception ";
 		
 	}
+	}
 }
 
 vector<Wellness*> DBHandler::getWellness(int typ) {
-	try{
+	if(conn){
+		try{
 		std::stringstream typstr;
 		typstr << typ;
 		
@@ -1266,13 +1308,15 @@ vector<Wellness*> DBHandler::getWellness(int typ) {
 		cout << "Exception ";
 		
 	}
+	}
 }
 
 
 
 
 vector<Service*> DBHandler::getService() {
-	try{
+	if(conn){
+		try{
 		query_state = mysql_query(connection, "SELECT * FROM service");
 		if (query_state !=0) {
 			cout << mysql_error(connection) << endl;
@@ -1315,10 +1359,12 @@ vector<Service*> DBHandler::getService() {
 		cout << "Exception ";
 		
 	}
+	}
 }
 
 
 map <int, Kunde*> DBHandler::getKunden2() {
+	if(conn){
 	try{
 		query_state = mysql_query(connection, "SELECT * FROM kunde");
 		if (query_state !=0) {
@@ -1382,11 +1428,13 @@ map <int, Kunde*> DBHandler::getKunden2() {
 		cout << "Exception ";
 		
 	}
+	}
 	
 }
 
 
 int DBHandler::getKundenId(int terminalId) {
+	if(conn){
 	try{
 		//cout << "+++ getting kunden data";
 		query_state = mysql_query(connection, "SELECT kunde_id FROM terminalkunde where terminal_id = 1");
@@ -1420,6 +1468,7 @@ int DBHandler::getKundenId(int terminalId) {
 		cout << "Exception ";
 		return NULL;
 	}
+	}
 }
 
 
@@ -1428,7 +1477,8 @@ int DBHandler::getKundenId(int terminalId) {
 
 
 void DBHandler::getTerminals() {
-	try{
+	if(conn){
+		try{
 		query_state = mysql_query(connection, "SELECT * FROM terminal");
 		if (query_state !=0) {
 			cout << mysql_error(connection) << endl;
@@ -1460,6 +1510,7 @@ void DBHandler::getTerminals() {
 	catch (...) {
 		cout << "Exception ";
 		
+	}
 	}
 }
 
