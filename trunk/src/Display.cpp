@@ -105,7 +105,7 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 		button->push_back(new cubuButton(920,160,"FAQ"));
 		
 		//bestellungen
-		string->push_back(new cubuString("Your Orders:",50,310,"frabk.ttf", 20,0xFFFFFF));
+		string->push_back(new cubuString("Food Orders:",50,310,"frabk.ttf", 20,0xFFFFFF));
 		vector <Bestellung*> bestellungen = dbhandler->getBestellungen(dbhandler->getTerminal(terminalid));
 		cubuString * bestellungenString = new cubuString("",60, 320, "frabk.ttf", 11,0xEFEFEF);
 		for (int i = 0; i < bestellungen.size(); i++)
@@ -120,10 +120,10 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 						
 		
 		// services
-		string->push_back(new cubuString("Services ordered:",350,310,"frabk.ttf", 20,0xFFFFFF));
+		string->push_back(new cubuString("Services ordered:",330,310,"frabk.ttf", 20,0xFFFFFF));
 		vector<int> service = dbhandler->getServiceIDsOfTerminal(terminalid);
 		
-		cubuString * s = new cubuString("",370, 335, "frabk.ttf", 11,0xEFEFEF);
+		cubuString * s = new cubuString("",350, 335, "frabk.ttf", 11,0xEFEFEF);
 		for (int i = 0; i < service.size(); i++)
 		{
 			//std::stringstream anzahlStr;
@@ -138,7 +138,25 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 		
 		
 		// activities
-		//string->push_back(new cubuString("Rented Activities:",700,310,"frabk.ttf", 20,0xFFFFFF));
+		string->push_back(new cubuString("Booked Activities:",620,310,"frabk.ttf", 20,0xFFFFFF));
+		//display orders
+		vector <OrderWellness*> wellness = dbhandler->getOrderedWellness(terminalid);
+		cout << "wellness: " << wellness.size() << endl;
+		cubuString * wellnessString = new cubuString("",650, 335, "frabk.ttf", 11,0xEFEFEF);
+		for (int i = 0; i < wellness.size(); i++)
+		{
+			//	cout <<"\n" + anzahlStr.str() + " " + dbhandler->getSpeise(bestellungen.at(i)->getSpeiseId())->getName();
+			std::stringstream namestr;
+			namestr << dbhandler->getWell(wellness.at(i)->getWellnessId())->getName();
+			std::stringstream datumstr;
+			datumstr << wellness.at(i)->getDatum();
+			
+			wellnessString->appendString(namestr.str() + " um " + datumstr.str() + " Uhr\n");
+			
+		}
+		string->push_back(wellnessString);
+		
+		
 		
 		float temperature = dbhandler->getTemperatur(terminalid);
 		std::stringstream out;
