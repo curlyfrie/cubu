@@ -14,7 +14,7 @@ DBHandler::DBHandler()
 		mysql_init(&mysql);	//connection = mysql_real_connect(&mysql,"host","user","password","database",0,0,0);
 		connection = mysql_real_connect(&mysql,"spanish-jewelry.com","d00e2d6b","9x69rLHnf4K4yQrg","d00e2d6b",0,0,0);
 		if (connection == NULL) {
-			cout << mysql_error(&mysql) << endl;
+			//cout << mysql_error(&mysql) << endl;
 			conn = false;
 		}
 		else
@@ -22,7 +22,7 @@ DBHandler::DBHandler()
 	}
 	catch(...)
 	{
-		cout << "exception at constructor";
+		//cout << "exception at constructor";
 	}
 	
 	
@@ -79,7 +79,7 @@ Terminal * DBHandler::getTerminal(int terminal_id)
 		
 	}
 	catch (...) {
-		cout << "Exception at getterminal";
+		//cout << "Exception at getterminal";
 		return NULL;
 	}	
 	
@@ -138,7 +138,7 @@ Kunde * DBHandler::getKunde(int kunde_id)
 	}
 	catch (...)
 	{
-		cout << "exception";
+		//cout << "exception";
 		return NULL;
 	}
 	}
@@ -200,7 +200,7 @@ Speise * DBHandler::getSpeise(int speise_id)
 	}
 	catch (...)
 	{
-		cout << "exception";
+		//cout << "exception";
 		return NULL;
 	}
 	}
@@ -263,7 +263,7 @@ Wellness * DBHandler::getWell(int wellness_id)
 	}
 	catch (...)
 	{
-		cout << "exception";
+		//cout << "exception";
 		return NULL;
 	}
 	}
@@ -283,7 +283,7 @@ void DBHandler::deleteFaq(int id)
 	}
 	catch (...)
 	{
-		cout << "exception";
+		//cout << "exception";
 		
 	}
 	}
@@ -303,7 +303,7 @@ void DBHandler::deleteAlarm(int terminal_id)
 		mysql_query(connection,query.c_str());	
 	}catch (...)
 	{
-		cout << "exception";
+		//cout << "exception";
 		
 	}
 	}
@@ -322,11 +322,11 @@ void DBHandler::deleteTerminalService(int terminal_id, int service_id)
 		std::string query = "DELETE FROM terminalservice WHERE terminal_id = " + terminal_idStream.str() + " AND service_id = " + service_idStream.str();
 		query_state = mysql_query(connection,query.c_str() );
 		if (query_state !=0) {
-			cout << mysql_error(connection) << endl;
+			//cout << mysql_error(connection) << endl;
 		}
 	}catch (...)
 	{
-		cout << "exception";
+		//cout << "exception";
 		
 	}
 	}
@@ -351,7 +351,7 @@ void DBHandler::insertTerminalSpeise(int terminal_id, int speise_id, int anzahl,
 		std::string query = "SELECT anzahl FROM terminalspeise where terminal_id = " + terminalstr.str() + " and speise_id = " + speisestr.str();
 		query_state = mysql_query(connection,query.c_str() );
 		if (query_state !=0) {
-			cout << mysql_error(connection) << endl;
+			//cout << mysql_error(connection) << endl;
 		}
 		
 		unsigned int num_fields;
@@ -377,9 +377,9 @@ void DBHandler::insertTerminalSpeise(int terminal_id, int speise_id, int anzahl,
 		mysql_free_result(result);
 		
 		if(num_fields > 0){
-			cout << "anz " << anz << endl;
+			//cout << "anz " << anz << endl;
 			anz++;
-			cout << "anz " << anz << endl;
+			//cout << "anz " << anz << endl;
 			anzstr << anz;
 			
 			std::string query1 = "update terminalspeise set anzahl = " + anzstr.str() + ", datum = now() where terminal_id = " + terminalstr.str() + " and speise_id = " + speisestr.str();
@@ -387,7 +387,7 @@ void DBHandler::insertTerminalSpeise(int terminal_id, int speise_id, int anzahl,
 			query_state = mysql_query(connection,query1.c_str());	
 			
 			if (query_state !=0) {
-				cout << mysql_error(connection) << endl;
+				//cout << mysql_error(connection) << endl;
 			}
 			
 		}
@@ -396,13 +396,13 @@ void DBHandler::insertTerminalSpeise(int terminal_id, int speise_id, int anzahl,
 			std::string query1 = "insert into terminalspeise (terminal_id, speise_id, datum, anzahl, sumpreis) values ('" + terminalstr.str() + "',' " + speisestr.str() + "' , now(), '"+ anzahlstr.str()+ "', '"+sumpreisstr.str()+"')";
 			query_state = mysql_query(connection,query1.c_str());
 			if (query_state !=0) {
-				cout << mysql_error(connection) << endl;
+				//cout << mysql_error(connection) << endl;
 			}
 		}
 		
 	}
 	catch (...) {
-		cout << "Exception ";
+		//cout << "Exception ";
 	}		
 	}
 }
@@ -421,15 +421,15 @@ void DBHandler::insertTerminalWellness(int terminal_id, int wellness_id, float p
 	
 	std::string query = "insert into terminalwellness(terminal_id, wellness_id, preis, datum) values ('" + terminalstr.str() + "',' " + wellnessstr.str() + "' , '" + preisstr.str() + "', '2010-06-24 "+timestr.str() +":00:00' )";
 	
-	cout << "query = " << query << endl;
+	//cout << "query = " << query << endl;
 	query_state = mysql_query(connection,query.c_str());
 	if (query_state !=0) {
-		cout << mysql_error(connection) << endl;
+		//cout << mysql_error(connection) << endl;
 	}
 
 }
 	catch (...) {
-		cout << "Exception ";
+		//cout << "Exception ";
 		
 	}
 }
@@ -438,28 +438,28 @@ void DBHandler::insertTerminalService(int terminal_id, int service_id)
 {	
 	if(conn){
 	try{
-	cout << "insertTerminalService" << endl;
+	//cout << "insertTerminalService" << endl;
 	std::stringstream terminalstr;
 	std::stringstream servicestr;
 	
 	terminalstr << terminal_id;
 	servicestr << service_id;
 	
-	cout << "terminalid = " << terminal_id << endl;
-	cout << "serviceid = " << service_id << endl;
+	//cout << "terminalid = " << terminal_id << endl;
+	//cout << "serviceid = " << service_id << endl;
 	
 	std::string query = "insert into terminalservice(terminal_id, service_id, datum) values ('" + terminalstr.str() + "',' " + servicestr.str() + "' , now() )";
 	
-	cout << "query = " << query << endl;
+	//cout << "query = " << query << endl;
 	query_state = mysql_query(connection,query.c_str());
 	if (query_state !=0) {
-		cout << mysql_error(connection) << endl;
+		//cout << mysql_error(connection) << endl;
 	}
 	
-	cout << "exit insertTerminalService" << endl;
+	//cout << "exit insertTerminalService" << endl;
 }
 	catch (...) {
-		cout << "Exception ";
+		//cout << "Exception ";
 		
 	}
 	}
@@ -480,7 +480,7 @@ void DBHandler::insertTerminalService(Terminal* terminal, Service * service)
 		mysql_query(connection,query.c_str());
 	}
 	catch (...) {
-		cout << "Exception ";
+		//cout << "Exception ";
 		
 	}
 	}
@@ -495,11 +495,11 @@ vector<Bestellung *> DBHandler::getBestellungen(Terminal * terminal)
 		
 		vector<Bestellung *> bestellungen;
 		std::string query = "SELECT s.speise_id, s.name, s.beschreibung, s.preis, s.bild, s.typ, sum(ts.anzahl) as anzahl, ts.sumpreis FROM terminalspeise ts NATURAL JOIN speise s WHERE ts.terminal_id = " + terminalstr.str()  + " GROUP BY s.speise_id, ts.terminal_id";
-		cout << query << endl;
+		//cout << query << endl;
 		query_state = mysql_query(connection, query.c_str());
 		
 		if (query_state !=0) {
-			cout << mysql_error(connection) << endl;
+			//cout << mysql_error(connection) << endl;
 		}
 		
 		unsigned int num_fields;
@@ -552,7 +552,7 @@ vector<Bestellung *> DBHandler::getBestellungen(Terminal * terminal)
 		return bestellungen;	
 	}
 	catch (...) {
-		cout << "Exception ";
+		//cout << "Exception ";
 		
 	}
 	}
@@ -567,9 +567,9 @@ vector<OrderWellness *> DBHandler::getOrderedWellness(int terminal_id)
 		vector<OrderWellness *> orderwellness;
 		std::string query = "SELECT w.wellness_id, w.name, w.beschreibung, w.prioritaet, w.typ, tw.preis, hour(tw.datum) FROM terminalwellness tw INNER JOIN wellness w ON w.wellness_id = tw.wellness_id WHERE tw.terminal_id = " + terminalstr.str()  + " GROUP BY w.wellness_id, tw.terminal_id";
 		query_state = mysql_query(connection, query.c_str());
-		cout<<query<<endl;
+		//cout<<query<<endl;
 		if (query_state !=0) {
-			cout << mysql_error(connection) << endl;
+			//cout << mysql_error(connection) << endl;
 		}
 		
 		unsigned int num_fields;
@@ -619,7 +619,7 @@ vector<OrderWellness *> DBHandler::getOrderedWellness(int terminal_id)
 		return orderwellness;	
 	}
 	catch (...) {
-		cout << "Exception ";
+		//cout << "Exception ";
 		
 	}
 }
@@ -639,7 +639,7 @@ Kunde * DBHandler::getKunde(Terminal * terminal)
 		query_state = mysql_query(connection, query.c_str());
 		
 		if (query_state !=0) {
-			cout << mysql_error(connection) << endl;
+			//cout << mysql_error(connection) << endl;
 		}
 		
 		unsigned int num_fields;
@@ -669,7 +669,7 @@ Kunde * DBHandler::getKunde(Terminal * terminal)
 		return kunde;	
 	}
 	catch (...) {
-		cout << "Exception ";
+		//cout << "Exception ";
 		return NULL;
 	}
 	}
@@ -721,7 +721,7 @@ Service * DBHandler::getService(int service_id)
 		return service;
 	}
 	catch (...) {
-		cout << "Exception ";
+		//cout << "Exception ";
 		return NULL;
 	}
 	}
@@ -763,7 +763,7 @@ vector<int> DBHandler::getServiceIDsOfTerminal( int terminal_id){
 		return serviceIDs;
 	}
 	catch (...) {
-		cout << "Exception ";
+		//cout << "Exception ";
 		
 	}
 	}
@@ -775,7 +775,7 @@ void DBHandler::setAlarm(int terminal_id, int hour, int minute)
 {
 	if(conn){
 	try{
-		cout << "IMSET" << endl;
+		//cout << "IMSET" << endl;
 		
 		
 		std::stringstream hstr;
@@ -790,7 +790,7 @@ void DBHandler::setAlarm(int terminal_id, int hour, int minute)
 	std:string query = "SELECT * FROM alarm WHERE terminal_id = " + terminalstream.str();
 		query_state = mysql_query(connection,query.c_str() );
 		if (query_state !=0) {
-			cout << mysql_error(connection) << endl;
+			//cout << mysql_error(connection) << endl;
 		}
 		
 		unsigned int num_fields;
@@ -815,7 +815,7 @@ void DBHandler::setAlarm(int terminal_id, int hour, int minute)
 		}
 	}
 	catch (...) {
-		cout << "Exception ";
+		//cout << "Exception ";
 	}
 	}
 }
@@ -823,7 +823,7 @@ void DBHandler::setAlarm(int terminal_id, int hour, int minute)
 float DBHandler::getTemperatur(int terminal_id){
 	if(conn){
 	try{
-		cout << terminal_id;
+		//cout << terminal_id;
 		
 		//returnvalue
 		float temperatur;
@@ -839,7 +839,7 @@ float DBHandler::getTemperatur(int terminal_id){
 		temperatur = 20;
 		
 		if (query_state !=0) {
-			cout << mysql_error(connection) << endl;
+			//cout << mysql_error(connection) << endl;
 		}
 		
 		result = mysql_store_result(connection);
@@ -847,13 +847,13 @@ float DBHandler::getTemperatur(int terminal_id){
 		while ( ( row = mysql_fetch_row(result)) ) {
 			temperatur = atof(row[1]);
 			
-			cout << temperatur;
+			//cout << temperatur;
 		}
 		
 		return temperatur;	
 	}
 	catch (...) {
-		cout << "Exception ";
+		//cout << "Exception ";
 		
 	}
 	}
@@ -874,7 +874,7 @@ void DBHandler::setTemperatur(int terminal_id,float temperatur){
 	std:string query = "SELECT * FROM temperatur WHERE terminal_id = " + terminalstream.str();
 		query_state = mysql_query(connection, query.c_str());
 		if (query_state !=0) {
-			cout << mysql_error(connection) << endl;
+			//cout << mysql_error(connection) << endl;
 		}
 		unsigned int num_fields;
 		unsigned int i;
@@ -882,22 +882,22 @@ void DBHandler::setTemperatur(int terminal_id,float temperatur){
 		num_fields = mysql_num_rows(result);
 		
 		
-		cout <<temp.str()<<endl;
-		cout<<temperatur<<endl;
+		//cout <<temp.str()<<endl;
+		//cout<<temperatur<<endl;
 		
 		if(num_fields > 0){
 			query = "UPDATE temperatur SET temperatur="+temp.str()+" WHERE terminal_id = " + terminalstream.str();
 			query_state = mysql_query(connection, query.c_str());
 		} else {
 			query = "INSERT INTO temperatur (terminal_id,temperatur) values ("+terminalstream.str()+","+temp.str()+")";
-			cout << query <<endl;
+			//cout << query <<endl;
 			query_state = mysql_query(connection, query.c_str());
 		}
 		mysql_free_result(result);
 		
 	}
 	catch (...) {
-		cout << "Exception ";
+		//cout << "Exception ";
 		
 	}
 	}
@@ -925,7 +925,7 @@ std::string DBHandler::getAlarm(int terminal_id){
 		query_state = mysql_query(connection,query.c_str() );
 		
 		if (query_state !=0) {
-			cout << mysql_error(connection) << endl;
+			//cout << mysql_error(connection) << endl;
 		}
 		
 		unsigned int num_fields;
@@ -950,7 +950,7 @@ std::string DBHandler::getAlarm(int terminal_id){
 		return alarmstring;	
 	}
 	catch (...) {
-		cout << "Exception ";
+		//cout << "Exception ";
 		
 	}
 	}	
@@ -962,7 +962,7 @@ vector<Faq*> DBHandler::getFaqs() {
 	try{
 		query_state = mysql_query(connection, "SELECT * FROM faq");
 		if (query_state !=0) {
-			cout << mysql_error(connection) << endl;
+			//cout << mysql_error(connection) << endl;
 		}
 		vector <Faq*> faqs; 
 		unsigned int num_fields;
@@ -989,12 +989,9 @@ vector<Faq*> DBHandler::getFaqs() {
 				if(i== 2)
 					answer = row[i];
 				
-				
-				printf("[%.*s] ", (int) lengths[i],
-					   row[i] ? row[i] : "NULL");
 			}
 			Faq * faq = new Faq(id, question, answer);
-			printf("\n");
+
 			faq->printFaq();
 			faqs.push_back(faq);
 			
@@ -1003,7 +1000,7 @@ vector<Faq*> DBHandler::getFaqs() {
 		mysql_free_result(result);
 		return faqs;	}
 	catch (...) {
-		cout << "Exception ";
+		//cout << "Exception ";
 		
 	}
 	}
@@ -1013,7 +1010,7 @@ vector<Speise*> DBHandler::getSpeisen() {
 		try{
 		query_state = mysql_query(connection, "SELECT * FROM speise");
 		if (query_state !=0) {
-			cout << mysql_error(connection) << endl;
+			//cout << mysql_error(connection) << endl;
 		}
 		vector <Speise*> speisen; 
 		unsigned int num_fields;
@@ -1059,7 +1056,7 @@ vector<Speise*> DBHandler::getSpeisen() {
 		return speisen;	
 	}
 	catch (...) {
-		cout << "Exception ";
+		//cout << "Exception ";
 		
 	}
 	}
@@ -1072,10 +1069,10 @@ vector<Speise*> DBHandler::getSpeisen(int typ) {
 		typstr << typ;
 		
 		std::string query =  "SELECT * FROM speise where typ =" + typstr.str();
-		cout << "getsPeisen " << query << endl;
+		//cout << "getsPeisen " << query << endl;
 		query_state = mysql_query(connection, query.c_str());
 		if (query_state !=0) {
-			cout << mysql_error(connection) << endl;
+			//cout << mysql_error(connection) << endl;
 		}
 		vector <Speise*> speisen; 
 		unsigned int num_fields;
@@ -1112,7 +1109,7 @@ vector<Speise*> DBHandler::getSpeisen(int typ) {
 					typ = atoi(row[i]);
 				
 			}
-			cout << speise_id << endl;
+			//cout << speise_id << endl;
 			speisen.push_back(new Speise(speise_id, name,beschreibung, preis, bild, typ));
 			
 		}
@@ -1121,7 +1118,7 @@ vector<Speise*> DBHandler::getSpeisen(int typ) {
 		return speisen;
 	}
 	catch (...) {
-		cout << "Exception ";
+		//cout << "Exception ";
 		
 	}
 	}
@@ -1136,7 +1133,7 @@ Dienstleistung * DBHandler::getDienstleistung(int dienstleistung_id) {
 		
 		query_state = mysql_query(connection, query.c_str());
 		if (query_state !=0) {
-			cout << mysql_error(connection) << endl;
+			//cout << mysql_error(connection) << endl;
 		}
 		
 		Dienstleistung * dienstleistung; 
@@ -1185,7 +1182,7 @@ Dienstleistung * DBHandler::getDienstleistung(int dienstleistung_id) {
 		
 	}
 	catch (...) {
-		cout << "Exception ";
+		//cout << "Exception ";
 		return NULL;
 	}
 	}
@@ -1198,7 +1195,7 @@ vector<Dienstleistung*> DBHandler::getDienstleistungen() {
 		
 		query_state = mysql_query(connection, query.c_str());
 		if (query_state !=0) {
-			cout << mysql_error(connection) << endl;
+			//cout << mysql_error(connection) << endl;
 		}
 		vector <Dienstleistung*> dienstleistung; 
 		unsigned int num_fields;
@@ -1245,7 +1242,7 @@ vector<Dienstleistung*> DBHandler::getDienstleistungen() {
 		return dienstleistung;	
 	}
 	catch (...) {
-		cout << "Exception ";
+		//cout << "Exception ";
 		
 	}
 	}
@@ -1258,7 +1255,7 @@ vector<Wellness*> DBHandler::getWellness() {
 		
 		query_state = mysql_query(connection, query.c_str());
 		if (query_state !=0) {
-			cout << mysql_error(connection) << endl;
+			//cout << mysql_error(connection) << endl;
 		}
 		vector <Wellness*> wellness; 
 		unsigned int num_fields;
@@ -1307,7 +1304,7 @@ vector<Wellness*> DBHandler::getWellness() {
 		return wellness;
 	}
 	catch (...) {
-		cout << "Exception ";
+		//cout << "Exception ";
 		
 	}
 	}
@@ -1320,10 +1317,10 @@ vector<Wellness*> DBHandler::getWellness(int typ) {
 		typstr << typ;
 		
 		std::string query =  "SELECT * FROM wellness where typ =" + typstr.str();
-		//cout << "getsPeisen " << query << endl;
+		////cout << "getsPeisen " << query << endl;
 		query_state = mysql_query(connection, query.c_str());
 		if (query_state !=0) {
-			cout << mysql_error(connection) << endl;
+			//cout << mysql_error(connection) << endl;
 		}
 		vector <Wellness*> wellness; 
 		unsigned int num_fields;
@@ -1372,7 +1369,7 @@ vector<Wellness*> DBHandler::getWellness(int typ) {
 		return wellness;	
 	}
 	catch (...) {
-		cout << "Exception ";
+		//cout << "Exception ";
 		
 	}
 	}
@@ -1386,7 +1383,7 @@ vector<Service*> DBHandler::getService() {
 		try{
 		query_state = mysql_query(connection, "SELECT * FROM service");
 		if (query_state !=0) {
-			cout << mysql_error(connection) << endl;
+			//cout << mysql_error(connection) << endl;
 		}
 		vector <Service*> services; 
 		unsigned int num_fields;
@@ -1423,7 +1420,7 @@ vector<Service*> DBHandler::getService() {
 		return services;	
 	}
 	catch (...) {
-		cout << "Exception ";
+		//cout << "Exception ";
 		
 	}
 	}
@@ -1435,7 +1432,7 @@ map <int, Kunde*> DBHandler::getKunden2() {
 	try{
 		query_state = mysql_query(connection, "SELECT * FROM kunde");
 		if (query_state !=0) {
-			cout << mysql_error(connection) << endl;
+			//cout << mysql_error(connection) << endl;
 		}
 		//vector <Kunde*> kunden;
 		map <int, Kunde*> kunden2;
@@ -1470,18 +1467,14 @@ map <int, Kunde*> DBHandler::getKunden2() {
 				if(i== 4)
 					kreditkartennummer = row[i];
 				
-				
-				printf("[%.*s] ", (int) lengths[i],
-					   row[i] ? row[i] : "NULL");
 			}
 			
 			Kunde  * kunde = new Kunde(id, vorname, nachname, adresse, kreditkartennummer);
 			
-			printf("\n");
 			kunden2.insert(make_pair(1, kunde));
 			for(map <int, Kunde*>::iterator it = kunden2.begin();it!=kunden2.end(); ++it)
 			{
-				cout << "ID " << it->first;
+				//cout << "ID " << it->first;
 			}
 			//kunden.push_back(kunde);
 			
@@ -1492,7 +1485,7 @@ map <int, Kunde*> DBHandler::getKunden2() {
 		
 	}
 	catch (...) {
-		cout << "Exception ";
+		//cout << "Exception ";
 		
 	}
 	}
@@ -1503,10 +1496,10 @@ map <int, Kunde*> DBHandler::getKunden2() {
 int DBHandler::getKundenId(int terminalId) {
 	if(conn){
 	try{
-		//cout << "+++ getting kunden data";
+		////cout << "+++ getting kunden data";
 		query_state = mysql_query(connection, "SELECT kunde_id FROM terminalkunde where terminal_id = 1");
 		if (query_state !=0) {
-			cout << mysql_error(connection) << endl;
+			//cout << mysql_error(connection) << endl;
 		}
 		int kunden_id;
 		unsigned int num_fields;
@@ -1521,9 +1514,8 @@ int DBHandler::getKundenId(int terminalId) {
 			for( i = 0; i < num_fields; i++)
 			{
 				kunden_id = atoi(row[i]);
-				//cout << num_fields << " " <<row[i]<<endl;
+				////cout << num_fields << " " <<row[i]<<endl;
 			}
-			printf("\n");
 			
 		}
 		mysql_free_result(result);
@@ -1532,7 +1524,7 @@ int DBHandler::getKundenId(int terminalId) {
 		return kunden_id;
 	}
 	catch (...) {
-		cout << "Exception ";
+		//cout << "Exception ";
 		return NULL;
 	}
 	}
@@ -1548,7 +1540,7 @@ void DBHandler::getTerminals() {
 		try{
 		query_state = mysql_query(connection, "SELECT * FROM terminal");
 		if (query_state !=0) {
-			cout << mysql_error(connection) << endl;
+			//cout << mysql_error(connection) << endl;
 		}
 		
 		unsigned int num_fields;
@@ -1560,13 +1552,6 @@ void DBHandler::getTerminals() {
 		while ( ( row = mysql_fetch_row(result)) ) {
 			unsigned long *lengths;
 			lengths = mysql_fetch_lengths(result);
-			for( i = 0; i < num_fields; i++)
-			{
-				printf("[%.*s] ", (int) lengths[i],
-					   row[i] ? row[i] : "NULL");
-			}
-			printf("\n");
-			
 		}
 		mysql_free_result(result);
 		
@@ -1575,7 +1560,7 @@ void DBHandler::getTerminals() {
 		
 	}
 	catch (...) {
-		cout << "Exception ";
+		//cout << "Exception ";
 		
 	}
 	}

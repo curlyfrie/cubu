@@ -20,7 +20,7 @@ Faq::Faq(int _id, std::string _question, std::string _answer)
 }
 
 void Faq::printFaq(){
-	std::cout << question;
+	//std::cout << question;
 }
 
 std::string Faq::getQuestion(){

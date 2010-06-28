@@ -171,9 +171,9 @@ void cubu::setupMYSQLDB(){
 	for(int i = 0; i < bestellungen.size(); i++)
 	{
 		
-		cout << "bestellte Speisen " ;
+		//cout << "bestellte Speisen " ;
 		speise = dbhandler->getSpeise(bestellungen.at(i)->getSpeiseId());
-		cout << speise->getName();
+		//cout << speise->getName();
 
 	}
 	kunde = dbhandler->getKunde(terminal);
@@ -190,7 +190,7 @@ void cubu::setupMYSQLDB(){
 	//Kunde * k = kundenIt->second;
 	}
 	catch (...) {
-		cout << "Exception ";
+		//cout << "Exception ";
 		
 	}
 	
@@ -199,7 +199,7 @@ void cubu::setupMYSQLDB(){
 //--------------------------------------------------------------
 void cubu::update(){
 
-	//cout << active_side << endl;
+	////cout << active_side << endl;
 	
 	// update fiducial
 	vidGrabber.grabFrame();
@@ -385,8 +385,8 @@ void cubu::setAlarm()
 	
 	stringtodraw = " "+ stream3.str()  + "h:" +  stream2.str() + "min";
 	
-	//cout << "set alarm to" << alarm_hour << "." << alarm_minute << endl;
-	//cout << "set Alarm:" << stringtodraw << endl;
+	////cout << "set alarm to" << alarm_hour << "." << alarm_minute << endl;
+	////cout << "set Alarm:" << stringtodraw << endl;
 	
 }
 void cubu::setTemp()
@@ -509,7 +509,7 @@ int cubu::getRotDirection()
 	}
 		
 
-//	cout << "ROTATION: cur: " << current_angle << " prev: " << previous_angle << " gap: " <<gap << "  " << direction << endl;
+//	//cout << "ROTATION: cur: " << current_angle << " prev: " << previous_angle << " gap: " <<gap << "  " << direction << endl;
 
 	// set the new angle
 	previous_angle = current_angle;
@@ -537,7 +537,7 @@ void cubu::draw(){
 		{
 			fiducial->draw( 20, 430 );//draw fiducial
 			fiducial->drawCorners( 20, 430 );//draw corners
-			//cout << "fiducial " << fiducial->getId() << " found at ( " << fiducial->getX() << "," << fiducial->getY() << " )" << endl;
+			////cout << "fiducial " << fiducial->getId() << " found at ( " << fiducial->getX() << "," << fiducial->getY() << " )" << endl;
 		}
 	}
 	
@@ -631,16 +631,16 @@ void cubu::keyPressed(int key){
 			break;
 		/*//DEBUGGIN AHEAD!
 		case 'b':
-			///cout << "alarm == " <<   dbhandler->getAlarm(0);
+			/////cout << "alarm == " <<   dbhandler->getAlarm(0);
 			
 			break;*/
 		case '-':
 			fiducial_threshold-=5;
-			cout<<"threshold = "<<fiducial_threshold<<endl;
+			//cout<<"threshold = "<<fiducial_threshold<<endl;
 			break;
 		case '+':
 			fiducial_threshold+=5;
-			cout<<"threshold = "<<fiducial_threshold<<endl;
+			//cout<<"threshold = "<<fiducial_threshold<<endl;
 			break;
 
 		default: break;
@@ -692,7 +692,7 @@ void cubu::mousePressed(int x, int y, int button){
 				buttons.at(i)->select(true);
 				selected_button = i;
 				temp = i;
-				cout << "you have hit button: " << i << "guiname: " << buttons.at(selected_button)->guiname << endl; 
+				//cout << "you have hit button: " << i << "guiname: " << buttons.at(selected_button)->guiname << endl; 
 				break;
 			}
 				
@@ -704,7 +704,7 @@ void cubu::mousePressed(int x, int y, int button){
 					buttons.at(i)->select(false);
 			}
 		
-			cout << "calling draw() with guiname = " << buttons.at(selected_button)->guiname << endl;
+			//cout << "calling draw() with guiname = " << buttons.at(selected_button)->guiname << endl;
 			std::string name = buttons.at(selected_button)->guiname;
 			
 			if(active_side == side_food && name == "Menu")
@@ -729,14 +729,14 @@ void cubu::mousePressed(int x, int y, int button){
 			}
 			
 			else if(active_side == side_fun){
-				cout << "bla bla bla" << endl;
+				//cout << "bla bla bla" << endl;
 				guiname="detaildienst";
 				if(buttons.at(selected_button)->label != "back"){
-					cout << "deine mutter" << endl;
+					//cout << "deine mutter" << endl;
 					display->drawDienstleistungDetail(guiname,&buttons,&strings,&pics,buttons.at(selected_button)->menuid);
 				}
 				else{
-					cout << "have some fun" << endl;
+					//cout << "have some fun" << endl;
 					guiname = "fun1";
 					display->draw(guiname, &buttons, &strings, &pics);
 				}
@@ -744,7 +744,7 @@ void cubu::mousePressed(int x, int y, int button){
 				
 			}
 			else if (active_side == side_roomservice) {
-				//cout << "selected button == " <<  buttons.at(selected_button)->label << endl;
+				////cout << "selected button == " <<  buttons.at(selected_button)->label << endl;
 				
 				bool deleteservice = false;
 				
@@ -804,7 +804,7 @@ void cubu::mousePressed(int x, int y, int button){
  
 
 	if (button==1) {
-		cout << guiname << endl;	
+		//cout << guiname << endl;	
 		if(active_side == side_alarm && !alarmset){
 			alarmset = true;
 					
@@ -868,7 +868,7 @@ void cubu::mousePressed(int x, int y, int button){
 
 		}
 		else if (active_side == side_roomservice) {
-			//cout << "selected button == " <<  buttons.at(selected_button)->label << endl;
+			////cout << "selected button == " <<  buttons.at(selected_button)->label << endl;
 			
 			bool deleteservice = false;
 			
