@@ -565,7 +565,7 @@ vector<OrderWellness *> DBHandler::getOrderedWellness(int terminal_id)
 		terminalstr << terminal_id;
 		
 		vector<OrderWellness *> orderwellness;
-		std::string query = "SELECT w.wellness_id, w.name, w.beschreibung, w.prioritaet, w.typ, tw.preis, tw.datum FROM terminalwellness tw INNER JOIN wellness w ON w.wellness_id = tw.wellness_id WHERE tw.terminal_id = " + terminalstr.str()  + " GROUP BY w.wellness_id, tw.terminal_id";
+		std::string query = "SELECT w.wellness_id, w.name, w.beschreibung, w.prioritaet, w.typ, tw.preis, hour(tw.datum) FROM terminalwellness tw INNER JOIN wellness w ON w.wellness_id = tw.wellness_id WHERE tw.terminal_id = " + terminalstr.str()  + " GROUP BY w.wellness_id, tw.terminal_id";
 		query_state = mysql_query(connection, query.c_str());
 		cout<<query<<endl;
 		if (query_state !=0) {
