@@ -265,6 +265,29 @@ void DBHandler::insertTerminalSpeise(int terminal_id, int speise_id, int anzahl,
 	}
 
 }
+
+void DBHandler::insertTerminalService(int terminal_id, int service_id)
+{	
+	cout << "insertTerminalService" << endl;
+	std::stringstream terminalstr;
+	std::stringstream servicestr;
+	
+	terminalstr << terminal_id;
+	servicestr << service_id;
+	
+	cout << "terminalid = " << terminal_id << endl;
+	cout << "serviceid = " << service_id << endl;
+	
+	std::string query = "insert into terminalservice(terminal_id, service_id, datum) values ('" + terminalstr.str() + "',' " + servicestr.str() + "' , now() )";
+	
+	cout << "query = " << query << endl;
+	query_state = mysql_query(connection,query.c_str());
+	if (query_state !=0) {
+		cout << mysql_error(connection) << endl;
+	}
+	
+	cout << "exit insertTerminalService" << endl;
+}
 void DBHandler::insertTerminalService(Terminal* terminal, Service * service)
 {
 	int terminal_id = terminal->getId();
@@ -275,7 +298,7 @@ void DBHandler::insertTerminalService(Terminal* terminal, Service * service)
 	terminalstr << terminal_id;
 	servicestr << service_id;
 
-	std::string query = "insert into terminalservice(terminal_id, service_id) values ('" + terminalstr.str() + "',' " + servicestr.str() + "' , now(), ')";
+	std::string query = "insert into terminalservice(terminal_id, service_id, datum) values ('" + terminalstr.str() + "',' " + servicestr.str() + "' , now(), ')";
 	mysql_query(connection,query.c_str());
 }
 vector<Bestellung *> DBHandler::getBestellungen(Terminal * terminal)
@@ -432,6 +455,44 @@ Service * DBHandler::getService(int service_id)
 	return service;
 	
 }
+
+vector<int> DBHandler::getServiceIDsOfTerminal( int terminal_id){
+
+	std::stringstream terminalidstr;
+	terminalidstr << terminal_id;
+	
+	std::string query =  "SELECT service_id FROM terminalservice where terminal_id = " + terminalidstr.str();
+	
+	query_state = mysql_query(connection,query.c_str());
+	
+	unsigned int num_fields;
+	unsigned int i;
+	
+	result = mysql_store_result(connection);
+	
+	num_fields = mysql_num_fields(result);
+	int id;
+	
+	vector<int> serviceIDs;
+	
+	while ( ( row = mysql_fetch_row(result)) ) {
+		unsigned long *lengths;
+		lengths = mysql_fetch_lengths(result);
+		
+		for( i = 0; i < num_fields; i++)
+		{
+			id = atoi(row[i]);
+			serviceIDs.push_back(id);
+		}
+		
+	}
+	
+	//Service  * service = new Service(service_id, name, beschreibung);
+	return serviceIDs;
+
+	
+}
+
 
 
 void DBHandler::setAlarm(int terminal_id, int hour, int minute)

@@ -36,7 +36,8 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 	}
 	
 	if(guiname == "roomservice1"){
-		
+/*
+ //MOCK UP VERSION
 		string->push_back(new cubuString("Room Service"));
 		pic->push_back(new cubuPic("img/backgrounds/empty.png", 20, 150));
 		pic->push_back(new cubuPic("img/menu/disturb.png", 100, 180));
@@ -46,12 +47,62 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 		button->push_back(new cubuButton(140,510,"Do not Disturb"));
 		button->push_back(new cubuButton(465,510,"Towels"));
 		button->push_back(new cubuButton(760,510,"Clean Up"));
+*/
 
 		
+		//DYNAMIC VERSION
+		string->push_back(new cubuString("Room Service"));
+		pic->push_back(new cubuPic("img/backgrounds/empty.png", 20, 150));
 
-		//string->push_back(new cubuString("TEST", 100, 100,"verdana.ttf", 32, 0xFFFFFF));
-		//string->push_back(new cubuString("TEST", 300, 100,"brit.ttf", 32));
-		//string->push_back(new cubuString("AAAA", 100, 300));
+		//available services
+		vector<Service*> services =	dbhandler->getService();
+		Service* current;
+		
+		//ONLY IDs of booked services of this terminal
+		vector<int> bookedServices = dbhandler->getServiceIDsOfTerminal(terminalid);
+		
+		
+		for(int i = 0; i < services.size(); i++){
+			current = services.at(i);
+			if(current->getName() == "Do not Disturb"){
+				pic->push_back(new cubuPic("img/menu/disturb.png", 100, 180));			
+				button->push_back(new cubuButton(140,510,"Do not Disturb",current->getId()));
+				
+				for(int j = 0; j < bookedServices.size(); j++){
+					if(current->getId() == bookedServices.at(j)){
+						pic->push_back(new cubuPic("img/menu/selected.png", 100, 180));
+						pic->push_back(new cubuPic("img/menu/disturb.png", 100, 180));			
+					}
+				}
+			}
+			if(current->getName() == "Towels"){
+				pic->push_back(new cubuPic("img/menu/towels.png", 400, 180));
+				button->push_back(new cubuButton(465,510,"Towels",current->getId()));
+				
+				for(int j = 0; j < bookedServices.size(); j++){
+					if(current->getId() == bookedServices.at(j)){
+						pic->push_back(new cubuPic("img/menu/selected.png", 400, 180));
+						pic->push_back(new cubuPic("img/menu/towels.png", 400, 180));
+					}
+						
+				}
+			}
+			if(current->getName() == "Clean Up"){
+				pic->push_back(new cubuPic("img/menu/cleaning.png", 700, 180));			
+				button->push_back(new cubuButton(760,510,"Clean Up",current->getId()));
+				
+				for(int j = 0; j < bookedServices.size(); j++){
+					if(current->getId() == bookedServices.at(j)){
+						pic->push_back(new cubuPic("img/menu/selected.png", 700, 180));
+						pic->push_back(new cubuPic("img/menu/cleaning.png", 700, 180));			
+					}
+						
+				}
+			}
+		}
+
+
+		
 	}
 
 	else if (guiname == "alarm1") {

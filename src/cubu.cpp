@@ -672,6 +672,13 @@ void cubu::mousePressed(int x, int y, int button){
 			display->drawDienstleistungDetail(guiname,&buttons,&strings,&pics,buttons.at(selected_button)->menuid);
 
 		}
+		else if (active_side == side_roomservice) {
+			//cout << "selected button == " <<  buttons.at(selected_button)->label << endl;
+			
+			dbhandler->insertTerminalService(terminalID, buttons.at(selected_button)->getMenuid());
+			guiname = "roomservice1";
+			display->draw(guiname, &buttons, &strings, &pics);
+		}
 		else{
 			
 			//TEST per klick GUI LADEN

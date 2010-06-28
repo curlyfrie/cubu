@@ -47,11 +47,13 @@ public:
 	vector<Wellness*>  getWellness(int typ);
 	
 	Service * getService(int service_id);
+	vector<int> getServiceIDsOfTerminal( int terminal_id);
 	Kunde * getKunde(int kunde_id);
 	Kunde * getKunde(Terminal * Terminal);
 	Speise * getSpeise(int speise_id);
 	Dienstleistung * getDienstleistung(int dienstleistung_id);
-	
+
+	void insertTerminalService(int terminal_id, int service_id);
 	void insertTerminalService(Terminal * terminal, Service * service);
 	void insertTerminalSpeise(int terminal_id, int speise_id, int anzahl, float sumpreis);
 	
