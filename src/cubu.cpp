@@ -669,6 +669,22 @@ void cubu::mousePressed(int x, int y, int button){
 	/////////////////////////////////
 
 	if(button == 0){
+		if(active_side == side_alarm && !alarmset){
+			alarmset = true;
+			
+			dbhandler->setAlarm(terminalID, alarm_hour, alarm_minute);
+			//saveAlarmtoDB();
+		}
+		else if (active_side == side_alarm && alarmset) {
+			alarmset = false;
+			dbhandler->deleteAlarm(terminalID);
+		}
+		else if (active_side == side_temperature) {
+			dbhandler->setTemperatur(terminalID, temperature);
+			tempset = temperature;
+		}
+
+		
 		int temp = -1;
 		// check if any button was hit
 		for(int i = 0; i < buttons.size(); i ++){
@@ -711,16 +727,7 @@ void cubu::mousePressed(int x, int y, int button){
 					display->draw(guiname, &buttons, &strings, &pics);
 				}
 			}
-			else if(active_side == side_alarm && !alarmset){
-				alarmset = true;
-				
-				dbhandler->setAlarm(terminalID, alarm_hour, alarm_minute);
-				//saveAlarmtoDB();
-			}
-			else if (active_side == side_alarm && alarmset) {
-				alarmset = false;
-				dbhandler->deleteAlarm(terminalID);
-			}
+			
 			else if(active_side == side_fun){
 				cout << "bla bla bla" << endl;
 				guiname="detaildienst";
@@ -775,7 +782,7 @@ void cubu::mousePressed(int x, int y, int button){
 				id_wellness = buttons.at(selected_button)->menuid;
 				display->drawDetail(guiname, &buttons, &strings, &pics, id_wellness);
 			}
-			else if (active_side == side_activities && guiname == "describewell") {
+			else if (active_side == side_activities && guiname == "noGUI") {
 				guiname = "activities1";
 				Wellness *well = dbhandler->getWell(id_wellness);
 				float preis = well->getPreis();
@@ -789,9 +796,6 @@ void cubu::mousePressed(int x, int y, int button){
 				display->draw("FAQ", &buttons, &strings, &pics);
 			}
 			
-
-
-		
 		}
 		
 		
