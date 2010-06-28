@@ -23,6 +23,7 @@
 		64F131F211D6736F0044DC26 /* cubuPic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64F131F011D6736F0044DC26 /* cubuPic.cpp */; };
 		64F1337711D79ED90044DC26 /* Wellness.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64F1337611D79ED90044DC26 /* Wellness.cpp */; };
 		64F133EF11D7AB760044DC26 /* Dienstleistung.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64F133EE11D7AB760044DC26 /* Dienstleistung.cpp */; };
+		64F1381611D860B70044DC26 /* OrderWellness.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64F1381411D860B70044DC26 /* OrderWellness.cpp */; };
 		B7ACF9F111D3CFD2005A156A /* Kunde.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7ACF9EB11D3CFD2005A156A /* Kunde.cpp */; };
 		B7ACF9F211D3CFD2005A156A /* Service.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7ACF9ED11D3CFD2005A156A /* Service.cpp */; };
 		B7ACF9F311D3CFD2005A156A /* Speise.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7ACF9EF11D3CFD2005A156A /* Speise.cpp */; };
@@ -143,6 +144,8 @@
 		64F1337611D79ED90044DC26 /* Wellness.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Wellness.cpp; sourceTree = "<group>"; };
 		64F133ED11D7AB760044DC26 /* Dienstleistung.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dienstleistung.h; sourceTree = "<group>"; };
 		64F133EE11D7AB760044DC26 /* Dienstleistung.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dienstleistung.cpp; sourceTree = "<group>"; };
+		64F1381411D860B70044DC26 /* OrderWellness.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OrderWellness.cpp; sourceTree = "<group>"; };
+		64F1381511D860B70044DC26 /* OrderWellness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderWellness.h; sourceTree = "<group>"; };
 		B7ACF9EB11D3CFD2005A156A /* Kunde.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Kunde.cpp; sourceTree = "<group>"; };
 		B7ACF9EC11D3CFD2005A156A /* Kunde.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kunde.h; sourceTree = "<group>"; };
 		B7ACF9ED11D3CFD2005A156A /* Service.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Service.cpp; sourceTree = "<group>"; };
@@ -266,7 +269,7 @@
 		E45BE9770E8CC7DD009D7055 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = /System/Library/Frameworks/CoreServices.framework; sourceTree = "<absolute>"; };
 		E45BE9790E8CC7DD009D7055 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
 		E45BE97A0E8CC7DD009D7055 /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = /System/Library/Frameworks/QuickTime.framework; sourceTree = "<absolute>"; };
-		E4B69B5B0A3A1756003C02F2 /* Cubu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cubu.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4B69B5B0A3A1756003C02F2 /* CubuDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CubuDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4B69E1D0A3A1BDC003C02F2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
 		E4B69E1E0A3A1BDC003C02F2 /* cubu.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; path = cubu.cpp; sourceTree = "<group>"; };
 		E4B69E1F0A3A1BDC003C02F2 /* cubu.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = cubu.h; sourceTree = "<group>"; };
@@ -754,7 +757,7 @@
 		E4B69B4A0A3A1720003C02F2 = {
 			isa = PBXGroup;
 			children = (
-				E4B69B5B0A3A1756003C02F2 /* Cubu.app */,
+				E4B69B5B0A3A1756003C02F2 /* CubuDebug.app */,
 				E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */,
 				E4B69E1C0A3A1BDC003C02F2 /* src */,
 				E4C2422310CC54B6004149E2 /* openFrameworks */,
@@ -765,6 +768,8 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				64F1381411D860B70044DC26 /* OrderWellness.cpp */,
+				64F1381511D860B70044DC26 /* OrderWellness.h */,
 				64F133ED11D7AB760044DC26 /* Dienstleistung.h */,
 				64F133EE11D7AB760044DC26 /* Dienstleistung.cpp */,
 				64F131F011D6736F0044DC26 /* cubuPic.cpp */,
@@ -903,7 +908,7 @@
 			);
 			name = Cubu;
 			productName = myOFApp;
-			productReference = E4B69B5B0A3A1756003C02F2 /* Cubu.app */;
+			productReference = E4B69B5B0A3A1756003C02F2 /* CubuDebug.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -987,6 +992,7 @@
 				64F131F211D6736F0044DC26 /* cubuPic.cpp in Sources */,
 				64F1337711D79ED90044DC26 /* Wellness.cpp in Sources */,
 				64F133EF11D7AB760044DC26 /* Dienstleistung.cpp in Sources */,
+				64F1381611D860B70044DC26 /* OrderWellness.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
