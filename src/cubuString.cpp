@@ -15,12 +15,6 @@ cubuString::cubuString( std::string ptext, float px, float py, std::string pfont
 	y = py;
 
 	text = ptext;
-/*
-	while(ptext.find("\\n") != string::npos){
-		text.replace(ptext.find("\\n"),2,"\n");
-	}
-*/
-
 	text = str_replace("\\n","\n",ptext);
 
 	color = pcolor;
@@ -32,6 +26,7 @@ cubuString::cubuString( std::string ptext, float px, float py, std::string pfont
 	x = px;
 	y = py;
 	text = ptext;
+	text = str_replace("\\n","\n",ptext);
 	color = 0x000000;
 	font.loadFont(pfont,psize);
 
@@ -42,6 +37,7 @@ cubuString::cubuString( std::string ptext, float px, float py){
 	x = px;
 	y = py;
 	text = ptext;
+	text = str_replace("\\n","\n",ptext);
 	color = 0x000000;
 	font.loadFont("frabk.ttf",100);
 	
@@ -52,6 +48,7 @@ cubuString::cubuString( std::string ptext){
 	x = 20;
 	y = 100;
 	text = ptext;
+	text = str_replace("\\n","\n",ptext);
 	color = 0x000000;
 	font.loadFont("bankg.ttf",32);
 	
