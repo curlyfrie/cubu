@@ -689,14 +689,15 @@ void cubu::mousePressed(int x, int y, int button){
 			}
 		
 			cout << "calling draw() with guiname = " << buttons.at(selected_button)->guiname << endl;
+			std::string name = buttons.at(selected_button)->guiname;
 			
-			if(active_side == side_food && buttons.at(selected_button)->guiname == "Menu")
+			if(active_side == side_food && name == "Menu")
 				display->draw(buttons.at(selected_button)->guiname, &buttons, &strings, &pics);
-			else if(active_side == side_food && buttons.at(selected_button)->guiname == "Drinks" )
+			else if(active_side == side_food && name == "Drinks" )
 				display->draw(buttons.at(selected_button)->guiname, &buttons, &strings, &pics);
-			else if(active_side == side_food && buttons.at(selected_button)->guiname == "describe")
+			else if(active_side == side_food && name == "describe")
 				display->drawDetail("describe", &buttons, &strings, &pics, buttons.at(selected_button)->menuid);
-			else if (active_side == side_food && buttons.at(selected_button)->guiname != "describe" && buttons.at(selected_button)->guiname != "Drinks"  && buttons.at(selected_button)->guiname != "Menu") {
+			else if (active_side == side_food && name != "describe" && name != "Drinks"  && name != "Menu") {
 				guiname = "food1";
 				if (buttons.at(selected_button)->label == "back") {
 					display->draw(guiname, &buttons, &strings, &pics);
@@ -758,6 +759,23 @@ void cubu::mousePressed(int x, int y, int button){
 					guiname = "roomservice1";
 					display->draw(guiname, &buttons, &strings, &pics);
 				}
+			}
+			else if(active_side == side_activities && name == "Wellness" || name == "Beauty" || name == "Sports") {	
+				cout << "YAHOOO!" << endl;
+				guiname = "describewell";
+				display->draw(name, &buttons, &strings, &pics);
+			}
+			else if (active_side == side_activities && name == "describewell") {
+				guiname = "describewell";
+				id_wellness = buttons.at(selected_button)->menuid;
+				display->drawDetail(guiname, &buttons, &strings, &pics, id_wellness);
+			}
+			else if (active_side == side_activities && name != "describewell" && name != "Wellness" && name != "Beauty" && name != "Sports") {
+				guiname = "activities1";
+				Wellness *well = dbhandler->getWell(id_wellness);
+				float preis = well->getPreis();
+				dbhandler->insertTerminalWellness(terminalID,id_wellness, preis, time_wellness);
+				display->draw(guiname, &buttons, &strings, &pics);
 			}
 
 		}

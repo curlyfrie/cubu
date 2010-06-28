@@ -157,9 +157,9 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 		pic->push_back(new cubuPic("img/menu/wellness.png", 100, 180));
 		pic->push_back(new cubuPic("img/menu/beauty.png", 400, 180));
 		pic->push_back(new cubuPic("img/menu/sports.png", 700, 180));
-		button->push_back(new cubuButton(160,510,"Wellness"));
-		button->push_back(new cubuButton(470,510,"Beauty"));
-		button->push_back(new cubuButton(770,510,"Sports"));
+		button->push_back(new cubuButton(160,510,"Wellness","Wellness"));
+		button->push_back(new cubuButton(470,510,"Beauty","Beauty"));
+		button->push_back(new cubuButton(770,510,"Sports","Sports"));
 	}
 	else if (guiname == "FAQ") {
 		string->push_back(new cubuString("Frequently Asked Questions"));
@@ -189,7 +189,7 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 		well = dbhandler->getWellness(0);
 		int y = 180; 
 		for(int i = 0; i < well.size(); i++) { 
-			button->push_back(new cubuButton(400,y,well.at(i)->getName(),well.at(i)->getId()));
+			button->push_back(new cubuButton(400,y,well.at(i)->getName(),well.at(i)->getId(),"describewell"));
 			y += 50;
 			
 		}
@@ -201,7 +201,7 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 		well = dbhandler->getWellness(1);
 		int y = 180; 
 		for(int i = 0; i < well.size(); i++) { 
-			button->push_back(new cubuButton(400,y,well.at(i)->getName(),well.at(i)->getId()));
+			button->push_back(new cubuButton(400,y,well.at(i)->getName(),well.at(i)->getId(),"describewell"));
 			y += 50;
 			
 		}
@@ -212,7 +212,7 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 		well = dbhandler->getWellness(2);
 		int y = 180; 
 		for(int i = 0; i < well.size(); i++) { 
-			button->push_back(new cubuButton(400,y,well.at(i)->getName(),well.at(i)->getId()));
+			button->push_back(new cubuButton(400,y,well.at(i)->getName(),well.at(i)->getId(),"describewell"));
 			y += 50;
 			
 		}		
