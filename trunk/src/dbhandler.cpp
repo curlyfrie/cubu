@@ -478,6 +478,9 @@ void DBHandler::setAlarm(int terminal_id, int hour, int minute)
 }
 
 float DBHandler::getTemperatur(int terminal_id){
+
+	cout << terminal_id;
+	
 	//returnvalue
 	float temperatur;
 	
@@ -499,6 +502,8 @@ float DBHandler::getTemperatur(int terminal_id){
 	
 	while ( ( row = mysql_fetch_row(result)) ) {
 		temperatur = atof(row[1]);
+		
+		cout << temperatur;
 	}
 	
 	return temperatur;	
@@ -506,6 +511,8 @@ float DBHandler::getTemperatur(int terminal_id){
 
 
 void DBHandler::setTemperatur(int terminal_id,float temperatur){
+	
+	
 	//returnvalue
 	std::ostringstream temp;
 	temp << temperatur;
@@ -522,7 +529,7 @@ void DBHandler::setTemperatur(int terminal_id,float temperatur){
 	unsigned int i;
 	result = mysql_store_result(connection);
 	num_fields = mysql_num_rows(result);
-	mysql_free_result(result);
+	
 
 	cout <<temp.str()<<endl;
 	cout<<temperatur<<endl;
@@ -531,10 +538,11 @@ void DBHandler::setTemperatur(int terminal_id,float temperatur){
 		 query = "UPDATE temperatur SET temperatur="+temp.str()+" WHERE terminal_id = " + terminalstream.str();
 		query_state = mysql_query(connection, query.c_str());
 	} else {
-		query = "INSERT INTO temperatur (temperatur) values ("+temp.str()+") WHERE terminal_id = " + terminalstream.str();
+		query = "INSERT INTO temperatur (terminal_id,temperatur) values ("+terminalstream.str()+","+temp.str()+")";
+		cout << query <<endl;
 		query_state = mysql_query(connection, query.c_str());
 	}
-	
+	mysql_free_result(result);
 
 	
 
