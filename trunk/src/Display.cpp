@@ -165,17 +165,36 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 	else if (guiname == "Wellness") {
 		string->push_back(new cubuString("Wellness"));
 		pic->push_back(new cubuPic("img/backgrounds/empty.png", 20, 150));
+		well = dbhandler->getWellness(0);
+		int y = 180; 
+		for(int i = 0; i < well.size(); i++) { 
+			button->push_back(new cubuButton(400,y,well.at(i)->getName(),well.at(i)->getId()));
+			y += 50;
+			
+		}
 		
 	}
 	else if (guiname == "Beauty") {
 		string->push_back(new cubuString("Beauty"));
 		pic->push_back(new cubuPic("img/backgrounds/empty.png", 20, 150));
-		
+		well = dbhandler->getWellness(1);
+		int y = 180; 
+		for(int i = 0; i < well.size(); i++) { 
+			button->push_back(new cubuButton(400,y,well.at(i)->getName(),well.at(i)->getId()));
+			y += 50;
+			
+		}
 	}
 	else if (guiname == "Sports") {
 		string->push_back(new cubuString("Sports"));
 		pic->push_back(new cubuPic("img/backgrounds/empty.png", 20, 150));
-		
+		well = dbhandler->getWellness(2);
+		int y = 180; 
+		for(int i = 0; i < well.size(); i++) { 
+			button->push_back(new cubuButton(400,y,well.at(i)->getName(),well.at(i)->getId()));
+			y += 50;
+			
+		}		
 	}
 	else if (guiname == "fun1") {
 		string->push_back(new cubuString("Fun"));
@@ -289,19 +308,36 @@ void Display::drawDetail(std::string pguiname, vector<cubuButton*> * button, vec
 
 	guiname = pguiname;
 
-	Speise *s = dbhandler->getSpeise(id);
-	string->push_back(new cubuString(s->getName()));
-	pic->push_back(new cubuPic(s->getBild(), 20, 150));
+	if (guiname == "describe") {
+		Speise *s = dbhandler->getSpeise(id);
+		string->push_back(new cubuString(s->getName()));
+		pic->push_back(new cubuPic(s->getBild(), 20, 150));
 
-	std::stringstream stream;
-	stream << s->getBeschreibung();
-	
-	std::stringstream preis;
-	preis << s->getPreis();
-	string->push_back(new cubuString(stream.str(), 400, 200, "frabk.ttf", 13));
-	string->push_back(new cubuString("Euro " + preis.str() , 400, 350, "frabk.ttf", 13));
-	button->push_back(new cubuButton(400,400,"order", id));
-	button->push_back(new cubuButton(500,400,"back"));
+		std::stringstream stream;
+		stream << s->getBeschreibung();
+		
+		std::stringstream preis;
+		preis << s->getPreis();
+		string->push_back(new cubuString(stream.str(), 400, 200, "frabk.ttf", 13));
+		string->push_back(new cubuString("Euro " + preis.str() , 400, 350, "frabk.ttf", 13));
+		button->push_back(new cubuButton(400,400,"order", id));
+		button->push_back(new cubuButton(500,400,"back"));
+	}
+	else if (guiname == "describewell") {
+		Wellness *w = dbhandler->getWell(id);
+		string->push_back(new cubuString(w->getName()));
+		//pic->push_back(new cubuPic(s->getBild(), 20, 150));
+
+		std::stringstream stream;
+		stream << w->getBeschreibung();
+		
+		std::stringstream preis;
+		preis << w->getPreis();
+		string->push_back(new cubuString(stream.str(), 400, 200, "frabk.ttf", 13));
+		string->push_back(new cubuString("Euro " + preis.str() , 400, 350, "frabk.ttf", 13));
+		button->push_back(new cubuButton(400,400,"order", id));
+		button->push_back(new cubuButton(500,400,"back"));
+	}
 	
 }
 

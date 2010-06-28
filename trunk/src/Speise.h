@@ -24,7 +24,7 @@ private:
 public:
 	
 	Speise(int speise_id, std::string name, std::string beschreibung, float preis, std::string bild, int typ);
-	Speise(int speise_id, std::string name, std::string beschreibung, float preis);
+//	Speise(int speise_id, std::string name, std::string beschreibung, float preis);
 	std::string getName();
 	std::string getBeschreibung();
 	float getPreis();

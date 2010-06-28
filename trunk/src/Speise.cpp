@@ -21,7 +21,7 @@ Speise::Speise(int _speise_id, std::string _name, std::string _beschreibung, flo
 	
 }
 
-Speise::Speise(int _speise_id, std::string _name, std::string _beschreibung, float _preis)
+/*Speise::Speise(int _speise_id, std::string _name, std::string _beschreibung, float _preis)
 {
 	
 	speise_id = _speise_id;
@@ -30,7 +30,7 @@ Speise::Speise(int _speise_id, std::string _name, std::string _beschreibung, flo
 	preis = _preis;
 	
 }
-
+*/
 
 std::string Speise::getName(){
 	return name;

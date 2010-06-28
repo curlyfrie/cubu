@@ -51,6 +51,7 @@ public:
 	Kunde * getKunde(int kunde_id);
 	Kunde * getKunde(Terminal * Terminal);
 	Speise * getSpeise(int speise_id);
+	Wellness * getWell(int wellness_id);
 	Dienstleistung * getDienstleistung(int dienstleistung_id);
 
 	void insertTerminalService(int terminal_id, int service_id);

@@ -174,6 +174,63 @@ Speise * DBHandler::getSpeise(int speise_id)
 	
 }
 
+Wellness * DBHandler::getWell(int wellness_id)
+{
+	
+	std::stringstream wellnessidstr;
+	wellnessidstr << wellness_id;
+	
+	std::string query =  "SELECT * FROM wellness where wellness_id = " + wellnessidstr.str();
+	
+	query_state = mysql_query(connection,query.c_str());
+	
+	unsigned int num_fields;
+	unsigned int i;
+	
+	result = mysql_store_result(connection);
+	
+	num_fields = mysql_num_fields(result);
+	int id;
+	std::string name;
+	std::string beschreibung;
+	int prioritaet;
+	std::string datum;
+	int typ;
+	float preis;
+	
+	while ( ( row = mysql_fetch_row(result)) ) {
+		unsigned long *lengths;
+		lengths = mysql_fetch_lengths(result);
+		
+		for( i = 0; i < num_fields; i++)
+		{
+			if(i== 0)
+				id = atoi(row[i]);
+			
+			if(i== 1)
+				name = row[i];
+			
+			if(i== 2)
+				beschreibung = row[i];
+			if(i== 3)
+				prioritaet = atoi(row[i]);
+			if(i== 4)
+				datum = row[i];
+		  	if(i== 5)
+				preis = atof(row[i]);
+		  	if(i== 6)
+				typ = atoi(row[i]);
+			
+			
+		}
+	}
+	
+	Wellness * wellness = new Wellness(wellness_id, name, beschreibung, preis, typ, prioritaet, datum);
+	return wellness;
+	
+	
+}
+
 void DBHandler::deleteFaq(int id)
 {
 	
