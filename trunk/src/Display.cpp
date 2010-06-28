@@ -102,7 +102,7 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 		pic->push_back(new cubuPic("img/backgrounds/start.png", 20, 150));
 		
 		pic->push_back(new cubuPic("img/wilson.png", 870, 30));
-		button->push_back(new cubuButton(920,160,"FAQ"));
+		button->push_back(new cubuButton(920,160,"FAQ","loadFAQ"));
 		
 		//bestellungen
 		string->push_back(new cubuString("Food Orders:",50,310,"frabk.ttf", 20,0xFFFFFF));
@@ -194,6 +194,7 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 			wellnessString->appendString("\n" + namestr.str() + " um " + datumstr.str() + " Uhr");
 			
 		}
+		cout << "wellness string" << wellnessString << endl;
 		string->push_back(wellnessString);
 
 
@@ -216,7 +217,7 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 			y+=rect.height+15;
 		}
 		
-		button->push_back(new cubuButton(30,690,"back"));
+		button->push_back(new cubuButton(30,690,"back","faqBack"));
 		
 		
 	}
