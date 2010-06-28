@@ -38,6 +38,27 @@ cubuButton::cubuButton(int px, int py, std::string plabel, int pmenuid){
 	
 }
 
+
+cubuButton::cubuButton(int px, int py, std::string plabel, int pmenuid, std::string pguiname){
+	
+	guiname = pguiname;
+	x = px;
+	y = py;
+	label = plabel;
+	menuid = pmenuid;
+	setDefaultValues();
+	
+}
+cubuButton::cubuButton(int px, int py, std::string plabel, std::string pguiname){
+
+	guiname = pguiname;
+	x = px;
+	y = py;
+	label = plabel;
+	setDefaultValues();
+	
+}
+
 int cubuButton::getMenuid() {
 	return menuid;
 }
