@@ -112,7 +112,7 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 		{
 			std::stringstream anzahlStr;
 			anzahlStr << bestellungen.at(i)->getAnzahl();
-			//	cout <<"\n" + anzahlStr.str() + " " + dbhandler->getSpeise(bestellungen.at(i)->getSpeiseId())->getName();
+			//	//cout <<"\n" + anzahlStr.str() + " " + dbhandler->getSpeise(bestellungen.at(i)->getSpeiseId())->getName();
 			bestellungenString->appendString("\n" + anzahlStr.str() + " " + dbhandler->getSpeise(bestellungen.at(i)->getSpeiseId())->getName());
 			
 		}
@@ -141,11 +141,11 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 		string->push_back(new cubuString("Booked Activities:",620,310,"frabk.ttf", 20,0xFFFFFF));
 		//display orders
 		vector <OrderWellness*> wellness = dbhandler->getOrderedWellness(terminalid);
-		cout << "wellness: " << wellness.size() << endl;
+		//cout << "wellness: " << wellness.size() << endl;
 		cubuString * wellnessString = new cubuString("",650, 335, "frabk.ttf", 11,0xEFEFEF);
 		for (int i = 0; i < wellness.size(); i++)
 		{
-			//	cout <<"\n" + anzahlStr.str() + " " + dbhandler->getSpeise(bestellungen.at(i)->getSpeiseId())->getName();
+			//	//cout <<"\n" + anzahlStr.str() + " " + dbhandler->getSpeise(bestellungen.at(i)->getSpeiseId())->getName();
 			std::stringstream namestr;
 			namestr << dbhandler->getWell(wellness.at(i)->getWellnessId())->getName();
 			std::stringstream datumstr;
@@ -181,11 +181,11 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 		
 		//display orders
 		vector <OrderWellness*> wellness = dbhandler->getOrderedWellness(terminalid);
-		cout << "wellness: " << wellness.size() << endl;
+		//cout << "wellness: " << wellness.size() << endl;
 		cubuString * wellnessString = new cubuString("Gebuchte Aktivitaeten:\n",10, 600, "frabk.ttf", 10);
 		for (int i = 0; i < wellness.size(); i++)
 		{
-		//	cout <<"\n" + anzahlStr.str() + " " + dbhandler->getSpeise(bestellungen.at(i)->getSpeiseId())->getName();
+		//	//cout <<"\n" + anzahlStr.str() + " " + dbhandler->getSpeise(bestellungen.at(i)->getSpeiseId())->getName();
 			std::stringstream namestr;
 			namestr << dbhandler->getWell(wellness.at(i)->getWellnessId())->getName();
 			std::stringstream datumstr;
@@ -194,7 +194,7 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 			wellnessString->appendString("\n" + namestr.str() + " um " + datumstr.str() + " Uhr");
 			
 		}
-		cout << "wellness string" << wellnessString << endl;
+		//cout << "wellness string" << wellnessString << endl;
 		string->push_back(wellnessString);
 
 
@@ -278,13 +278,13 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 		
 		//display orders
 		vector <Bestellung*> bestellungen = dbhandler->getBestellungen(dbhandler->getTerminal(terminalid));
-		cout << "best: " << bestellungen.size() << endl;
+		//cout << "best: " << bestellungen.size() << endl;
 		cubuString * bestellungenString = new cubuString("Offene Bestellungen:\n",10, 600, "frabk.ttf", 10);
 		for (int i = 0; i < bestellungen.size(); i++)
 		{
 			std::stringstream anzahlStr;
 			anzahlStr << bestellungen.at(i)->getAnzahl();
-		//	cout <<"\n" + anzahlStr.str() + " " + dbhandler->getSpeise(bestellungen.at(i)->getSpeiseId())->getName();
+		//	//cout <<"\n" + anzahlStr.str() + " " + dbhandler->getSpeise(bestellungen.at(i)->getSpeiseId())->getName();
 			bestellungenString->appendString("\n" + anzahlStr.str() + " " + dbhandler->getSpeise(bestellungen.at(i)->getSpeiseId())->getName());
 			
 		}
@@ -292,7 +292,7 @@ void Display::draw(std::string pguiname, vector<cubuButton*> * button, vector<cu
 	
 	} else if (guiname == "dienstleistunginfo") {
 		
-		cout << "test erfolgreich. congrats elias. go for president!";
+		//cout << "test erfolgreich. congrats elias. go for president!";
 		/*
 		speisen = dbhandler->getDiensleistung();
 		
@@ -370,7 +370,7 @@ void Display::drawDetail(std::string pguiname, vector<cubuButton*> * button, vec
 
 	if (guiname == "describe") {
 		
-		cout << "drawDetail(): decribe" << endl;
+		//cout << "drawDetail(): decribe" << endl;
 		Speise *s = dbhandler->getSpeise(id);
 		string->push_back(new cubuString(s->getName()));
 		pic->push_back(new cubuPic(s->getBild(), 20, 150));
